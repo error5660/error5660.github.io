@@ -251,6 +251,21 @@ p,h1,h2{margin:0}
 .rname b{font-family:var(--f-disp);font-weight:400;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .rname small{font-size:12px;color:var(--muted)}
 .rval{font-family:var(--f-disp);font-size:14px;color:var(--glow);text-align:right}
+.tAim{position:relative;width:240px;height:130px;max-width:100%;margin:4px auto;background:var(--bg);border:2px solid var(--line);overflow:hidden}
+.tAim .tg{position:absolute;border-radius:50%;border:2px solid var(--gold);transform:translate(-50%,-50%);box-sizing:border-box}
+.tAim .tg.pf{border-color:#fff3c4;background:rgba(239,180,76,.35)}
+.tAim .cr{position:absolute;width:22px;height:22px;transform:translate(-50%,-50%)}
+.tAim .cr::before,.tAim .cr::after{content:'';position:absolute;background:#5fdcc6;box-shadow:0 0 0 1px #0c0913}
+.tAim .cr::before{left:10px;top:0;width:2px;height:22px}
+.tAim .cr::after{top:10px;left:0;height:2px;width:22px}
+.mgPanel{width:min(520px,100%);display:grid;gap:10px}
+.mgArea{position:relative;height:200px;border:2px solid var(--line);background:var(--bg);display:grid;place-items:center;font-family:var(--f-disp);font-size:28px;color:var(--muted);cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none;overflow:hidden}
+.mgArea.wait{background:#5a1a22;color:#efe8da}
+.mgArea.go{background:#1e6a3a;color:#efe8da}
+.mgArea.ok{color:var(--glow)}
+.mgArea.bad{color:#e2553e}
+.mgTgt{position:absolute;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;border:3px solid #0c0913;background:radial-gradient(circle,#efe8da 0 22%,#e2553e 23% 44%,#efe8da 45% 62%,#e2553e 63%);cursor:crosshair;padding:0}
+.mgRes{min-height:1.4em;margin:0;font-family:var(--f-disp);font-size:16px;color:var(--gold)}
 
 /* ---------- overlays ---------- */
 .overlay{position:absolute;inset:0;z-index:20;background:var(--scrim);display:flex;align-items:center;justify-content:center;padding-block:12px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
@@ -399,7 +414,7 @@ p,h1,h2{margin:0}
 
   <section id="scrTitle" class="screen">
     <div class="titleBlock">
-      <p class="eyebrow">체험판 v0.6 · 전라남도 목포</p>
+      <p class="eyebrow">체험판 v0.7.1 · 전라남도 목포</p>
       <h1 class="logo">덕인</h1>
       <p class="tagline">평범했던 우리 학교가, 어느 날 평행세계로 떨어졌다.</p>
       <div class="slots" id="slots"></div>
@@ -611,13 +626,13 @@ p,h1,h2{margin:0}
       <h2 id="helpHead">게임 방법</h2>
       <div class="helpGrid">
         <section><h3>🎯 목표</h3><p>목포의 건물을 <b>순서대로 하나씩 정화</b>해요. 하나를 정화하면 다음 건물이 열려요.</p><p>① 덕인고 → ② 순성교회 → ③ 영선백화점 → ④ 경찰서 → ⑤ 피시방 → ⑥ 정연모텔 → ⑦ 제선보호소 → ⑧ 라송아파트 → ⑨ 목포역 → 🚆 기차 타고 <b>광주</b></p><p>오른쪽 위 <b>▶ 목표</b>와 바닥의 <b>희미한 화살표</b>가 할 일을 알려 줘요. 메뉴 → 지도에서도 순서를 볼 수 있어요.</p></section>
-        <section><h3>🏫 건물 정화 = 다음 건물 열림</h3><p>건물 <b>꼭대기 보스</b>를 이기면 그 건물이 정화돼요. 안에 있던 사람들은 생존자 캠프로 가고, <b>다음 건물 문이 열려요.</b> 학교는 옥상의 <b>오승연</b>, 교회는 5층의 <b>최제술 목사</b>, 백화점은 4층 창고의 <b>마네킹 순화</b>예요.</p></section>
+        <section><h3>🏫 건물 정화 = 다음 건물 열림</h3><p>건물 <b>꼭대기 보스</b>를 이기면 그 건물이 정화돼요. 안에 있던 사람들은 생존자 캠프로 가고, <b>다음 건물 문이 열려요.</b> 학교는 옥상의 <b>오승연</b>, 교회는 5층의 <b>최제술 목사</b>, 백화점은 4층 창고의 <b>마네킹 순화</b>, 경찰서는 4층 무기고의 <b>이승용</b>, 피시방은 3층 VIP룸의 <b>이호정</b>이에요.</p></section>
         <section><h3>🧹 층 정화 = 쓰러져도 안전</h3><p>한 층의 <b>빛나는 돌</b>, <b>머리 위에 ! 가 뜬 사람</b>, <b>열린 문</b>, <b>수상한 물건</b>(백화점은 <b>반짝이는 진열대</b>도)을 전부 조사하면 그 층이 정화돼요. 오른쪽 위 <b>탐색 3/13</b>이 다 차면 끝이에요.</p></section>
         <section><h3>🕹 조작</h3><p><b>PC</b>: WASD·방향키 이동 · <b>Space·E 조사/대화</b> · M 메뉴 · R 킥보드 · H 게임 방법 · 전투는 숫자 1~5</p><p><b>태블릿</b>: 왼쪽 패드 이동 · 오른쪽 <b>조사</b> 버튼 · 밖에서는 <b>킥</b> 버튼</p></section>
-        <section><h3>⚔ 전투</h3><p>돌아다니는 요괴에 닿으면 시작해요. 공격·방어 때 <b>타이밍 게임</b>(막대 멈추기·테두리 겹치기·화살표 누르기)이 나와요. 완벽하면 피해 1.5배, 방어하면 받는 피해가 확 줄어요.</p></section>
+        <section><h3>⚔ 전투</h3><p>돌아다니는 요괴에 닿으면 시작해요. 공격·방어 때 <b>타이밍 게임</b>(막대 멈추기·테두리 겹치기·화살표 누르기)이 나와요. 완벽하면 피해 1.5배, 방어하면 받는 피해가 확 줄어요.</p><p>🎯 <b>경찰서부터</b>는 <b>조준 사격</b>도 나와요. 움직이는 조준선이 과녁 한가운데 올 때 누르세요.</p></section>
         <section><h3>🧠 정신력과 쓰러짐</h3><p>정신력은 <b>건물 안에서만</b> 줄고, 밖에 나가면 회복돼요. 체력이나 정신력이 0이 되면 쓰러지고, <b>정화 안 된 층에서 얻은 마정석·물건</b>을 잃어요.</p></section>
         <section><h3>📈 성장</h3><p>레벨이 오르면 <b>메뉴 → 능력치</b>에서 포인트를 찍어요. 마정석으로 자판기·캠프에서 가방·빵·장비를 사요. 장비는 몇 번 싸우면 부서져요. <b>포획용 가방</b>으로 요괴를 펫으로 만들 수 있어요.</p></section>
-        <section><h3>🛠 제작</h3><p>요괴가 떨어뜨리거나 백화점 <b>반짝이는 진열대</b>에서 나오는 <b>천 조각·철사·테이프</b>를 모아요. 영선백화점을 정화하면 캠프에 <b>작업대</b>가 생겨서, <b>장비 수리</b>와 <b>포획용 가방</b>을 만들 수 있어요. <b>손재주</b>가 높으면 재료가 덜 들어요.</p></section>
+        <section><h3>🛠 제작</h3><p>요괴가 떨어뜨리거나 백화점 <b>반짝이는 진열대</b>에서 나오는 <b>천 조각·철사·테이프</b>를 모아요. 영선백화점을 정화하면 캠프에 <b>작업대</b>가 생겨서, <b>장비 수리</b>와 <b>포획용 가방</b>을 만들 수 있어요. <b>손재주</b>가 높으면 재료가 덜 들어요.</p><p>🔨 <b>경찰서를 정화</b>하면 작업대에서 <b>장비 강화</b>(+1~+5)를 할 수 있어요. 실패하면 재료와 마정석만 잃고 장비는 무사해요.</p></section>
         <section><h3>🏆 학교 랭킹</h3><p>게임 사이트에서 <b>구글로 로그인</b>하면 저장할 때마다 내 기록이 랭킹에 올라가요. 타이틀 화면 <b>학교 랭킹</b>에서 진행도·레벨·펫·업적 순위를 볼 수 있어요. 캐릭터 이름·직업·레벨만 보여요.</p></section>
         <section><h3>🌙 폐허와 캠프</h3><p>학교 1층 왼쪽 <b>유리문</b>으로 나가면 폐허예요. 밤에는 요괴가 세지고 어두워져요. 길 건너 <b>생존자 캠프</b>에서 쉬면 회복되고 밤을 건너뛰어요.</p></section>
       </div>
@@ -631,6 +646,15 @@ p,h1,h2{margin:0}
       <p class="hint" id="rankNote" hidden></p>
       <div class="rankList" id="rankList"></div>
       <div class="btnRow"><button class="btn" id="btnRankReload" type="button">새로고침</button><button class="btn primary" id="btnRankClose" type="button">닫기</button></div>
+    </div>
+  </div>
+  <div id="mgOv" class="overlay" hidden>
+    <div class="panel mgPanel" role="dialog" aria-labelledby="mgHead">
+      <h2 id="mgHead">미니게임</h2>
+      <p class="hint" id="mgHint"></p>
+      <div class="mgArea" id="mgArea"></div>
+      <p class="mgRes" id="mgRes"></p>
+      <div class="btnRow"><button class="btn primary" id="btnMgGo" type="button">시작</button><button class="btn" id="btnMgSwap" type="button" hidden>다른 게임</button><button class="btn ghost" id="btnMgClose" type="button">닫기</button></div>
     </div>
   </div>
   <div id="codeOv" class="overlay" hidden>
@@ -665,12 +689,13 @@ const fmtPlay = s => { s = Math.floor(s); const h = Math.floor(s/3600), m = Math
 /* ============ 이름 설정: 여기만 바꾸면 게임 전체에 반영돼요 ============ */
 const NAMES = {
   school:'덕인고등학교', church:'순성교회',
-  shadows:['범호','승원','관우','지우','원석','재원','준하','허철','하준'],
+  shadows:['범호','승원','관우','지우','원석','재원','준하','허철','하준','용혁','희권','현성'],
   goh:  {name:'고영학', subj:'수학'},
   kimju:{name:'김주언', subj:'미술'},
   kimjs:{name:'김진성', subj:'영어'},
-  boss:'오승연', pastor:'최제술', kwonsa:'그림자 권사',
-  dept:'영선백화점', sunhwa:'마네킹 순화'
+  boss:'오승연', pastor:'최제술', kwonsa:'김은경 검사',
+  dept:'영선백화점', sunhwa:'마네킹 순화',
+  police:'경찰서', pc:'피시방', seungyong:'이승용', hojeong:'이호정'
 };
 
 /* ================= data ================= */
@@ -753,12 +778,25 @@ const ENEMIES = {
   kimju:    {name:`그림자 ${NAMES.kimju.name} 선생님`, hp:150, atk:19, def:4, spd:4, exp:80,  gem:[12,16], cap:false, ai:'kimju', fixed:true, teacher:true, drop:'palette'},
   kimjs:    {name:`그림자 ${NAMES.kimjs.name} 선생님`, hp:210, atk:24, def:5, spd:5, exp:130, gem:[16,22], cap:false, ai:'kimjs', fixed:true, teacher:true, drop:'wordbook'},
   kwonsa:   {name:NAMES.kwonsa, hp:300, atk:30, def:6, spd:5, exp:240, gem:[24,32], cap:false, ai:'kwonsa', fixed:true, teacher:true, drop:'pearls'},
+  cuff:     {name:'수갑 요괴', hp:34, atk:12, def:3, spd:6, exp:11, gem:[1,3], cap:true, ai:'double', mat:'wire', gro:true, moves:['손톱 할퀴기','수갑 채찍']},
+  radio:    {name:'무전기 요괴', hp:36, atk:11, def:3, spd:5, exp:11, gem:[1,3], cap:true, ai:'stare', mat:'wire', gro:true, moves:['지직거리는 비명','스피커 이빨 물기']},
+  mugshot:  {name:'머그샷 요괴', hp:40, atk:11, def:4, spd:4, exp:11, gem:[1,3], cap:true, ai:'drain', mat:'cloth', gro:true, moves:['찢어진 얼굴 박치기','플래시 비명']},
+  patrol:   {name:'순찰 눈알', hp:38, atk:12, def:3, spd:5, exp:12, gem:[1,3], cap:true, ai:'stare', mat:'tape', gro:true, moves:['서치라이트 지지기','신경다발 휘감기']},
+  inmate:   {name:'변이 수감자', hp:42, atk:13, def:3, spd:4, exp:12, gem:[1,3], cap:false, ai:'basic', gro:true, moves:['쇠사슬 휘두르기','찢어진 입으로 물기','머리 박치기']},
+  mouse:    {name:'마우스 요괴', hp:32, atk:12, def:2, spd:8, exp:12, gem:[1,3], cap:true, ai:'double', mat:'wire', gro:true, moves:['척추 꼬리 채찍','클릭 연타']},
+  keyb:     {name:'키보드 지네', hp:42, atk:12, def:4, spd:4, exp:12, gem:[1,3], cap:true, ai:'basic', mat:'tape', gro:true, moves:['이빨 키캡 물어뜯기','다리 백 개로 짓밟기']},
+  ramen:    {name:'컵라면 요괴', hp:40, atk:12, def:3, spd:3, exp:12, gem:[1,3], cap:true, ai:'poison', mat:'cloth', gro:true, moves:['끓는 국물 뿌리기','면발 내장 휘감기']},
+  gamer:    {name:'폐인 게이머', hp:44, atk:13, def:3, spd:5, exp:13, gem:[1,3], cap:false, ai:'drain', gro:true, moves:['키보드 내려치기','충혈된 눈 비명','에너지 드링크 토하기']},
+  crawler:  {name:'화면 기생체', hp:36, atk:14, def:2, spd:7, exp:13, gem:[1,3], cap:true, ai:'double', mat:'cloth', gro:true, moves:['화면 밖으로 손 뻗기','지지직 할퀴기']},
   clerk:    {name:'그림자 계산원', hp:420, atk:38, def:7, spd:6, exp:380, gem:[30,40], cap:false, ai:'clerk', fixed:true, teacher:true, drop:'scanner'},
+  detective:{name:'그림자 형사', hp:480, atk:42, def:8, spd:6, exp:520, gem:[40,50], cap:false, ai:'detective', fixed:true, teacher:true, gro:true, drop:'baton'},
   boss:     {name:NAMES.boss, hp:320, atk:25, def:5, spd:6, exp:260, gem:[40,50], cap:false, ai:'boss', fixed:true, boss:true, drop:'ribbon'},
   pastor:   {name:`${NAMES.pastor} 목사`, hp:420, atk:28, def:6, spd:7, exp:600, gem:[70,90], cap:false, ai:'pastor', fixed:true, boss:true, drop:'stole'},
-  sunhwa:   {name:NAMES.sunhwa, hp:480, atk:28, def:7, spd:8, exp:1000, gem:[100,120], cap:false, ai:'sunhwa', fixed:true, boss:true, drop:'scarf'}
+  sunhwa:   {name:NAMES.sunhwa, hp:480, atk:28, def:7, spd:8, exp:1000, gem:[100,120], cap:false, ai:'sunhwa', fixed:true, boss:true, drop:'scarf'},
+  seungyong:{name:NAMES.seungyong, hp:540, atk:31, def:8, spd:8, exp:1500, gem:[130,150], cap:false, ai:'seungyong', fixed:true, boss:true, gro:true, drop:'chainw'},
+  hojeong:  {name:NAMES.hojeong, hp:590, atk:34, def:8, spd:9, exp:1900, gem:[150,180], cap:false, ai:'hojeong', fixed:true, boss:true, gro:true, drop:'headset'}
 };
-const TEACHER_LINE = {goh:'자리에 앉아. 쪽지시험 본다.', kimju:'선 밖으로 칠하지 말라고 했지.', kimjs:'Books closed. Pop quiz.', kwonsa:'새벽 다섯 시다. 일어나 기도해!', clerk:'포인트 적립하시겠어요? 영혼으로요.'};
+const TEACHER_LINE = {goh:'자리에 앉아. 쪽지시험 본다.', kimju:'선 밖으로 칠하지 말라고 했지.', kimjs:'Books closed. Pop quiz.', kwonsa:'피고인, 새벽 다섯 시다. 일어나 기도해!', clerk:'포인트 적립하시겠어요? 영혼으로요.', detective:'묵비권? 그런 건 이제 없어.'};
 /* building floors 0~8: school 1F~roof, church 1F~5F (difficulty 3:5:10:20 for the school, church beyond); 9 is the ruins; 10~13 the department store */
 const FMULT = [
   {hp:1,    atk:1,    exp:1,   gem:1,   def:0},
@@ -774,6 +812,13 @@ const FMULT = [
   {hp:3.3,  atk:3.1,  exp:5.2, gem:3.8, def:5},
   {hp:3.5,  atk:3.3,  exp:5.8, gem:4.1, def:5},
   {hp:3.8,  atk:3.5,  exp:6.4, gem:4.4, def:5},
+  {hp:1,    atk:1,    exp:1,   gem:1,   def:0},
+  {hp:3.9,  atk:3.4,  exp:7.0, gem:4.7, def:6},
+  {hp:4.1,  atk:3.5,  exp:7.6, gem:5.0, def:6},
+  {hp:4.3,  atk:3.6,  exp:8.2, gem:5.3, def:6},
+  {hp:1,    atk:1,    exp:1,   gem:1,   def:0},
+  {hp:4.5,  atk:3.7,  exp:8.8, gem:5.6, def:6},
+  {hp:4.7,  atk:3.8,  exp:9.4, gem:5.9, def:7},
   {hp:1,    atk:1,    exp:1,   gem:1,   def:0}
 ];
 const PETS = {
@@ -802,7 +847,15 @@ const PETS = {
   doll:     {name:'저주 인형',       buff:{주문력:1, 속도:1},   cap:1, assist:'dmg',    base:5, aname:'바늘 찌르기'},
   cart:     {name:'쇼핑카트 요괴',   buff:{방어:2, 체력:1},     cap:0, assist:'shield', val:0.3, aname:'카트 방패'},
   tag:      {name:'가격표 요괴',     buff:{매력:2},            cap:1, assist:'gem',             aname:'가격 후려치기'},
-  hanger:   {name:'옷걸이 요괴',     buff:{힘:2, 속도:1},       cap:1, assist:'dmg',    base:5, aname:'갈고리 할퀴기'}
+  hanger:   {name:'옷걸이 요괴',     buff:{힘:2, 속도:1},       cap:1, assist:'dmg',    base:5, aname:'갈고리 할퀴기'},
+  cuff:     {name:'수갑 요괴',       buff:{힘:2, 속도:1},       cap:2, assist:'dmg',    base:6, aname:'손톱 할퀴기'},
+  radio:    {name:'무전기 요괴',     buff:{마나:2, 주문력:1},   cap:0, assist:'mp',              aname:'지원 요청'},
+  mugshot:  {name:'머그샷 요괴',     buff:{방어:2, 정신력:1},   cap:0, assist:'weak',            aname:'플래시 비명'},
+  patrol:   {name:'순찰 눈알',       buff:{정신력:2, 속도:1},   cap:1, assist:'weak',            aname:'서치라이트'},
+  mouse:    {name:'마우스 요괴',     buff:{속도:3},            cap:1, assist:'dmg',    base:6, aname:'척추 꼬리 채찍'},
+  keyb:     {name:'키보드 지네',     buff:{방어:2, 힘:1},       cap:0, assist:'shield', val:0.3, aname:'키캡 방패'},
+  ramen:    {name:'컵라면 요괴',     buff:{체력:3},            cap:0, assist:'heal',   base:7, aname:'뜨끈한 국물'},
+  crawler:  {name:'화면 기생체',     buff:{주문력:2, 속도:1},   cap:1, assist:'dmg',    base:6, aname:'화면 밖 손길'}
 };
 const ITEMS = {
   bag:   {name:'포획용 가방', desc:'전투에서 ‘포획’할 때 1개 써요', field:false},
@@ -824,14 +877,19 @@ const EQUIPS = {
   stole:   {name:`${NAMES.pastor} 목사의 영대`, slot:'weapon', stats:{힘:4, 주문력:4, 마나:2}, dur:14},
   hangerw: {name:'철제 옷걸이', slot:'weapon', stats:{힘:5, 속도:1}, dur:8},
   scanner: {name:'바코드 스캐너', slot:'weapon', stats:{힘:6, 속도:2}, dur:10},
+  baton:   {name:'경찰 곤봉', slot:'weapon', stats:{힘:7, 속도:1}, dur:10},
+  mousew:  {name:'마우스 쌍절곤', slot:'weapon', stats:{힘:6, 속도:3}, dur:10},
+  chainw:  {name:`${NAMES.seungyong}의 쇠사슬`, slot:'weapon', stats:{힘:9, 속도:2, 체력:2}, dur:16},
   gym:     {name:'체육복', slot:'armor', stats:{방어:2, 체력:1}, dur:7},
   labcoat: {name:'실험 가운', slot:'armor', stats:{방어:1, 마나:2, 주문력:1}, dur:7},
   palette: {name:'팔레트 방패', slot:'armor', stats:{방어:4}, dur:8},
   helmet:  {name:'공사장 안전모', slot:'armor', stats:{방어:5, 체력:1}, dur:9},
-  pearls:  {name:'권사의 진주목걸이', slot:'armor', stats:{주문력:3, 정신력:2, 방어:2}, dur:10},
+  pearls:  {name:`${NAMES.kwonsa}의 진주목걸이`, slot:'armor', stats:{주문력:3, 정신력:2, 방어:2}, dur:10},
   ribbon:  {name:`${NAMES.boss}의 리본`, slot:'armor', stats:{체력:2, 방어:2, 주문력:2, 속도:2}, dur:12},
   apron:   {name:'점원 앞치마', slot:'armor', stats:{방어:3, 체력:2}, dur:9},
-  scarf:   {name:`${NAMES.sunhwa}의 실크 스카프`, slot:'armor', stats:{방어:3, 매력:3, 속도:2, 체력:2, 정신력:1}, dur:16}
+  scarf:   {name:`${NAMES.sunhwa}의 실크 스카프`, slot:'armor', stats:{방어:3, 매력:3, 속도:2, 체력:2, 정신력:1}, dur:16},
+  vest:    {name:'방탄조끼', slot:'armor', stats:{방어:6, 체력:2}, dur:12},
+  headset: {name:`${NAMES.hojeong}의 헤드셋`, slot:'armor', stats:{방어:3, 정신력:3, 속도:3, 주문력:3}, dur:16}
 };
 const SLOT_NAME = {weapon:'무기', armor:'옷'};
 const KICK_PRICE = 10;
@@ -845,6 +903,7 @@ const SHOPS = {
           if (n >= 4) s.push(['gear','gym',8], ['gear','helmet',14]);
           if (n >= 6) s.push(['item','candy',3], ['item','coffee',3]);
           if (bldDone('dept')) s.push(['gear','apron',12], ['box','box',BOX_PRICE]);
+          if (bldDone('police')) s.push(['gear','vest',18]);
           return s; }},
   box:{title:'1000원 랜덤 상자', hint:'“전 품목 1000원.” 마정석 2개를 넣으면 상자 하나가 덜컹 떨어진다. 재료가 제일 잘 나와요.',
         stock:() => [['box','box',BOX_PRICE]]}
@@ -888,7 +947,13 @@ const ACH = [
   ['clerk','계산 끝','그림자 계산원 쓰러뜨리기'],
   ['dept','폐점 세일',`${NAMES.sunhwa} 쓰러뜨리기`],
   ['craft','손재주 발휘','캠프 작업대에서 처음 무언가 만들기'],
-  ['box10','뽑기 중독','1000원 상자 10번 뽑기']
+  ['box10','뽑기 중독','1000원 상자 10번 뽑기'],
+  ['pfloors','경찰서 정화','경찰서 1~3층을 전부 둘러보기'],
+  ['detective','취조 끝','그림자 형사 쓰러뜨리기'],
+  ['police','탈옥 진압',`${NAMES.seungyong} 쓰러뜨리기`],
+  ['enhance','강화 장인','장비를 +3까지 강화하기'],
+  ['pc','강제 종료',`${NAMES.hojeong} 쓰러뜨리기`],
+  ['mg','손이 빠르다','반응속도 게임에서 250ms 안에 누르기']
 ];
 const needExp = lv => 25 + 15*(lv - 1) + 3*(lv - 1)*(lv - 1);
 const BASE_STAT = 3;
@@ -1022,13 +1087,20 @@ const HUMAN_LOOK = {
   shadow:  {skin:'#2a1f3c', eye:'#ff3a3a', blush:'#2a1f3c', shoe:'#140e1e', hair:'#1b1328', outfit:'#2c2140', outfitD:'#21182f', pants:'#1b1328', acc:['horror'], long:false},
   goh:     {skin:'#2a1f3c', eye:'#ff3a3a', blush:'#2a1f3c', shoe:'#120c1a', hair:'#17111f', outfit:'#3a2a3e', outfitD:'#2a1e30', pants:'#1b1328', acc:['horror','glasses'], accC:'#9a8aaa', long:false, big:true},
   kimju:   {skin:'#2a1f3c', eye:'#ff3a3a', blush:'#2a1f3c', shoe:'#120c1a', hair:'#17111f', outfit:'#2e2a40', outfitD:'#221e32', pants:'#1b1328', acc:['horror','paint'], long:true},
-  kimjs:   {skin:'#2a1f3c', eye:'#ff3a3a', blush:'#2a1f3c', shoe:'#120c1a', hair:'#17111f', outfit:'#1e2440', outfitD:'#161a30', pants:'#141828', acc:['horror','tie'], long:false},
+  kimjs:   {skin:'#2a1f3c', eye:'#ff3a3a', blush:'#2a1f3c', shoe:'#120c1a', hair:'#17111f', outfit:'#1e2440', outfitD:'#161a30', pants:'#141828', acc:['horror','collar'], long:true},
   boss:    {skin:'#e8d6ca', eye:'#c08cff', blush:'#d8a8b8', shoe:'#141018', hair:'#141020', outfit:'#232a48', outfitD:'#181d33', pants:'#1d2238', acc:['ribbon','bleed'], long:true},
   saint:   {skin:'#c8b4a8', eye:'#ff3a3a', blush:'#c8b4a8', shoe:'#141018', hair:'#2a2228', outfit:'#2a2a34', outfitD:'#1e1e28', pants:'#1e1e28', acc:['horror','tie'], long:false},
   infected:{skin:'#8aa07a', eye:'#e8e06a', blush:'#8aa07a', shoe:'#1a1a14', hair:'#3a3a2a', outfit:'#4a4a3a', outfitD:'#363628', pants:'#2e2e22', acc:['horror','plague'], long:false},
-  kwonsa:  {skin:'#2a1f3c', eye:'#ff3a3a', blush:'#2a1f3c', shoe:'#120c1a', hair:'#17111f', outfit:'#4a2a3a', outfitD:'#36202c', pants:'#36202c', acc:['horror','pearl'], long:true, big:true},
+  kwonsa:  {skin:'#2a1f3c', eye:'#ff3a3a', blush:'#2a1f3c', shoe:'#120c1a', hair:'#17111f', outfit:'#4a2a3a', outfitD:'#36202c', pants:'#36202c', acc:['horror','pearl'], long:true, big:true, fat:true},
   pastor:  {skin:'#d8c4b4', eye:'#c0303a', blush:'#d8c4b4', shoe:'#0c0a10', hair:'#6a6a72', outfit:'#141018', outfitD:'#0c0a10', pants:'#141018', acc:['horror','stole'], long:false, big:true},
   clerk:   {skin:'#2a1f3c', eye:'#ff3a3a', blush:'#2a1f3c', shoe:'#120c1a', hair:'#17111f', outfit:'#7a2a2a', outfitD:'#5a1e1e', pants:'#1b1328', acc:['horror','badge'], long:false},
+  inmate:  {skin:'#b8a090', eye:'#ff3a3a', blush:'#8a5a4a', shoe:'#120c1a', hair:'#1a1418', outfit:'#c86a2a', outfitD:'#9a4a1a', pants:'#a85a22', acc:['horror','rip','chain','scar'], long:false},
+  gamer:   {skin:'#a8b8a8', eye:'#e8e06a', blush:'#7a8a7a', shoe:'#120c1a', hair:'#2a2420', outfit:'#4a4a56', outfitD:'#34343e', pants:'#2a2a34', acc:['hollow','headset','drool','cable'], long:false},
+  detective:{skin:'#2a1f3c', eye:'#ff3a3a', blush:'#2a1f3c', shoe:'#120c1a', hair:'#17111f', outfit:'#5a4a3a', outfitD:'#423628', pants:'#2a2228', acc:['horror','eye3','rip','tie'], long:false, big:true},
+  seungyong:{skin:'#a88a78', eye:'#ff3a3a', blush:'#7a2a2a', shoe:'#120c1a', hair:'#0c0a10', outfit:'#c86a2a', outfitD:'#8a3a1a', pants:'#a85a22', acc:['horror','rip','chain','scar','tattoo'], long:false, big:true},
+  seungyongD:{skin:'#7a3a2a', eye:'#ffd27a', blush:'#4a0a0a', shoe:'#050305', hair:'#050305', outfit:'#6a1a1a', outfitD:'#3a0a0a', pants:'#4a1010', acc:['horror','rip','chain','scar','tattoo','spikes'], long:false, big:true},
+  hojeong: {skin:'#9ab0a0', eye:'#5fdcc6', blush:'#6a7a70', shoe:'#120c1a', hair:'#1a1a20', outfit:'#3a3a46', outfitD:'#26262e', pants:'#2a2a34', acc:['hollow','headset','cable','drool'], long:true, big:true},
+  hojeongD:{skin:'#6a8a7a', eye:'#5ae86a', blush:'#3a4a40', shoe:'#050305', hair:'#0c0c10', outfit:'#1a1a22', outfitD:'#0c0c12', pants:'#14141a', acc:['hollow','headset','cable','glitch','drool'], long:true, big:true},
   pastorD: {skin:'#6a1a1a', eye:'#ffd27a', blush:'#6a1a1a', shoe:'#050305', hair:'#1a0a0a', outfit:'#0a0608', outfitD:'#050305', pants:'#0a0608', acc:['horror','horns','stole'], long:false, big:true}
 };
 function applyAcc(look, dir, set, rect){
@@ -1055,6 +1127,33 @@ function applyAcc(look, dir, set, rect){
     else if (acc === 'pearl'){ if (dir !== 'up'){ set(4,8,W); set(6,9,W); set(9,9,W); set(11,8,W); set(7,10,W); set(8,10,W); } }
     else if (acc === 'stole'){ if (dir === 'down'){ rect(5,8,1,4,'#6a2a8a'); rect(10,8,1,4,'#6a2a8a'); set(5,10,'#c8a040'); set(10,10,'#c8a040'); rect(7,8,2,1,W); } else if (side) rect(5,8,1,4,'#6a2a8a'); }
     else if (acc === 'horns'){ set(3,0,'#d8c8b0'); set(4,0,'#d8c8b0'); set(11,0,'#d8c8b0'); set(12,0,'#d8c8b0'); set(3,1,'#8a2a2a'); set(12,1,'#8a2a2a'); }
+    /* grotesque details for the police station and PC bang (v0.7) */
+    else if (acc === 'rip'){
+      if (dir === 'down'){ rect(4,7,8,1,'#2a0508'); set(4,6,'#7a0a14'); set(11,6,'#7a0a14'); set(3,6,'#7a0a14'); set(12,6,'#7a0a14'); set(5,7,'#d8d0c0'); set(7,7,'#d8d0c0'); set(8,7,'#d8d0c0'); set(10,7,'#d8d0c0'); set(6,8,'#8a1a2a'); }
+      else if (side){ rect(3,7,4,1,'#2a0508'); set(4,7,'#d8d0c0'); set(6,6,'#7a0a14'); set(5,8,'#8a1a2a'); }
+    }
+    else if (acc === 'chain'){
+      const C = '#9aa0aa', D = '#5a5f68';
+      if (dir === 'down'){ for (let x = 3; x <= 12; x += 2) set(x, 10, C); set(4,9,D); set(6,9,D); set(9,9,D); set(11,9,D); set(5,10,'#8a1a2a'); set(10,10,'#8a1a2a'); }
+      else if (side){ for (let x = 4; x <= 10; x += 2) set(x, 10, C); set(6,9,'#8a1a2a'); }
+      else { for (let x = 3; x <= 12; x += 2) set(x, 9, C); }
+    }
+    else if (acc === 'scar'){ if (dir === 'down'){ set(9,2,'#7a1a24'); set(10,3,'#7a1a24'); set(10,4,'#7a1a24'); set(9,4,'#c84a5a'); } else if (side){ set(6,3,'#7a1a24'); set(7,4,'#7a1a24'); } }
+    else if (acc === 'tattoo'){ if (dir !== 'up'){ set(3,9,'#2a2a5a'); set(12,9,'#2a2a5a'); set(12,10,'#2a2a5a'); set(3,10,'#2a2a5a'); set(4,4,'#2a2a5a'); } else { set(6,3,'#2a2a5a'); set(9,4,'#2a2a5a'); } }
+    else if (acc === 'spikes'){ const W2 = '#e8dcc8'; set(2,6,W2); set(3,7,W2); set(13,6,W2); set(12,7,W2); set(7,0,W2); set(8,0,W2); set(2,9,W2); set(13,9,W2); set(3,8,'#8a1a2a'); set(12,8,'#8a1a2a'); }
+    else if (acc === 'eye3'){ if (dir === 'down'){ set(7,3,'#efe6d6'); set(8,3,'#ff3a3a'); set(7,4,'#7a0a14'); } else if (side){ set(6,3,'#ff3a3a'); } }
+    else if (acc === 'hollow'){
+      if (dir === 'down'){ rect(5,4,2,3,'#1a1018'); rect(9,4,2,3,'#1a1018'); set(6,5,look.eye); set(9,5,look.eye); set(5,7,'#4a3a4a'); set(10,7,'#4a3a4a'); }
+      else if (side){ rect(4,4,2,3,'#1a1018'); set(5,5,look.eye); }
+    }
+    else if (acc === 'headset'){
+      if (dir === 'down'){ rect(3,2,1,4,'#1a1a20'); rect(12,2,1,4,'#1a1a20'); rect(4,0,8,1,'#2a2a30'); set(3,4,'#5ae86a'); set(12,4,'#5ae86a'); set(4,6,'#1a1a20'); set(5,7,'#1a1a20'); }
+      else if (side){ rect(8,1,2,4,'#1a1a20'); set(8,3,'#5ae86a'); rect(5,0,6,1,'#2a2a30'); }
+      else rect(4,0,8,1,'#2a2a30');
+    }
+    else if (acc === 'cable'){ const K2 = '#2a2a30'; if (dir === 'down'){ set(3,12,K2); set(2,13,K2); set(2,14,K2); set(12,12,K2); set(13,13,K2); set(14,14,K2); set(4,11,'#8a1a2a'); } else { set(11,8,K2); set(12,9,K2); set(13,10,K2); set(14,11,K2); set(11,9,'#8a1a2a'); } }
+    else if (acc === 'drool'){ if (dir === 'down'){ set(7,8,'#9ab04a'); set(7,9,'#9ab04a'); set(8,8,'#9ab04a'); } else if (side){ set(3,8,'#9ab04a'); set(3,9,'#9ab04a'); } }
+    else if (acc === 'glitch'){ if (dir === 'down'){ rect(8,1,4,3,'#5ae86a'); rect(9,4,3,1,'#2a8a3a'); rect(10,8,3,2,'#5ae86a'); set(4,10,'#a184e6'); } else if (side){ rect(6,2,3,3,'#5ae86a'); set(9,9,'#a184e6'); } }
   }
 }
 function buildChar(look, dir, frame){
@@ -1071,7 +1170,10 @@ function buildChar(look, dir, frame){
   } else if (frame === 0){ rect(6,12,4,3,pants); rect(5,15,4,1,shoe); }
   else if (frame === 1){ rect(5,12,2,3,pants); rect(4,15,3,1,shoe); rect(9,12,2,3,pants); rect(8,15,3,1,shoe); }
   else { rect(6,12,2,3,pants); rect(5,15,3,1,shoe); rect(8,12,2,2,pants); rect(7,14,3,1,shoe); }
-  if (big){
+  if (look.fat){
+    if (!side){ rect(2,8,12,4,outfit); rect(2,11,12,1,outfitD); rect(1,8,1,3,outfitD); rect(14,8,1,3,outfitD); set(1,11,skin); set(14,11,skin); set(7,10,outfitD); set(8,10,outfitD); }
+    else { rect(2,8,11,4,outfit); rect(2,11,11,1,outfitD); const sw = frame === 1 ? -1 : frame === 2 ? 1 : 0; rect(7+sw,8,2,3,outfitD); rect(7+sw,11,2,1,skin); }
+  } else if (big){
     if (!side){ rect(3,8,10,4,outfit); rect(3,11,10,1,outfitD); rect(2,8,1,3,outfitD); rect(13,8,1,3,outfitD); set(2,11,skin); set(13,11,skin); }
     else { rect(3,8,9,4,outfit); rect(3,11,9,1,outfitD); const sw = frame === 1 ? -1 : frame === 2 ? 1 : 0; rect(7+sw,8,2,3,outfitD); rect(7+sw,11,2,1,skin); }
   } else {
@@ -1080,6 +1182,7 @@ function buildChar(look, dir, frame){
     else { const sw = frame === 1 ? -1 : frame === 2 ? 1 : 0; rect(7+sw,8,2,3,outfitD); rect(7+sw,11,2,1,skin); }
   }
   rect(4,1,8,7,skin); rect(5,0,6,1,hair);
+  if (look.fat){ rect(3,3,10,5,skin); if (d === 'down'){ set(4,6,look.blush); set(11,6,look.blush); } }
   if (big && d === 'down'){ rect(3,3,1,4,skin); rect(12,3,1,4,skin); }
   if (d === 'down'){
     rect(4,1,8,2,hair); set(4,3,hair); set(11,3,hair);
@@ -1564,6 +1667,142 @@ const CREATURES = {
     "...PPpPPPPpPP...",
     ".....W....W.....",
     ".....W....W....."]},
+  cuff:{ pal:{s:'#c8a090', S:'#9a7060', B:'#8a1a2a', b:'#4a0a12', m:'#9aa0aa', M:'#5a5f68', E:'#efe6d6', p:'#14101a', R:'#c0303a', n:'#e8d0c0'}, rows:[
+    "................",
+    ".mmm............",
+    "m...m...........",
+    "m...m...........",
+    ".mmmMmmmm.......",
+    "........m.......",
+    ".......mBm......",
+    "....ssBsBsss....",
+    "...sSssEEssSs...",
+    "..ssSsEpREsSss..",
+    "..sSssEEEEssSs..",
+    "..sssssssssss...",
+    "..ss.sS.sS.ss...",
+    "..n..s..s..n....",
+    ".....B..B.......",
+    "....bB..Bb......"]},
+  radio:{ pal:{k:'#2a2a30', K:'#3a3a42', a:'#5a5a62', L:'#a83a4a', T:'#efe6d6', M:'#2a0508', e:'#c8a090', E:'#e8e06a', p:'#14101a', B:'#8a1a2a', g:'#5ae86a'}, rows:[
+    "..........a.....",
+    "..........a.....",
+    "..........a.....",
+    ".....kkkkkkk....",
+    "....kKKKKKKKk...",
+    "....kKEpKgKKk...",
+    "...ekKKKKKKKk...",
+    "..eekLLLLLLLk...",
+    "..eekLTMTMTLk...",
+    "...ekLMTMTMLk...",
+    "....kLLLLLLLk...",
+    "....kKKBKKKKk...",
+    "....kKKBKKKKk...",
+    "....kkkBkkkkk...",
+    ".......B........",
+    ".......B........"]},
+  mugshot:{ pal:{w:'#d8d0c0', g:'#8a8478', s:'#c8a090', S:'#e0c0b0', K:'#050306', R:'#c0303a', M:'#2a0508', n:'#14101a', N:'#efe6d6', B:'#8a1a2a'}, rows:[
+    "..wwwwwwwwwwww..",
+    "..gwwwwwwwwwww..",
+    "..wwwwSSSSwwww..",
+    "..gwwSsssssSww..",
+    "..wwSsKKsKKsSw..",
+    "..gwSsKRsKRsSw..",
+    "..wwSssssssSww..",
+    "..gwSsMMMMsSww..",
+    "..wwSsMBBMsSww..",
+    "..gwwSsMMsSwww..",
+    "..wwwwSSSSwwww..",
+    "..gnnnnnnnnnnw..",
+    "..wnNnNNnNnNnw..",
+    "..wnnnnnnnnnnw..",
+    "...B......B.....",
+    "...B............"]},
+  patrol:{ pal:{c:'#1a2440', C:'#2a3a68', b:'#e6b24c', W:'#efe6d6', v:'#c0303a', I:'#e6c56a', P:'#14101a', n:'#a83a4a', N:'#6a1a2a'}, rows:[
+    "....cccccccc....",
+    "...cCCCbCCCCc...",
+    "..ccccccccccccc.",
+    "...WWWWWWWWWW...",
+    "..WWvWWWWWvWWW..",
+    ".WWWWvIIIIWWvWW.",
+    ".WvWWIIPPIIWWWW.",
+    ".WWWWIIPPIIWvWW.",
+    ".WWvWWIIIIWWWWW.",
+    "..WWWvWWWWWvWW..",
+    "...WWWWWWWWWW...",
+    ".....nNnnNn.....",
+    "....n..N..n.....",
+    "...n...N...n....",
+    "...N...n...N....",
+    "..N.........N..."]},
+  mouse:{ pal:{m:'#c8c8d0', M:'#8a8a96', d:'#3a3a44', E:'#efe6d6', R:'#c0303a', P:'#14101a', T:'#efe6d6', K:'#2a0508', c:'#d8c8b0', C:'#a89880', B:'#8a1a2a'}, rows:[
+    "................",
+    "..........cC....",
+    "........Cc..c...",
+    ".......c.....C..",
+    "......cC......c.",
+    ".....mmmm.......",
+    "...mmmEEmmm.....",
+    "..mmmERPEmmm....",
+    "..mMmmEEmmmMm...",
+    ".mMmmmdmmmmmMm..",
+    ".mMmmmdmmmmmMm..",
+    ".mMKTKTKTKTKMm..",
+    "..mMKKKKKKKKMm..",
+    "...mmmmmmmmmm...",
+    "....B.....B.....",
+    "....B..........."]},
+  keyb:{ pal:{k:'#2a2a34', K:'#3a3a46', T:'#e8e0d0', l:'#c8a090', L:'#9a7060', E:'#ff3a3a', M:'#2a0508', B:'#8a1a2a'}, rows:[
+    "................",
+    "................",
+    "................",
+    "..kkkkkkkkkkkk..",
+    ".kKTKTKTKTKTKkk.",
+    "kEKKKKKKKKKKKKk.",
+    "kMTKTKTKTKTKTKk.",
+    "kMMKKKKKKKKKKKk.",
+    ".kkkkkkkkkkkkkk.",
+    ".l.l.l.l.l.l.l..",
+    "l.L.L.L.L.L.L.l.",
+    "...B............",
+    "...B............",
+    "................",
+    "................",
+    "................"]},
+  ramen:{ pal:{c:'#e8e0d0', C:'#c84a3a', r:'#a8582a', n:'#e0b090', N:'#c88a6a', E:'#efe6d6', P:'#14101a', s:'#c8a060', B:'#8a1a2a', M:'#2a0508', T:'#efe6d6'}, rows:[
+    "..........s.....",
+    ".........s......",
+    "....nn..s.nn....",
+    "...nNNnsNnNNn...",
+    "..nrrEPrrrrEPrn.",
+    "..ncccccccccccn.",
+    "..cCCCCCCCCCCc..",
+    "..cCcCcCCcCcCc..",
+    "...cccccccccc...",
+    "...ccMTMTMTcc...",
+    "...cccMMMMccc...",
+    "....cccccccc....",
+    "...nN..B...nN...",
+    "..nN.......B.nN.",
+    ".n..........B..n",
+    "................"]},
+  crawler:{ pal:{s:'#d8d0c8', S:'#a8a0a0', g:'#5ae86a', G:'#2a8a3a', K:'#050306', R:'#ff3a3a', M:'#2a0508', T:'#efe6d6', B:'#8a1a2a'}, rows:[
+    "................",
+    ".....ssssss.....",
+    "....sKRsKRss....",
+    "....ssKRsKRs....",
+    "....sMTMTMss....",
+    ".....sMMMss.....",
+    "..g...ssss...g..",
+    ".sS..ssssss..Ss.",
+    "s.Ssg.ssss.gsS.s",
+    "s..Sss.gg.ssS..s",
+    "B...Ssgssgss...B",
+    "....gGgGgGgG....",
+    "...GgGgGgGgGg...",
+    "..gGgGgGgGgGgG..",
+    "................",
+    "................"]},
   bag:{ pal:{B:'#6a4a38', b:'#8a6a4e', Y:'#c8a040', G:'#5fdcc6', D:'#8a1a2a'}, rows:[
     "................",
     "................",
@@ -1656,6 +1895,21 @@ const ICONS = {
   scarf:{pal:{P:'#e8a8c8', p:'#b07090', w:'#efe8da'}, rows:[
     "............","..PPPPPPPP..",".PPpPPPPpPP.","PPPPPPPPPPPP",".....PPp....","....PPpP....",
     "....PpPP....","...PPpPw....","...PpPPw....","...ww.ww....","............","............"]},
+  vest:{pal:{V:'#2a3a5a', v:'#1e2a44', w:'#efe8da', Y:'#c8a040'}, rows:[
+    "............","...VV..VV...","..VVVVVVVV..",".VVVVVVVVVV.",".VVwwwwwwVV.",".VVVVVVVVVV.",
+    ".VVvVVVVvVV.",".VVVVYYVVVV.",".VVVVVVVVVV.",".vvvvvvvvvv.","............","............"]},
+  baton:{pal:{K:'#1a1a22', k:'#3a3a46', g:'#9aa0aa'}, rows:[
+    "..........KK",".........KKK","........KKK.",".......KKK..","......KKK...",".....KKK....",
+    "....KKK.....","...KKK......","..gKK.......",".gkg........","kKk.........",".k.........."]},
+  chainw:{pal:{c:'#9aa0aa', C:'#5a5f68', B:'#8a1a2a'}, rows:[
+    "cC..........","C.c.........",".cC.........","...cC.......","..C..c......","....cC......",
+    ".....C.c....","......cC....",".......C.c..","........cC..","..........BB","..........B."]},
+  mousew:{pal:{m:'#c8c8d0', M:'#8a8a96', c:'#2a2a30'}, rows:[
+    "....mm......","...mMMm.....","...mMMm.....","....mm......",".....c......","......c.....",
+    "......c.....",".....c......","....mm......","...mMMm.....","...mMMm.....","....mm......"]},
+  headset:{pal:{k:'#1a1a20', K:'#3a3a46', g:'#5ae86a'}, rows:[
+    "............","...kkkkkk...","..k......k..",".k........k.",".k........k.","KKK......KKK",
+    "KgK......KgK","KKK......KKK",".k..........","..kk........","....kg......","............"]},
   kick:{pal:{k:'#3a3a42', d:'#1a1a20', D:'#5fdcc6', o:'#0c0913'}, rows:[
     "..........kk","..........k.",".........k..",".........k..","........k...","........k...",
     ".......k....",".......k....","..dddddddd..",".dDDDDDDDDd.","oo.......oo.","oo.......oo."]}
@@ -1776,7 +2030,9 @@ const THEMES = [
   {fa:'#4a4448', fb:'#454044', grid:'#38333a', speck:'#59525a', vein:'#7a2c3c', wt:'#3a3540', wm:'#3a3540', wd:'#221e26', band:'#5a5460', stain:'#7a2c3c', top:'#5a5460', side:'#3a3540', bot:'#221e26', edge:'#221e26', edge2:'#3a3540', roof:true},
   {fa:'#46404a', fb:'#423c46', grid:'#38323e', speck:'#58505c', vein:'#7a2c3c', wt:'#3a3242', wm:'#3a3242', wd:'#1e1a24', band:'#4a4252', stain:'#7a2c3c', top:'#4a4252', side:'#2e2836', bot:'#1e1a24', edge:'#1e1a24', edge2:'#3a3242', ow:true},
   {fa:'#3a2228', fb:'#352026', grid:'#24141a', speck:'#4a2a30', vein:'#c8a040', wt:'#3a2a2a', wm:'#4a2a22', wd:'#1a1012', band:'#6a4a2a', stain:'#8a1a2a', top:'#5a3a2a', side:'#2a1a1a', bot:'#1a1012', edge:'#1a1012', edge2:'#3a2020', church:true},
-  {fa:'#46404c', fb:'#403a46', grid:'#2e2934', speck:'#5a5262', vein:'#c8a040', wt:'#5a4650', wm:'#4a3842', wd:'#241c24', band:'#8a6a4a', stain:'#7a2c3c', top:'#6a5660', side:'#382c34', bot:'#241c24', edge:'#1e161e', edge2:'#382c34', dept:true}
+  {fa:'#46404c', fb:'#403a46', grid:'#2e2934', speck:'#5a5262', vein:'#c8a040', wt:'#5a4650', wm:'#4a3842', wd:'#241c24', band:'#8a6a4a', stain:'#7a2c3c', top:'#6a5660', side:'#382c34', bot:'#241c24', edge:'#1e161e', edge2:'#382c34', dept:true},
+  {fa:'#3a4250', fb:'#363e4c', grid:'#262c38', speck:'#4a5262', vein:'#3a6ad8', wt:'#3e4656', wm:'#323a48', wd:'#1c2028', band:'#2a3a68', stain:'#7a2c3c', top:'#4e5668', side:'#2a303c', bot:'#1c2028', edge:'#161a22', edge2:'#2a303c', police:true},
+  {fa:'#2a2632', fb:'#26222e', grid:'#1a1722', speck:'#3a3446', vein:'#5ae86a', wt:'#2e2a38', wm:'#26222e', wd:'#141018', band:'#3a2a5a', stain:'#7a2c3c', top:'#3a3446', side:'#1e1a26', bot:'#141018', edge:'#100c16', edge2:'#26222e', pcb:true}
 ];
 const OW = 9;
 const FLOORS = [
@@ -1841,7 +2097,7 @@ const FLOORS = [
     weights:{saint:30, cherub:30, angel:20, bible:20}, count:6,
     doors:{5:['유초등부실', null, {line:'작은 의자들이 전부 문 쪽을 보고 있다. 간식 상자가 남아 있다.', items:{bread:2, candy:1}}],
            11:['중고등부실','안에서 출석 부르는 소리가 난다. 대답은 없다.'], 23:['청년부실','문 아래로 촛농이 흘러나온다.'], 35:['교사실','잠겨 있다. 문에 “새벽 다섯 시”라고 긁혀 있다.']},
-    boards:{8:'게시판: 주일학교 그림 대회. 모든 그림 속 목사님 얼굴이 검게 칠해져 있다.', 29:'게시판: “권사회 새벽기도 — 빠지면 안 됩니다.” 마지막 줄은 피로 쓰였다.'},
+    boards:{8:'게시판: 주일학교 그림 대회. 모든 그림 속 목사님 얼굴이 검게 칠해져 있다.', 29:'게시판: “검사님 주관 새벽기도 — 빠지면 유죄.” 마지막 줄은 피로 쓰였다.'},
     npcs:['leesw'], teacher:['kwonsa',24,9], insp:'cross',
     voids:[[16,6],[34,8]] },
   { name:'4층 재정부', bld:'church', theme:5, w:44, entry:[2,6], entryDown:[41,6],
@@ -1896,6 +2152,66 @@ const FLOORS = [
     upMsg:'창고로 올라가는 비상계단. 위에서 마네킹 관절이 꺾이는 소리가 난다.',
     voids:[[16,9],[17,9]] },
   { name:'4층 창고', bld:'dept', theme:6, w:30, boss:['sunhwa',21,7], warehouse:true, entry:[3,6], entryDown:[3,6],
+    shards:[], spawns:[], weights:{}, count:0, doors:{}, boards:{}, npcs:[], voids:[] },
+  { name:'1층 민원실', bld:'police', theme:7, w:44, entry:[2,6], entryDown:[41,6], aim:true,
+    shards:[[4,4],[12,6],[21,8],[30,5],[37,10],[25,10]],
+    spawns:[[8,5],[16,8],[22,5],[28,8],[34,6],[11,10],[19,10],[39,4]],
+    weights:{cuff:30, radio:25, mugshot:25, patrol:20}, count:6,
+    doors:{5:['교통과','잠겨 있다. 안에서 사고 신고 전화가 끝없이 울린다. 받는 사람은 없다.'],
+           15:['민원 상담실', null, {line:'상담 의자에 누군가의 손톱이 박혀 있다. 서랍에 쓸 만한 게 있다.', items:{bread:2, cure:1, tape:1}}],
+           27:['서장실','문틈으로 중얼거림이 새어 나온다. “…승원아… 승원아…”'],
+           35:['분실물 보관소', null, {line:'주인 잃은 물건들 사이에 방탄조끼가 걸려 있다. 안쪽이 피로 젖어 있다.', gear:['vest'], items:{wire:1}}]},
+    boards:{8:'수배 전단: 이승용. “강력범 · 3층 유치장 수감 중.” 사진 속 두 눈이 파여 있다.', 21:'공지: “무전 지시를 100% 믿지 말 것.” 누군가 밑줄을 세 번 그었다.',
+            31:'민원 번호표: 4444번. 숫자가 계속 4로만 바뀐다.'},
+    npcs:['mise'], insp:'radio', voids:[[3,9],[4,9]] },
+  { name:'2층 형사과', bld:'police', theme:7, w:44, entry:[2,6], entryDown:[41,6], aim:true,
+    shards:[[4,9],[11,4],[18,7],[25,10],[31,7],[40,9]],
+    spawns:[[5,6],[12,10],[17,4],[23,6],[30,9],[36,5],[39,7],[25,4]],
+    weights:{cuff:25, mugshot:25, radio:20, patrol:20, inmate:10}, count:7,
+    doors:{5:['취조실','의자에 묶인 그림자가 아직도 대답을 기다린다. 입이 꿰매져 있다.'],
+           11:['과학수사팀', null, {line:'증거 봉투마다 무언가 꿈틀거린다. 멀쩡한 봉투만 챙겼다.', items:{wire:2, tape:1, cure:1}}],
+           17:['형사과장실','책상 위 재떨이에 손가락 마디가 꽂혀 있다.'],
+           30:['당직실', null, {line:'컵라면과 커피가 남아 있다. 이불 속에서 뭔가 빠져나간 자국이 있다.', items:{coffee:2, bread:1, cloth:1}}]},
+    boards:{8:'형사과 게시판: “이승용 탈옥. 무기고 쪽으로 이동.” 글씨가 점점 흔들린다.', 26:'사진: 단체 사진 속 형사들의 얼굴이 전부 같은 얼굴로 바뀌어 있다.', 39:'메모: “3층 열쇠는 오른쪽 끝 간수 책상. 절대 잃어버리지 말 것.”'},
+    npcs:['junyoung'], teacher:['detective',24,7], insp:'board', voids:[[16,10],[17,10]] },
+  { name:'3층 유치장', bld:'police', theme:7, w:44, entry:[2,6], entryDown:[41,6], aim:true,
+    shards:[[5,4],[10,4],[17,8],[29,4],[36,9],[24,10]],
+    spawns:[[4,8],[11,9],[18,10],[25,8],[32,10],[37,6],[15,8]],
+    weights:{inmate:35, cuff:25, mugshot:20, patrol:20}, count:7,
+    doors:{4:['간수실','책상 위에 피 묻은 근무 일지. 마지막 줄: “열쇠는 오른쪽 끝에 떨어뜨렸다.”'],
+           10:['감방 1 사물함', null, {line:'수감자가 숨겨 둔 물건들이다. 칫솔이 날카롭게 갈려 있다.', items:{bread:1, cloth:2}}],
+           24:['감방 3 벽 틈','벽 틈으로 누군가 이쪽을 들여다본다. 눈이 세로로 달려 있다.'],
+           37:['압수품 창고', null, {line:'압수품 상자에서 쓸 만한 걸 골랐다.', items:{wire:2, tape:2, candy:1}}]},
+    boards:{17:'감방 벽 낙서: “이승용이 4층 무기고로 갔다. 총소리가 멈추지 않는다.”', 39:'근무표. 모든 칸에 “이승용 감시”라고 적혀 있다. 마지막 칸만 비어 있다.'},
+    npcs:['hyunsu'], gates:[[9,6],[16,6],[23,6],[30,6]], keyAt:[41,9],
+    upMsg:'무기고로 올라가는 계단. 위에서 쇠사슬 끌리는 소리와 낮은 웃음소리가 들린다.',
+    voids:[] },
+  { name:'4층 무기고', bld:'police', theme:7, w:30, boss:['seungyong',21,7], armory:true, aim:true, entry:[3,6], entryDown:[3,6],
+    shards:[], spawns:[], weights:{}, count:0, doors:{}, boards:{}, npcs:[], voids:[] },
+  { name:'1층 일반석', bld:'pc', theme:8, w:44, entry:[2,6], entryDown:[41,6], aim:true, crawl:true,
+    shards:[[4,4],[15,6],[22,9],[30,4],[36,7],[10,10]],
+    spawns:[[5,7],[11,6],[18,4],[26,9],[33,6],[14,10],[24,7]],
+    weights:{mouse:30, keyb:25, ramen:20, gamer:25}, count:6,
+    doors:{5:['흡연실','연기 속에서 기침 소리가 난다. 연기가 사람 모양으로 굳어 있다.'],
+           12:['PC방 창고', null, {line:'예비 부품 상자가 남아 있다.', items:{wire:1, tape:2, cloth:1}, lock:'react'}],
+           20:['화장실','세면대 거울에 “한 판만 더”라고 피로 적혀 있다.'],
+           26:['직원 휴게실', null, {line:'알바생 사물함. 먹을 게 조금 남아 있다.', items:{bread:2, coffee:1, cure:1}, lock:'aim'}],
+           33:['주방','냄비가 혼자 끓는다. 안에서 무언가 휘젓는 소리가 난다.']},
+    boards:{9:'포스터: “신규 가입 시 1시간 무료!” 누군가 “영원히”라고 덧썼다.', 16:'요금표: 1시간 = 영혼 0.1개.', 30:'공지: 잠긴 방은 보안 게임 통과 후 입장 — 사장 백.'},
+    npcs:['eunyoung','taemin'], insp:'counter', voids:[[3,9],[4,9]] },
+  { name:'2층 프리미엄석', bld:'pc', theme:8, w:44, entry:[2,6], entryDown:[41,6], aim:true, crawl:true, dark:true,
+    shards:[[3,9],[14,4],[23,7],[31,10],[39,7],[9,7]],
+    spawns:[[5,4],[13,7],[19,10],[27,4],[33,7],[38,10],[24,10]],
+    weights:{gamer:35, mouse:20, keyb:25, ramen:20}, count:7,
+    doors:{5:['VIP 룸 1','안에서 마우스 클릭 소리가 1초에 백 번씩 난다.'],
+           11:['VIP 룸 2', null, {line:'의자 위에 무기처럼 개조된 마우스가 놓여 있다.', gear:['mousew'], items:{cloth:1}, lock:'aim'}],
+           23:['서버실', null, {line:'서버 랙 사이에 부품이 굴러다닌다.', items:{wire:2, tape:1}, lock:'react'}],
+           31:['사장실','책상 위 장부: “이호정 — 미납 요금 2,184시간.”']},
+    boards:{14:'포스터: “프리미엄석 — 눈을 감지 마세요.”', 28:'낙서: “불 끄면 화면에서 나온다. 오른쪽 끝 차단기.”'},
+    npcs:['pyungbae'], insp:'breaker',
+    upMsg:'VIP룸으로 올라가는 계단. 위에서 키보드 두드리는 소리가 천둥처럼 울린다.',
+    voids:[[16,10],[17,10]] },
+  { name:'3층 VIP룸', bld:'pc', theme:8, w:30, boss:['hojeong',21,7], vip:true, aim:true, entry:[3,6], entryDown:[3,6],
     shards:[], spawns:[], weights:{}, count:0, doors:{}, boards:{}, npcs:[], voids:[] }
 ];
 /* 2F of the department store: two sets of shelves that swap places; each shelf column always keeps one gap open */
@@ -1903,22 +2219,22 @@ const FLOORS = [
   F.shiftA = [...[8,20,32].flatMap(top), ...[14,26].flatMap(bot)];
   F.shiftB = [...[14,26].flatMap(top), ...[8,20,32].flatMap(bot)]; }
 const NPCS = {
-  jongmo:{name:'종모', gender:'m', bld:'school', x:9, y:9, gift:2,
-    look:{skin:SKIN, eye:EYE, blush:BLUSH, shoe:SHOE, hair:'#1f1a1c', outfit:'#4a5a7a', outfitD:'#38455e', pants:'#2c2e3a', acc:'glasses', long:false, big:true},
-    first:['어? 너도 살아 있었네. 난 종모.', '여기 분명 우리 학교인데, 뭔가 썩은 느낌이야. 건물이 생각을 하는 것 같지 않아?', '사람들 말로는 원래 세계보다 타락한 평행세계래. 돌아가는 법은 아직 아무도 몰라.', '이거 받아. 혼자보단 나을 거야.'],
-    again:'또 쓰러졌었어? 이거 다시 가져가.', after:'다른 동네 사람들도 살아 있을까? 언젠가는 다 같이 모여야 할 텐데.',
-    camp:['캠프에 사람이 늘어나니까 좀 살 것 같다.', '밤에는 절대 혼자 다니지 마. 요괴들 눈이 시뻘게져.', '다른 동네 사람들도 이렇게 모여 있을까?']},
-  yunseo:{name:'윤서', gender:'f', bld:'school', x:40, y:7, gift:2,
+  jongmo:{name:'지구 정종모 선생님', gender:'m', bld:'school', x:9, y:9, gift:2,
+    look:{skin:'#e8bc98', eye:EYE, blush:BLUSH, shoe:SHOE, hair:'#2a2420', outfit:'#4a5a4a', outfitD:'#384638', pants:'#2c2e3a', acc:'glasses', long:false, big:true},
+    first:['오, 살아 있었구나! 다행이다. 지구과학 정종모다.', '여기 분명 우리 학교인데, 벽이 지층처럼 숨을 쉬어. 건물이 생각을 하는 것 같지 않니?', '하늘의 문양 말이다. 별자리도 오로라도 아니야. 지구과학을 가르치면서 처음 보는 거다.', '이거 받아라. 혼자보단 나을 거야.'],
+    again:'또 쓰러졌었니? 이거 다시 가져가라.', after:'사람들 말로는 원래 세계보다 타락한 평행세계래. 돌아가는 법은… 선생님도 아직 모르겠다.',
+    camp:['캠프에 사람이 늘어나니까 좀 살 것 같구나.', '밤에는 절대 혼자 다니지 마라. 요괴들 눈이 시뻘게진다.', '밤하늘 별자리가 하나도 안 맞아. 여긴 정말 다른 우주야.']},
+  yunseo:{name:'남숙', gender:'f', bld:'school', x:40, y:7, gift:2,
     look:{skin:SKIN, eye:EYE, blush:BLUSH, shoe:SHOE, hair:'#4a2c22', outfit:'#3b4466', outfitD:'#2c3350', pants:'#2f3340', acc:'badge', long:true},
-    first:['…너도 살아 있었구나!', '난 윤서. 위층에서 계속 뭔가 기어 다니는 소리가 나.', '2층은 오래 있으면 안 된대. 건물이 깨어난다고…', '이거, 아까 주운 건데 너 가져.'],
+    first:['…너도 살아 있었구나!', '난 남숙. 위층에서 계속 뭔가 기어 다니는 소리가 나.', '2층은 오래 있으면 안 된대. 건물이 깨어난다고…', '이거, 아까 주운 건데 너 가져.'],
     again:'괜찮아? 아까 쓰러져 있길래 걱정했어. 이거 다시 가져가.', after:'계단 위에서 사각사각 소리가 나. 샤프 소리 같기도 하고…',
     camp:['여기 모닥불 옆이 제일 안전한 것 같아.', '전염병 돌 때는 소독약 꼭 챙겨.', '학교가 조용해졌어. 네 덕분이야.']},
-  dohyun:{name:'도현', gender:'m', bld:'school', x:12, y:10, gift:3,
+  dohyun:{name:'정행', gender:'m', bld:'school', x:12, y:10, gift:3,
     look:{skin:SKIN, eye:EYE, blush:BLUSH, shoe:SHOE, hair:'#2a2026', outfit:'#5a4a3a', outfitD:'#463a2e', pants:'#2c2e3a', acc:'collar', long:false},
     first:['쉿… 여기 컴퓨터들, 전원이 꺼져 있는데도 화면이 켜져.', `옥상에 누가 있어. ${NAMES.boss}이라는 앤데, 공격 전에도 본 사람이 없대.`, '이거 써. 난 여기서 버틸게.'],
     again:'또 왔네. 이거 다시 가져가.', after:'서버실 화면 봤어? 우리를 누가 지켜보고 있는 것 같아.',
     camp:['서버실에서 본 숫자, 생존자 수였던 것 같아. 줄어들고 있었어.', '킥보드 배터리는 생각보다 빨리 닳아. 아껴 타.']},
-  harin:{name:'하린', gender:'f', bld:'school', x:36, y:6, gift:3,
+  harin:{name:'정연', gender:'f', bld:'school', x:36, y:6, gift:3,
     look:{skin:SKIN, eye:EYE, blush:BLUSH, shoe:SHOE, hair:'#5a3424', outfit:'#7c2e44', outfitD:'#5c2132', pants:'#3a2a33', acc:'collar', long:true},
     first:['방송실 문은 열려 있어. 거기 쓸 만한 게 있을 거야.', `그림자 선생님… ${NAMES.kimjs.name} 선생님이랑 닮았어. 가까이 가지 마.`, '이거 가져. 꼭 살아서 다시 와.'],
     again:'다친 데는 없어? 이거 다시 가져가.', after:'옥상 문은 계단 끝에 있어. 준비가 되면 가.',
@@ -1930,7 +2246,7 @@ const NPCS = {
     camp:['목사님이… 아니, 그건 이제 목사가 아니었네.', '헌금함에 손대지 마라. 그건 처음부터 함정이었어.']},
   leesw:{name:'이승원 집사', gender:'f', bld:'church', x:36, y:6, gift:4,
     look:{skin:SKIN, eye:EYE, blush:BLUSH, shoe:SHOE, hair:'#3a2a24', outfit:'#5a4a6a', outfitD:'#463a54', pants:'#3a3044', acc:'pearl', long:true},
-    first:['쉿, 애들 교실 쪽은 조용히 지나가.', `권사님이… 그림자가 돼서 복도를 돌아다녀. 새벽기도 시간마다 소리를 질러.`, '4층 재정부엔 가지 마. 헌금 요괴들이 끝없이 불어나.', '이거 가져가. 나보다 네가 더 필요하겠다.'],
+    first:['쉿, 애들 교실 쪽은 조용히 지나가.', `${NAMES.kwonsa}님이… 그림자가 돼서 복도를 돌아다녀. 새벽기도 시간마다 ‘유죄!’라고 소리를 질러.`, '4층 재정부엔 가지 마. 헌금 요괴들이 끝없이 불어나.', '이거 가져가. 나보다 네가 더 필요하겠다.'],
     again:'다친 데는 없어? 이거 다시 가져가.', after:'목사님 방 금고에서 이상한 장부를 봤어. 받는 사람이… 사람 이름이 아니었어.',
     camp:['아이들 그림 봤어? 다들 하늘의 문양을 그렸더라.', '이제 기도는 내가 하고 싶을 때만 할 거야.']},
   jbh:{name:'정봉학 점장님', gender:'m', bld:'dept', x:36, y:10, gift:5,
@@ -1947,7 +2263,37 @@ const NPCS = {
     look:{skin:SKIN, eye:EYE, blush:BLUSH, shoe:SHOE, hair:'#3a2420', outfit:'#8a6a4a', outfitD:'#6a4e36', pants:'#3a3040', acc:'collar', long:true},
     first:['…현성아? 아, 아니구나. 미안해요. 우리 아들인 줄 알고.', '현성이 겨울 외투 사러 왔다가 이렇게 됐어요. 그날 현성이는 친구 집에 있었으니까… 무사하겠죠?', '마네킹들이 밤마다 옷을 갈아입어요. 사람 옷으로요. 오래 있지 말아요.', '이거 가져가요. 현성이 또래 같은데, 꼭 살아남아야 해요.'],
     again:'다친 데는 없어요? 이거 다시 가져가요.', after:'현성이 줄 외투는 내가 골라 뒀어요. 언젠가 만나면 입혀 줘야지.',
-    camp:['현성이 줄 간식은 내가 챙겨 둬야지. 언젠가 만나면 주려고.', '현성이도 어딘가에서 이 하늘을 보고 있겠죠.', '밥은 먹었어요? 애들은 잘 먹어야 해요.']}
+    camp:['현성이 줄 간식은 내가 챙겨 둬야지. 언젠가 만나면 주려고.', '현성이도 어딘가에서 이 하늘을 보고 있겠죠.', '밥은 먹었어요? 애들은 잘 먹어야 해요.']},
+  mise:{name:'이미성 서장', gender:'m', bld:'police', x:38, y:8, gift:6,
+    look:{skin:'#e0b898', eye:EYE, blush:'#d89a86', shoe:SHOE, hair:'#4a4048', outfit:'#1a2a4a', outfitD:'#121e36', pants:'#121e36', acc:'badge', long:false, big:true},
+    first:['…승원아? …아니구나.', '나는 이 경찰서 서장 이미성이다. 시민을 지키는 게 내 일이지. …그리고 승원이를 찾는 것도.', '승원이가 누구냐고? 그, 그냥 아는 사람이다. 아주 소중한… 아니, 그냥 아는 사람.', '이거 가져가라. 혹시 승원이라는 사람을 보면… 내 얘기 좀 잘 해 주고.'],
+    again:'또 쓰러졌나. 이거 다시 가져가. …승원이는 아직 못 봤지?', after:'3층 유치장 열쇠는 간수가 늘 오른쪽 끝에 떨어뜨리고 다녔지. 이승용이 탈옥한 것도 그래서다.',
+    camp:['캠프에 승원이라는 사람이 있다고? …아니, 지금은 안 만날래. 마음의 준비가 필요해.', '무전기에서 내 목소리가 들려도 믿지 마라. 나는 그런 지시를 내린 적 없다.', '서장으로서 말하는데, 밤에는 돌아다니지 마라. …승원이도 그랬으면 좋겠는데.']},
+  junyoung:{name:'송준영 경위', gender:'m', bld:'police', x:12, y:7, gift:6,
+    look:{skin:SKIN, eye:EYE, blush:BLUSH, shoe:SHOE, hair:'#141018', outfit:'#2a3a5a', outfitD:'#1e2a44', pants:'#1e2a44', acc:'tie', long:false},
+    first:['어이, 거기! …아, 사람이네. 송준영 경위다.', '세상이 끝나도 난 포기 안 해. 살아남아서 꼭 소개팅을 할 거거든.', '혹시 캠프에 혼자인 여자분들 계시나? …아니, 그냥 치안 차원에서 물어본 거야.', '이거 받아. 경찰은 시민을 돕는 법이지. 특히 멋지게.'],
+    again:'괜찮아? 이거 다시 가져가. …근데 내 머리 괜찮아 보여?', after:'형사과 그림자는 플래시를 터뜨려. 눈이 부시면 타이밍 맞추기 힘들 거야.',
+    camp:['캠프 분위기 좋네. 특히 저쪽… 아, 아무것도 아니야.', '내 이상형? 나 보고 웃어 주는 사람. …다들 요괴 보고 비명만 지르더라.', '머리가 엉망이야. 거울 어디 없나?']},
+  hyunsu:{name:'주현수 순경', gender:'m', bld:'police', x:23, y:4, gift:6,
+    look:{skin:SKIN, eye:EYE, blush:'#e8907a', shoe:SHOE, hair:'#2a2020', outfit:'#4a6a9a', outfitD:'#3a547a', pants:'#1e2a44', acc:'badge', long:false, big:true, fat:true},
+    first:['으음… 냠냠… 어? 문 열렸다! 살았다!', '난 주현수 순경. 이승용이 탈옥할 때 무서워서 여기 숨었는데… 압수품 간식이 있어서 버틸 만했어.', '혹시 먹을 거 있어? 없어? …그럼 이거라도 줄게. 대신 다음에 빵 하나만.'],
+    again:'또 왔네! 혹시 빵 가져왔어? …없구나. 이거 다시 가져가.', after:'4층 무기고 쪽에서 쇠사슬 소리가 나. 이승용은 그걸 채찍처럼 휘둘러.',
+    camp:['캠프 밥 맛있다! 한 그릇만 더…', '컵라면은 피시방이 최고래. 다음엔 거기 가자!', '배고프면 싸움도 못 해. 빵은 꼭 챙겨.']},
+  eunyoung:{name:'김은영', gender:'f', bld:'pc', x:38, y:9, gift:6,
+    look:{skin:SKIN, eye:EYE, blush:BLUSH, shoe:SHOE, hair:'#2a1a1a', outfit:'#2a5a4a', outfitD:'#1e4436', pants:'#2a2a34', acc:'collar', long:true},
+    first:['어서 오세요… 아, 손님이 아니구나. 살아 있는 사람은 오랜만이에요.', '저는 여기 알바 김은영이에요. 다들 저 보러 온다더니, 이젠 화면만 봐요.', '사장님은 도망갔고, 단골 이호정 씨가 3층 VIP룸에서 몇 달째 안 나와요. 이젠… 사람 같지 않아요.', '이거 가져가세요. 몸조심하시고요.'],
+    again:'괜찮으세요? 이거 다시 가져가세요.', after:'잠긴 방 문에 달린 모니터는 게임을 통과해야 열려요. 사장님이 장난으로 달아 놨거든요.',
+    camp:['캠프에서도 사람들이 자꾸 저한테 주문을 해요. …알바 습관이 무섭네요.', '이호정 씨, 원래는 착한 사람이었어요. 게임을 너무 좋아했을 뿐.', '피시방 1층 모니터, 이제 그냥 게임할 수 있어요. 기록 한번 깨 보세요.']},
+  taemin:{name:'박태민', gender:'m', bld:'pc', x:34, y:10, gift:6,
+    look:{skin:SKIN, eye:EYE, blush:BLUSH, shoe:SHOE, hair:'#1a1418', outfit:'#e8e0d0', outfitD:'#c8c0b0', pants:'#3a3a42', acc:'collar', long:false},
+    first:['라면 드실래요? …아, 물이 끓는 게 아니라 라면이 혼자 끓고 있어요.', '저는 요리 담당 박태민이에요. 주방에서 나는 소리는 신경 쓰지 마세요. 냄비가 배고프대요.', '이거 가져가세요. 전 다시 볶음밥 지키러 갈게요.'],
+    again:'또 오셨네요. 이거 다시 가져가세요. 배는 안 고프세요?', after:'컵라면 요괴는 국물이 독이에요. 소독약 챙기세요.',
+    camp:['캠프 요리는 제가 맡을게요. 재료만 있으면 뭐든 해요.', '주현수 순경님이 벌써 세 그릇째예요.', '이평배 씨는 밥 먹으면서도 손가락을 움직여요. 게임 습관이래요.']},
+  pyungbae:{name:'이평배', gender:'m', bld:'pc', x:20, y:7, gift:6,
+    look:{skin:'#d8c0a8', eye:EYE, blush:'#c8a090', shoe:SHOE, hair:'#2a2420', outfit:'#4a4a56', outfitD:'#34343e', pants:'#2a2a34', acc:'glasses', long:false},
+    first:['…쉿. 지금 레이드 중이야.', '나 이평배. 여기서 3년 살았어. 화면 밖이 이렇게 된 줄은 오늘 알았네.', '불 꺼진 건 차단기 때문이야. 오른쪽 끝 벽에 있어. 난 귀찮아서 안 켰어.', '이거 줄게. 게임 아이템… 아니, 진짜 아이템이야.'],
+    again:'또 죽었어? 리스폰 빠르네. 이거 다시 가져가.', after:'이호정 형은 랭킹 1위였어. 이제 화면이랑 몸이 붙어 버렸지.',
+    camp:['캠프엔 와이파이 없어? …없구나.', '진짜 몬스터랑 싸우니까 손맛이 다르네.', '해 뜨는 거 3년 만에 봤어.']}
 };
 /* ruins map: buildings with doors, the survivor camp and road layout (fictional Mokpo) */
 const BLD = {
@@ -1955,17 +2301,18 @@ const BLD = {
   church: {name:NAMES.church, x0:14, y0:6,  x1:22, y1:14, door:[18,14], floor:4},
   station:{name:'목포역',      x0:40, y0:4,  x1:54, y1:10, door:[47,10], desc:'멈춘 열차 안에서 승객들이 창문을 두드린다.'},
   dept:   {name:NAMES.dept,   x0:64, y0:8,  x1:72, y1:15, door:[68,15], floor:10, desc:'진열대가 스스로 물건을 정리하는 소리가 난다.'},
-  police: {name:'경찰서',      x0:84, y0:5,  x1:93, y1:14, door:[88,14], desc:'무전기에서 알 수 없는 언어가 흘러나온다.'},
+  police: {name:NAMES.police, x0:84, y0:5,  x1:93, y1:14, door:[88,14], floor:14, desc:'무전기에서 알 수 없는 언어가 흘러나온다.'},
   apt:    {name:'라송아파트',  x0:84, y0:24, x1:94, y1:34, door:[89,34], desc:'불 꺼진 창문들이 한꺼번에 깜빡인다.'},
   motel:  {name:'정연모텔',    x0:64, y0:44, x1:73, y1:52, door:[68,52], desc:'간판이 혼자 켜졌다 꺼진다.'},
-  pc:     {name:'피시방건물',  x0:40, y0:46, x1:48, y1:53, door:[44,53], desc:'모든 컴퓨터가 같은 화면을 띄우고 있다.'},
+  pc:     {name:NAMES.pc,     x0:40, y0:46, x1:48, y1:53, door:[44,53], floor:18, desc:'모든 컴퓨터가 같은 화면을 띄우고 있다.'},
   shelter:{name:'제선보호소',  x0:10, y0:44, x1:19, y1:52, door:[14,52], desc:'동물들의 울음소리가 사람 목소리 같다.'}
 };
 /* the order buildings open in (one at a time); BINFO lists the ones that can be played, with their floors and boss */
 const BLD_ORDER = ['school','church','dept','police','pc','motel','shelter','apt','station'];
-const BINFO = {school:{floors:[0,1,2,3], boss:'boss'}, church:{floors:[4,5,6,7,8], boss:'pastor'}, dept:{floors:[10,11,12,13], boss:'sunhwa'}};
+const BINFO = {school:{floors:[0,1,2,3], boss:'boss'}, church:{floors:[4,5,6,7,8], boss:'pastor'}, dept:{floors:[10,11,12,13], boss:'sunhwa'},
+  police:{floors:[14,15,16,17], boss:'seungyong'}, pc:{floors:[18,19,20], boss:'hojeong'}};
 const CAMP = {cx:47, cy:28, spawn:[47,31], rest:[48,24], stall:[44,30], board:[51,30], fire:[47,28], bench:[51,24],
-  tents:[[42,24],[44,24],[53,24],[53,27],[42,32]], spots:[[46,26],[49,26],[44,27],[51,28],[46,33],[50,33],[42,28],[52,31],[48,33]]};
+  tents:[[42,24],[44,24],[53,24],[53,27],[42,32]], spots:[[46,26],[49,26],[44,27],[51,28],[46,33],[50,33],[42,28],[52,31],[48,33],[43,26],[54,30],[49,30],[41,30],[52,26],[45,23]]};
 const KICK_SPOT = [29,36];
 const bldLast = id => BINFO[id].floors[BINFO[id].floors.length - 1];
 const bldPrev = id => { const i = BLD_ORDER.indexOf(id); return i > 0 ? BLD_ORDER[i - 1] : null; };
@@ -1990,6 +2337,17 @@ function buildRoom(F){
     for (let x = 6; x <= 8; x++){ m[3][x] = 'H'; m[4][x] = 'H'; }
     [[12,9],[13,9],[24,3],[25,3]].forEach(([x,y]) => m[y][x] = 'A');
     m[5][1] = 'Q'; m[6][1] = 's'; m[7][1] = 'Q';
+  } else if (F.armory || F.vip){
+    for (let x = 1; x < W-1; x++){ m[1][x] = 'W'; m[2][x] = 'W'; for (let y = 3; y <= 10; y++) m[y][x] = '.'; m[11][x] = 'B'; }
+    for (let y = 1; y <= 11; y++){ m[y][0] = '|'; m[y][W-1] = '|'; }
+    m[5][1] = 'Q'; m[6][1] = 's'; m[7][1] = 'Q';
+    if (F.armory){
+      for (const [a, b] of [[5,9],[20,27]]) for (let x = a; x <= b; x++) m[3][x] = ';';
+      [[12,9],[13,9],[26,9],[26,10],[8,10]].forEach(([x,y]) => m[y][x] = '-');
+    } else {
+      for (const [a, b] of [[6,12],[18,26]]) for (let x = a; x <= b; x++) m[3][x] = (x % 3) ? '<' : '>';
+      [[8,9],[9,9],[13,10],[25,9],[26,9]].forEach(([x,y]) => m[y][x] = '<');
+    }
   } else if (F.warehouse){
     for (let x = 1; x < W-1; x++){ m[1][x] = 'W'; m[2][x] = 'W'; for (let y = 3; y <= 10; y++) m[y][x] = '.'; m[11][x] = 'B'; }
     for (let y = 1; y <= 11; y++){ m[y][0] = '|'; m[y][W-1] = '|'; }
@@ -2063,6 +2421,24 @@ function buildMap(f){
     for (const y of [5, 8]) for (const [a, b] of [[5,9],[13,17],[23,27],[31,35]]) for (let x = a; x <= b; x++) m[y][x] = '+';
     [[11,4],[20,6],[21,6],[29,9],[38,5],[12,9]].forEach(([x,y]) => m[y][x] = '&');
     m[7][19] = '!';
+  } else if (f === 14){
+    for (let x = 10; x <= 18; x++) m[4][x] = '2';
+    for (const y of [7, 9]) for (const [a, b] of [[6,9],[13,16],[24,27],[31,34]]) for (let x = a; x <= b; x++) m[y][x] = '3';
+    m[3][22] = '5';
+  } else if (f === 15){
+    for (const [x0, y0] of [[7,5],[14,5],[27,5],[7,8],[20,8],[33,8]]) for (let y = y0; y <= y0 + 1; y++) for (let x = x0; x <= x0 + 2; x++) m[y][x] = '7';
+    for (let x = 34; x <= 37; x++) m[3][x] = '8';
+    m[4][21] = '9';
+  } else if (f === 16){
+    for (let x = 6; x <= 34; x++) m[6][x] = '6';
+    for (const x of [6,13,20,27,34]) for (let y = 3; y <= 5; y++) m[y][x] = '6';
+    F.gates.forEach(([x, y]) => m[y][x] = '[');
+  } else if (f === 18){
+    for (const y of [5, 8]) for (const [a, b] of [[6,13],[17,24],[28,33]]) for (let x = a; x <= b; x++) m[y][x] = ((x*7 + y) % 5 === 0) ? '>' : '<';
+    for (let x = 36; x <= 40; x++) m[10][x] = '('; m[10][37] = '{'; m[9][42] = ')';
+  } else if (f === 19){
+    for (const y of [5, 8]) for (const [a, b] of [[7,12],[16,21],[25,30],[34,37]]) for (let x = a; x <= b; x++) m[y][x] = ((x*5 + y) % 6 === 0) ? '>' : '<';
+    m[2][38] = '/';
   }
   { const r = rng(9001 + f*77); let n = 0, guard = 0; while (n < 24 && guard++ < 4000){ const x = 1 + (r()*(F.w-2) | 0), y = 3 + (r()*8 | 0); if (m[y][x] === '.'){ m[y][x] = ','; n++; } } }
   return m;
@@ -2145,7 +2521,7 @@ function buildOverworld(){
   }
   return m;
 }
-const WALKABLE = new Set(['.', ',', 'y', '_', 'r', 'i', 'I', '=']);
+const WALKABLE = new Set(['.', ',', 'y', '_', 'r', 'i', 'I', '=', ']']);
 function owMultAt(tx, ty){
   const d = Math.hypot(tx - BLD.school.door[0], ty - BLD.school.door[1]), k = clamp((d - 8)/45, 0, 1);
   return {hp:1.2 + k*1.4, atk:1.2 + k*1.5, exp:1.3 + k*1.7, gem:1.2 + k*1.3, def:Math.round(k*2)};
@@ -2166,6 +2542,20 @@ function drawTile(c, ch, tx, ty, r, th){
       if (r() < 0.18){ const gx = r()*12 | 0, gy = r()*12 | 0; P(gx, gy, 1, 2, '#5a5a3a'); P(gx + 2, gy + 1, 1, 2, '#4a4a32'); }
       if (r() < 0.12){ let cx = 2 + (r()*12 | 0), cy = 2 + (r()*12 | 0); for (let i = 0; i < 7; i++){ P(cx, cy, 1, 1, '#2a2430'); cx += r() < .5 ? 1 : -1; cy += r() < .6 ? 1 : 0; cx = clamp(cx, 1, 14); cy = clamp(cy, 1, 14); } }
       if (r() < 0.035) pool();
+      return;
+    }
+    if (th.police){
+      P(0,0,16,16, ((tx+ty) & 1) ? th.fb : th.fa); P(0,0,16,1,th.grid); P(0,0,1,16,th.grid);
+      if (r() < 0.12){ let cx = 2 + (r()*12 | 0), cy = 2 + (r()*12 | 0); for (let i = 0; i < 6; i++){ P(cx, cy, 1, 1, '#2a303c'); cx = clamp(cx + (r() < .5 ? 1 : -1), 1, 14); cy = clamp(cy + 1, 1, 14); } }
+      for (let i = 0; i < 3; i++) P(r()*15 | 0, r()*15 | 0, 1, 1, th.speck);
+      if (r() < 0.03) pool(); else splat();
+      return;
+    }
+    if (th.pcb){
+      P(0,0,16,16, th.fa); if ((tx + ty) % 3 === 0) P(2,2,12,12,th.fb);
+      if (((tx*5 + ty*3) % 7) === 0){ P(7,7,2,2, ((tx + ty) & 1) ? '#3a2a5a' : '#1e3a2a'); }
+      for (let i = 0; i < 3; i++) P(r()*15 | 0, r()*15 | 0, 1, 1, r() < 0.2 ? '#5ae86a' : th.speck);
+      if (r() < 0.025) pool(); else splat();
       return;
     }
     if (th.dept){
@@ -2266,6 +2656,8 @@ function drawTile(c, ch, tx, ty, r, th){
       if (ty === 1){
         P(0,0,16,16,th.wt); P(0,0,16,3,th.wd); P(0,3,16,1,th.top); P(15,4,1,12,th.side);
         if (th.church){ if (tx % 3 === 1){ P(4,4,8,10,th.wd); P(5,5,3,4,'#8a2a3a'); P(8,5,3,4,'#2a4a8a'); P(5,9,3,4,'#c8a040'); P(8,9,3,4,'#3a7a4a'); P(7,4,2,10,th.wd); P(4,8,8,1,th.wd); } }
+        else if (th.police){ if (tx % 5 === 2){ P(3,4,10,10,'#d8d0c0'); P(4,5,8,1,'#14101a'); P(6,7,4,4,'#5a5a62'); P(7,8,1,1,'#14101a'); P(8,8,1,1,'#14101a'); P(4,12,8,1,'#c0303a'); if (r() < 0.5){ P(4,6,8,1,'#c0303a'); P(11,5,1,8,'#c0303a'); } } }
+        else if (th.pcb){ if (tx % 4 === 1){ P(1,6,14,2, (tx % 8 === 1) ? '#5ae86a' : '#a184e6'); P(1,6,14,1,'#e8fff0'); } }
         else if (th.dept){ if (tx % 6 === 3){ P(2,4,12,9,'#2a1a20'); P(3,5,10,7,'#8a1a2a'); P(4,6,8,1,'#efe8da'); P(4,8,6,1,'#efe8da'); P(4,10,7,1,'#e6b24c'); } else if (tx % 6 === 0) P(6,5,4,4,'#e6b24c'); }
         else if (tx % 4 === 2){ P(3,5,10,8,th.wd); P(4,6,8,3,'#5e1f2c'); P(4,9,8,3,'#a63e36'); P(7,6,2,6,th.wd); }
       } else wallLower();
@@ -2292,7 +2684,7 @@ function drawTile(c, ch, tx, ty, r, th){
       }
       break;
     case 'G':
-      P(0,0,16,16,th.edge); P(3,0,11,16,'#2a2030'); P(5,0,7,16, th.church ? '#3a1a12' : th.dept ? '#24404a' : '#5e2228');
+      P(0,0,16,16,th.edge); P(3,0,11,16,'#2a2030'); P(5,0,7,16, th.church ? '#3a1a12' : th.dept ? '#24404a' : th.police ? '#1a2a44' : th.pcb ? '#2a1a3a' : '#5e2228');
       P(6, r()*8 | 0, 1, 5, '#8a3a3a'); P(9, (r()*6 | 0) + 4, 1, 6, '#7a3030');
       if (ty === 6) P(11,7,1,3,'#e6b24c');
       break;
@@ -2352,7 +2744,7 @@ function drawTile(c, ch, tx, ty, r, th){
       if (tx % 4 === 2) P(14,0,2,16,'#8a8fa0');
       break;
     case 's':
-      if (th.roof || ((th.church || th.dept) && tx === 1 && ty === 6)){
+      if (th.roof || ((th.church || th.dept || th.police || th.pcb) && tx === 1 && ty === 6)){
         P(0,0,16,16,'#2e2a34'); P(2,1,12,15,'#4a5060'); P(3,2,10,13,'#5a6272'); P(3,2,10,1,'#6a7282'); P(11,8,2,2,'#e6b24c'); P(2,15,12,1,'#1a1820');
       } else {
         floor();
@@ -2403,6 +2795,36 @@ function drawTile(c, ch, tx, ty, r, th){
     case '-':
       floor(); P(1,2,14,13,'#6a4a2a'); P(1,2,14,2,'#8a6a42'); P(1,8,14,1,'#4a3220'); P(7,2,1,13,'#4a3220'); P(1,14,14,1,'#2a1a10');
       if (r() < 0.4) P(3,10,3,2,'#e8a8c8'); break;
+    case '2':
+      floor(); P(0,4,16,9,'#4a4e5a'); P(0,4,16,2,'#6a7080'); P(1,0,14,5,'#24323e'); P(2,1,4,3,'#3a5a6a'); P(0,12,16,2,'#22262e'); if (r() < 0.3) P(9,6,3,2,'#5a0e18'); break;
+    case '3':
+      floor(); P(1,3,14,4,'#24325a'); P(1,7,14,4,'#2a3a6a'); P(1,7,14,1,'#3a4a8a'); P(2,11,1,4,'#9aa0aa'); P(13,11,1,4,'#9aa0aa'); P(7,3,1,8,'#1a2440'); if (r() < 0.35) P(3 + (r()*8 | 0),8,3,2,'#3e0a12'); break;
+    case '5':
+      floor(); P(4,4,8,10,'#2a2a30'); P(5,5,6,3,'#3a3a42'); P(5,9,6,4,'#1a1a20'); for (let i = 0; i < 3; i++) P(6,10 + i,4,1, i % 2 ? '#3a3a42' : '#2a2a30'); P(10,0,1,4,'#5a5a62'); P(6,6,1,1,'#5ae86a'); P(4,13,8,1,'#0c0913'); break;
+    case '6':
+      floor(); for (let i = 1; i < 16; i += 3) P(i,0,2,16,'#6a707a'); P(0,1,16,2,'#4a4e58'); P(0,13,16,2,'#4a4e58'); for (let i = 1; i < 16; i += 3) P(i,0,1,16,'#8a909a'); if (r() < 0.3) P(4,6,2,4,'#5a0e18'); break;
+    case '[': floor(); break;
+    case '7':
+      floor(); P(0,3,16,10,'#5a4a3a'); P(0,3,16,2,'#7a644e'); P(2,4,5,3,'#e8e0d0'); P(9,5,4,3,'#d8d0c0'); P(3,5,3,1,'#5a5a62'); P(11,6,2,2,'#c0303a'); P(1,13,2,3,'#3a2e24'); P(13,13,2,3,'#3a2e24'); if (r() < 0.3) P(5,9,3,2,'#5a0e18'); break;
+    case '8':
+      floor(); P(1,0,14,15,'#3a4250'); P(2,1,12,13,'#4e5668'); for (let i = 0; i < 3; i++) P(2,2 + i*4,12,1,'#2a303c'); P(11,3,2,1,'#c8a040'); P(11,7,2,1,'#c8a040'); P(11,11,2,1,'#c8a040'); P(1,14,14,2,'#1a1e26'); break;
+    case '9':
+      floor(); P(1,1,14,12,'#e8e4dc'); P(1,1,14,1,'#9aa0aa'); P(2,3,3,3,'#5a5a62'); P(10,2,3,3,'#5a5a62'); P(6,8,3,3,'#3a2a5a'); P(4,5,3,1,'#c0303a'); P(7,4,3,1,'#c0303a'); P(8,7,1,2,'#c0303a'); P(11,5,1,3,'#c0303a'); P(2,13,1,3,'#5a5a62'); P(13,13,1,3,'#5a5a62'); break;
+    case ';':
+      floor(); P(0,2,16,11,'#3a3a42'); P(0,2,16,1,'#5a5a62'); for (let i = 0; i < 4; i++){ P(2 + i*4,3,1,8,'#9aa0aa'); P(2 + i*4,11,2,1,'#6a707a'); } P(0,12,16,1,'#2a2a30'); if (r() < 0.4) P(6,8,3,2,'#5a0e18'); break;
+    case '<': case '>':
+      floor(); P(0,8,16,4,'#2a2632'); P(0,8,16,1,'#4a4456'); P(3,1,10,7,'#0c0a12'); P(4,2,8,5, ch === '<' ? ['#1e4a3a','#2a2a5a','#4a1a3a'][(r()*3) | 0] : '#14101a');
+      if (ch === '<'){ P(5,3,3,1,'#5ae86a'); P(5,5,5,1,'#a184e6'); if (r() < 0.25){ P(6,3,1,1,'#ff3a3a'); P(9,3,1,1,'#ff3a3a'); } } else if (r() < 0.5) P(6,3,4,3,'#1a1018');
+      P(3,9,8,2,'#3a3446'); P(5,12,6,4,'#1a1420'); P(5,12,6,1,'#c84a3a'); break;
+    case '(': case '{':
+      floor(); P(0,3,16,10,'#3a2a4a'); P(0,3,16,2,'#5a4a6a'); P(0,12,16,2,'#1a1420');
+      if (ch === '{'){ P(3,0,10,7,'#0c0a12'); P(4,1,8,4,'#1e3a5a'); P(5,2,6,1,'#5fdcc6'); P(5,4,4,1,'#e6b24c'); }
+      else { P(3,0,3,3,'#e8e0d0'); P(3,0,3,1,'#c84a3a'); P(9,1,3,2,'#e8e0d0'); if (r() < 0.5) P(10,0,1,1,'#e0b090'); }
+      break;
+    case ')':
+      floor(); P(1,0,14,16,'#1a2a3a'); P(2,1,12,13,'#2a4a6a'); for (let j = 0; j < 3; j++) for (let i = 0; i < 4; i++) P(3 + i*3, 2 + j*4, 2, 3, ['#5ae86a','#e6b24c','#c84a3a','#a184e6'][(i + j) % 4]); P(1,14,14,2,'#0c1018'); break;
+    case '/':
+      wallLower(); P(4,2,8,10,'#5a5a62'); P(5,3,6,8,'#3a3a42'); P(7,5,2,4,'#c84a3a'); P(6,4,4,1,'#e6b24c'); P(4,1,8,1,'#2a2a30'); P(5,12,1,4,'#2a2a30'); break;
     case '1':
       floor(); P(1,13,14,2,'#1a1420'); P(1,6,14,4,'#6a4a2a'); P(1,6,14,1,'#8a6a42'); P(2,10,2,4,'#3a2418'); P(12,10,2,4,'#3a2418');
       P(3,2,1,4,'#9aa0aa'); P(2,2,3,1,'#5a5a62'); P(7,4,5,2,'#c0c4cc'); P(7,4,5,1,'#e8ecef'); P(12,4,2,2,'#c84a3a'); break;
@@ -2504,13 +2926,13 @@ let ents = [], trail = [], entSeq = 0;
 const DIRV = {up:{x:0,y:-1}, down:{x:0,y:1}, left:{x:-1,y:0}, right:{x:1,y:0}};
 const keys = new Set();
 const K = (...c) => c.some(k => keys.has(k));
-const newFS = () => ({shards:[], vend:false, insp:false, met:{}, gift:{}, loot:{}, rack:{}, got:[], gems:0, done:false, teacher:false, boss:false});
-const newRec = () => ({battles:0, wins:0, caps:0, capTries:0, perfects:0, faints:0, time:0, maxHit:0, broke:0, veins:0, nightWins:0, kickDist:0, boxes:0, crafts:0});
+const newFS = () => ({shards:[], vend:false, insp:false, met:{}, gift:{}, loot:{}, rack:{}, unlock:{}, key:false, got:[], gems:0, done:false, teacher:false, boss:false});
+const newRec = () => ({battles:0, wins:0, caps:0, capTries:0, perfects:0, faints:0, time:0, maxHit:0, broke:0, veins:0, nightWins:0, kickDist:0, boxes:0, crafts:0, react:0, aim:0, enh:0});
 const newOW = () => ({veins:{}, tents:{}, kickFree:false, bus:false, plagueSeen:false, camped:false});
-const newEV = () => ({t:0, song:false, songT:0, nextSong:40, embT:20, stack:0, shPh:0, shT:SHIFT_P});
+const newEV = () => ({t:0, song:false, songT:0, nextSong:40, embT:20, stack:0, shPh:0, shT:SHIFT_P, radT:12, seenCD:2, crawled:{}});
 const SHIFT_P = 10, SHIFT_WARN = 1.8;
 const KICK_MAX = 120;
-const BLD_NAME = {school:NAMES.school, church:NAMES.church, dept:NAMES.dept};
+const BLD_NAME = {school:NAMES.school, church:NAMES.church, dept:NAMES.dept, police:NAMES.police, pc:NAMES.pc};
 const floorLabel = f => { const F = FLOORS[f]; if (!F) return ''; return F.ow ? F.name : `${BLD_NAME[F.bld] || ''} ${F.name}`; };
 const isOW = () => G.floor === OW;
 function floorOf(id){ for (let f = 0; f < FLOORS.length; f++) if (FLOORS[f].npcs.includes(id)) return f; return 0; }
@@ -2544,7 +2966,7 @@ function bonus(){
   }
   for (const s of ['weapon','armor']){
     const g = G.equip && G.equip[s];
-    if (g && EQUIPS[g.key]){ const S = EQUIPS[g.key].stats; for (const k in S) stats[k] = (stats[k] || 0) + S[k]; }
+    if (g && EQUIPS[g.key]){ const S = EQUIPS[g.key].stats; for (const k in S) stats[k] = (stats[k] || 0) + S[k]; if (g.plus){ const k0 = Object.keys(S)[0]; stats[k0] += g.plus | 0; } }
   }
   return {stats, cap};
 }
@@ -2560,6 +2982,8 @@ function buffText(p){
   return parts.join(' · ');
 }
 const gearText = key => Object.entries(EQUIPS[key].stats).map(([k, v]) => `${k} +${v}`).join(' · ');
+const gearName = g => EQUIPS[g.key].name + (g.plus ? ` +${g.plus}` : '');
+const gearTextG = g => Object.entries(EQUIPS[g.key].stats).map(([k, v], i) => `${k} +${v + (i === 0 ? (g.plus | 0) : 0)}`).join(' · ');
 function addPet(key){
   const act = activePets();
   const on = act.length < petSlots() && !act.some(p => p.key === key);
@@ -2589,8 +3013,8 @@ function removeGearById(id){
   for (const s of ['weapon','armor']) if (G.equip[s] && G.equip[s].id === id){ G.equip[s] = null; clampVitals(); return; }
   const i = G.gearBag.findIndex(g => g.id === id); if (i >= 0) G.gearBag.splice(i, 1);
 }
-function floorTotal(f){ const F = FLOORS[f]; if (F.ow) return 0; if (F.boss) return 1; return F.shards.length + (F.vend ? 1 : 0) + (F.insp ? 1 : 0) + F.npcs.length + Object.values(F.doors).filter(d => d[2]).length + (F.racks ? F.racks.length : 0); }
-function progress(f){ const s = G.fs[f], F = FLOORS[f]; if (F.ow) return 0; if (F.boss) return s.boss ? 1 : 0; return s.shards.length + (s.vend ? 1 : 0) + (s.insp ? 1 : 0) + Object.keys(s.met).length + Object.keys(s.loot).length + Object.keys(s.rack || {}).length; }
+function floorTotal(f){ const F = FLOORS[f]; if (F.ow) return 0; if (F.boss) return 1; return F.shards.length + (F.vend ? 1 : 0) + (F.insp ? 1 : 0) + F.npcs.length + Object.values(F.doors).filter(d => d[2]).length + (F.racks ? F.racks.length : 0) + (F.keyAt ? 1 : 0); }
+function progress(f){ const s = G.fs[f], F = FLOORS[f]; if (F.ow) return 0; if (F.boss) return s.boss ? 1 : 0; return s.shards.length + (s.vend ? 1 : 0) + (s.insp ? 1 : 0) + Object.keys(s.met).length + Object.keys(s.loot).length + Object.keys(s.rack || {}).length + (F.keyAt && s.key ? 1 : 0); }
 function exploreRate(){ let a = 0, b = 0; for (let f = 0; f < FLOORS.length; f++){ a += progress(f); b += floorTotal(f); } return b ? a/b : 0; }
 const achRate = () => Object.keys(G.ach).length/ACH.length;
 
@@ -2610,7 +3034,7 @@ const faintOv = $('#faintOv'), faintHead = $('#faintHead'), faintMsg = $('#faint
 const tagsEl = $('#tags');
 const menuOv = $('#menuOv'), menuHead = $('#menuHead'), menuBody = $('#menuBody');
 const shopOv = $('#shopOv'), shopHead = $('#shopHead'), shopHint = $('#shopHint'), shopGems = $('#shopGems'), shopList = $('#shopList');
-const cardOv = $('#cardOv'), helpOv = $('#helpOv'), rankOv = $('#rankOv');
+const cardOv = $('#cardOv'), helpOv = $('#helpOv'), rankOv = $('#rankOv'), mgOv = $('#mgOv');
 const battleEl = $('#battle'), beName = $('#beName'), beCap = $('#beCap'), beHp = $('#beHp'), beHpT = $('#beHpT'), beStat = $('#beStat');
 const bmName = $('#bmName'), bmLv = $('#bmLv'), bmHp = $('#bmHp'), bmHpT = $('#bmHpT'), bmMp = $('#bmMp'), bmMpT = $('#bmMpT'), bmStat = $('#bmStat');
 const bBox = $('#bBox'), bMsg = $('#bMsg'), bMenu = $('#bMenu');
@@ -2951,7 +3375,7 @@ function showAch(a){
 function pumpAch(){
   if (achBusy || !achQ.length) return;
   if (!['play', 'faint'].includes(G.mode) || (TIM && TIM.on)) return;
-  if (!menuOv.hidden || !shopOv.hidden || !cardOv.hidden) return;
+  if (!menuOv.hidden || !shopOv.hidden || !cardOv.hidden || !mgOv.hidden || !helpOv.hidden || !rankOv.hidden) return;
   showAch(achQ.shift());
 }
 function checkAch(){
@@ -2972,6 +3396,8 @@ function checkAch(){
   if (G.rec.nightWins >= 5) unlock('night5');
   if (G.fs && [4,5,6,7].every(f => G.fs[f] && G.fs[f].done)) unlock('cfloors');
   if (G.fs && [10,11,12].every(f => G.fs[f] && G.fs[f].done)) unlock('dfloors');
+  if (G.fs && [14,15,16].every(f => G.fs[f] && G.fs[f].done)) unlock('pfloors');
+  if (G.equip && [G.equip.weapon, G.equip.armor, ...(G.gearBag || [])].some(g => g && (g.plus | 0) >= 3)) unlock('enhance');
   if ((G.rec.crafts | 0) > 0) unlock('craft');
   if ((G.rec.boxes | 0) >= 10) unlock('box10');
   if (G.fs && survivorCount() >= 6) unlock('survivors6');
@@ -2985,7 +3411,7 @@ function goTitle(){
   menuOv.hidden = true; shopOv.hidden = true; cardOv.hidden = true; faintOv.hidden = true; capEl.hidden = true; skipBtn.hidden = true; bannerEl.hidden = true;
   if (B){ B.on = false; B = null; }
   achQ.length = 0; FX.fx.length = 0; FX.parts.length = 0;
-  confirmSlot = null; codeOv.hidden = true; helpOv.hidden = true; rankOv.hidden = true; renderSlots(); renderAcct();
+  confirmSlot = null; codeOv.hidden = true; helpOv.hidden = true; rankOv.hidden = true; mgOv.hidden = true; renderSlots(); renderAcct();
   if (CL.needSync && cloudOn()){ CL.needSync = false; syncOnLogin(); }
 }
 function renderSlots(){
@@ -3220,7 +3646,7 @@ function renderTitle(){
 const campCX = CAMP.cx*T + 8, campCY = CAMP.cy*T + 8, CAMP_R = 9*T;
 const inCamp = (x, y, pad) => Math.hypot(x - campCX, y - campCY) < CAMP_R + (pad || 0);
 const NB4 = [[1,0],[-1,0],[0,1],[0,-1]];
-const FLOATERS = new Set(['note','angel','cherub','pigeon','bible','choir','tag']);
+const FLOATERS = new Set(['note','angel','cherub','pigeon','bible','choir','tag','patrol']);
 function makeEnt(type, tx, ty){
   const e = {id:++entSeq, type, x:tx*T + 8, y:ty*T + 12, hx:tx*T + 8, hy:ty*T + 12, dir:'down', face:1, vx:0, vy:0, timer:Math.random(), animT:0, alive:true, respawn:0, spawnT:0};
   if (type === 'shadow') e.sname = pick(NAMES.shadows);
@@ -3249,6 +3675,7 @@ function setupEntities(){
   if (F.teacher && !s.teacher){ const [k, tx, ty] = F.teacher; ents.push(makeEnt(k, tx, ty)); }
 }
 function respawnEnt(e){
+  if (e.once){ e.alive = false; e.respawn = 0; return; }
   if (e.teacher){ const [k, tx, ty] = FLOORS[G.floor].teacher; Object.assign(e, makeEnt(k, tx, ty)); return; }
   const p = G.player, sp = FLOORS[G.floor].spawns;
   const opts = sp.filter(([tx, ty]) => {
@@ -3292,12 +3719,12 @@ function continueGame(i){
   G.lv = Math.max(1, d.lv | 0); G.exp = Math.max(0, d.exp | 0); G.sp = Math.max(0, d.sp | 0);
   G.gems = Math.max(0, d.gems | 0);
   const inv = d.inv || {}; G.inv = {}; Object.keys(ITEMS).forEach(k => G.inv[k] = Math.max(0, inv[k] | 0));
-  const okGear = g => g && EQUIPS[g.key] && g.dur > 0 && typeof g.id === 'string';
+  const okGear = g => { if (!(g && EQUIPS[g.key] && g.dur > 0 && typeof g.id === 'string')) return false; g.plus = clamp(g.plus | 0, 0, 5); return true; };
   G.equip = {weapon:null, armor:null};
   if (d.equip) ['weapon','armor'].forEach(s => { if (okGear(d.equip[s])) G.equip[s] = d.equip[s]; });
   G.gearBag = Array.isArray(d.gearBag) ? d.gearBag.filter(okGear) : [];
   G.fs = FLOORS.map((_, f) => Object.assign(newFS(), (d.fs && d.fs[f]) || {}));
-  G.fs.forEach(s => { ['shards','got'].forEach(k => { if (!Array.isArray(s[k])) s[k] = []; }); ['met','gift','loot','rack'].forEach(k => { if (!s[k] || typeof s[k] !== 'object') s[k] = {}; }); });
+  G.fs.forEach(s => { ['shards','got'].forEach(k => { if (!Array.isArray(s[k])) s[k] = []; }); ['met','gift','loot','rack','unlock'].forEach(k => { if (!s[k] || typeof s[k] !== 'object') s[k] = {}; }); });
   const ids = new Set(ACH.map(a => a[0])); G.ach = {};
   if (d.ach && typeof d.ach === 'object') for (const k in d.ach) if (ids.has(k)) G.ach[k] = d.ach[k];
   G.rec = Object.assign(newRec(), d.rec || {});
@@ -3330,7 +3757,7 @@ function enterFloor(f, how){
   G.riding = false;
   G.player = {x:pos[0]*T + 8, y:pos[1]*T + 12, dir, animT:0, moving:false};
   trail = []; G.alarm = false; G.f2Timer = 0; G.contactCD = 1.5; G.ev = newEV(); G.nav = null; G.navT = 0; G.pushT = 0; G.owSpawnT = 1.5;
-  G.npcs = npcList(); applyShift();
+  G.npcs = npcList(); applyShift(); applyGates();
   setupEntities(); clearTags();
   if (how !== 'load' && how !== 'respawn' && how !== 'camp') showBanner(F.ow ? `목포 폐허 · ${clockText()}` : `${BLD_NAME[F.bld]} · ${F.name}`);
   if (how === 'up' || how === 'down' || how === 'gate' || how === 'out'){ writeSave(); cloudFlush(false); }
@@ -3343,6 +3770,66 @@ function enterFloor(f, how){
       '🛠 맨 위 4층 창고의 보스를 이기면 백화점이 정화되고, 캠프에 작업대가 생겨요.']);
     else if (f === 11) tip('shift', ['🛒 이 층은 진열대가 10초마다 자리를 바꿔요! 진열대가 깜빡이면 곧 길이 바뀌어요.', '바닥 화살표는 바뀐 길을 다시 찾아 줘요. 오른쪽 위 ‘진열대 이동’ 시간을 보세요.']);
   }, 900);
+  if ((F.bld === 'police' || F.bld === 'pc') && (how === 'gate' || how === 'up')) setTimeout(() => {
+    if (G.mode !== 'play' || G.floor !== f || DLG.cur) return;
+    if (f === 14) tip('police', [`${NAMES.police}. 형광등이 꺼졌다 켜질 때마다 복도 끝 그림자의 위치가 바뀐다.`,
+      '🔦 눈알 모양 순찰 요괴의 노란 불빛에 걸리면 요괴가 더 몰려와요. 불빛 뒤로 돌아가요.',
+      '📻 무전기에서 가끔 지시가 들려요. 진짜일 수도, 가짜일 수도 있어요.',
+      '🎯 여기부터는 전투에 새 타이밍 게임 ‘조준 사격’이 나와요. 움직이는 조준선이 과녁 한가운데 올 때 누르세요!']);
+    else if (f === 16) tip('jail', ['🔑 감방 문이 전부 잠겨 있어요. 이 층 어딘가에 떨어진 유치장 열쇠를 찾으면 열려요.']);
+    else if (f === 18) tip('pcb', [`${NAMES.pc}. 모든 모니터가 같은 화면을 띄우고 있다. 화면 속 무언가가 이쪽을 본다.`,
+      '🖥 켜진 모니터 옆을 지나가면 화면에서 요괴가 기어 나올 수 있어요.',
+      '🔒 잠긴 방은 문에 달린 모니터 게임(반응속도·조준)을 통과해야 열려요.']);
+    else if (f === 19) tip('dark', ['💡 2층은 정전이에요! 앞이 거의 안 보여요. 벽 어딘가의 차단기를 올리면 불이 켜져요.']);
+  }, 900);
+}
+/* police station: searchlights on patrol eyes, radio chatter, the jail key */
+const RADIO = ['“…치익… 여기는 3층, 감방 문 전부 잠겼다… 열쇠는 오른쪽 끝 간수 책상…”', '“…승원아… 들리면 대답해… 치익…”',
+  '“2층 형사과 안전 확보. 순찰 요괴 없음.” (…정말일까?)', '“…무기고에서… 웃음소리가… 치익…”', '“서치라이트에 걸리면 바로 뒤로 돌아가. 놈들이 떼로 온다.”',
+  '“전 대원은 1층으로 집결. 반복한다, 1층으로…” (1층엔 아무도 없다)', '“…이 구역 관리 완료. 다음 납품지는 광주…” (처음 듣는 목소리다)'];
+function applyGates(){
+  const F = FLOORS[G.floor]; if (!F.gates) return;
+  const open = !!FS().key;
+  for (const [x, y] of F.gates) CUR.m[y][x] = open ? ']' : '[';
+  CUR.idx = null;
+}
+function coneHit(e, x, y){
+  const v = DIRV[e.dir] || DIRV.down, dx = x - e.x, dy = (y - 4) - (e.y - 10), d = Math.hypot(dx, dy);
+  if (d < 8 || d > 82) return false;
+  return (dx*v.x + dy*v.y)/d > Math.cos(0.5);
+}
+function updPolice(dt){
+  const F = FLOORS[G.floor], s = FS(), ev = G.ev; if (F.bld !== 'police' || F.boss || s.done || !ev) return;
+  ev.radT -= dt; if (ev.radT <= 0){ ev.radT = 22 + Math.random()*10; toast('📻 ' + pick(RADIO)); }
+  if (ev.seenCD > 0){ ev.seenCD -= dt; return; }
+  const p = G.player;
+  for (const e of ents){
+    if (e.type !== 'patrol' || !e.alive || e.spawnT > 0 || !coneHit(e, p.x, p.y)) continue;
+    ev.seenCD = 8; ev.seenT = G.t; G.shakeT = reduceMotion ? 0 : 0.3;
+    showBanner('🚨 발각됐다!'); toast('순찰 눈알의 불빛에 걸렸다! 요괴들이 몰려온다');
+    let n = 0, guard = 0;
+    while (n < 2 && ents.length < 18 && guard++ < 40){
+      const sp = pick(F.spawns), x = sp[0]*T + 8, y = sp[1]*T + 12;
+      if (Math.hypot(x - p.x, y - p.y) < 64) continue;
+      const ne = makeEnt(pickType(G.floor), sp[0], sp[1]); ne.once = true; ne.spawnT = 0.8; ents.push(ne); n++;
+    }
+    break;
+  }
+}
+/* PC bang: things crawl out of lit monitors when you walk past */
+function updCrawl(){
+  const F = FLOORS[G.floor], s = FS(), ev = G.ev; if (!F.crawl || s.done || !ev) return;
+  const p = G.player, tx = Math.floor(p.x/T), ty = Math.floor((p.y - 4)/T);
+  for (const [dx, dy] of [[0,-1],[0,1],[-1,0],[1,0]]){
+    const x = tx + dx, y = ty + dy, k = x + ',' + y;
+    if ((CUR.m[y] || [])[x] !== '<' || ev.crawled[k]) continue;
+    ev.crawled[k] = true;
+    if (Math.random() > 0.22 || ents.filter(e => e.alive).length >= F.count + 4) continue;
+    const e = makeEnt('crawler', tx, ty); e.x = p.x + (x - tx)*10; e.y = p.y + (y - ty)*8; e.spawnT = 0.7; e.once = true; ents.push(e);
+    G.contactCD = Math.max(G.contactCD, 1.2);
+    toast(G.tips.crawl ? '모니터에서 무언가 기어 나온다!' : '모니터 화면이 부풀더니, 안에서 무언가 기어 나온다!'); G.tips.crawl = 1;
+    break;
+  }
 }
 /* department store 2F: the moving shelves (cells flip between shelf and floor every SHIFT_P seconds) */
 function shiftCells(ph){ const F = FLOORS[G.floor]; return ph === 0 ? F.shiftA : F.shiftB; }
@@ -3406,7 +3893,7 @@ function checkComplete(){
   if (f <= 2) unlock('f' + (f + 1));
   if (F.song) endSong();
   checkAch(); writeSave(); refreshHUD();
-  const extra = F.alarm ? ' 경보도 더는 울리지 않아요.' : F.song ? ' 천사의 노래도 더는 들리지 않아요.' : F.emb ? ' 헌금 횡령도 멈췄어요.' : F.shift ? ' 진열대도 더는 움직이지 않아요.' : '';
+  const extra = F.alarm ? ' 경보도 더는 울리지 않아요.' : F.song ? ' 천사의 노래도 더는 들리지 않아요.' : F.emb ? ' 헌금 횡령도 멈췄어요.' : F.shift ? ' 진열대도 더는 움직이지 않아요.' : F.bld === 'police' ? ' 순찰 눈알의 불빛도 꺼졌어요.' : F.crawl ? ' 모니터에서 더는 아무것도 나오지 않아요.' : '';
   say([{who:G.name, t:`(${josa(F.name, '은', '는')} 다 둘러본 것 같다. 공기가 조금 가벼워졌다.)`},
        {who:'', t:`${F.name} 정화 완료! 이제 이 층에서 쓰러져도 잃는 게 없어요.${extra}`},
        {who:'', t:'다음은 화살표를 따라 계단으로 위층에 가요. 맨 위층의 보스를 이기면 건물 전체가 정화되고 다음 건물이 열려요.'}]);
@@ -3434,6 +3921,8 @@ function refreshHUD(){
   if (F.alarm && !s.done){ on = G.alarm; al = G.alarm ? '⚠ 경보 중' : `건물 각성까지 ${fmtTime(60 - G.f2Timer)}`; }
   else if (F.song && !s.done && G.ev){ on = G.ev.song; al = G.ev.song ? `♪ 천사의 노래 ${fmtTime(G.ev.songT)}` : `다음 노래까지 ${fmtTime(G.ev.nextSong - G.ev.t)}`; }
   else if (F.emb && !s.done && G.ev){ on = G.ev.stack > 0; al = G.ev.stack ? `헌금 횡령 ×${G.ev.stack} · 증식 ${fmtTime(G.ev.embT)}` : `헌금 횡령까지 ${fmtTime(20 - G.ev.t)}`; }
+  else if (F.dark && !s.insp){ on = true; al = '💡 정전 · 벽의 차단기를 찾아요'; }
+  else if (F.bld === 'police' && !F.boss && !s.done && G.ev && G.ev.seenCD > 0 && G.ev.seenT && G.t - G.ev.seenT < 6){ on = true; al = '🚨 발각! 요괴가 몰려온다'; }
   else if (F.shift && !s.done && G.ev){ on = G.ev.shT < SHIFT_WARN + 0.5; al = `🛒 진열대 이동 ${fmtTime(G.ev.shT)}`; }
   else if (F.ow && G.plague){ on = true; al = `☣ 역병 ${fmtTime(G.plague.t)}`; }
   setHide(alarmTxt, !al);
@@ -3472,7 +3961,8 @@ function cam(){
 const ENT_SPEED = {shadow:22, card:26, note:18, turtle:9, sharp:34, condom:12, glasses:24, goh:14, kimju:14, kimjs:14, boss:0,
   traffic:20, manhole:16, sign:24, knife:38, trash:12, hydrant:14, mannequin:30, umbrella:28, pigeon:36, mailbox:16,
   rat:40, spore:8, infected:26, host:16, saint:18, bible:22, offering:30, angel:26, cherub:34, kwonsa:14, pastor:0, choir:16,
-  doll:28, cart:30, tag:26, hanger:34, clerk:14, sunhwa:0};
+  doll:28, cart:30, tag:26, hanger:34, clerk:14, sunhwa:0,
+  cuff:30, radio:22, mugshot:18, patrol:20, inmate:22, detective:14, seungyong:0, mouse:38, keyb:26, ramen:14, gamer:22, crawler:34, hojeong:0};
 function triggerAlarm(){
   G.alarm = true; G.shakeT = reduceMotion ? 0 : 0.7;
   showBanner('⚠ 경고: 건물이 깨어났다!');
@@ -3655,13 +4145,15 @@ function updNav(dt){
   G.nav = Object.assign(tg, {path, arrow:ARROW8[oct], dist:path ? path.length - 1 : Math.round(Math.hypot(ax, ay)/T)});
 }
 /* inside buildings: the next thing to look at, the stairs, the boss or the way out */
-const INSP_CH = {0:'E', 1:'m', 2:'R', 4:'l', 5:'a', 6:'e', 7:'R', 10:'@', 11:'*', 12:'!'};
+const INSP_CH = {0:'E', 1:'m', 2:'R', 4:'l', 5:'a', 6:'e', 7:'R', 10:'@', 11:'*', 12:'!', 14:'5', 15:'9', 18:'{', 19:'/'};
 function tip(id, lines){ if (!G.tips || G.tips[id] || DLG.cur) return false; G.tips[id] = 1; say(lines.map(t => ({who:'', t}))); return true; }
 function bldGoal(){
   const F = FLOORS[G.floor], s = FS(), p = G.player;
   const first = ch => { const t = tilesOf(ch); return t.length ? t[Math.floor(t.length/2)] : null; };
   if (bldDone(F.bld)){ const g = first('G'); return g ? {pos:g, label:'유리문으로 나가 다음 건물로'} : {pos:first('s'), label:'계단으로 내려가기'}; }
   if (F.boss) return s.boss ? {pos:first('s'), label:'계단으로 내려가기'} : {pos:[F.boss[1], F.boss[2]], label:`보스 ${ENEMIES[F.boss[0]].name} 이기기`};
+  if (F.keyAt && !s.key) return {pos:F.keyAt, label:'유치장 열쇠 찾기'};
+  if (F.dark && !s.insp){ const b = first('/'); if (b) return {pos:b, label:'차단기 올리기'}; }
   if (!s.done){
     const c = [];
     F.shards.forEach(([x, y], i) => { if (!s.shards.includes(i)) c.push([x, y, '빛나는 돌']); });
@@ -3698,7 +4190,7 @@ function checkPush(moved, dt){
 }
 function updatePlay(dt){
   const p = G.player, F = FLOORS[G.floor], s = FS(), f0 = G.floor;
-  let busy = !!DLG.cur || !menuOv.hidden || !shopOv.hidden || !cardOv.hidden || !helpOv.hidden;
+  let busy = !!DLG.cur || !menuOv.hidden || !shopOv.hidden || !cardOv.hidden || !helpOv.hidden || !mgOv.hidden;
   G.npcs = npcList();
   if (!busy){ G.rec.time += dt; tickClock(dt); }
   let vx = 0, vy = 0;
@@ -3747,8 +4239,12 @@ function updatePlay(dt){
     }
   });
 
+  if (F.keyAt && !s.key && Math.hypot(p.x - (F.keyAt[0]*T + 8), (p.y - 4) - (F.keyAt[1]*T + 10)) < 11){
+    s.key = true; applyGates(); G.navT = 0; G.shakeT = reduceMotion ? 0 : 0.2;
+    toast('🔑 유치장 열쇠를 주웠다! 철컥— 감방 문이 전부 열린다'); afterFind();
+  }
   if (F.alarm && !s.done && !busy && !G.alarm){ G.f2Timer += dt; if (G.f2Timer >= 60) triggerAlarm(); }
-  if (!busy){ updChurch(dt); updShift(dt); if (F.ow) updOW(dt); }
+  if (!busy){ updChurch(dt); updShift(dt); updPolice(dt); updCrawl(); if (F.ow) updOW(dt); }
   busy = busy || !!DLG.cur;
 
   if (G.contactCD > 0) G.contactCD -= dt;
@@ -3845,6 +4341,22 @@ function sunhwaIntro(){
     {who:n, t:'하늘의 분들이 그러셨어. 예쁘게 진열된 것만 살아남는다고.'}
   ];
 }
+function seungyongIntro(){
+  const n = NAMES.seungyong;
+  return [
+    {who:n, t:'…드디어 면회 왔네. 크흐흐.'},
+    {who:n, t:'난 이 도시가 무너지기 전부터 괴물이었어. 하늘에 문양이 뜬 날, 그분들이 내 쇠사슬을 풀어 줬지.'},
+    {who:n, t:'경찰도, 법도 없어. 이제 여기선 내가 법이야.'}
+  ];
+}
+function hojeongIntro(){
+  const n = NAMES.hojeong;
+  return [
+    {who:n, t:'…3분만. 이 판만 끝내고.'},
+    {who:n, t:'밖이 망했다고? 상관없어. 화면 속은 멀쩡하거든. 여기선 내가 랭킹 1위야.'},
+    {who:n, t:'너도 접속해. 영원히.'}
+  ];
+}
 function hostIntro(){
   return [
     {who:'', t:'부풀어 오른 살덩이가 꿈틀거린다. 터진 고름 사이로 수십 개의 입이 숨을 쉰다.'},
@@ -3858,7 +4370,7 @@ function faint(reason){
     lost = Math.min(G.gems, s.gems); G.gems -= lost; s.gems = 0;
     for (const g of s.got){ if (g.t === 'item'){ if (G.inv[g.key] > 0){ G.inv[g.key]--; lostItems++; } } else { removeGearById(g.id); lostItems++; } }
     s.got = [];
-    if (!F.ow){ s.shards = []; s.vend = false; s.loot = {}; s.rack = {}; s.gift = Object.fromEntries(Object.entries(s.gift).filter(([id]) => NPCS[id] && bldDone(NPCS[id].bld))); }
+    if (!F.ow){ s.shards = []; s.vend = false; s.loot = {}; s.rack = {}; s.key = false; s.gift = Object.fromEntries(Object.entries(s.gift).filter(([id]) => NPCS[id] && bldDone(NPCS[id].bld))); }
   }
   G.rec.faints++; unlock('faint');
   G.riding = false; G.infected = false; G.offArm = -99;
@@ -3898,6 +4410,10 @@ function talkCamp(id){
 function openLoot(x){
   const s = FS(), d = FLOORS[G.floor].doors[x], L = d[2], N = t => ({who:'', t});
   if (s.loot[x]){ say([N(`${d[0]}. 쓸 만한 건 이미 다 챙겼다.`)]); return; }
+  if (L.lock && !s.unlock[x]){
+    say([N(`${d[0]}. 문에 모니터가 달려 있다. “보안 게임을 통과하면 열립니다.”`)], () => openMG(L.lock, () => { s.unlock[x] = true; toast('철컥! 문이 열렸다.'); writeSave(); openLoot(x); }));
+    return;
+  }
   const got = [];
   (L.gear || []).forEach(k => { const g = addGear(k); if (!s.done) s.got.push({t:'gear', id:g.id}); got.push(EQUIPS[k].name); });
   Object.entries(L.items || {}).forEach(([k, n]) => { G.inv[k] = (G.inv[k] | 0) + n; if (!s.done) for (let i = 0; i < n; i++) s.got.push({t:'item', key:k}); got.push(`${ITEMS[k].name} ${n}개`); });
@@ -4004,6 +4520,26 @@ function interact(){
     case '@': insp(['계산대 화면이 켜져 있다. “결제 금액: ∞원”', '영수증이 끝없이 출력된다. 품목은 전부 사람 이름이다.'], '영수증이 계속 길어진다. 마지막 줄에 내 이름이 찍혀 있다.'); break;
     case '*': insp(['인형 더미. 곰 인형, 토끼 인형, 아기 인형…', '인형들이 전부 같은 쪽을 보고 있다. 4층 창고 쪽이다.'], '인형 더미 속에서 누가 킥킥 웃는다.'); break;
     case '~': say([N('계산대. 스캐너가 혼자 삑, 삑 울린다.')]); break;
+    case '2': say([N('민원 창구. 유리창 너머 번호표 기계가 혼자 “4444번 손님”을 부른다.')]); break;
+    case '3': say([N(pick(['대기 의자. 앉은 자국마다 검은 얼룩이 배어 있다.', '대기 의자 밑에 누군가의 손이 떨어져 있다. 손가락이 아직 번호표를 쥐고 있다.']))]); break;
+    case '5': insp(['무전기가 지직거린다. “…여기는 목포서… 생존자 있으면 응답하라…”', '주파수 사이로 다른 목소리가 섞여 든다. “…이 구역 관리 완료. 다음 납품지는 광주.”'], '무전기가 계속 지직거린다. 가끔 누군가 숨죽여 웃는다.'); break;
+    case '6': say([N('철창. 창살마다 손톱으로 긁은 자국이 빽빽하다. 몇 개는 안쪽이 아니라 바깥쪽에서 긁혔다.')]); break;
+    case '[': say([N('잠긴 감방 문. 유치장 열쇠가 있어야 열 수 있다.')]); break;
+    case '7': say([N('형사 책상. 서류마다 같은 이름이 적혀 있다. “이승용.” 이름 위에 핏자국이 번져 있다.')]); break;
+    case '8': say([N('증거물 보관함. 안에서 무언가 두드린다. 똑, 똑, 똑.')]); break;
+    case '9': insp(['수사판. 붉은 실이 사진들을 잇고 있다.', '모든 실이 사진 한 장으로 모인다. 하늘의 문양 사진이다. 옆 메모: “관리국 = 공범?”'], '수사판의 붉은 실이 맥박처럼 떨린다.'); break;
+    case ';': say([N('무기 거치대. 총은 하나도 없고, 살점이 붙은 쇠사슬만 잔뜩 걸려 있다.')]); break;
+    case '<':
+      if (bldDone('pc')){ openMG(pick(['react','aim']), null, true); break; }
+      say([N(pick(['켜진 모니터. 화면 속 캐릭터가 게임이 아니라 나를 보고 있다.', '모니터에 내 뒷모습이 비친다. 나는 지금 앞을 보고 있는데.', '화면 속에서 누군가 유리를 두드린다. 안쪽에서.']))]); break;
+    case '>': say([N('꺼진 모니터. 검은 화면에 내 뒤의 무언가가 비친다.')]); break;
+    case '(': say([N('카운터. 컵라면 용기가 산처럼 쌓여 있다. 몇 개는 아직 꿈틀거린다.')]); break;
+    case ')': say([N('음료 냉장고. 에너지 드링크 캔이 숨 쉬듯 부풀었다 줄어든다.')]); break;
+    case '{':
+      if (s.insp && bldDone('pc')){ openRank(); break; }
+      insp(['카운터 모니터. 좌석 현황: VIP룸 — 이호정. 연속 접속 2,184시간.', '로그 창에 같은 문장이 끝없이 올라온다. “한 판만 더.” “한 판만 더.” “한 판만 더.”'], bldDone('pc') ? '카운터 모니터. 학교 랭킹을 띄웠다.' : '카운터 모니터. VIP룸 접속 시간이 계속 늘어난다.');
+      break;
+    case '/': insp(['벽의 차단기. 레버를 힘껏 올렸다…', '철컥! 2층에 불이 들어왔다. 어둠 속에 숨어 있던 것들이 일제히 이쪽을 돌아본다.'], '차단기. 레버가 올라가 있다.'); break;
     case '-': say([N(pick(['납품 상자. “취급 주의 — 살아 있음”이라고 적혀 있다.', '상자 틈으로 마네킹 손가락이 삐져나와 있다.', '상자가 안쪽에서 한 번 쿵 울렸다.']))]); break;
     case 'c': openShop('cafe'); break;
     case 'G': exitBuilding(); break;
@@ -4127,6 +4663,8 @@ function drawAnim(cx, cy){
     ctx.fillRect(X + 3, Y + 1, 10, 1); ctx.fillRect(X + 3, Y + 14, 10, 1); ctx.fillRect(X + 1, Y + 3, 1, 10); ctx.fillRect(X + 14, Y + 3, 1, 10);
   }
   if (F.bld === 'dept') drawDept(cx, cy);
+  if (F.bld === 'police') drawPolice(cx, cy);
+  if (F.bld === 'pc') drawPC(cx, cy);
   if (church){
     for (const [x, y] of tilesOf('n')) if (Math.random() < 0.9) flame(x*T + 8 - cx, y*T + 1 - cy, 1);
     for (const [x, y] of tilesOf('W')) if (y === 1 && x % 3 === 1){ ctx.fillStyle = `rgba(200,40,60,${(0.12 + 0.1*Math.sin(t*1.3 + x)).toFixed(3)})`; ctx.fillRect(x*T + 4 - cx, y*T + 4 - cy, 8, 10); }
@@ -4164,7 +4702,51 @@ function drawAnim(cx, cy){
     drawSigil(15*T - cx, 2*T - cy, 30, -t*0.2, '#c0303a', 0.35);
   } else if (F.warehouse){
     drawSigil(15*T - cx, 2*T - cy, 30, t*0.25, '#e8a8c8', 0.3);
+  } else if (F.armory){
+    drawSigil(15*T - cx, 2*T - cy, 30, t*0.35, '#c86a2a', 0.3);
   }
+}
+function drawPolice(cx, cy){
+  const t = G.t, F = FLOORS[G.floor], s = FS();
+  if (!F.boss && !s.done){
+    const caught = G.ev && G.ev.seenT && t - G.ev.seenT < 1.5;
+    for (const e of ents){
+      if (e.type !== 'patrol' || !e.alive || e.spawnT > 0) continue;
+      const v = DIRV[e.dir] || DIRV.down, a0 = Math.atan2(v.y, v.x), ox = e.x - cx, oy = e.y - 10 - cy;
+      ctx.fillStyle = caught ? 'rgba(255,90,70,0.22)' : `rgba(255,236,160,${(0.13 + 0.04*Math.sin(t*6 + e.id)).toFixed(3)})`;
+      ctx.beginPath(); ctx.moveTo(ox, oy); ctx.arc(ox, oy, 82, a0 - 0.5, a0 + 0.5); ctx.closePath(); ctx.fill();
+    }
+  }
+  if (F.gates) for (const [x, y] of F.gates){
+    const X = x*T - cx, Y = y*T - cy, open = CUR.m[y][x] === ']';
+    ctx.fillStyle = '#4a4e58'; ctx.fillRect(X, Y + 1, 16, 2); ctx.fillRect(X, Y + 13, 16, 2);
+    for (let i = 0; i < 5; i++){ const bx = open ? X + i : X + 1 + i*3; ctx.fillStyle = '#6a707a'; ctx.fillRect(bx, Y, open ? 1 : 2, 16); if (!open){ ctx.fillStyle = '#8a909a'; ctx.fillRect(bx, Y, 1, 16); } }
+    if (!open){ ctx.fillStyle = '#c8a040'; ctx.fillRect(X + 7, Y + 7, 2, 3); }
+  }
+  if (F.keyAt && !s.key){
+    const [kx, ky] = F.keyAt, X = kx*T + 8 - cx, Y = ky*T + 8 - cy + Math.round(Math.sin(t*3)*1.5);
+    ctx.fillStyle = 'rgba(230,178,76,0.25)'; ctx.fillRect(X - 5, Y + 5, 10, 2);
+    ctx.fillStyle = '#0c0913'; ctx.fillRect(X - 5, Y - 4, 6, 6); ctx.fillRect(X, Y - 2, 7, 3);
+    ctx.fillStyle = '#e6b24c'; ctx.fillRect(X - 4, Y - 3, 4, 4); ctx.fillRect(X, Y - 1, 6, 1); ctx.fillRect(X + 4, Y, 1, 1); ctx.fillRect(X + 2, Y, 1, 1);
+    ctx.fillStyle = '#0c0913'; ctx.fillRect(X - 3, Y - 2, 2, 2);
+    if (Math.sin(t*5) > 0.5){ ctx.fillStyle = '#fff3c4'; ctx.fillRect(X + 5, Y - 5, 1, 1); }
+  }
+  if (Math.sin(t*1.7) > 0.97){ ctx.fillStyle = 'rgba(4,6,12,0.35)'; ctx.fillRect(0, 0, iw, ih); }
+}
+function drawPC(cx, cy){
+  const t = G.t, F = FLOORS[G.floor], s = FS();
+  for (const [x, y] of tilesOf('<')){
+    const X = x*T - cx, Y = y*T - cy; if (X < -16 || Y < -16 || X > iw || Y > ih) continue;
+    if (Math.sin(t*2.3 + x*1.3 + y*0.7) > 0.93){ ctx.fillStyle = '#ff3a3a'; ctx.fillRect(X + 6, Y + 3, 1, 1); ctx.fillRect(X + 9, Y + 3, 1, 1); }
+    else if (Math.sin(t*9 + x + y*3) > 0.96){ ctx.fillStyle = 'rgba(90,232,106,0.5)'; ctx.fillRect(X + 4, Y + 2 + ((t*20 | 0) % 5), 8, 1); }
+  }
+  for (const [x, d] of Object.entries(F.doors)){
+    const L = d[2]; if (!L || !L.lock) continue;
+    const open = s.unlock[x], X = (+x)*T - cx, Y = 2*T - cy;
+    ctx.fillStyle = '#0c0a12'; ctx.fillRect(X + 9, Y + 4, 5, 4);
+    ctx.fillStyle = open ? '#5ae86a' : (Math.sin(t*4) > 0 ? '#e2553e' : '#7a1a24'); ctx.fillRect(X + 10, Y + 5, 3, 2);
+  }
+  if (F.vip) drawSigil(15*T - cx, 2*T - cy, 30, -t*0.3, '#5ae86a', 0.3);
 }
 let shelfTiles = null;
 function shelfTile(i){
@@ -4318,7 +4900,8 @@ function renderWorld(){
   for (const e of ents){
     if (!e.alive || !inView(e.x, e.y, cx, cy, 40)) continue;
     const rising = e.spawnT > 0;
-    const jit = (!reduceMotion && Math.sin(t*17 + e.id*3.1) > 0.985) ? (e.id % 2 ? 1 : -1) : 0;
+    const gro = ENEMIES[e.type] && ENEMIES[e.type].gro;
+    const jit = (!reduceMotion && Math.sin(t*17 + e.id*3.1) > (gro ? 0.93 : 0.985)) ? (e.id % 2 ? 1 : -1)*(gro ? 2 : 1) : 0;
     list.push({y:e.y, f:() => {
       if (rising) ctx.globalAlpha = clamp(1 - e.spawnT/0.8, 0.1, 1);
       const frame = e.animT > 0 ? WALK[Math.floor(e.animT*6) % 4] : 0;
@@ -4327,7 +4910,7 @@ function renderWorld(){
         ctx.fillStyle = 'rgba(255,250,230,0.25)'; ctx.fillRect(Math.round(e.x - 10 - cx), Math.round(e.y - 22 - cy), 20, 22);
         drawChar(creatureSprite('angel', e.face < 0), e.x, e.y, cx, cy, 4 + Math.round(Math.sin(t*3 + e.id)*2));
       } else if (e.boss){
-        drawSigil(e.x - cx, e.y - 2 - cy, 13, t*0.6, e.type === 'pastor' ? '#c0303a' : e.type === 'sunhwa' ? '#e8a8c8' : '#a184e6', 0.7);
+        drawSigil(e.x - cx, e.y - 2 - cy, 13, t*0.6, BOSS_COL[e.type] || '#a184e6', 0.7);
         drawChar(enemySprite(e.type, 'down', 0), e.x, e.y, cx, cy, 3 + Math.round(Math.sin(t*2)*2));
       } else if (e.host){
         const k = 0.5 + 0.5*Math.sin(t*3);
@@ -4345,8 +4928,13 @@ function renderWorld(){
         drawChar(creatureSprite(e.type, e.face < 0), e.x, e.y, cx, cy, lift, jit);
       }
       ctx.globalAlpha = 1;
+      if (gro && !rising){
+        const k = (t*14 + e.id*5) % 12, dx = ((e.id*7) % 9) - 4;
+        ctx.fillStyle = '#7a0a14'; ctx.fillRect(Math.round(e.x + dx - cx), Math.round(e.y - 8 + k - cy), 1, 2);
+        if (k > 9){ ctx.fillStyle = '#4a0610'; ctx.fillRect(Math.round(e.x + dx - 1 - cx), Math.round(e.y + 1 - cy), 3, 1); }
+      }
     }});
-    if (e.type === 'shadow') tags.push(['e' + e.id, 'sh', `그림자 ${e.sname}`, e.x - cx, e.y - 19 - cy]);
+    if (e.type === 'shadow') tags.push(['e' + e.id, 'sh', e.sname, e.x - cx, e.y - 19 - cy]);
     else if (e.teacher) tags.push(['e' + e.id, 'te', ENEMIES[e.type].name, e.x - cx, e.y - 19 - cy]);
     else if (e.host) tags.push(['e' + e.id, 'te', '역병 숙주', e.x - cx, e.y - 34 - cy]);
     else if (e.boss) tags.push(['e' + e.id, 'bo', ENEMIES[e.type].name, e.x - cx, e.y - 24 - cy]);
@@ -4386,7 +4974,15 @@ function renderWorld(){
       }
     }
     drawNav(cx, cy);
-  } else drawNav(cx, cy);
+  } else {
+    if (F.dark && !s.insp){
+      const lights = [[p.x, p.y - 8, 74, 1]];
+      for (const [x, y] of tilesOf('<')) lights.push([x*T + 8, y*T + 5, 14, 0.45]);
+      for (const [x, y] of tilesOf('/')) if (Math.sin(t*3) > -0.3) lights.push([x*T + 8, y*T + 8, 16, 0.5]);
+      drawVeil(cx, cy, '4,2,10', 0.97, lights);
+    }
+    drawNav(cx, cy);
+  }
   if (G.ev && G.ev.song){
     const k = clamp(Math.min(18 - G.ev.songT, G.ev.songT)/1.2, 0, 1);
     drawVeil(cx, cy, '246,242,255', 0.82*k, [[p.x, p.y - 8, 88, 1]]);
@@ -4458,7 +5054,7 @@ function makeEnemy(key, ent){
   if (key === 'offering' && F.emb && G.ev && G.ev.stack && !FS().done){ const k = 1 + 0.15*G.ev.stack; hpM *= k; atkM *= k; gemM *= 1 + 0.1*G.ev.stack; en.emb = G.ev.stack; }
   en.hp = Math.round(d.hp*hpM); en.atk = d.atk*atkM; en.def = d.def + m.def;
   en.exp = Math.round(d.exp*expM); en.gem = [Math.round(d.gem[0]*gemM), Math.round(d.gem[1]*gemM)];
-  if (key === 'shadow' && ent && ent.sname) en.name = `그림자 ${ent.sname}`;
+  if (key === 'shadow' && ent && ent.sname) en.name = ent.sname;
   return en;
 }
 function startBattle(e){
@@ -4506,6 +5102,8 @@ function endBattle(result){
 async function battleLoop(){
   const en = B.en;
   if (en.key === 'pastor') await bSay(`${en.name}의 등 뒤로 검은 날개가 살을 찢고 펼쳐진다…`);
+  else if (en.key === 'seungyong') await bSay(`살갗을 파고든 쇠사슬을 끌며 ${en.name}이 다가온다. 웃음소리가 쇳소리처럼 갈라진다…`);
+  else if (en.key === 'hojeong') await bSay(`${en.name}의 눈동자에 로딩 화면이 빙글빙글 돈다. 의자와 등뼈가 전선으로 이어져 있다…`);
   else if (en.boss) await bSay(`${en.name}의 눈이 보랏빛으로 빛난다…`);
   else if (en.key === 'host') await bSay('역병 숙주가 꿈틀거리며 누런 포자를 뿜어낸다!');
   else await bSay(`앗! ${josa(en.name, '이', '가')} 나타났다!`);
@@ -4676,7 +5274,7 @@ async function doCapture(){
   const en = B.en;
   if (en.boss){ await bSay(`${en.name}은 가방 따위로 잡을 수 없다.`); return 'nope'; }
   if (!en.cap){
-    await bSay(en.teacher ? `${en.name}… ${en.key === 'kwonsa' ? '이 교회' : en.key === 'clerk' ? '이 백화점' : '이 학교'}에 남은 영혼이다. 포획할 수 없다.` : isHuman(en.key) ? `${en.name}… 사람이었던 것이다. 포획할 수 없다.` : `${en.name}… 가방에 넣기엔 너무 위험하다.`);
+    await bSay(en.teacher ? `${en.name}… ${en.key === 'kwonsa' ? '이 교회' : en.key === 'clerk' ? '이 백화점' : en.key === 'detective' ? '이 경찰서' : '이 학교'}에 남은 영혼이다. 포획할 수 없다.` : isHuman(en.key) ? `${en.name}… 사람이었던 것이다. 포획할 수 없다.` : `${en.name}… 가방에 넣기엔 너무 위험하다.`);
     return 'nope';
   }
   if (G.inv.bag <= 0){ await bSay('포획용 가방이 없다! 자판기나 캠프 판매대에서 살 수 있다.'); return 'nope'; }
@@ -4763,6 +5361,9 @@ async function enemyTurn(){
       case 'pastor': r = await aiPastor(); break;
       case 'clerk': r = await aiClerk(); break;
       case 'sunhwa': r = await aiSunhwa(); break;
+      case 'detective': r = await aiDetective(); break;
+      case 'seungyong': r = await aiSeungyong(); break;
+      case 'hojeong': r = await aiHojeong(); break;
       default: r = await aiBasic();
     }
   }
@@ -4879,7 +5480,7 @@ async function aiKimjs(){
 async function aiKwonsa(){
   const en = B.en, k = B.turn % 3;
   if (k === 1){
-    await bSay(`${en.name}의 새벽기도 삼연타!`);
+    await bSay(`${en.name}의 기소장 삼연타!`);
     for (let i = 0; i < 3; i++) if (await hitMe(0.45) === 'dead') return 'dead';
     return 'ok';
   }
@@ -5019,6 +5620,66 @@ async function aiSunhwa(){
   B.charge = true; await bSay(`${en.name}: “곧 폐점 시간이에요~” 다음 턴에 큰 공격이 온다! (방어 타이밍이 매우 어려워요)`);
   return 'ok';
 }
+async function aiDetective(){
+  const en = B.en, k = B.turn % 3;
+  if (k === 1){ await bSay(`${en.name}의 취조 주먹!`); return hitMe(1); }
+  if (k === 2){ await bSay(`${en.name}: “증거 사진 찍는다.” 플래시가 터진다!`); B.hardNext = true; await bSay('눈앞이 하얗다. 다음 공격 타이밍이 어려워진다.'); return hitMe(0.5); }
+  await bSay(`${en.name}의 수갑 체포!`);
+  const r = await hitMe(0.7); if (r === 'dead') return r;
+  if (B.lastT === 'miss'){ B.stunMe = true; await bSay('수갑이 손목을 파고들었다! 다음 턴에 움직일 수 없다.'); }
+  return 'ok';
+}
+async function bossPhase2(lines, k){
+  const en = B.en;
+  if (B.phase2 || B.ehp > B.emax*0.5) return;
+  B.phase2 = true; en.atk *= k; B.flash = 1;
+  const heal = Math.round(B.emax*0.08); B.ehp = Math.min(B.emax, B.ehp + heal);
+  for (const l of lines) await bSay(l.replace('{h}', heal));
+}
+async function aiSeungyong(){
+  const en = B.en;
+  await bossPhase2([`${en.name}: “크하하하! 이제 좀 재밌어지네!”`, '쇠사슬이 살을 뚫고 들어가 뼈에 감긴다. 등에서 뼈 가시가 솟는다! 광폭화! 체력 +{h}, 공격력 크게 상승'], 1.25);
+  if (B.echo > 0){ B.echo--; if (await dmgMe(9*(B.phase2 ? 1.25 : 1), `탈옥한 수감자들이 매달려 물어뜯는다! {d} 피해 (남은 ${B.echo}턴)`) === 'dead') return 'dead'; }
+  if (B.charge){ B.charge = false; await bSay('“폭동이다!!” 쇠사슬이 사방으로 휘몰아친다!'); return hitMe(2.0, {diff:'capture'}); }
+  const cyc = B.phase2 ? ['chain','stab','cuff','hostage','riot'] : ['chain','cuff','stab','riot'];
+  const mv = cyc[B.bossStep++ % cyc.length];
+  if (mv === 'chain'){ await bSay(`${en.name}의 쇠사슬 채찍!`); return hitMe(1.1); }
+  if (mv === 'cuff'){
+    await bSay(`${en.name}의 족쇄 던지기!`);
+    const r = await hitMe(0.6); if (r === 'dead') return r;
+    if (B.lastT === 'miss'){ B.stunMe = true; await bSay('발목에 족쇄가 채워졌다! 다음 턴에 움직일 수 없다.'); }
+    return 'ok';
+  }
+  if (mv === 'stab'){
+    await bSay(`${en.name}의 칫솔 칼 난도질!`);
+    for (let i = 0; i < 3; i++) if (await hitMe(0.42) === 'dead') return 'dead';
+    if (landed()){ B.poison = 2; await bSay('녹슨 칼날에 베였다… 2턴 동안 출혈 피해'); }
+    return 'ok';
+  }
+  if (mv === 'hostage'){ B.echo = 3; await bSay(`${en.name}: “얘들아, 나와.” 감방에서 수감자들이 기어 나온다! (3턴 동안 추가 피해)`); return 'ok'; }
+  B.charge = true; await bSay(`${en.name}이 쇠사슬을 머리 위로 빙빙 돌린다… 다음 턴에 큰 공격이 온다! (방어 타이밍이 매우 어려워요)`);
+  return 'ok';
+}
+async function aiHojeong(){
+  const en = B.en;
+  await bossPhase2([`${en.name}: “렉 걸리네… 아니야, 이게 진짜 나야.”`, '몸이 반쯤 화면 속으로 녹아든다. 픽셀이 살을 파먹는다! 접속 중독! 체력 +{h}, 공격력 크게 상승'], 1.25);
+  if (B.echo > 0){ B.echo--; if (await dmgMe(9*(B.phase2 ? 1.25 : 1), `길드원 망령들이 화면에서 튀어나와 할퀸다! {d} 피해 (남은 ${B.echo}턴)`) === 'dead') return 'dead'; }
+  if (B.charge){ B.charge = false; await bSay('“핵 켰다.” 모든 모니터에서 빛줄기가 쏟아진다!'); return hitMe(2.0, {diff:'capture'}); }
+  const cyc = B.phase2 ? ['rage','cable','summon','lag','gg'] : ['rage','eat','cable','gg'];
+  const mv = cyc[B.bossStep++ % cyc.length];
+  if (mv === 'rage'){ await bSay(`${en.name}의 키보드 샷건!`); return hitMe(1.1); }
+  if (mv === 'eat'){ const heal = Math.round(B.emax*0.08); B.ehp = Math.min(B.emax, B.ehp + heal); en.atk *= 1.06; await bSay(`${en.name}가 식은 컵라면을 국물째 들이켠다. 체력 +${heal}, 공격력 조금 상승`); return 'ok'; }
+  if (mv === 'lag'){ await bSay(`${en.name}: “렉 걸어 줄게.” 화면이 멈칫거린다!`); B.hardNext = true; await bSay('모든 게 끊겨 보인다. 다음 공격 타이밍이 어려워진다.'); return hitMe(0.5); }
+  if (mv === 'cable'){
+    await bSay(`${en.name}의 전선 휘감기!`);
+    const r = await hitMe(0.6); if (r === 'dead') return r;
+    if (B.lastT === 'miss'){ B.stunMe = true; await bSay('전선이 목을 칭칭 감았다! 다음 턴에 움직일 수 없다.'); }
+    return 'ok';
+  }
+  if (mv === 'summon'){ B.echo = 3; await bSay(`${en.name}: “길드원 소환.” 화면 속 망령들이 기어 나온다! (3턴 동안 추가 피해)`); return 'ok'; }
+  B.charge = true; await bSay(`${en.name}의 눈이 모니터처럼 빛난다… “궁극기 준비.” 다음 턴에 큰 공격이 온다! (방어 타이밍이 매우 어려워요)`);
+  return 'ok';
+}
 /* crafting materials dropped by monsters (more often in the department store) */
 function matDrop(en){
   if (en.boss || en.teacher) return MATS.slice();
@@ -5051,13 +5712,35 @@ async function winBattle(){
     await bSay(`쓰러졌던 ${josa(en.name, '이', '가')} 일어나 너를 따라오고 싶어 한다! ${en.name} 합류!${on ? '' : ' (보관함으로)'}`);
   }
   if (en.key === 'host'){ G.inv.cure = (G.inv.cure | 0) + 2; await bSay('숙주의 몸속에서 소독약 2개가 굴러 나왔다. 누군가 삼켜졌던 걸까…'); unlock('plague'); }
-  if (en.boss){ s.boss = true; s.done = true; unlock({pastor:'pastor', sunhwa:'dept'}[en.key] || 'boss'); evacuate(FLOORS[G.floor].bld); }
+  if (en.boss){ s.boss = true; s.done = true; unlock({pastor:'pastor', sunhwa:'dept', seungyong:'police', hojeong:'pc'}[en.key] || 'boss'); evacuate(FLOORS[G.floor].bld); }
   checkAch();
   endBattle('win');
   if (en.key === 'host') endPlague(true);
   if (en.boss) say((BOSS_TALK[en.key] || BOSS_TALK.boss).outro(), () => { writeSave(); refreshHUD(); cloudFlush(true); });
 }
-const BOSS_TALK = {boss:{intro:bossIntro, outro:bossOutro}, pastor:{intro:pastorIntro, outro:pastorOutro}, sunhwa:{intro:sunhwaIntro, outro:sunhwaOutro}};
+const BOSS_TALK = {boss:{intro:bossIntro, outro:bossOutro}, pastor:{intro:pastorIntro, outro:pastorOutro}, sunhwa:{intro:sunhwaIntro, outro:sunhwaOutro},
+  seungyong:{intro:seungyongIntro, outro:seungyongOutro}, hojeong:{intro:hojeongIntro, outro:hojeongOutro}};
+const BOSS_COL = {boss:'#a184e6', pastor:'#c0303a', sunhwa:'#e8a8c8', seungyong:'#c86a2a', hojeong:'#5ae86a'};
+function seungyongOutro(){
+  const n = NAMES.seungyong;
+  return [
+    {who:n, t:'…크흐… 결국… 또 갇히는구나…'},
+    {who:'', t:'(쇠사슬이 살 속으로 파고들더니, 몸이 검은 연기로 흩어졌다. 바닥에 남은 수배 전단 뒷면: “석방 지시 — 외부 관리국”.)'},
+    {who:'', t:`${NAMES.police} 정화 완료! 이미성 서장, 송준영 경위, 주현수 순경이 생존자 캠프로 옮겨 갔어요.`},
+    {who:'', t:'🔨 이제 캠프 작업대에서 장비 강화를 할 수 있어요! 실패하면 재료만 잃고 장비는 무사해요.'},
+    {who:'', t:`다음은 ${BLD_NUM('pc')} ${NAMES.pc}이에요. 폐허 아래쪽, 화살표를 따라가 보세요.`}
+  ];
+}
+function hojeongOutro(){
+  const n = NAMES.hojeong;
+  return [
+    {who:n, t:'…아… 연결이… 끊겼…'},
+    {who:'', t:'(몸에서 전선이 뽑혀 나가고, 모든 모니터가 동시에 꺼졌다. 마지막 화면 문구: “로그인 서버 — 외부 관리국”.)'},
+    {who:'', t:`${NAMES.pc} 정화 완료! 김은영, 이평배, 박태민이 생존자 캠프로 옮겨 갔어요.`},
+    {who:'', t:'🎮 이제 피시방 모니터로 미니게임을 할 수 있고, 1층 카운터 모니터에서 학교 랭킹을 볼 수 있어요.'},
+    {who:'', t:`다음은 ${BLD_NUM('motel')} ${BLD.motel.name}이에요. ${BLD.motel.name}은 다음 체험판에서 열려요.`}
+  ];
+}
 function sunhwaOutro(){
   const n = NAMES.sunhwa;
   return [
@@ -5065,7 +5748,7 @@ function sunhwaOutro(){
     {who:'', t:'(마네킹의 몸이 산산이 흩어지고, 이름표만 바닥에 떨어졌다. 뒷면 글씨: “반품처 — 외부 관리국. 다음 매장 — 서울.”)'},
     {who:'', t:`${NAMES.dept} 정화 완료! 정봉학 점장님, 재승, 영선이 생존자 캠프로 옮겨 갔어요.`},
     {who:'', t:'🛠 캠프에 작업대가 생겼어요! 모은 재료로 장비를 고치고 포획용 가방을 만들 수 있어요. 점장님은 판매대에서 1000원 상자를 팔아요.'},
-    {who:'', t:`다음 건물은 ${BLD_NUM('police')} ${BLD.police.name}이에요. ${BLD.police.name}은 다음 체험판에서 열려요.`}
+    {who:'', t:`다음 건물은 ${BLD_NUM('police')} ${BLD.police.name}이에요. 폐허 오른쪽 위 끝, 화살표를 따라가 보세요.`}
   ];
 }
 function bossOutro(){
@@ -5101,9 +5784,9 @@ function refreshBattle(){
   if (B.en.emb) es.push(`횡령 ×${B.en.emb}`);
   if (B.stun > 0) es.push(`졸음 ${B.stun}턴`);
   if (B.weak > 0) es.push(`공격 −${Math.round(B.weakAmt*100)}% ${B.weak}턴`);
-  if (B.echo > 0) es.push(`${({pastor:'성도', host:'새끼 포자', sunhwa:'저주 인형'})[B.en.key] || '그림자'} ${B.echo}턴`);
-  if (B.charge) es.push(({pastor:'설교 준비 중!', sunhwa:'폐점 세일 준비 중!'})[B.en.key] || '메테오 준비 중!');
-  if (B.phase2) es.push(({pastor:'사탄 강림', sunhwa:'인형 합체'})[B.en.key] || '각성');
+  if (B.echo > 0) es.push(`${({pastor:'성도', host:'새끼 포자', sunhwa:'저주 인형', seungyong:'수감자', hojeong:'길드원'})[B.en.key] || '그림자'} ${B.echo}턴`);
+  if (B.charge) es.push(({pastor:'설교 준비 중!', sunhwa:'폐점 세일 준비 중!', seungyong:'폭동 준비 중!', hojeong:'핵 준비 중!'})[B.en.key] || '메테오 준비 중!');
+  if (B.phase2) es.push(({pastor:'사탄 강림', sunhwa:'인형 합체', seungyong:'광폭화', hojeong:'접속 중독'})[B.en.key] || '각성');
   if (B.stolen > 0) es.push(`빼앗은 마정석 ${B.stolen}`);
   setTxt(beStat, es.join(' · '));
   const ms = [];
@@ -5121,7 +5804,9 @@ function bloodOf(key){
   const E = ENEMIES[key];
   if (E && E.plague) return pick(['#9ab04a','#b8c84a','#6a7a2a']);
   if (key === 'angel' || key === 'cherub') return pick(['#c8a040','#8a1a2a']);
-  if (key === 'shadow' || key === 'goh' || key === 'kimju' || key === 'kimjs' || key === 'kwonsa' || key === 'clerk') return pick(['#3a0a2a','#5a0a3a','#1a0612']);
+  if (key === 'shadow' || key === 'goh' || key === 'kimju' || key === 'kimjs' || key === 'kwonsa' || key === 'clerk' || key === 'detective') return pick(['#3a0a2a','#5a0a3a','#1a0612']);
+  if (key === 'crawler' || key === 'hojeong') return pick(['#5ae86a','#8a1a2a','#2a8a3a']);
+  if (key === 'ramen') return pick(['#a8582a','#e0b090','#8a1a2a']);
   if (key === 'mannequin' || key === 'doll' || key === 'sunhwa') return pick(['#efe6d6','#e8a8c8','#c8b8a0']);
   return pick(['#8a1a2a','#c0303a','#5a0a14']);
 }
@@ -5182,7 +5867,7 @@ function renderBattle(){
   if (b.en.boss){ ctx.fillStyle = b.en.key === 'pastor' ? 'rgba(170,20,30,0.22)' : 'rgba(160,40,80,0.18)'; ctx.fillRect(0, 0, iw, hz); }
   const ex = Math.round(iw*0.7), ey = Math.round(boxTop*0.56) + (big ? 6 : 0);
   b.lay.ex = ex; b.lay.ey = ey; b.lay.esc = esc;
-  const sigCol = b.en.key === 'pastor' ? '#c0303a' : b.en.key === 'sunhwa' ? '#e8a8c8' : b.en.boss ? '#c08cff' : b.en.mini ? '#9ab04a' : b.en.teacher ? '#e2553e' : '#a184e6';
+  const sigCol = b.en.boss && BOSS_COL[b.en.key] && b.en.key !== 'boss' ? BOSS_COL[b.en.key] : b.en.boss ? '#c08cff' : b.en.mini ? '#9ab04a' : b.en.teacher ? '#e2553e' : '#a184e6';
   drawSigil(ex, ey - 9*esc, 15*esc, t*(b.en.boss ? 0.5 : 0.2), sigCol, b.en.boss ? 0.45 : 0.2);
   platform(ex, ey, 14*esc, 3*sc, th);
   for (const d of b.drips){
@@ -5200,7 +5885,7 @@ function renderBattle(){
       const shx = b.hitWho === 'en' && b.hitT > 0 ? (Math.random() < .5 ? -sc : sc) : 0;
       const bob = FLOATERS.has(b.en.key) || b.en.boss ? Math.round(Math.sin(t*3)*2) - 2*sc : Math.round(Math.sin(t*3));
       ctx.globalAlpha = b.goneT >= 0 ? clamp(1 - b.goneT/0.6, 0, 1) : (b.en.key === 'shadow' ? 0.9 : 1);
-      const key = b.phase2 && (b.en.key === 'pastor' || b.en.key === 'sunhwa') ? b.en.key + 'D' : b.en.key;
+      const key = b.phase2 && (HUMAN_LOOK[b.en.key + 'D'] || CREATURES[b.en.key + 'D']) ? b.en.key + 'D' : b.en.key;
       const spr = isHuman(key) ? enemySprite(key, 'down', 0) : enemySprite(key, 'left');
       const X = ex - ES/2 + shx, Y = ey - 17*esc + bob + (b.goneT >= 0 ? Math.round(b.goneT*20) : 0);
       if (b.tw && b.goneT < 0){ for (let i = 0; i < 3; i++) ctx.drawImage(spr, 0, i*6, 18, 6, X + b.tw[i]*esc, Y + i*6*esc, ES, 6*esc); }
@@ -5240,19 +5925,20 @@ function renderBattle(){
 /* ---------- timing mini-games ---------- */
 let TIM = {on:false};
 const TP = {
-  attack: {barSpd:1.15, good:0.22, perf:0.07,  ringDur:1.15, ringGood:10, ringPerf:4,   arrN:3, arrT:2.6},
-  defense:{barSpd:1.45, good:0.2,  perf:0.06,  ringDur:0.95, ringGood:9,  ringPerf:3.5, arrN:3, arrT:2.2},
-  hard:   {barSpd:2.0,  good:0.13, perf:0.04,  ringDur:0.75, ringGood:6.5,ringPerf:2.5, arrN:4, arrT:2.2},
-  capture:{barSpd:2.3,  good:0.11, perf:0.035, ringDur:0.7,  ringGood:6,  ringPerf:2.5, arrN:5, arrT:2.3}
+  attack: {barSpd:1.15, good:0.22, perf:0.07,  ringDur:1.15, ringGood:10, ringPerf:4,   arrN:3, arrT:2.6, aimSpd:1.5, aimGood:18, aimPerf:7},
+  defense:{barSpd:1.45, good:0.2,  perf:0.06,  ringDur:0.95, ringGood:9,  ringPerf:3.5, arrN:3, arrT:2.2, aimSpd:1.8, aimGood:16, aimPerf:6},
+  hard:   {barSpd:2.0,  good:0.13, perf:0.04,  ringDur:0.75, ringGood:6.5,ringPerf:2.5, arrN:4, arrT:2.2, aimSpd:2.3, aimGood:12, aimPerf:5},
+  capture:{barSpd:2.3,  good:0.11, perf:0.035, ringDur:0.7,  ringGood:6,  ringPerf:2.5, arrN:5, arrT:2.3, aimSpd:2.5, aimGood:11, aimPerf:4.5}
 };
 const KIND_LABEL = {attack:'공격 타이밍', defense:'방어 타이밍', hard:'공격 타이밍 · 방해받는 중', capture:'포획 · 입구 조이기'};
-const TYPE_LABEL = {bar:'막대 멈추기', ring:'네모 겹치기', arrows:'화살표 입력'};
+const TYPE_LABEL = {bar:'막대 멈추기', ring:'네모 겹치기', arrows:'화살표 입력', aim:'조준 사격'};
 const ARW = {up:'▲', down:'▼', left:'◀', right:'▶'};
 function timing(diff, round, total){
   return new Promise(res => {
-    const type = ['bar','ring','arrows'][Math.random()*3 | 0], P = TP[diff];
+    const TYPES = ['bar','ring','arrows'].concat(FLOORS[G.floor] && FLOORS[G.floor].aim ? ['aim','aim'] : []);
+    const type = TYPES[Math.random()*TYPES.length | 0], P = TP[diff];
     TIM = {on:true, done:false, type, diff, P, res, t:0};
-    timKind.textContent = (B && diff === 'capture' && B.en.boss && !B.capture ? (B.en.key === 'pastor' ? '지옥 설교 방어' : B.en.key === 'sunhwa' ? '폐점 세일 방어' : '메테오 방어') : KIND_LABEL[diff]) + ' · ' + TYPE_LABEL[type];
+    timKind.textContent = (B && diff === 'capture' && B.en.boss && !B.capture ? (({pastor:'지옥 설교 방어', sunhwa:'폐점 세일 방어', seungyong:'폭동 방어', hojeong:'핵 방어'})[B.en.key] || '메테오 방어') : KIND_LABEL[diff]) + ' · ' + TYPE_LABEL[type];
     timRound.textContent = total ? `${round}/${total}` : '';
     timRes.hidden = true; timEl.classList.toggle('hard', diff === 'capture' || diff === 'hard');
     const tapWord = coarse ? '터치' : '스페이스';
@@ -5270,6 +5956,14 @@ function timing(diff, round, total){
       Object.assign(TIM, {S0:48, s:144, shr:timBody.querySelector('.shr')});
       TIM.shr.style.width = TIM.shr.style.height = '144px';
       timHint.textContent = `줄어드는 네모가 금색 네모와 겹칠 때 ${tapWord}`;
+    } else if (type === 'aim'){
+      timBody.innerHTML = '<div class="tAim"><i class="tg"></i><i class="tg pf"></i><i class="cr"></i></div>';
+      const W = 240, H = 130, sp = P.aimSpd, p1 = Math.random()*6.28, p2 = Math.random()*6.28;
+      const pos = t => [W/2 + (W/2 - 14)*Math.sin(sp*t + p1), H/2 + (H/2 - 12)*Math.sin(sp*1.37*t + p2)];
+      const [tx, ty] = pos(0.9 + Math.random()*1.6);
+      Object.assign(TIM, {pos, tx, ty, cx:-99, cy:-99, cr:timBody.querySelector('.cr')});
+      timBody.querySelectorAll('.tg').forEach((el, i) => { const r = i ? P.aimPerf : P.aimGood; el.style.left = tx.toFixed(1) + 'px'; el.style.top = ty.toFixed(1) + 'px'; el.style.width = el.style.height = (r*2) + 'px'; });
+      timHint.textContent = `움직이는 조준선이 과녁 한가운데 올 때 ${tapWord}`;
     } else {
       const seq = Array.from({length:P.arrN}, () => ['up','down','left','right'][Math.random()*4 | 0]);
       timBody.innerHTML = `<div class="tArrows">${seq.map(d => `<span class="ar">${ARW[d]}</span>`).join('')}</div><div class="tTime"><i></i></div>` +
@@ -5294,6 +5988,10 @@ function updTiming(dt){
     TIM.s = TIM.S0*3*(1 - TIM.t/P.ringDur);
     if (TIM.s <= 2) timFinish('miss');
     else TIM.shr.style.width = TIM.shr.style.height = TIM.s.toFixed(1) + 'px';
+  } else if (TIM.type === 'aim'){
+    const [x, y] = TIM.pos(TIM.t); TIM.cx = x; TIM.cy = y;
+    TIM.cr.style.left = x.toFixed(1) + 'px'; TIM.cr.style.top = y.toFixed(1) + 'px';
+    if (TIM.t > 4.5) timFinish('miss');
   } else {
     const left = 1 - TIM.t/TIM.lim;
     TIM.bar.style.transform = `scaleX(${Math.max(0, left).toFixed(3)})`;
@@ -5305,6 +6003,7 @@ function timTap(){
   const P = TIM.P;
   if (TIM.type === 'bar'){ const d = Math.abs(TIM.p - TIM.c); timFinish(d <= P.perf/2 ? 'perfect' : d <= P.good/2 ? 'good' : 'miss'); }
   else if (TIM.type === 'ring'){ const d = Math.abs(TIM.s - TIM.S0)/2; timFinish(d <= P.ringPerf ? 'perfect' : d <= P.ringGood ? 'good' : 'miss'); }
+  else if (TIM.type === 'aim'){ const d = Math.hypot(TIM.cx - TIM.tx, TIM.cy - TIM.ty); timFinish(d <= P.aimPerf ? 'perfect' : d <= P.aimGood ? 'good' : 'miss'); }
 }
 function timArrow(dir){
   if (!TIM.on || TIM.done || TIM.type !== 'arrows') return;
@@ -5404,7 +6103,7 @@ function renderGearTab(){
   const on = el('div', 'list');
   ['weapon','armor'].forEach(s => {
     const g = G.equip[s];
-    const row = el('div', 'lrow gearrow' + (g ? ' on' : ''), g ? `<div><span class="lname">${SLOT_NAME[s]} · ${EQUIPS[g.key].name}</span><span class="ldesc">${gearText(g.key)}${g.dur <= 1 ? ' · 다음 전투 후 부서짐' : ''}</span></div><span class="cnt">내구 ${g.dur}/${EQUIPS[g.key].dur}</span>`
+    const row = el('div', 'lrow gearrow' + (g ? ' on' : ''), g ? `<div><span class="lname">${SLOT_NAME[s]} · ${gearName(g)}</span><span class="ldesc">${gearTextG(g)}${g.dur <= 1 ? ' · 다음 전투 후 부서짐' : ''}</span></div><span class="cnt">내구 ${g.dur}/${EQUIPS[g.key].dur}</span>`
       : `<div><span class="lname">${SLOT_NAME[s]} · 없음</span><span class="ldesc">가방에서 골라 착용하세요</span></div><span class="cnt"></span>`);
     row.prepend(g ? iconEl(g.key) : el('span'));
     if (g){ const b = el('button', 'btn small', '벗기'); b.type = 'button'; b.addEventListener('click', () => { unequip(s); renderMenu(); refreshHUD(); writeSave(); }); row.append(b); }
@@ -5421,7 +6120,7 @@ function renderGearTab(){
   const list = el('div', 'list');
   G.gearBag.forEach(g => {
     const E = EQUIPS[g.key];
-    const row = el('div', 'lrow gearrow', `<div><span class="lname">${SLOT_NAME[E.slot]} · ${E.name}</span><span class="ldesc">${gearText(g.key)}</span></div><span class="cnt">내구 ${g.dur}/${E.dur}</span>`);
+    const row = el('div', 'lrow gearrow', `<div><span class="lname">${SLOT_NAME[E.slot]} · ${gearName(g)}</span><span class="ldesc">${gearTextG(g)}</span></div><span class="cnt">내구 ${g.dur}/${E.dur}</span>`);
     row.prepend(iconEl(g.key));
     const b = el('button', 'btn small primary', '착용'); b.type = 'button';
     b.addEventListener('click', () => { equipGear(g.id); renderMenu(); refreshHUD(); writeSave(); });
@@ -5562,12 +6261,84 @@ function renderCraft(){
   const bagCost = {cloth:2, tape:1}, n = bagYield();
   row(null, `포획용 가방 ×${n}`, `${matText(bagCost)} → 포획용 가방 ${n}개 (지금 ${G.inv.bag | 0}개)`, '만들기', haveMats(bagCost), () => { useMats(bagCost); G.inv.bag = (G.inv.bag | 0) + n; crafted(`포획용 가방 ${n}개를 만들었다!`); });
   shopList.append(el('div', 'sub', '장비 수리 (내구도를 가득 채워요)'));
-  const gear = [...['weapon','armor'].map(s => G.equip[s]).filter(Boolean), ...G.gearBag].filter(g => g.dur < EQUIPS[g.key].dur);
-  if (!gear.length){ shopList.append(el('div', 'empty', '고칠 장비가 없어요. 장비는 전투 1번마다 내구도가 1씩 줄어요.')); return; }
+  const all = [...['weapon','armor'].map(s => G.equip[s]).filter(Boolean), ...G.gearBag];
+  const gear = all.filter(g => g.dur < EQUIPS[g.key].dur);
+  if (!gear.length) shopList.append(el('div', 'empty', '고칠 장비가 없어요. 장비는 전투 1번마다 내구도가 1씩 줄어요.'));
   gear.forEach(g => {
     const E = EQUIPS[g.key], c = repairCost(g), on = ['weapon','armor'].some(s => G.equip[s] === g);
-    row(g.key, `${E.name}${on ? ' (착용 중)' : ''}`, `내구 ${g.dur}/${E.dur} · ${matText(c)}`, '수리', haveMats(c), () => { useMats(c); g.dur = E.dur; crafted(`${E.name} 수리 완료! 내구 ${E.dur}/${E.dur}`); });
+    row(g.key, `${gearName(g)}${on ? ' (착용 중)' : ''}`, `내구 ${g.dur}/${E.dur} · ${matText(c)}`, '수리', haveMats(c), () => { useMats(c); g.dur = E.dur; crafted(`${gearName(g)} 수리 완료! 내구 ${E.dur}/${E.dur}`); });
   });
+  shopList.append(el('div', 'sub', '장비 강화 (+1마다 첫 번째 능력치 +1 · 최대 +5)'));
+  if (!bldDone('police')){ shopList.append(el('div', 'empty', `${BLD_NUM('police')} ${NAMES.police}을 정화하면 경찰서 생존자들이 강화 공구를 가져와요.`)); return; }
+  const up = all.filter(g => (g.plus | 0) < 5);
+  if (!up.length){ shopList.append(el('div', 'empty', '강화할 장비가 없어요.')); return; }
+  up.forEach(g => {
+    const n = (g.plus | 0) + 1, c = enhCost(g), gem = 3*n, ch = enhChance(g), on = ['weapon','armor'].some(s => G.equip[s] === g);
+    row(g.key, `${gearName(g)} → +${n}${on ? ' (착용 중)' : ''}`, `${matText(c)} + 마정석 ${gem} · 성공 ${ch}% · 실패해도 장비는 무사`, `강화 ${ch}%`, haveMats(c) && G.gems >= gem, () => {
+      useMats(c); spendGems(gem); G.rec.enh = (G.rec.enh | 0) + 1;
+      if (Math.random()*100 < ch){ g.plus = n; crafted(`✨ 강화 성공! ${gearName(g)}`); }
+      else crafted(`강화 실패… 재료와 마정석만 사라졌어요. ${gearName(g)}은(는) 무사해요.`);
+    });
+  });
+}
+const enhCost = g => { const n = (g.plus | 0) + 1; return {wire:n, tape:1, cloth:n >= 3 ? 1 : 0}; };
+const enhChance = g => Math.min(95, [90, 75, 60, 45, 30][g.plus | 0] + Math.floor(craftSkill()/2));
+/* PC bang mini-games: reaction speed and click accuracy (for locked doors, and for fun once the PC bang is purified) */
+const mgArea = $('#mgArea'), mgRes = $('#mgRes'), mgHint = $('#mgHint'), MG_REACT_OK = 450, MG_AIM_N = 4, MG_AIM_T = 1300;
+const MG = {kind:'react', state:'idle', t0:0, timer:null, cb:null, free:false, hits:0};
+function openMG(kind, cb, free){ MG.kind = kind; MG.cb = cb || null; MG.free = !!free; MG.state = 'idle'; clearTimeout(MG.timer); mgOv.hidden = false; keys.clear(); padRelease(); mgRender(); }
+function closeMG(){ clearTimeout(MG.timer); MG.state = 'idle'; MG.cb = null; mgOv.hidden = true; }
+function mgRender(){
+  const react = MG.kind === 'react', r = G.rec || {};
+  $('#mgHead').textContent = react ? '⚡ 반응속도 게임' : '🎯 조준 게임';
+  mgHint.textContent = (react ? `화면이 초록색으로 바뀌는 순간 누르세요 (${coarse ? '화면 터치' : 'Space 또는 클릭'}). ${MG_REACT_OK}ms 안이면 통과! 빨간색일 때 누르면 실패예요.`
+    : `과녁이 ${MG_AIM_N}번 나타나요. 사라지기 전에 ${coarse ? '터치' : '클릭'}하세요. 빈 곳을 누르면 실패예요.`) +
+    (react ? (r.react ? ` · 내 최고 ${r.react}ms` : '') : (r.aim ? ` · 내 최고 ${(r.aim/1000).toFixed(2)}초` : ''));
+  mgArea.className = 'mgArea'; mgArea.textContent = MG.cb ? '보안 게임' : '준비';
+  mgRes.textContent = ''; $('#btnMgGo').textContent = '시작'; $('#btnMgSwap').hidden = !MG.free;
+}
+function mgStart(){
+  clearTimeout(MG.timer); mgRes.textContent = '';
+  if (MG.kind === 'react'){
+    MG.state = 'wait'; mgArea.className = 'mgArea wait'; mgArea.textContent = '기다려…';
+    MG.timer = setTimeout(() => {
+      MG.state = 'go'; MG.t0 = performance.now(); mgArea.className = 'mgArea go'; mgArea.textContent = '지금!';
+      MG.timer = setTimeout(() => { if (MG.state === 'go') mgEnd(false, '너무 늦었어요…'); }, 1500);
+    }, 1000 + Math.random()*2200);
+  } else { MG.state = 'aim'; MG.hits = 0; MG.t0 = performance.now(); mgArea.className = 'mgArea'; mgNextTarget(); }
+}
+function mgNextTarget(){
+  clearTimeout(MG.timer); mgArea.innerHTML = '';
+  const b = document.createElement('button'); b.type = 'button'; b.className = 'mgTgt'; b.setAttribute('aria-label', '과녁');
+  b.style.left = (10 + Math.random()*80).toFixed(1) + '%'; b.style.top = (14 + Math.random()*72).toFixed(1) + '%';
+  b.addEventListener('pointerdown', e => {
+    e.preventDefault(); e.stopPropagation(); if (MG.state !== 'aim') return;
+    MG.hits++;
+    if (MG.hits >= MG_AIM_N){
+      const ms = Math.round(performance.now() - MG.t0); if (G.rec && (!G.rec.aim || ms < G.rec.aim)) G.rec.aim = ms;
+      mgEnd(true, `${MG_AIM_N}개 전부 명중! ${(ms/1000).toFixed(2)}초`);
+    } else mgNextTarget();
+  });
+  mgArea.append(b);
+  MG.timer = setTimeout(() => { if (MG.state === 'aim') mgEnd(false, '과녁을 놓쳤어요…'); }, MG_AIM_T);
+}
+function mgTap(){
+  if (MG.state === 'idle' || MG.state === 'done'){ mgStart(); return; }
+  if (MG.state === 'aim'){ mgEnd(false, '빗나갔어요… 과녁을 정확히 눌러요.'); return; }
+  if (MG.state === 'wait'){ mgEnd(false, '너무 빨랐어요! 초록색이 되면 눌러요.'); return; }
+  if (MG.state === 'go'){
+    const ms = Math.round(performance.now() - MG.t0), ok = ms <= MG_REACT_OK;
+    if (G.rec && (!G.rec.react || ms < G.rec.react)) G.rec.react = ms;
+    if (ms <= 250) unlock('mg');
+    mgEnd(ok, `${ms}ms! ${ok ? '통과!' : `조금 느려요… (${MG_REACT_OK}ms 안에)`}`);
+  }
+}
+function mgEnd(ok, msg){
+  clearTimeout(MG.timer); MG.state = 'done';
+  mgArea.innerHTML = ''; mgArea.className = 'mgArea ' + (ok ? 'ok' : 'bad'); mgArea.textContent = ok ? '성공!' : '실패';
+  mgRes.textContent = msg; $('#btnMgGo').textContent = '다시';
+  if (ok && MG.cb){ const cb = MG.cb; MG.cb = null; setTimeout(() => { mgOv.hidden = true; MG.state = 'idle'; cb(); }, 800); }
+  else if (G.base) writeSave();
 }
 function renderShop(){
   if (shopKey === 'craft'){ renderCraft(); return; }
@@ -5599,6 +6370,7 @@ function renderShop(){
 function onA(){
   if (!helpOv.hidden){ helpOv.hidden = true; return; }
   if (!rankOv.hidden){ rankOv.hidden = true; return; }
+  if (!mgOv.hidden){ mgTap(); return; }
   if (G.mode === 'faint'){ wake(); return; }
   if (G.mode !== 'play') return;
   if (!cardOv.hidden){ cardOv.hidden = true; return; }
@@ -5614,6 +6386,7 @@ addEventListener('keydown', e => {
   if (!kbdUsed && !e.isComposing){ kbdUsed = true; kbdShown = null; }
   if (tag === 'INPUT'){ if (e.key === 'Enter' && !e.isComposing && G.mode === 'create'){ e.preventDefault(); goRoles(); } return; }
   const c = e.code, tapKey = c === 'Space' || c === 'Enter' || c === 'KeyZ';
+  if (!mgOv.hidden){ if (c === 'Escape'){ e.preventDefault(); closeMG(); } else if (tapKey){ e.preventDefault(); if (!e.repeat) mgTap(); } return; }
   if (c === 'Escape' && (!rankOv.hidden || (!helpOv.hidden && G.mode !== 'play'))){ e.preventDefault(); rankOv.hidden = true; helpOv.hidden = true; return; }
   if (G.mode === 'battle'){
     if (tapKey || ARROW_KEYS[c]) e.preventDefault();
@@ -5696,6 +6469,10 @@ document.querySelectorAll('[data-act="full"]').forEach(b => b.addEventListener('
 document.querySelectorAll('[data-act="help"]').forEach(b => b.addEventListener('click', openHelp));
 $('#btnHelpClose').addEventListener('click', () => helpOv.hidden = true);
 $('#btnRank').addEventListener('click', openRank);
+mgArea.addEventListener('pointerdown', e => { e.preventDefault(); mgTap(); });
+$('#btnMgGo').addEventListener('click', () => mgStart());
+$('#btnMgClose').addEventListener('click', closeMG);
+$('#btnMgSwap').addEventListener('click', () => { MG.kind = MG.kind === 'react' ? 'aim' : 'react'; MG.state = 'idle'; clearTimeout(MG.timer); mgRender(); });
 $('#btnRankClose').addEventListener('click', () => rankOv.hidden = true);
 $('#btnRankReload').addEventListener('click', () => { RK.t = 0; loadRank(); });
 function openHelp(){ menuOv.hidden = true; helpOv.hidden = false; keys.clear(); padRelease(); }
@@ -5713,7 +6490,7 @@ function syncTouch(){
   const talking = !!DLG.cur;
   if (talking !== talkShown){ talkShown = talking; touchEl.classList.toggle('talking', talking); }
   const kick = G.mode === 'play' && isOW() && G.kick ? (G.riding ? '내리기' : '타기') : '';
-  const kb = G.mode === 'play' && !DLG.cur && menuOv.hidden && helpOv.hidden ? (coarse ? (kbdUsed ? 'a' : '') : 'bar') : '';
+  const kb = G.mode === 'play' && !DLG.cur && menuOv.hidden && helpOv.hidden && mgOv.hidden ? (coarse ? (kbdUsed ? 'a' : '') : 'bar') : '';
   if (kb !== kbdShown){ kbdShown = kb; $('#keyBar').hidden = kb !== 'bar'; $('#btnAKey').hidden = kb !== 'a'; }
   if (kick !== kickShown){ kickShown = kick; bWrap.hidden = !kick; if (kick) btnBLbl.textContent = kick; }
 }

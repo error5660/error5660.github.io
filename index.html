@@ -335,6 +335,38 @@ p,h1,h2{margin:0}
 .nerfBox ul,.newList{margin:6px 0;padding-left:1.2em;font-size:15px;line-height:1.6}
 .renamePanel{width:min(420px,100%);display:grid;gap:10px}
 #renameIn{font:inherit;font-size:18px;padding:8px 10px;background:var(--bg);color:var(--ink);border:2px solid var(--line)}
+.bagTop{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px}
+.chipRow{display:flex;flex-wrap:wrap;gap:5px}
+.fchip{font-family:var(--f-disp);font-size:14px;color:var(--ink);background:var(--panel-2);border:2px solid var(--line);padding:4px 10px;cursor:pointer}
+.fchip b{font-family:var(--f-pix);font-size:10px;font-weight:400;color:var(--muted);margin-left:2px}
+.fchip.on{background:var(--gold);color:var(--bg);border-color:var(--gold-d)}
+.fchip.on b{color:var(--bg)}
+.fchip.ghost{background:var(--plate);font-size:13px}
+.cardGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:6px}
+.cardGrid.gear{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.icard{display:grid;grid-template-rows:auto 1fr auto;gap:4px;background:var(--panel-2);border:2px solid var(--line);padding:6px 8px;min-width:0}
+.icard.zero{opacity:.45}
+.ihead{display:flex;align-items:center;gap:6px;min-width:0}
+.iemo{font-size:20px;line-height:1}
+.iname{font-family:var(--f-disp);font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1}
+.icnt{font-family:var(--f-pix);font-size:12px;color:var(--gold);white-space:nowrap}
+.idesc{display:block;font-size:12px;color:var(--muted);line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ibtns{display:flex;align-items:center;justify-content:flex-end;gap:4px;flex-wrap:wrap}
+.ibtns .btn.small{min-height:28px;padding:4px 9px;font-size:13px}
+.ibtns .trash{padding:4px 7px}
+.ibtns.ask{justify-content:flex-start;background:#2a0e16;margin:-2px -4px -2px;padding:4px}
+.askq{font-size:12px;color:var(--ember);flex-basis:100%}
+.itag{font-size:11px;color:var(--muted);margin-right:auto}
+.gearOn{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:6px}
+.gcard{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:4px 8px;background:var(--panel-2);border:2px solid var(--line);padding:6px 8px;min-width:0}
+.gcard.on{border-color:var(--gold-d)}
+.gcard.none{opacity:.6}
+.gcard .gbody{display:grid;gap:2px;min-width:0}
+.gcard > .btn,.gcard > .ibtns{grid-column:1/-1;justify-self:end}
+.gcard .iname{font-size:14px}
+.dur{display:block;height:5px;background:var(--bg);border:1px solid var(--line);position:relative}
+.dur i{position:absolute;left:0;top:0;bottom:0;background:var(--glow)}
+.dur i.low{background:var(--ember)}
 .tBat{position:relative;height:46px;background:#1e4a2a;border:2px solid var(--line);margin-block:10px;overflow:hidden}
 .tBat .good{position:absolute;top:0;bottom:0;background:rgba(239,180,76,.35)}
 .tBat .perf{position:absolute;top:0;bottom:0;background:var(--gold)}
@@ -12204,21 +12236,58 @@ function addStat(k){
   if (k === '정신력') G.san += 12;
   clampVitals(); renderMenu(); refreshHUD(); writeSave();
 }
+/* v1.0.1: the bag and the gear bag as compact card grids, with filters and a discard button */
+const ITEM_EMO = {bag:'🎒', bread:'🍞', drink:'🥤', cure:'🧴', candy:'🍬', coffee:'☕', riceball:'🍙', cloth:'🧵', wire:'➰', tape:'🩹',
+  hobak:'🥒', leaf:'🥬', ricecake:'🍡', egg:'🥚', jeon:'🥞', twigim:'🍤', tteokbokki:'🌶️', moduem:'🍱'};
+const ITEM_CATS = [['all','전체'], ['heal','❤️ 회복'], ['dish','🍳 요리'], ['mat','🔩 재료'], ['etc','🎒 기타']];
+const itemCat = it => it.dish ? 'dish' : it.field ? 'heal' : (it.mat || it.food) ? 'mat' : 'etc';
+let bagCat = 'all', bagAll = false, dropKey = null, gearCat = 'all', dropGear = null;
+function chipRow(list, cur, onPick, counts){
+  const r = el('div', 'chipRow');
+  list.forEach(([k, label]) => {
+    const b = el('button', 'fchip' + (k === cur ? ' on' : ''), label + (counts && counts[k] != null ? ` <b>${counts[k]}</b>` : '')); b.type = 'button';
+    b.addEventListener('click', () => { onPick(k); renderMenu(); });
+    r.append(b);
+  });
+  return r;
+}
+function dropItem(k, n){
+  const have = G.inv[k] | 0; n = Math.min(n, have); if (n <= 0) return;
+  G.inv[k] = have - n; dropKey = null;
+  toast(`🗑 ${ITEMS[k].name} ${n}개를 버렸다.`); renderMenu(); refreshHUD(); writeSave();
+}
 function renderBagTab(){
   const risk = G.fs.reduce((a, s) => a + (s.done ? 0 : s.gems), 0);
-  menuBody.append(el('div', 'gemline', `<span class="gi"></span><span>마정석 ${G.gems}</span>` + (risk > 0 ? `<span class="risk">이 중 ${Math.min(risk, G.gems)}개는 정화 안 된 층이나 폐허에서 얻은 것이라, 거기서 쓰러지면 사라져요 (폐허 것은 캠프에서 쉬면 안전)</span>` : '')));
-  const list = el('div', 'list');
-  Object.entries(ITEMS).forEach(([k, it]) => {
-    const row = el('div', 'lrow', `<div><span class="lname">${it.name}</span><span class="ldesc">${it.desc}</span></div><span class="cnt">×${G.inv[k] | 0}</span>`);
-    if (it.field){
-      const b = el('button', 'btn small', '사용'); b.type = 'button';
-      b.disabled = (G.inv[k] | 0) <= 0;
-      b.addEventListener('click', () => useItemField(k));
-      row.append(b);
-    } else row.append(el('span', 'cnt', it.mat ? '제작 재료' : it.food ? '요리 재료' : '전투용'));
-    list.append(row);
+  menuBody.append(el('div', 'gemline', `<span class="gi"></span><span>마정석 ${G.gems}</span>` + (risk > 0 ? `<span class="risk">⚠ ${Math.min(risk, G.gems)}개는 쓰러지면 사라질 수 있어요</span>` : '')));
+  const keys = Object.keys(ITEMS), counts = {all:0};
+  keys.forEach(k => { if ((G.inv[k] | 0) > 0){ counts.all++; const c = itemCat(ITEMS[k]); counts[c] = (counts[c] | 0) + 1; } });
+  const top = el('div', 'bagTop');
+  top.append(chipRow(ITEM_CATS, bagCat, k => { bagCat = k; dropKey = null; }, counts));
+  const tg = el('button', 'fchip ghost' + (bagAll ? ' on' : ''), bagAll ? '👁 0개도 보는 중' : '👁 0개 숨김'); tg.type = 'button';
+  tg.addEventListener('click', () => { bagAll = !bagAll; renderMenu(); });
+  top.append(tg); menuBody.append(top);
+  const grid = el('div', 'cardGrid');
+  keys.filter(k => (bagCat === 'all' || itemCat(ITEMS[k]) === bagCat) && (bagAll || (G.inv[k] | 0) > 0)).forEach(k => {
+    const it = ITEMS[k], n = G.inv[k] | 0, card = el('div', 'icard' + (n ? '' : ' zero'));
+    card.innerHTML = `<div class="ihead"><span class="iemo">${ITEM_EMO[k] || '📦'}</span><span class="iname">${it.name}</span><span class="icnt">×${n}</span></div><div class="idesc">${it.desc}</div>`;
+    const btns = el('div', 'ibtns');
+    if (dropKey === k){
+      btns.classList.add('ask'); btns.append(el('span', 'askq', '몇 개 버릴까요?'));
+      const one = el('button', 'btn small', '1개'); one.type = 'button'; one.addEventListener('click', () => dropItem(k, 1));
+      const all = el('button', 'btn small danger', `전부 ${n}개`); all.type = 'button'; all.addEventListener('click', () => dropItem(k, n));
+      const no = el('button', 'btn small ghost', '취소'); no.type = 'button'; no.addEventListener('click', () => { dropKey = null; renderMenu(); });
+      btns.append(one); if (n > 1) btns.append(all); btns.append(no);
+    } else {
+      if (it.field){ const b = el('button', 'btn small primary', it.dish ? '먹기' : '사용'); b.type = 'button'; b.disabled = n <= 0; b.addEventListener('click', () => useItemField(k)); btns.append(b); }
+      else btns.append(el('span', 'itag', it.mat ? '제작 재료' : it.food ? '요리 재료' : '전투용'));
+      const d = el('button', 'btn small ghost trash', '🗑'); d.type = 'button'; d.title = '버리기'; d.setAttribute('aria-label', it.name + ' 버리기'); d.disabled = n <= 0;
+      d.addEventListener('click', () => { dropKey = k; renderMenu(); });
+      btns.append(d);
+    }
+    card.append(btns); grid.append(card);
   });
-  menuBody.append(list);
+  if (!grid.children.length) menuBody.append(el('div', 'empty', bagCat === 'all' ? '가방이 비어 있어요.' : '이 종류는 지금 하나도 없어요.'));
+  else menuBody.append(grid);
 }
 function useItemField(k){
   if ((G.inv[k] | 0) <= 0) return;
@@ -12231,36 +12300,55 @@ function useItemField(k){
   else if (k === 'coffee'){ G.san = Math.min(sanMax(), G.san + 60); G.mp = Math.min(maxMP(), G.mp + 10); }
   G.inv[k]--; toast(`${ITEMS[k].name} 사용${k === 'cure' ? ' · 감염이 나았다' : k === 'drink' && stamF ? ' · 스태미나 +50' : ''}`); renderMenu(); refreshHUD(); writeSave();
 }
+function dropGearById(id){
+  const i = G.gearBag.findIndex(g => g.id === id); if (i < 0) return;
+  const g = G.gearBag[i]; G.gearBag.splice(i, 1); dropGear = null;
+  toast(`🗑 ${gearName(g)}을(를) 버렸다.`); renderMenu(); writeSave();
+}
+function gearCard(g, slotLabel, on){
+  const E = EQUIPS[g.key], k = g.dur/E.dur, card = el('div', 'gcard' + (on ? ' on' : ''));
+  card.append(iconEl(g.key));
+  card.append(el('div', 'gbody', `<span class="iname">${slotLabel ? slotLabel + ' · ' : ''}${gearName(g)}</span><span class="idesc">${gearTextG(g)}</span><span class="dur"><i style="width:${Math.round(k*100)}%" class="${k <= 0.25 ? 'low' : ''}"></i></span><span class="cnt">내구 ${g.dur}/${E.dur}${g.dur <= 1 ? ' · 곧 부서짐' : ''}</span>`));
+  return card;
+}
 function renderGearTab(){
-  menuBody.append(el('p', 'hint', '장비는 전투 1번마다 내구도가 1씩 줄고, 0이 되면 부서져 사라져요. 무기 1개, 옷 1개를 착용할 수 있어요.'));
-  menuBody.append(el('div', 'sub', '착용 중'));
-  const on = el('div', 'list');
+  menuBody.append(el('p', 'hint', '전투 1번마다 내구도 −1, 0이 되면 부서져요. 무기 1개 · 옷 1개를 입을 수 있어요.'));
+  const on = el('div', 'gearOn');
   ['weapon','armor'].forEach(s => {
     const g = G.equip[s];
-    const row = el('div', 'lrow gearrow' + (g ? ' on' : ''), g ? `<div><span class="lname">${SLOT_NAME[s]} · ${gearName(g)}</span><span class="ldesc">${gearTextG(g)}${g.dur <= 1 ? ' · 다음 전투 후 부서짐' : ''}</span></div><span class="cnt">내구 ${g.dur}/${EQUIPS[g.key].dur}</span>`
-      : `<div><span class="lname">${SLOT_NAME[s]} · 없음</span><span class="ldesc">가방에서 골라 착용하세요</span></div><span class="cnt"></span>`);
-    row.prepend(g ? iconEl(g.key) : el('span'));
-    if (g){ const b = el('button', 'btn small', '벗기'); b.type = 'button'; b.addEventListener('click', () => { unequip(s); renderMenu(); refreshHUD(); writeSave(); }); row.append(b); }
-    else row.append(el('span'));
-    on.append(row);
+    if (g){
+      const c = gearCard(g, SLOT_NAME[s], true), b = el('button', 'btn small', '벗기'); b.type = 'button';
+      b.addEventListener('click', () => { unequip(s); renderMenu(); refreshHUD(); writeSave(); }); c.append(b); on.append(c);
+    } else on.append(el('div', 'gcard none', `<span class="iemo">${s === 'weapon' ? '🗡️' : '👕'}</span><div class="gbody"><span class="iname">${SLOT_NAME[s]} · 없음</span><span class="idesc">아래에서 골라 착용하세요</span></div>`));
   });
-  const kr = el('div', 'lrow gearrow' + (G.kick ? ' on' : ''), G.kick
-    ? `<div><span class="lname">탈것 · 전동킥보드</span><span class="ldesc">폐허에서 ${coarse ? '‘킥’ 버튼' : 'R 키'}로 타고 내려요. 속도 2배 · 달리면 배터리가 닳고 0이 되면 부서져요</span></div><span class="cnt">배터리 ${G.kick.bat}/${KICK_MAX}</span>`
-    : `<div><span class="lname">탈것 · 없음</span><span class="ldesc">학교 앞 길가에 하나 쓰러져 있어요. 캠프 판매대에서도 팔아요.</span></div><span class="cnt"></span>`);
-  kr.prepend(G.kick ? iconEl('kick') : el('span')); kr.append(el('span'));
-  on.append(kr);
-  menuBody.append(on, el('div', 'sub', '가방 속 장비'));
-  if (!G.gearBag.length){ menuBody.append(el('div', 'empty', '가방에 장비가 없어요. 자판기·캠프에서 사거나, 열린 방과 강한 적에게서 얻을 수 있어요.')); return; }
-  const list = el('div', 'list');
-  G.gearBag.forEach(g => {
-    const E = EQUIPS[g.key];
-    const row = el('div', 'lrow gearrow', `<div><span class="lname">${SLOT_NAME[E.slot]} · ${gearName(g)}</span><span class="ldesc">${gearTextG(g)}</span></div><span class="cnt">내구 ${g.dur}/${E.dur}</span>`);
-    row.prepend(iconEl(g.key));
-    const b = el('button', 'btn small primary', '착용'); b.type = 'button';
-    b.addEventListener('click', () => { equipGear(g.id); renderMenu(); refreshHUD(); writeSave(); });
-    row.append(b); list.append(row);
+  { const c = el('div', 'gcard' + (G.kick ? ' on' : ' none'));
+    if (G.kick){ c.append(iconEl('kick')); c.append(el('div', 'gbody', `<span class="iname">탈것 · 전동킥보드</span><span class="idesc">폐허에서 ${coarse ? '‘킥’ 버튼' : 'R 키'}로 타요 · 속도 2배</span><span class="dur"><i style="width:${Math.round(G.kick.bat/KICK_MAX*100)}%"></i></span><span class="cnt">배터리 ${G.kick.bat}/${KICK_MAX}</span>`)); }
+    else c.innerHTML = '<span class="iemo">🛴</span><div class="gbody"><span class="iname">탈것 · 없음</span><span class="idesc">캠프 판매대에서 팔아요</span></div>';
+    on.append(c); }
+  menuBody.append(el('div', 'sub', '착용 중'), on);
+  const counts = {all:G.gearBag.length, weapon:G.gearBag.filter(g => EQUIPS[g.key].slot === 'weapon').length, armor:G.gearBag.filter(g => EQUIPS[g.key].slot === 'armor').length};
+  menuBody.append(el('div', 'sub', `가방 속 장비 (${G.gearBag.length})`));
+  if (!G.gearBag.length){ menuBody.append(el('div', 'empty', '가방에 장비가 없어요. 판매대에서 사거나, 열린 방과 강한 적에게서 얻어요.')); return; }
+  menuBody.append(chipRow([['all','전체'], ['weapon','🗡️ 무기'], ['armor','👕 옷']], gearCat, k => { gearCat = k; dropGear = null; }, counts));
+  const grid = el('div', 'cardGrid gear');
+  const sum = g => Object.values(EQUIPS[g.key].stats).reduce((a, v) => a + v, 0) + (g.plus | 0);
+  G.gearBag.filter(g => gearCat === 'all' || EQUIPS[g.key].slot === gearCat).slice().sort((a, b) => sum(b) - sum(a)).forEach(g => {
+    const E = EQUIPS[g.key], c = gearCard(g, SLOT_NAME[E.slot], false), btns = el('div', 'ibtns');
+    if (dropGear === g.id){
+      btns.classList.add('ask'); btns.append(el('span', 'askq', '정말 버릴까요? 되돌릴 수 없어요'));
+      const y = el('button', 'btn small danger', '버리기'); y.type = 'button'; y.addEventListener('click', () => dropGearById(g.id));
+      const n = el('button', 'btn small ghost', '취소'); n.type = 'button'; n.addEventListener('click', () => { dropGear = null; renderMenu(); });
+      btns.append(y, n);
+    } else {
+      const b = el('button', 'btn small primary', '착용'); b.type = 'button';
+      b.addEventListener('click', () => { equipGear(g.id); dropGear = null; renderMenu(); refreshHUD(); writeSave(); });
+      const d = el('button', 'btn small ghost trash', '🗑'); d.type = 'button'; d.title = '버리기'; d.setAttribute('aria-label', gearName(g) + ' 버리기');
+      d.addEventListener('click', () => { dropGear = g.id; renderMenu(); });
+      btns.append(b, d);
+    }
+    c.append(btns); grid.append(c);
   });
-  menuBody.append(list);
+  menuBody.append(grid);
 }
 function renderPetTab(){
   const act = activePets().length, slots = petSlots();

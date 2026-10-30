@@ -332,6 +332,11 @@ p,h1,h2{margin:0}
 .noticePanel{width:min(560px,100%);display:grid;gap:10px;max-height:calc(100dvh - 24px);overflow:auto}
 .nerfBox{background:#2a0e16;border:3px solid var(--ember);padding:10px 12px;font-size:15px;line-height:1.5}
 .nerfBox b{font-family:var(--f-disp);font-size:20px;color:var(--ember)}
+.penBox{background:#3a0810;border:4px solid #ff3a3a;padding:12px 14px;font-size:16px;line-height:1.55;box-shadow:0 0 0 3px #14060a,0 0 18px rgba(255,58,58,.35)}
+.penBox h3{margin:0 0 6px;font-family:var(--f-disp);font-weight:400;font-size:24px;color:#ff6a6a}
+.penBox .big{font-size:22px;font-weight:800;color:#fff3c4}
+.penBox ul{margin:6px 0;padding-left:1.2em}
+.oldNote{font-size:13px;opacity:.8;line-height:1.5}
 .nerfBox ul,.newList{margin:6px 0;padding-left:1.2em;font-size:15px;line-height:1.6}
 .renamePanel{width:min(420px,100%);display:grid;gap:10px}
 #renameIn{font:inherit;font-size:18px;padding:8px 10px;background:var(--bg);color:var(--ink);border:2px solid var(--line)}
@@ -521,7 +526,7 @@ p,h1,h2{margin:0}
 
   <section id="scrTitle" class="screen">
     <div class="titleBlock">
-      <p class="eyebrow">체험판 v1.0 · 목포 → 광주</p>
+      <p class="eyebrow">체험판 v1.1 · 목포 → 광주 → 정읍</p>
       <h1 class="logo">덕인</h1>
       <p class="tagline">평범했던 우리 학교가, 어느 날 평행세계로 떨어졌다.</p>
       <div class="slots" id="slots"></div>
@@ -739,12 +744,16 @@ p,h1,h2{margin:0}
     <div class="panel helpPanel" role="dialog" aria-labelledby="helpHead">
       <h2 id="helpHead">게임 방법</h2>
       <div class="helpGrid">
-        <section><h3>🎯 목표</h3><p>건물을 <b>순서대로 하나씩 정화</b>해요. 하나를 정화하면 다음 건물이 열려요.</p><p><b>목포</b>: ① 덕인고 → ② 순성교회 → ③ 영선백화점 → ④ 경찰서 → ⑤ 피시방 → ⑥ 정연모텔 → ⑦ 제선보호소 → ⑧ 라송아파트 → ⑨ 목포역 → 🚆 기차 타고 <b>광주</b></p><p><b>광주</b>: ① 광주캠퍼스 → ② 무등산 → ③ 영화관 → ④ 야구장 → ⑤ 전통시장 → ⑥ 패밀리랜드 (⑦부터는 다음 체험판)</p><p>오른쪽 위 <b>🎯 목표</b>와 바닥의 <b>희미한 화살표</b>가 할 일을 알려 줘요. 메뉴 → 지도에서도 순서를 볼 수 있어요.</p></section>
-        <section><h3>🏫 건물 정화 = 다음 건물 열림</h3><p>건물 <b>꼭대기 보스</b>를 이기면 그 건물이 정화돼요. 안에 있던 사람들은 생존자 캠프로 가고, <b>다음 건물 문이 열려요.</b> 학교는 옥상의 <b>오승연</b>, 교회는 5층의 <b>최제술 목사</b>, 백화점은 4층 창고의 <b>마네킹 순화</b>, 경찰서는 4층 무기고의 <b>이승용</b>, 피시방은 3층 VIP룸의 <b>이호정</b>, 모텔은 지하 보일러실의 <b>여정민</b>, 보호소는 마당의 <b>키메라</b>, 아파트는 <b>엘리베이터 1호기</b> 그 자체, 목포역은 기관실의 <b>기관사 김성관</b>이에요. 광주는 캠퍼스 4층의 <b>대학원장 예지</b>, 무등산 정상의 <b>등산왕 임상영</b>이에요.</p></section>
+        <section><h3>🎯 목표</h3><p>건물을 <b>순서대로 하나씩 정화</b>해요. 하나를 정화하면 다음 건물이 열려요.</p><p><b>목포</b>: ① 덕인고 → ② 순성교회 → ③ 영선백화점 → ④ 경찰서 → ⑤ 피시방 → ⑥ 정연모텔 → ⑦ 제선보호소 → ⑧ 라송아파트 → ⑨ 목포역 → 🚆 기차 타고 <b>광주</b></p><p><b>광주</b>: ① 광주캠퍼스 → ② 무등산 → ③ 영화관 → ④ 야구장 → ⑤ 전통시장 → ⑥ 패밀리랜드 → ⑦ 방송국 JMJ → ⑧ 광주역 → 🚆 열차 타고 <b>정읍</b> (정읍 건물은 다음 체험판)</p><p>오른쪽 위 <b>🎯 목표</b>와 바닥의 <b>희미한 화살표</b>가 할 일을 알려 줘요. 메뉴 → 지도에서도 순서를 볼 수 있어요.</p></section>
+        <section><h3>🏫 건물 정화 = 다음 건물 열림</h3><p>건물 <b>꼭대기 보스</b>를 이기면 그 건물이 정화돼요. 안에 있던 사람들은 생존자 캠프로 가고, <b>다음 건물 문이 열려요.</b> 학교는 옥상의 <b>오승연</b>, 교회는 5층의 <b>최제술 목사</b>, 백화점은 4층 창고의 <b>마네킹 순화</b>, 경찰서는 4층 무기고의 <b>이승용</b>, 피시방은 3층 VIP룸의 <b>이호정</b>, 모텔은 지하 보일러실의 <b>여정민</b>, 보호소는 마당의 <b>키메라</b>, 아파트는 <b>엘리베이터 1호기</b> 그 자체, 목포역은 기관실의 <b>기관사 김성관</b>이에요. 광주는 캠퍼스 4층의 <b>대학원장 예지</b>, 무등산 정상의 <b>등산왕 임상영</b>, 방송국 옥상의 <b>국장 정미진</b>, 광주역 관리국 열차의 <b>검은 양복 손님</b>이에요.</p></section>
         <section><h3>😱 정연모텔 (공포)</h3><p>갑자기 무언가 튀어나와요. <b>뒤에서 따라오는 것</b>은 뒤돌아보면 사라져요. 2층부터는 <b>발소리</b>가 들리면 <b>옷장</b>에 숨어요.</p><p>3층 복도가 <b>끝없이 반복</b>되면: 이상한 게 보이면 <b>왼쪽 계단(되돌아가기)</b>, 멀쩡하면 <b>오른쪽 계단(계속)</b>. 세 번 맞히면 지하로 가요. 무서우면 <b>메뉴 → 기록 → 설정</b>에서 깜짝 효과를 꺼요.</p></section>
         <section><h3>🛗 라송아파트</h3><p>계단이 없어요. 복도 가운데 <b>엘리베이터</b>로 1·5·9·13층을 오가요. 위층 버튼은 <b>도어락</b>을 열어 카드키를 얻어야 켜져요.</p><p>도어락 비밀번호 단서는 그 층의 <b>메모·상자</b>에 있어요. 전투엔 <b>반응 속도</b> 타이밍이 나와요: 초록색 ‘지금!’에만 누르고, 노란 가짜 신호엔 참아요.</p></section>
         <section><h3>🚆 목포역 (공포 최대)</h3><p>승강장에 들어서면 <b>열차 출발 카운트다운</b>이 시작돼요. 시간 안에 맨 앞 <b>기관실</b>까지 가야 해요. 늦으면 대합실부터 다시예요. 전투 중에는 시간이 멈춰요.</p><p>열차 통로는 <b>목포 보스들의 그림자</b>가 막고 있어요. 큰 공격 직전엔 전투 메뉴의 <b>🫣 숨기</b>로 피할 수 있어요. 승강장의 그림자 역무원은 <b>보관함</b>에 숨어서 피해요.</p></section>
         <section><h3>🤝 광주 캠프 · 신뢰와 호감도</h3><p>광주 사람들은 처음엔 나를 안 믿어요. 인사, <b>게시판 부탁</b>, 건물 정화로 <b>신뢰</b>가 쌓이면 판매대(15)·작업대(35)를 쓸 수 있어요.</p><p>광주캠퍼스를 정화하면 <b>호감도</b>가 열려요. 하루 한 번 대화하고, <b>메뉴 → 광주</b>에서 선물을 주면 친해져요. 🚆 열차 문을 조사하면 언제든 목포로 돌아가요.</p></section>
+        <section><h3>💀 v1.1 쓰러짐 벌칙</h3><p>쓰러지면 <b>가진 마정석의 35%</b>를 잃고, 착용한 장비 <b>내구도 −3</b>. 보스·강화 보스에게 지면 <b>절반</b>(17.5% · −2). 정화된 층에서도 똑같아요.</p><p>체력이 낮으면 빵부터 먹고, 위험하면 도망쳐요(보스 제외).</p></section>
+        <section><h3>📺 ⑦ 방송국 JMJ</h3><p>🔴 <b>ON AIR</b> 빨간불이 켜진 3초 동안은 <b>절대 움직이지 마세요</b>. 움직이면 카메라에 잡혀 그림자 스태프가 몰려와요. “곧 ON AIR!”가 뜨면 멈춰요.</p><p>📜 층마다 대본 조각 3장을 모아 <b>프롬프터</b>에서 시간 순서대로 맞춰요. 틀리면 NG!</p></section>
+        <section><h3>🚉 ⑧ 광주역</h3><p>🕰 <b>셔터</b>는 전광판 시계가 정해진 분일 때만 열려요(오른쪽 위). 🗺 <b>노선도 조각</b>으로 맞는 승강장을 골라요. 🚃 <b>열차 접근!</b>이 뜨면 선로에서 비켜요.</p><p>마지막 열차 칸에는 구만석이 같이 와서 큰 공격을 한 번 막아 줘요.</p></section>
+        <section><h3>🍁 정읍</h3><p>광주를 끝내면 열차가 정읍으로 가요. 지금은 단풍 든 시골 마을을 걸어 다닐 수 있고, 건물은 <b>다음 체험판</b>에서 열려요. 정읍역 문으로 광주에 돌아가요.</p></section>
         <section><h3>🔮 v1.0 마법 너프</h3><p>주문력 피해 계수 <b>2.5 → 2.0</b> · 고음 <b>×1.4 → ×1.3</b> · 쪽지시험은 적 방어를 <b>절반만</b> 무시해요.</p><p>대신 모두에게 <b>능력치 초기화권 5장</b>! 메뉴 → 📊 능력치에서 <b>−</b> 를 누르면 1포인트를 돌려받아요.</p></section>
         <section><h3>🎬 ③ 영화관</h3><p>목포를 깬 사람은 목포 캠프 게시판에서 <b>강화 보스 3명</b>을 이겨야 문이 열려요. 바닥의 <b>영화표</b>에 적힌 좌석(앞줄이 A열)에 앉으면 스크린이 이야기를 보여 줘요. 상영관에선 가끔 <b>⏪ 되감기</b>로 몇 초 전 자리로 끌려가요.</p></section>
         <section><h3>⚾ ④ 야구장</h3><p>바닥에 <b>그림자</b>가 생기면 파울볼이 떨어져요. 피하고, 떨어진 공은 주워요. <b>수비 이닝</b>엔 요괴가 세지고, <b>공격 이닝</b>엔 공이 자주 떨어져요. 전투엔 아주 어려운 <b>🏏 배팅</b> 타이밍이 나와요.</p></section>
@@ -753,10 +762,10 @@ p,h1,h2{margin:0}
         <section><h3>⭐ 별 · 🤝 동행 · ✏️ 이름</h3><p>새 건물마다 <b>별 도전 3개</b>(메뉴 → 기록). 층은 <b>🔍 탐색을 다 채워야</b> 위층 계단이 열려요. ♥4 광주 사람은 <b>동행</b>해 줘요(메뉴 → 광주). 목포를 깨면 캠프 판매대에서 <b>이름 변경권</b>(3000부터, 살 때마다 2배).</p></section>
         <section><h3>⛰ 무등산</h3><p>위로 길게 오르는 산길이에요. 오르막에선 <b>스태미나</b>가 줄고, 0이면 느려져요. 멈추거나 <b>쉼터 벤치</b>에서 쉬면 차요(이온음료도).</p><p>중턱 <b>갈림길</b>은 <b>노란 리본</b> 쪽이 맞는 길. 능선은 <b>안개·비·강풍</b>이 번갈아 와요.</p></section>
         <section><h3>🐾 제선보호소</h3><p><b>우리 문</b>이 가끔 덜컹 열리며 요괴가 튀어나와요. <b>자물쇠 걸린 우리</b> 속 진짜 동물을 구하면 캠프로 가서, 매일 선물을 물어 와요.</p><p>정화하면 <b>메뉴 → 펫</b>에서 Lv 6 이상 펫을 <b>진화</b>시키고 <b>이름</b>을 지어 줄 수 있어요.</p></section>
-        <section><h3>🧹 층 정화 = 쓰러져도 안전</h3><p>한 층의 <b>빛나는 돌</b>, <b>머리 위에 ! 가 뜬 사람</b>, <b>열린 문</b>, <b>수상한 물건</b>(백화점은 <b>반짝이는 진열대</b>도)을 전부 조사하면 그 층이 정화돼요. 오른쪽 위 <b>탐색 3/13</b>이 다 차면 끝이에요.</p></section>
+        <section><h3>🧹 층 정화 = 그 층에서 얻은 건 안전</h3><p>한 층의 <b>빛나는 돌</b>, <b>머리 위에 ! 가 뜬 사람</b>, <b>열린 문</b>, <b>수상한 물건</b>(백화점은 <b>반짝이는 진열대</b>도)을 전부 조사하면 그 층이 정화돼요. 오른쪽 위 <b>탐색 3/13</b>이 다 차면 끝이에요.</p></section>
         <section><h3>🕹 조작</h3><p><b>PC</b>: WASD·방향키 이동 · <b>Space·E 조사/대화</b> · M 메뉴 · R 킥보드 · H 게임 방법 · 전투는 숫자 1~5</p><p><b>태블릿</b>: 왼쪽 패드 이동 · 오른쪽 <b>조사</b> 버튼 · 밖에서는 <b>킥</b> 버튼</p></section>
         <section><h3>⚔ 전투</h3><p>돌아다니는 요괴에 닿으면 시작해요. 공격·방어 때 <b>타이밍 게임</b>(막대 멈추기·테두리 겹치기·화살표 누르기)이 나와요. 완벽하면 피해 1.5배, 방어하면 받는 피해가 확 줄어요.</p><p>🎯 <b>경찰서부터</b>는 <b>조준 사격</b>도 나와요. 움직이는 조준선이 과녁 한가운데 올 때 누르세요.</p><p>😮‍💨 <b>모텔부터</b>는 <b>숨 참기</b>도 나와요. 꾹 누르고 있다가, 숨 게이지가 금색 칸에 오면 손을 떼요.</p><p>⚡ <b>라송아파트</b>에서는 <b>반응 속도</b>가 나와요. 초록색이 되는 순간 누르세요.</p></section>
-        <section><h3>🧠 정신력과 쓰러짐</h3><p>정신력은 <b>건물 안에서만</b> 줄고, 밖에 나가면 회복돼요. 체력이나 정신력이 0이 되면 쓰러지고, <b>정화 안 된 층에서 얻은 마정석·물건</b>을 잃어요.</p></section>
+        <section><h3>🧠 정신력과 쓰러짐</h3><p>정신력은 <b>건물 안에서만</b> 줄고, 밖에 나가면 회복돼요. 체력이나 정신력이 0이 되면 쓰러지고, <b>정화 안 된 층에서 얻은 마정석·물건</b>을 잃어요. 💀 그리고 <b>가진 마정석의 35%</b>와 <b>장비 내구도 3</b>도 잃어요(보스전은 절반).</p></section>
         <section><h3>📈 성장</h3><p>레벨이 오르면 <b>메뉴 → 능력치</b>에서 포인트를 찍어요. 마정석으로 자판기·캠프에서 가방·빵·장비를 사요. 장비는 몇 번 싸우면 부서져요. <b>포획용 가방</b>으로 요괴를 펫으로 만들 수 있어요.</p></section>
         <section><h3>🛠 제작</h3><p>요괴가 떨어뜨리거나 백화점 <b>반짝이는 진열대</b>에서 나오는 <b>천 조각·철사·테이프</b>를 모아요. 영선백화점을 정화하면 캠프에 <b>작업대</b>가 생겨서, <b>장비 수리</b>와 <b>포획용 가방</b>을 만들 수 있어요. <b>손재주</b>가 높으면 재료가 덜 들어요.</p><p>🔨 <b>경찰서를 정화</b>하면 작업대에서 <b>장비 강화</b>(+1~+5)를 할 수 있어요. 실패하면 재료와 마정석만 잃고 장비는 무사해요.</p><p>📋 <b>모텔을 정화</b>하면 캠프 <b>게시판</b>에 생존자 부탁이 하루 3개씩 올라와요. <b>목포역까지 정화</b>하면 목포 게시판에서 <b>강화 보스 재도전</b>과 <b>수집 보상</b>도 받을 수 있어요.</p></section>
         <section><h3>🏆 학교 랭킹</h3><p>게임 사이트에서 <b>구글로 로그인</b>하면 저장할 때마다 내 기록이 랭킹에 올라가요. 타이틀 화면 <b>학교 랭킹</b>에서 진행도·레벨·펫·업적 순위를 볼 수 있어요. 캐릭터 이름·직업·레벨만 보여요.</p></section>
@@ -804,20 +813,21 @@ p,h1,h2{margin:0}
   </div>
   <div id="endOv" class="overlay" hidden>
     <div class="panel endPanel" role="dialog" aria-labelledby="endHead">
-      <p class="eyebrow">덕인 · 목포 편 엔딩</p>
+      <p class="eyebrow" id="endEye">덕인 · 목포 편 엔딩</p>
       <h2 id="endHead">🚆 목포를 떠나며</h2>
       <p class="hint" id="endSub"></p>
       <div class="recGrid" id="endGrid"></div>
-      <p class="hint">목포에서 쓰던 레벨·펫·장비·마정석은 전부 그대로 가져가요. 정화된 열차로 언제든 목포에 돌아올 수 있어요.</p>
+      <p class="hint" id="endNote">목포에서 쓰던 레벨·펫·장비·마정석은 전부 그대로 가져가요. 정화된 열차로 언제든 목포에 돌아올 수 있어요.</p>
       <div class="btnRow"><button class="btn primary" id="btnEndGo" type="button">크레딧 보기 →</button></div>
     </div>
   </div>
   <div id="noticeOv" class="overlay" hidden>
     <div class="panel noticePanel" role="dialog" aria-labelledby="noticeHead">
-      <p class="eyebrow">업데이트 v1.0</p>
+      <p class="eyebrow">업데이트 v1.1</p>
       <h2 id="noticeHead">📢 꼭 읽어 주세요!</h2>
-      <div class="nerfBox"><b>🔮 마법 너프</b><ul><li>주문력 피해 계수 <b>2.5 → 2.0</b></li><li>고음 <b>×1.4 → ×1.3</b></li><li>쪽지시험: 적 방어 <b>전부 → 절반</b>만 무시</li></ul><p>보스가 마법 두 방에 쓰러지던 문제를 고쳤어요. 대신 모두에게 <b>🎟 능력치 초기화권 5장</b>(1장 = 1포인트)을 드려요. 메뉴 → 📊 능력치에서 <b>−</b> 를 눌러요.</p></div>
-      <ul class="newList"><li>🎬 ③ 영화관 · ⚾ ④ 야구장 · 🧺 ⑤ 전통시장 · 🎡 ⑥ 패밀리랜드 오픈!</li><li>👹 목포를 깬 사람은 <b>강화 보스 3명</b>을 이겨야 영화관이 열려요 (목포 캠프 게시판)</li><li>⭐ 건물마다 별 도전 3개 · 🤝 ♥4 광주 사람과 동행 · 🍳 요리</li><li>✏️ 목포를 깨면 <b>이름 변경권</b> (마정석 3000부터, 살 때마다 2배)</li><li>🖥 화면 오른쪽 위에 큰 아이콘 버튼이 생겼어요</li></ul>
+      <div class="penBox"><h3>💀 쓰러지면 벌칙이 커졌어요</h3><ul><li class="big">가진 마정석의 <b>35%</b>를 잃어요</li><li class="big">착용한 무기·옷 내구도 <b>−3</b></li><li>👹 보스·강화 보스에게 지면 <b>절반</b>만: 마정석 17.5% · 내구도 −2</li><li>🧹 정화된 층에서 쓰러져도 똑같이 적용돼요</li></ul><p>💡 체력이 반 아래면 <b>빵·주먹밥부터!</b> 질 것 같으면 <b>도망치기</b>(보스 빼고)도 방법이에요.</p></div>
+      <ul class="newList"><li>📺 광주 ⑦ <b>방송국 JMJ</b> 오픈! 🔴 ON AIR 빨간불이 켜지면 <b>움직이지 마세요</b> · 📜 프롬프터 대본 맞추기</li><li>🚉 광주 ⑧ <b>광주역</b> 오픈! 🕰 시간표 셔터 · 🗺 노선도 승강장 · 🚃 그림자 열차 피하기</li><li>🚆 광주를 끝내면 엔딩 → 열차를 타고 <b>정읍</b>에 도착해요 (정읍 건물은 다음 체험판)</li><li>👹 광주 캠프 게시판에 <b>광주 강화 보스 8명</b> · 🏅 수집 보상</li><li>⭐ 별 도전이 18개로 늘었어요 · 목포역 깜짝 효과 대사가 목포역에 맞게 바뀌었어요</li></ul>
+      <p class="oldNote">v1.0 안내: 🔮 마법 너프(주문력 계수 2.0 · 고음 ×1.3 · 쪽지시험 방어 절반 무시) · 🎟 능력치 초기화권 5장 · ✏️ 이름 변경권</p>
       <div class="btnRow"><button class="btn primary" id="btnNoticeClose" type="button">알겠어요!</button></div>
     </div>
   </div>
@@ -863,7 +873,7 @@ const NAMES = {
   motel:'정연모텔', shelter:'제선보호소', jungmin:'여정민', chimera:'키메라', dudu:'두두',
   apt:'라송아파트', station:'목포역', elev:'라송 1호기', sungkwan:'김성관',
   campus:'광주캠퍼스', mudeung:'무등산', yeji:'예지', sangyoung:'임상영',
-  cinema:'영화관', ballpark:'야구장', market:'전통시장', themepark:'놀이공원', memorial:'전쟁역사기념관', gjstation:'광주역',
+  cinema:'영화관', ballpark:'야구장', market:'전통시장', themepark:'놀이공원', memorial:'방송국 JMJ', gjstation:'광주역',
   gjcamp:'광주 생존자 캠프'
 };
 
@@ -1383,7 +1393,7 @@ const weaknesses = r => STAT_KEYS.filter(k => (r.mods[k] || 0) < 0);
 const DAY = 600, DUSK = 360, NIGHT = 390, DAWN = 570;
 
 /* ================= v1.0 data: 광주 ③ 영화관 · ④ 야구장 · ⑤ 전통시장 · ⑥ 패밀리랜드 ================= */
-Object.assign(NAMES, {themepark:'패밀리랜드', domi:'도미', kkam:'깜도영', sukjong:'숙종오', ferris:'거꾸로 대관람차'});
+Object.assign(NAMES, {memorial:'방송국 JMJ', themepark:'패밀리랜드', domi:'도미', kkam:'깜도영', sukjong:'숙종오', ferris:'거꾸로 대관람차'});
 /* the magic nerf (v1.0): 주문력 counts like 힘 now, 고음 is a little weaker, 쪽지시험 ignores only half the defense */
 SKILLS.highnote.desc = '주문력 마법 피해 ×1.3';
 SKILLS.quiz.desc = '주문력 마법 피해 ×1.2, 적 방어 절반 무시';
@@ -1553,6 +1563,89 @@ const BSTARS = {
   themepark:[[`${NAMES.ferris} 쓰러뜨리기`], ['후룸라이드에서 하마에게 한 번도 안 막히고 통과 (다시 타기 가능)'], ['자이로스윙 세 구간을 한 번도 안 떨어지고 연속으로 건너기']]
 };
 const NEW_BLDS = ['cinema','ballpark','market','themepark'];
+/* ================= v1.1 data: 광주 ⑦ 방송국 JMJ · ⑧ 광주역 · 광주 엔딩 · 정읍 ================= */
+Object.assign(NAMES, {memorial:'방송국 JMJ', gjstation:'광주역', mijin:'정미진', youngwoo:'유영우', suitman:'검은 양복 손님', jeongeup:'정읍'});
+Object.assign(ENEMIES, {
+  /* ⑦ 방송국 JMJ */
+  cammon:   {name:'카메라 요괴', hp:46, atk:20, def:4, spd:6, exp:22, gem:[1,3], cap:true, ai:'stare', mat:'wire', gro:true, moves:['줌인 박치기','플래시 섬광']},
+  micmon:   {name:'마이크 요괴', hp:44, atk:21, def:3, spd:7, exp:22, gem:[1,3], cap:true, ai:'double', mat:'wire', gro:true, moves:['하울링','마이크 줄 채찍']},
+  crt:      {name:'브라운관 TV', hp:56, atk:18, def:5, spd:3, exp:23, gem:[1,3], cap:true, ai:'drain', mat:'tape', gro:true, moves:['지지직 노이즈','화면 속으로 끌어당기기']},
+  lightmon: {name:'조명 요괴', hp:46, atk:21, def:3, spd:6, exp:23, gem:[1,3], cap:true, ai:'poison', mat:'tape', gro:true, moves:['뜨거운 조명','눈부신 스포트라이트']},
+  staffsh:  {name:'그림자 스태프', hp:58, atk:19, def:5, spd:5, exp:23, gem:[1,3], cap:false, ai:'basic', gro:true, moves:['큐 카드 내려치기','케이블 걸기','“조용히!”']},
+  youngwoo: {name:`스태프 ${NAMES.youngwoo}`, hp:1050, atk:66, def:11, spd:8, exp:3800, gem:[100,114], cap:false, ai:'youngwoo', fixed:true, teacher:true, gro:true, drop:'clapper'},
+  mijin:    {name:`국장 ${NAMES.mijin}`, hp:1200, atk:56, def:11, spd:11, exp:14000, gem:[400,440], cap:false, ai:'mijin', fixed:true, boss:true, gro:true, drop:'mijinscarf'},
+  /* ⑧ 광주역 */
+  clockmon: {name:'역 시계 요괴', hp:48, atk:20, def:4, spd:5, exp:23, gem:[1,3], cap:true, ai:'stare', mat:'wire', gro:true, moves:['시침 찌르기','“연착입니다”']},
+  gatemon:  {name:'개찰구 요괴', hp:58, atk:19, def:5, spd:3, exp:24, gem:[1,3], cap:true, ai:'drain', mat:'wire', gro:true, moves:['차단봉 후려치기','승차권 삼키기']},
+  lostbag:  {name:'분실물 가방', hp:50, atk:20, def:4, spd:5, exp:24, gem:[1,3], cap:true, ai:'offering', mat:'cloth', gro:true, moves:['지퍼 아가리','주인 찾아요!']},
+  lantern:  {name:'선로 랜턴', hp:46, atk:23, def:3, spd:7, exp:24, gem:[1,3], cap:true, ai:'poison', mat:'tape', gro:true, moves:['랜턴 불꽃','기름 뿌리기']},
+  agentsh:  {name:'관리국 그림자 직원', hp:60, atk:20, def:5, spd:5, exp:24, gem:[1,3], cap:false, ai:'basic', gro:true, moves:['서류 베기','도장 찍기','“관리 대상입니다”']},
+  guard:    {name:'관리국 경비원', hp:1380, atk:76, def:12, spd:8, exp:4200, gem:[106,120], cap:false, ai:'guard', fixed:true, teacher:true, gro:true, drop:'guardbaton'},
+  suitman:  {name:NAMES.suitman, hp:1540, atk:60, def:12, spd:12, exp:16000, gem:[440,480], cap:false, ai:'suitman', fixed:true, boss:true, gro:true, drop:'suitjacket'},
+  /* 정읍 (들판의 요괴들) */
+  scarecrow:{name:'허수아비 요괴', hp:50, atk:17, def:4, spd:4, exp:22, gem:[1,3], cap:true, ai:'basic', mat:'cloth', gro:true, moves:['짚단 주먹','논두렁 걷어차기']},
+  maple:    {name:'단풍잎 요괴', hp:40, atk:17, def:3, spd:8, exp:22, gem:[1,3], cap:true, ai:'double', mat:'cloth', gro:true, moves:['낙엽 회오리','붉은 잎 베기']}
+});
+Object.assign(TEACHER_LINE, {youngwoo:'스탠바이! …너 출연자 아니지? 그럼 소품이야.', guard:'관리 구역입니다. 신분 확인하겠습니다. …확인 불가. 수거합니다.'});
+FMULT.push(
+  {hp:8.1, atk:5.54, exp:36.0, gem:19.0, def:8}, {hp:8.2, atk:5.57, exp:36.8, gem:19.4, def:8}, {hp:8.3, atk:5.6, exp:37.6, gem:19.8, def:8}, {hp:8.4, atk:5.63, exp:38.4, gem:20.2, def:8},
+  {hp:1, atk:1, exp:1, gem:1, def:0},
+  {hp:8.5, atk:5.66, exp:39.2, gem:20.6, def:8}, {hp:8.6, atk:5.69, exp:40.0, gem:21.0, def:8}, {hp:8.7, atk:5.72, exp:40.8, gem:21.4, def:8}, {hp:8.8, atk:5.75, exp:41.6, gem:21.8, def:8},
+  {hp:1, atk:1, exp:1, gem:1, def:0},
+  {hp:1, atk:1, exp:1, gem:1, def:0}
+);
+Object.assign(PETS, {
+  cammon:   {name:'카메라 요괴',   buff:{속도:3, 주문력:2},  cap:2, assist:'weak',            aname:'플래시'},
+  micmon:   {name:'마이크 요괴',   buff:{매력:3, 마나:2},    cap:1, assist:'mp',              aname:'에코 충전'},
+  crt:      {name:'브라운관 TV',   buff:{방어:4, 체력:2},    cap:0, assist:'shield', val:0.4, aname:'화면 보호막'},
+  lightmon: {name:'조명 요괴',     buff:{힘:3, 정신력:2},    cap:1, assist:'dmg',    base:13, aname:'스포트라이트'},
+  clockmon: {name:'역 시계 요괴',  buff:{속도:4, 정신력:1},  cap:1, assist:'weak',            aname:'연착 안내'},
+  gatemon:  {name:'개찰구 요괴',   buff:{방어:4, 힘:2},      cap:0, assist:'shield', val:0.45, aname:'차단봉 막기'},
+  lostbag:  {name:'분실물 가방',   buff:{손재주:3, 매력:2},  cap:2, assist:'gem',             aname:'주인 없는 지갑'},
+  lantern:  {name:'선로 랜턴',     buff:{주문력:3, 속도:2},  cap:1, assist:'dmg',    base:13, aname:'랜턴 불꽃'},
+  scarecrow:{name:'허수아비 요괴', buff:{체력:4, 리더십:1},  cap:1, assist:'heal',   base:12, aname:'짚단 이불'},
+  maple:    {name:'단풍잎 요괴',   buff:{속도:3, 매력:2},    cap:2, assist:'dmg',    base:12, aname:'단풍 회오리'}
+});
+Object.assign(EVO_NAME, {cammon:'방송용 크레인 카메라', micmon:'붐마이크 요괴', crt:'대형 스크린 요괴', lightmon:'무대 조명탑', clockmon:'역 대형 시계탑', gatemon:'자동 개찰구 대왕',
+  lostbag:'분실물 센터', lantern:'증기 기관 랜턴', scarecrow:'황금 들판 허수아비', maple:'내장산 단풍 정령'});
+Object.assign(EQUIPS, {
+  jmjjacket: {name:'JMJ 스태프 점퍼', slot:'armor', stats:{방어:14, 체력:4}, dur:18},
+  boommic:   {name:'붐마이크', slot:'weapon', stats:{힘:22, 매력:2}, dur:18},
+  clapper:   {name:`${NAMES.youngwoo}의 슬레이트`, slot:'weapon', stats:{힘:23, 속도:3}, dur:20},
+  mijinscarf:{name:'국장의 실크 스카프', slot:'armor', stats:{방어:15, 매력:4, 정신력:4, 체력:3}, dur:26},
+  railcoat:  {name:'역무원 코트', slot:'armor', stats:{방어:15, 체력:4}, dur:18},
+  railspike: {name:'선로 못 망치', slot:'weapon', stats:{힘:24, 체력:2}, dur:18},
+  guardbaton:{name:'관리국 경비봉', slot:'weapon', stats:{힘:25, 속도:3}, dur:20},
+  suitjacket:{name:'검은 양복 재킷', slot:'armor', stats:{방어:16, 체력:5, 정신력:4, 속도:2}, dur:28}
+});
+SHOPS.jecamp = {title:'🧺 정읍 무인 판매대', hint:'주인 없는 판매대. “돈은 상자에 넣어 주세요.” 마정석을 넣으면 물건이 굴러 나온다.',
+  stock:() => [['item','bag',3],['item','bread',2],['item','riceball',5],['item','drink',2],['item','cure',4],['item','candy',3],['item','coffee',3],['gear','railcoat',48]]};
+ACH.push(
+  ['jmj','방송 종료',`국장 ${NAMES.mijin} 쓰러뜨리기`],
+  ['gjsta','종착역',`${NAMES.suitman} 쓰러뜨리기`],
+  ['youngwoo','컷!',`스태프 ${NAMES.youngwoo} 쓰러뜨리기`],
+  ['guard','신분 확인 끝','관리국 경비원 쓰러뜨리기'],
+  ['prompt4','완벽한 생방송','방송국 프롬프터 대본 4개 층 전부 맞히기'],
+  ['gjend','광주 편 완료','광주의 여덟 건물 모두 정화하기'],
+  ['jeongeup','정읍 도착','열차를 타고 정읍에 내리기'],
+  ['stars18','별 수집왕','광주 새 건물의 별 18개 전부 모으기'],
+  ['remgj','광주의 그림자','광주 강화 보스 3명 이기기']
+);
+GJ_QUEST_POOL.push(
+  ['jiyoung','give','coffee',2,'선배님들 커피 심부름이요… 아메리카노 두 잔만 구해 주시면 안 될까요?',{gems:16, trust:6}],
+  ['geombo','perf','',8,'완벽 타이밍 여덟 번. NG 없이 갑시다.',{gems:18, trust:6}],
+  ['gongju','give','candy',2,'…민트사탕. 두 개. 아무한테도 말하지 마.',{gems:15, trust:6}],
+  ['hajun','win','',10,'다온 누나 지키려면 강해져야 해. 요괴 열 마리, 같이 잡자!',{gems:18, trust:6}],
+  ['hayoung','give','drink',2,'목 관리해야 해서요… 이온음료 두 개만 부탁해요!',{gems:15, trust:6}],
+  ['junsu','give','riceball',2,'반대로 타서 여기까지 왔더니 배고파요… 주먹밥 두 개만…',{gems:16, trust:6}]
+);
+Object.assign(COMPANION, {jiyoung:['큐 카드 던지기','dmg',34], geombo:['“컷!” 외치기','stun'], gongju:['그림자 속 기습','dmg',40],
+  hajun:['사촌 지키기 방패','shield',0.38], hayoung:['응원 무대','heal',42], junsu:['반대 방향 질주','weak']});
+Object.assign(BSTARS, {
+  memorial: [[`국장 ${NAMES.mijin} 쓰러뜨리기`], ['ON AIR에 2번 이하로 걸리고 방송국 정화'], ['주조정실 어딘가의 국장 첫 방송 테이프 찾기 (로비 게시판에 힌트)']],
+  gjstation:[[`${NAMES.suitman} 쓰러뜨리기`], ['그림자 열차에 3번 이하로 치이고 광주역 정화'], ['끊긴 터널의 검은 명함 찾기 (구만석 이야기와 분실물 게시판에 힌트)']]
+});
+NEW_BLDS.push('memorial', 'gjstation');
 /* ================= pixel utils ================= */
 function makeCanvas(w, h){ const c = document.createElement('canvas'); c.width = w; c.height = h; return c; }
 function rng(seed){ let s = (seed >>> 0) || 7; return () => { s ^= s << 13; s >>>= 0; s ^= s >>> 17; s ^= s << 5; s >>>= 0; return (s % 100000) / 100000; }; }
@@ -3467,6 +3560,7 @@ Object.assign(HUMAN_LOOK, {
 });
 /* new accessories (called from applyAcc) */
 function accV10(acc, look, dir, set, rect){
+  if (accV11(acc, look, dir, set, rect)) return true;
   const side = dir === 'left';
   if (acc === 'gum'){ if (dir === 'down'){ rect(7,6,3,3,'#f08ac8'); set(8,6,'#ffd0ec'); } else if (side){ rect(1,6,3,3,'#f08ac8'); set(2,6,'#ffd0ec'); } return true; }
   if (acc === 'capC'){
@@ -3572,6 +3666,96 @@ Object.assign(ICONS, {
   raincape:reIcon('raincoat', {Y:'#5a9ad8', y:'#3a6aa8', w:'#d8ecf8'}),
   whistle2:reIcon('mgrbaton', {o:'#e6e24c', O:'#a8a82a', y:'#fff3c4'}),
   ferriscoat:reIcon('uniform', {n:'#e85a7a', N:'#a83a5a', g:'#e6c24c', r:'#5a8ac8'})
+});
+/* ================= v1.1 sprites: people of the broadcasting station and Gwangju Station, their monsters, the new gear ================= */
+Object.assign(HUMAN_LOOK, {
+  staffsh:  {skin:'#2a1f3c', eye:'#ff3a3a', blush:'#2a1f3c', shoe:'#120c1a', hair:'#17111f', outfit:'#3a3a46', outfitD:'#26262e', pants:'#1b1328', acc:['horror','headset','badge'], accC:'#2a2a30', long:false},
+  youngwoo: {skin:'#d8b49a', eye:'#ff3a3a', blush:'#c89a86', shoe:'#141018', hair:'#f0d070', outfit:'#2a2a34', outfitD:'#1e1e28', pants:'#2a3a5a', acc:['headset','cable','bloodS'], accC:'#2a2a30', long:false, big:true},
+  mijin:    {skin:'#e0c4b0', eye:'#e2553e', blush:'#d8a090', shoe:'#141018', hair:'#2a1a1e', outfit:'#7a2a3a', outfitD:'#5a1e2a', pants:'#2a2430', acc:['scarfS','pearl'], scarf:'#e6c24c', long:true, big:true},
+  mijinD:   {skin:'#a88a7a', eye:'#ff3a3a', blush:'#7a2a2a', shoe:'#050305', hair:'#0c0a10', outfit:'#3a0a14', outfitD:'#24060c', pants:'#1a1018', acc:['scarfS','eye3','glitch','bloodS'], scarf:'#ff3a3a', long:true, big:true},
+  agentsh:  {skin:'#2a1f3c', eye:'#c08cff', blush:'#2a1f3c', shoe:'#0c0a10', hair:'#0c0a10', outfit:'#14121a', outfitD:'#0a080e', pants:'#14121a', acc:['horror','lapel'], long:false},
+  guard:    {skin:'#8a8a96', eye:'#c08cff', blush:'#6a6a74', shoe:'#0c0a10', hair:'#14121a', outfit:'#2a3a5a', outfitD:'#1e2a44', pants:'#1a1e2a', acc:['capC','badge','sigilF'], capC:'#14121a', long:false, big:true},
+  suitman:  {skin:'#d8ccc4', eye:'#14101a', blush:'#c8b8b0', shoe:'#050305', hair:'#0c0a10', outfit:'#14121a', outfitD:'#0a080e', pants:'#14121a', acc:['lapel','shades'], long:false, big:true},
+  suitmanD: {skin:'#6a5a6a', eye:'#c08cff', blush:'#4a3a4a', shoe:'#050305', hair:'#050305', outfit:'#0a0810', outfitD:'#050308', pants:'#0a0810', acc:['lapel','sigilF','eye3','bloodS'], long:false, big:true}
+});
+/* new accessories (called from accV10) */
+function accV11(acc, look, dir, set, rect){
+  const side = dir === 'left', W = '#efe8da';
+  if (acc === 'lapel'){
+    if (dir === 'down'){ rect(6,8,4,1,W); set(7,9,W); set(8,9,W); rect(7,9,2,3,'#0c0a10'); set(5,8,mix(look.outfit, '#ffffff', 0.12)); set(10,8,mix(look.outfit, '#ffffff', 0.12)); }
+    else if (side){ set(4,8,W); set(4,9,'#0c0a10'); }
+    return true;
+  }
+  if (acc === 'scarfS'){
+    const c = look.scarf || '#e6c24c', d = mix(c, '#000000', 0.3);
+    if (dir === 'down'){ rect(5,8,6,1,c); rect(6,9,2,3,c); set(7,10,d); set(5,8,d); }
+    else if (dir === 'up') rect(5,8,6,1,c);
+    else { rect(3,8,5,1,c); set(4,9,c); set(4,10,d); }
+    return true;
+  }
+  if (acc === 'sigilF'){
+    const P = '#c08cff', p = '#7a5ab0';
+    if (dir === 'down'){ set(7,2,P); set(8,2,P); set(6,3,p); set(9,3,p); set(7,4,p); set(8,4,p); }
+    else if (side){ set(3,2,P); set(4,3,p); }
+    return true;
+  }
+  if (acc === 'shades'){ if (dir === 'down'){ rect(4,4,8,2,'#0c0a10'); set(5,4,'#3a3a46'); set(10,4,'#3a3a46'); } else if (side) rect(2,4,4,2,'#0c0a10'); return true; }
+  if (acc === 'maskB'){ if (dir === 'down'){ rect(5,6,6,2,'#14121a'); set(4,6,'#2a2430'); set(11,6,'#2a2430'); } else if (side) rect(2,6,5,2,'#14121a'); return true; }
+  if (acc === 'hood'){
+    const c = look.outfitD || '#1e1a24';
+    if (dir === 'down'){ rect(3,0,10,2,c); rect(3,2,1,5,c); rect(12,2,1,5,c); }
+    else if (dir === 'up') rect(3,0,10,7,c);
+    else { rect(3,0,10,2,c); rect(9,2,4,5,c); }
+    return true;
+  }
+  return false;
+}
+const CR11 = {
+  cammon:{pal:{K:'#2a2a30', k:'#4a4a52', L:'#9aa0aa', l:'#14101a', E:'#ff3a3a', R:'#e2553e', T:'#efe6d6', M:'#2a0508', S:'#5a5a62'}, rows:[
+    "................","...KKKK.........","..KkkkkK........",".KKKKKKKKKKK....",".KkkkkkkkkkKK...",".KkRkkkkkLLLLL..",".KkkkkkkkLlllL..",".KkkkkkkkLlEll..",
+    ".KkkkkkkkLlllL..",".KMTMTMTkLLLLL..",".KKKKKKKKKKKK...","......SSS.......",".....S.S.S......","....S..S..S.....","...S...S...S....","................"]},
+  micmon:{pal:{G:'#9aa0aa', g:'#5a5f68', K:'#2a2a30', k:'#4a4a52', E:'#ff3a3a', M:'#2a0508', T:'#efe6d6', C:'#14101a', R:'#c8a040'}, rows:[
+    "................",".....GGGGG......","....GgGgGgG.....","...GGgGgGgGG....","...GEGGGGGEG....","...GgGgGgGgG....","...GGMTMTMGG....","....GGMMMGG.....",
+    ".....RRRRR......","......KkK.......","......KkK.......","......KkK.......","......KkK.......",".......C........","........CC......","..........CCC..."]},
+  crt:{pal:{B:'#5a4a3a', b:'#3a2e24', S:'#5a6a6a', s:'#9ab0b0', E:'#ff3a3a', M:'#2a0508', T:'#efe6d6', A:'#9aa0aa', K:'#c8a040'}, rows:[
+    "....A.....A.....",".....A...A......","......A.A.......",".BBBBBBBBBBBBB..",".BSSsSSSSsSSBKB.",".BSsEsSSsEsSBbB.",".BSSSsSSSSsSBKB.",".BSsSMTMTMSSBbB.",
+    ".BSSSMMMMMsSBbB.",".BSsSSsSSSSSBbB.",".BBBBBBBBBBBBBB.",".bbbbbbbbbbbbbb.","..b..........b..","..bb........bb..","................","................"]},
+  lightmon:{pal:{K:'#2a2a30', k:'#4a4a52', Y:'#fff3c4', y:'#e6c24c', E:'#ff3a3a', M:'#2a0508', T:'#efe6d6', S:'#5a5a62'}, rows:[
+    "................","....KKKKKKK.....","...KkkkkkkkK....","..KkYYYYYYYkK...","..KYYyYYYyYYK...","..KYYEYYYEYYK...","..KYYYYYYYYYK...","..KYYMTMTMYYK...",
+    "..KkYYMMMYYkK...","...KkkkkkkkK....","....KKKKKKK.....","......SSS.......",".......S........",".......S........",".....SSSSS......","................"]},
+  clockmon:{pal:{F:'#2a2a30', W:'#efe8da', w:'#c8c0b0', H:'#14101a', E:'#ff3a3a', M:'#2a0508', T:'#efe6d6', R:'#c0303a'}, rows:[
+    "................",".....FFFFFF.....","....FWWWWWWF....","...FWWWHWWWWF...","..FWEWWHWWWEWF..","..FWWWWHWWWWWF..","..FWWWWHHHHWWF..","..FWWWWWWWWWWF..",
+    "..FWWMTMTMTWWF..","...FWWMMMMWWF...","....FWWWWWWF....",".....FFFFFF.....","......F..F......",".....FF..FF.....","................","................"]},
+  gatemon:{pal:{S:'#9aa0aa', s:'#5a5f68', K:'#2a2a30', G:'#5ae86a', R:'#c0303a', M:'#2a0508', T:'#efe6d6', Y:'#e6c24c'}, rows:[
+    "................","................","...SSSSSSSSS....","..SsssssssssS...","..SsKGKsKGKsS...","..SsssssssssS...","RRSsKMTMTMKsSRR.","RRSsKMMMMMKsSRR.",
+    "..SsssssssssS...","..SsYYYYYYYsS...","..SsssssssssS...","..SSSSSSSSSSS...","..KK.......KK...","..KK.......KK...","................","................"]},
+  lostbag:{pal:{B:'#6a3a2a', b:'#4a2a1e', H:'#2a2a30', Z:'#c8a040', E:'#ff3a3a', M:'#2a0508', T:'#efe6d6', W:'#efe8da'}, rows:[
+    "................","......HHHH......",".....H....H.....","..BBBBBBBBBBBB..","..BbbbbbbbbbbB.W","..BbEbbbbbbEbBWW","..BbbbbbbbbbbB.W","..BZMTMTMTMTZB..",
+    "..BZMMMMMMMMZB..","..BZTMTMTMTMZB..","..BbbbbbbbbbbB..","..BBBBBBBBBBBB..","...b........b...","................","................","................"]},
+  lantern:{pal:{K:'#2a2a30', k:'#4a4a52', G:'#ffd27a', g:'#e6a23a', F:'#ff6a2a', E:'#14101a', M:'#2a0508', T:'#efe6d6'}, rows:[
+    ".......KK.......","......K..K......","......KKKK......",".....KkkkkK.....","....KGGGGGGK....","....KGgFFgGK....","....KGFEFEGK....","....KGgFFgGK....",
+    "....KGMTMTGK....","....KGgMMgGK....","....KGGGGGGK....",".....KkkkkK.....","......KKKK......","................","................","................"]},
+  scarecrow:{pal:{H:'#c8a040', h:'#8a6a2a', S:'#d8c090', s:'#a89060', E:'#14101a', M:'#2a0508', C:'#5a7a4a', c:'#3a5a2a', P:'#5a3a22', R:'#c84a2a'}, rows:[
+    ".....HHHHH......","....HHHHHHH.....","..hhhhhhhhhhh...",".....SSSSS......",".....SESES......",".....SSSSS......",".....SMsMS......","......SSS.......",
+    "PPCCCCCCCCCCCPP.","...cCCRCCCCc....","....CCCCRCC.....","....cCCCCCc.....",".......P........",".......P........","......PPP.......","................"]},
+  maple:{pal:{R:'#c83a22', r:'#8a2214', O:'#e6782a', E:'#14101a', W:'#ffffff', M:'#2a0508', S:'#5a3a22'}, rows:[
+    ".......R........","......RRR.......","..R...RRR...R...","..RR.ROROR.RR...","...RRRRORRRR....",".RRRRWEOEWRRRR..","..RRRRRORRRRR...","...RRRMMMRRR....",
+    "RRRRRRRORRRRRRR.",".rRRRRRORRRRRr..","..rrRRRORRRrr...","....rrROrrr.....","......rSr.......",".......S........",".......S........","................"]}
+};
+Object.assign(CREATURES, CR11);
+/* gear icons */
+Object.assign(ICONS, {
+  jmjjacket:reIcon('vest', {V:'#2a2a34', v:'#1e1e28', Y:'#e2553e'}),
+  boommic:{pal:{F:'#6a5a4a', f:'#4a3e32', K:'#2a2a30', k:'#5a5a62'}, rows:[
+    "............","........FFF.",".......FfFFF",".......FFFfF","........FFF.",".......K....","......k.....",".....K......","....k.......","...K........","..k.........",".K.........."]},
+  clapper:{pal:{K:'#14101a', W:'#efe8da', k:'#3a3a42'}, rows:[
+    "............","..KWKWKWKW..",".KWKWKWKWK..","............","KWKWKWKWKWK.","KkkkkkkkkkK.","KkWWkWWWkkK.","KkkkkkkkkkK.","KkWWWkWWkkK.","KkkkkkkkkkK.","KKKKKKKKKKK.","............"]},
+  mijinscarf:{pal:{R:'#e6c24c', r:'#a8842a', P:'#7a2a3a'}, rows:[
+    "............","...RRRRRR...","..RrRRRRrR..","..RR....RR..","..RR....RR..","...RR..RR...","....RRRR....","....RrR.....","....RRrR....","...RRPRR....","...RrRRR....","....RR.RR..."]},
+  railcoat:reIcon('uniform', {n:'#2a3a5a', N:'#1e2a44', g:'#c8a040', r:'#efe8da'}),
+  railspike:reIcon('gavel2', {B:'#7a808a', b:'#4a4f58', G:'#c8a040'}),
+  guardbaton:reIcon('mgrbaton', {o:'#2a2a34', O:'#14121a', y:'#c08cff'}),
+  suitjacket:reIcon('vest', {V:'#14121a', v:'#0a080e', w:'#efe8da', Y:'#c08cff'})
 });
 /* ================= effects layer (gear break, achievement burst) ================= */
 const FX = {parts:[], fx:[]};
@@ -4462,9 +4646,10 @@ function buildCar(F){
 }
 function buildMap(f){
   const F = FLOORS[f];
-  if (F.ow) return F.city === 'gwangju' ? buildOverworldGJ() : buildOverworld();
-  if (F.boss) return f >= 47 ? buildRoomV10(F) : buildRoom(F);
+  if (F.ow) return F.city === 'gwangju' ? buildOverworldGJ() : F.city === 'jeongeup' ? buildOverworldJE() : buildOverworld();
+  if (F.boss) return f >= 67 ? buildRoomV11(F) : f >= 47 ? buildRoomV10(F) : buildRoom(F);
   if (F.vert) return MOUNT[f].m.map(r => r.slice());
+  if (f >= 67) return buildMapV11(f, F);
   if (f >= 47) return buildMapV10(f, F);
   const m = F.car ? buildCar(F) : baseHall(F.w);
   Object.entries(F.doors).forEach(([x, d]) => m[2][+x] = d[2] ? 'O' : 'D');
@@ -4815,6 +5000,7 @@ function genMount(f){
 for (let f = 0; f < FLOORS.length; f++) if (FLOORS[f].vert) genMount(f);
 const WALKABLE = new Set(['.', ',', 'y', '_', 'r', 'i', 'I', '=', ']', 'µ', 'з']);
 function owMultAt(tx, ty){
+  if (curCity() === 'jeongeup') return owMultJE(tx, ty);
   if (curCity() === 'gwangju'){
     const d = Math.hypot(tx - CAMP_GJ.cx, ty - CAMP_GJ.cy), k = clamp((d - 10)/50, 0, 1);
     return {hp:5.0 + k*1.6, atk:3.9 + k*0.9, exp:13 + k*6, gem:6.5 + k*2.5, def:7 + Math.round(k*2)};
@@ -4827,7 +5013,7 @@ function drawTile(c, ch, tx, ty, r, th){
   const x = tx*T, y = ty*T;
   const P = (a, b, w, h, col) => { c.fillStyle = col; c.fillRect(x + a, y + b, w, h); };
   function floor(){
-    if (floorV10(P, th, tx, ty, r, pool, splat)) return;
+    if (floorV11(P, th, tx, ty, r, pool, splat) || floorV10(P, th, tx, ty, r, pool, splat)) return;
     if (th.roof){
       P(0,0,16,16, ((tx+ty) & 1) ? th.fa : th.fb); P(0,0,16,1,th.grid); P(0,0,1,16,th.grid);
       for (let i = 0; i < 4; i++) P(r()*15 | 0, r()*15 | 0, 1, 1, th.speck);
@@ -4979,7 +5165,7 @@ function drawTile(c, ch, tx, ty, r, th){
     if (r() < 0.18) P(r()*14 | 0, 9, 1, 4, th.stain);
     if (r() < 0.07){ const a = 2 + (r()*10 | 0); P(a, 9, 1, 3, '#5a0e18'); P(a + 1, 8, 1, 4, '#5a0e18'); P(a + 2, 8, 1, 4, '#5a0e18'); P(a + 3, 9, 1, 3, '#5a0e18'); P(a, 12, 4, 2, '#5a0e18'); P(a + 1, 14, 1, 2, '#3a0a12'); }
   }
-  if (tileV10(c, ch, tx, ty, r, th, P, floor, wallLower)) return;
+  if (tileV11(c, ch, tx, ty, r, th, P, floor, wallLower) || tileV10(c, ch, tx, ty, r, th, P, floor, wallLower)) return;
   switch (ch){
     case '.': floor(); break;
     case '_': floor(); if (r() < 0.25){ let cx = 2 + (r()*12 | 0), cy = 2 + (r()*12 | 0); for (let i = 0; i < 6; i++){ P(cx,cy,1,1,th.grid); cx += r() < .5 ? 1 : -1; cy += 1; cx = clamp(cx,1,14); cy = clamp(cy,1,14); } } break;
@@ -5512,10 +5698,11 @@ const FACADE = {
   ballpark: {wall:'#5a6a7a', dark:'#3a4656', win:'#141820', glow:'#efe8da', roof:'#2a3440'},
   market:   {wall:'#7a5a2a', dark:'#5a3e1a', win:'#1a1408', glow:'#ff8a3a', roof:'#8a3a2a'},
   themepark:{wall:'#6a3a5a', dark:'#4a2a40', win:'#140a12', glow:'#e6b24c', roof:'#3a2a50'},
-  memorial: {wall:'#5a5a5a', dark:'#3a3a3a', win:'#141414', glow:'#c8c4bc', roof:'#2a2a2a'},
+  memorial: {wall:'#4a5468', dark:'#2e3648', win:'#1a2a44', glow:'#7ab8e8', roof:'#2a2e3a'},
   gjstation:{wall:'#4a5a6a', dark:'#2e3a46', win:'#101418', glow:'#5fdcc6', roof:'#2a3440'}
 };
 function paintOverworld(c, city){
+  if (city === 'jeongeup'){ paintJE(c); return; }
   const R = rng(777);
   for (const id of cityBlds(city || 'mokpo')){
     const b = BLD[id], f = FACADE[id], X = b.x0*T, Y = b.y0*T, Wd = (b.x1 - b.x0 + 1)*T, Ht = (b.y1 - b.y0 + 1)*T;
@@ -5580,7 +5767,12 @@ function paintOverworld(c, city){
       c.strokeStyle = '#e6b24c'; c.lineWidth = 2; c.beginPath(); c.arc(X + Wd/2, Y - 2, 22, 0, Math.PI*2); c.stroke();
       for (let i = 0; i < 8; i++){ const a = i*Math.PI/4; c.fillStyle = '#e6b24c'; c.fillRect(Math.round(X + Wd/2 + Math.cos(a)*22) - 2, Math.round(Y - 2 + Math.sin(a)*22) - 2, 4, 4); }
     } else if (id === 'memorial'){
-      c.fillStyle = '#c8c4bc'; c.fillRect(X + Wd/2 - 3, Y - 26, 6, 28); c.fillStyle = '#9a968e'; c.fillRect(X + Wd/2 - 6, Y - 4, 12, 4);
+      /* 방송국 JMJ: a lattice transmission tower with red lights and a satellite dish */
+      const cx2 = X + Wd/2; c.fillStyle = '#9aa0aa';
+      for (let i = 0; i < 28; i++){ const w = Math.max(1, Math.round((28 - i)/6)); c.fillRect(cx2 - w, Y - i, 1, 1); c.fillRect(cx2 + w, Y - i, 1, 1); if (i % 5 === 0) c.fillRect(cx2 - w, Y - i, w*2 + 1, 1); }
+      c.fillStyle = '#e2553e'; c.fillRect(cx2 - 1, Y - 30, 3, 3); c.fillRect(cx2 - 4, Y - 16, 2, 2); c.fillRect(cx2 + 3, Y - 16, 2, 2);
+      c.fillStyle = '#d8d4cc'; c.fillRect(X + 6, Y + 2, 8, 6); c.fillStyle = '#9a968e'; c.fillRect(X + 9, Y + 8, 2, 4);
+      c.fillStyle = '#3a6ad8'; c.fillRect(X + Wd - 26, Y + 10, 20, 7); c.fillStyle = '#efe8da'; c.fillRect(X + Wd - 23, Y + 12, 14, 3);
     } else if (id === 'gjstation'){
       c.fillStyle = '#3a6a8a'; c.fillRect(X + Wd/2 - 28, Y + 8, 56, 10); c.fillStyle = '#efe8d6'; for (let i = 0; i < 5; i++) c.fillRect(X + Wd/2 - 24 + i*10, Y + 11, 6, 4);
     }
@@ -5834,7 +6026,7 @@ for (const F of V10_FLOORS){
 Object.assign(BINFO, {cinema:{floors:[47,48,49,50,51], boss:'domi', strict:true}, ballpark:{floors:[52,53,54,55,56], boss:'kkam', strict:true},
   market:{floors:[57,58,59,60,61], boss:'sukjong', strict:true}, themepark:{floors:[62,63,64,65,66], boss:'ferris', strict:true}});
 BLD.cinema.floor = 47; BLD.ballpark.floor = 52; BLD.market.floor = 57; BLD.themepark.floor = 62;
-BLD.themepark.name = NAMES.themepark; BLD.themepark.desc = '멈춘 대관람차가 아주 천천히 거꾸로 돈다. 입구 아치에 “패밀리랜드”.';
+BLD.themepark.name = NAMES.themepark; BLD.memorial.name = NAMES.memorial; BLD.memorial.desc = '옥상 송신탑의 빨간 불이 혼자 깜빡인다. 꺼진 스튜디오에서 생방송 신호음이 흘러나온다.'; BLD.themepark.desc = '멈춘 대관람차가 아주 천천히 거꾸로 돈다. 입구 아치에 “패밀리랜드”.';
 const INSP_V10 = {47:'З', 52:'Щ', 53:'Щ', 54:'Щ', 55:'Щ', 57:'Я', 58:'Я', 59:'Я', 60:'Я', 62:'ч', 64:'й', 65:'ф'};
 Object.assign(NPCS, {
   /* ③ 영화관 */
@@ -6169,6 +6361,436 @@ function tileV10(c, ch, tx, ty, r, th, P, floor, wallLower){
   }
   return false;
 }
+/* ================= v1.1 floors: ⑦ 방송국 JMJ 67~71 · ⑧ 광주역 72~76 · 정읍 77 ================= */
+/* themes 34~40 */
+THEMES.push(
+  {fa:'#3a3e4a', fb:'#363a46', grid:'#2a2e38', speck:'#4a4e5a', vein:'#e2553e', wt:'#4a5468', wm:'#3a4458', wd:'#1e2430', band:'#e2553e', stain:'#7a2c3c', top:'#5a6478', side:'#2e3648', bot:'#1e2430', edge:'#141820', edge2:'#2e3648', bcast:true},
+  {fa:'#24262e', fb:'#22242c', grid:'#181a20', speck:'#30323a', vein:'#5ae86a', wt:'#2a2e38', wm:'#22262e', wd:'#121418', band:'#3a6ad8', stain:'#7a2c3c', top:'#3a3e4a', side:'#1e2028', bot:'#121418', edge:'#0c0e12', edge2:'#1e2028', bcast:true, control:true},
+  {fa:'#4a4e58', fb:'#464a54', grid:'#363a44', speck:'#5a5e68', vein:'#e2553e', wt:'#3a3e48', wm:'#3a3e48', wd:'#1e2028', band:'#4a4e5a', stain:'#7a2c3c', top:'#4a4e5a', side:'#2e3038', bot:'#1e2028', edge:'#1e2028', edge2:'#3a3e48', roof:true},
+  {fa:'#8a8478', fb:'#847e72', grid:'#6a665c', speck:'#9a9488', vein:'#3a8ad8', wt:'#5a6a7a', wm:'#4a5a6a', wd:'#2a3440', band:'#3a8ad8', stain:'#7a2c3c', top:'#6a7a8a', side:'#3a4a5a', bot:'#2a3440', edge:'#1a2028', edge2:'#3a4a5a', gjst:true},
+  {fa:'#2a2a2e', fb:'#26262a', grid:'#1a1a1e', speck:'#36363a', vein:'#c8a040', wt:'#2e2a28', wm:'#26221e', wd:'#121010', band:'#5a4a2a', stain:'#5a1a1a', top:'#3a3430', side:'#1a1614', bot:'#121010', edge:'#0a0808', edge2:'#1a1614', tunnel:true},
+  {fa:'#2a2a34', fb:'#262630', grid:'#1a1a22', speck:'#36363e', vein:'#c08cff', wt:'#1e1e2a', wm:'#16161e', wd:'#0a0a10', band:'#c08cff', stain:'#3a1a4a', top:'#2a2a38', side:'#14141c', bot:'#0a0a10', edge:'#06060a', edge2:'#14141c', train:true, agent:true},
+  {fa:'#6a6238', fb:'#665e34', grid:'#5a5230', speck:'#7a7244', vein:'#c84a2a', wt:'#4a3a2a', wm:'#3a2e22', wd:'#1e1812', band:'#c84a2a', stain:'#5a3a1a', top:'#5a4a3a', side:'#2a2018', bot:'#1e1812', edge:'#14100c', edge2:'#2a2018', ow:true, je:true}
+);
+WALKABLE.add('Ի'); WALKABLE.add('Հ'); WALKABLE.add('Ճ'); WALKABLE.add('Մ'); WALKABLE.add('Ն'); WALKABLE.add('Շ');
+/* the prompter scripts: three lines per floor, in broadcast order */
+const SCRIPTS = {
+  67:[['방송 시작하자마자 (19:00:00)', '“안녕하십니까, JMJ 저녁 뉴스입니다.”'], ['시작하고 20초 뒤 (19:00:20)', '“오늘도 광주 구역은 평온합니다. 시민 여러분은 집 밖으로 나오지 마십시오.”'], ['45초쯤 (19:00:45)', '“다음 소식입니다. …다음 소식은 없습니다.”']],
+  68:[['속보 첫 줄 (19:05:00)', '“속보입니다. 목포에서 열차 한 대가 출발했습니다.”'], ['30초 뒤 (19:05:30)', '“열차에는 목포 생존자 한 명이 타고 있습니다. 바로 당신입니다.”'], ['1분 뒤 (19:06:00)', '“관리국은 이 생존자를 ‘관리 대상’으로 지정했습니다.”']],
+  69:[['오프닝 (20:00:00)', '“(박수) 오늘의 게스트를 소개합니다!”'], ['15초 뒤 (20:00:15)', '“(웃음) 게스트는 7년째 출연 중입니다. 내릴 수가 없거든요!”'], ['40초 뒤 (20:00:40)', '“(박수 멈춤) …웃으세요. 국장님이 보고 계십니다.”']],
+  70:[['마지막 10초 전 (23:59:50)', '“오늘 방송을 마치겠습니다.”'], ['2초 전 (23:59:58)', '“방송 종료 화면이 나갑니다.”'], ['자정 (00:00:00)', '“…방송은 끝나지 않습니다. 내일도, 모레도. — 국장 정미진”']]
+};
+/* 광주역 timetable gates: open while the station clock's minute is in a window */
+const GATE_SETS = {72:[{x:15, open:[[0,11],[30,41]]}, {x:29, open:[[15,26],[45,56]]}], 74:[{x:30, open:[[5,16],[35,46]]}]};
+const RAIL_ROWS = [5, 8];
+/* 승강장 1~4번 (x of the left tile); the yellow line to the underground tracks is no. 2 */
+const PLATFORMS = [8, 16, 24, 32], PLAT_OK = 1;
+const V11_FLOORS = [
+  /* ---- ⑦ 방송국 JMJ ---- */
+  { name:'로비', bld:'memorial', theme:34, w:44, entry:[2,6], entryDown:[41,6], strict:true, onair:true, prompt:true, dim:false, aim:true, hold:true, react:true,
+    shards:[[4,9],[10,4],[17,10],[26,9],[33,4],[39,9]],
+    spawns:[[7,6],[13,8],[19,5],[25,6],[30,9],[36,6],[11,10],[38,4]],
+    weights:{cammon:28, micmon:24, crt:18, lightmon:18, staffsh:12}, count:8,
+    finds:[[6,10,'Թ',null], [24,4,'Թ',null], [36,10,'Թ',null]], prompter:[21,8],
+    doors:{5:['보도국 접수처', null, {line:'접수 대장에 제보가 빼곡하다. 전부 “살려 주세요”. 서랍에 쓸 만한 게 있다.', items:{bread:2, coffee:1, tape:1}}],
+           11:['분장실', null, {line:'거울마다 전구가 둘러져 있다. 거울 속 얼굴들이 화장을 고친다. 옷걸이에 스태프 점퍼가 걸려 있다.', gear:['jmjjacket'], items:{candy:1}}],
+           17:['자료실','잠겨 있다. 안에서 테이프 되감기는 소리가 끝없이 난다.'],
+           29:['국장실','문패: “국장 정미진”. 문틈에 쪽지. “국장님은 옥상 송신탑에 계십니다. 방송 중 출입 금지.”'],
+           35:['화장실','거울에 김이 서려 있다. 손가락으로 쓴 글씨: “ON AIR 땐 움직이지 마”.']},
+    boards:{8:'로비 게시판: “국장님 첫 방송 테이프 — 주조정실 맨 오른쪽 아래 테이프 선반에 보관 중. 분실 주의!”', 14:'편성표: 모든 시간대 “JMJ 저녁 뉴스 (재방송)”.',
+            26:'ON AIR 수칙: “빨간불이 켜지면 절대 움직이지 마세요. 카메라는 움직이는 것만 봅니다.”', 32:'사훈: “JMJ — 정확하게, 매일, 정직하게.” 그 아래 작은 글씨: “국장 정미진”.'},
+    npcs:[], insp:'onair', voids:[] },
+  { name:'뉴스 스튜디오', bld:'memorial', theme:34, w:44, entry:[2,6], entryDown:[41,6], strict:true, onair:true, prompt:true, studio:'news', aim:true, hold:true, react:true,
+    shards:[[4,3],[9,10],[16,7],[27,7],[34,10],[40,9]],
+    spawns:[[6,6],[14,9],[20,7],[28,9],[33,6],[38,4],[11,4],[36,10]],
+    weights:{cammon:30, crt:22, micmon:22, lightmon:14, staffsh:12}, count:8,
+    finds:[[4,10,'Թ',null], [29,3,'Թ',null], [39,6,'Թ',null]], prompter:[21,6],
+    doors:{5:['대기실', null, {line:'출연자 대기실. 대본이 바닥에 흩어져 있다. 쓸 만한 걸 챙겼다.', items:{riceball:1, drink:1, wire:1}}],
+           35:['보도국', null, {line:'기자 책상마다 꺼진 노트북. 구석에 붐마이크가 세워져 있다.', gear:['boommic'], items:{tape:1}}]},
+    boards:{8:'방송 사고 기록: “앵커 교체 7년째 0회.”', 26:'스튜디오 수칙: “앵커 데스크 뒤로 가지 마시오.”'},
+    npcs:['geombo'], insp:'desk', voids:[] },
+  { name:'예능 스튜디오', bld:'memorial', theme:34, w:44, entry:[2,6], entryDown:[41,6], strict:true, onair:true, prompt:true, studio:'show', aim:true, hold:true, react:true,
+    shards:[[4,9],[12,3],[19,6],[26,10],[34,3],[41,8]],
+    spawns:[[8,6],[15,6],[22,7],[29,6],[36,7],[11,10],[24,10],[39,5]],
+    weights:{micmon:28, lightmon:26, cammon:20, staffsh:16, crt:10}, count:8,
+    finds:[[3,10,'Թ',null], [28,3,'Թ',null], [40,10,'Թ',null]], prompter:[12,5],
+    doors:{5:['소품실', null, {line:'웃는 가면, 박수 기계, 반짝이 의상. 박수 기계가 혼자 손뼉을 친다. 쓸 만한 걸 챙겼다.', items:{candy:2, cloth:1}}],
+           35:['출연자 대기실','문에 “게스트 — 7년째 출연 중”. 안에서 웃음소리. 같은 웃음소리.']},
+    boards:{8:'큐 시트: “웃음 → 박수 → 웃음 → 박수 → …” 끝이 없다.', 31:'신입 스태프 수칙: “국장님 눈 마주치지 않기.”'},
+    npcs:['jiyoung'], teacher:['youngwoo',30,6], insp:'set', voids:[] },
+  { name:'주조정실', bld:'memorial', theme:35, w:44, entry:[2,6], entryDown:[41,6], strict:true, onair:true, prompt:true, studio:'control', dim:true, aim:true, hold:true, react:true,
+    shards:[[3,9],[12,7],[19,3],[23,10],[33,7],[41,9]],
+    spawns:[[6,7],[14,8],[21,6],[27,8],[35,6],[10,3],[30,3],[38,7]],
+    weights:{crt:28, cammon:22, micmon:18, lightmon:16, staffsh:16}, count:8,
+    finds:[[4,6,'Թ',null], [22,8,'Թ',null], [34,4,'Թ',null]], prompter:[20,8], secretTape:[38,9],
+    doors:{}, boards:{},
+    upMsg:'옥상 송신탑으로 올라가는 철제 계단. 송신탑 빨간 불이 심장처럼 깜빡인다.',
+    npcs:['gongju'], insp:'console', voids:[] },
+  { name:'옥상 송신탑', bld:'memorial', theme:36, w:30, boss:['mijin',21,7], txTower:true, aim:true, hold:true, react:true, entry:[3,6], entryDown:[3,6],
+    shards:[], spawns:[], weights:{}, count:0, doors:{}, boards:{}, npcs:[], voids:[] },
+  /* ---- ⑧ 광주역 ---- */
+  { name:'대합실', bld:'gjstation', theme:37, w:44, entry:[2,6], entryDown:[41,6], strict:true, ttGates:true, aim:true, hold:true, react:true,
+    shards:[[4,9],[10,4],[20,9],[25,4],[35,9],[38,4]],
+    spawns:[[7,6],[11,9],[19,6],[24,7],[33,6],[38,9],[9,3],[36,3]],
+    weights:{clockmon:28, gatemon:22, lostbag:22, lantern:16, agentsh:12}, count:8,
+    finds:[[33,2,'Ս',['분실물 게시판. 주인을 찾는 물건 사진이 빼곡하다.', '사진 하나에 검은 명함이 찍혀 있다. 메모: “검은 양복 손님이 흘린 명함 — 끊긴 터널 끝 벽 틈에서 발견, 회수 못 함”.']],
+           [12,10,'ø',['대합실 의자 밑 여행 가방.'],{items:{bread:2, drink:1}}]],
+    doors:{5:['매표소', null, {line:'매표 창구. 표가 전부 “광주 → 북쪽”. 서랍에 쓸 만한 게 있다.', items:{riceball:1, cure:1, tape:1}}],
+           11:['분실물 센터', null, {line:'분실물 선반. 우산, 인형, 틀니… 구석에 선로 못 망치가 있다.', gear:['railspike'], items:{cloth:1}}],
+           35:['역장실','역장 의자가 비어 있다. 책상 위 명패: “역장 — (관리국 파견)”.']},
+    boards:{8:'시간표 안내: “셔터 문은 정해진 시각에만 열립니다. 전광판 시계를 확인하세요.”', 26:'공지: “승강장 노선도를 꼭 보고 타세요. 잘못 타면 돌아오지 못합니다.”'},
+    npcs:['junsu'], insp:'timetable', voids:[] },
+  { name:'승강장', bld:'gjstation', theme:37, w:44, entry:[2,6], entryDown:[16,9], strict:true, platforms:true, aim:true, hold:true, react:true,
+    shards:[[5,4],[12,7],[19,4],[28,7],[35,4],[40,8]],
+    spawns:[[7,6],[13,4],[20,7],[27,4],[34,7],[39,5],[10,8],[30,8]],
+    weights:{lantern:26, clockmon:24, gatemon:20, agentsh:18, lostbag:12}, count:8,
+    finds:[[9,3,'Թ',['찢어진 노선도 조각.', '“초록 선(차량기지행)은 4번 승강장.”']], [26,3,'Թ',['역무원 메모.', '“지하 선로행은 노란 선. 노란 선은 짝수 번호 승강장에 있다.”']], [37,3,'Թ',['낙서.', '“빨간 선(목포행)은 1번이 아니야. 파란 선은 운행 중지.”']]],
+    doors:{}, boards:{},
+    upMsg:'',
+    npcs:['hayoung'], insp:'routemap', voids:[] },
+  { name:'지하 선로', bld:'gjstation', theme:38, w:44, entry:[4,3], entryDown:[39,3], strict:true, rails:true, ttGates:true, motel:true, dim:true, aim:true, hold:true, react:true,
+    shards:[[5,3],[12,7],[18,10],[26,4],[34,7],[39,10]],
+    spawns:[[8,4],[14,10],[20,7],[25,3],[33,10],[38,7],[11,3],[37,4]],
+    weights:{lantern:26, lostbag:24, agentsh:20, clockmon:18, gatemon:12}, count:8,
+    finds:[[15,3,'ø',['선로 옆에 버려진 작업 가방.'],{items:{riceball:1, wire:2}}], [36,10,'ø',['비상 대피함.'],{items:{cure:1, bread:2}}]],
+    doors:{}, boards:{},
+    npcs:['hajun'], insp:'signal', voids:[] },
+  { name:'끊긴 터널', bld:'gjstation', theme:38, w:44, entry:[4,3], entryDown:[39,3], strict:true, rails:true, motel:true, dim:true, aim:true, hold:true, react:true,
+    shards:[[4,10],[11,3],[17,7],[28,10],[33,3],[40,7]],
+    spawns:[[7,7],[13,10],[21,3],[27,7],[32,10],[38,3],[16,4],[35,7]],
+    weights:{agentsh:28, lantern:24, gatemon:18, lostbag:16, clockmon:14}, count:8,
+    finds:[[9,2,'Λ',['터널 벽에 붙은 관리국 공지.', '“광주 구역 수거 완료 예정. 다음 구역: 정읍.”']], [26,2,'Λ',['벽에 긁힌 글씨.', '“열차가 오기 전에 선로 불이 빨갛게 깜빡여. 그때 비켜.”']]],
+    secretCard:[39,2], teacher:['guard',24,7],
+    upMsg:'선로 끝에 검은 열차가 서 있다. 사람이 다가가자 문이 저절로 열린다.',
+    doors:{}, boards:{}, npcs:[], insp:'crack', voids:[] },
+  { name:'관리국 열차', bld:'gjstation', theme:39, w:30, boss:['suitman',21,7], agentCar:true, aim:true, hold:true, react:true, entry:[3,6], entryDown:[3,6],
+    shards:[], spawns:[], weights:{}, count:0, doors:{}, boards:{}, npcs:[], voids:[] },
+  /* ---- 정읍 ---- */
+  { name:'정읍', bld:'ow3', theme:40, w:96, h:64, ow:true, city:'jeongeup', entry:[66,34], entryDown:[66,34], shards:[], spawns:[], weights:{}, count:0, doors:{}, boards:{}, npcs:[], voids:[] }
+];
+FLOORS.push(...V11_FLOORS);
+/* script pieces are finds; their text comes from SCRIPTS */
+for (const F of V11_FLOORS){
+  const f = FLOORS.indexOf(F);
+  if (F.prompt) F.finds = F.finds.map(([x, y, ch], i) => [x, y, ch, ['대본 조각을 주웠다. 시간이 적혀 있다.', `📜 ${SCRIPTS[f][i][0]}: ${SCRIPTS[f][i][1]}`]]);
+  if (F.ttGates) F.gateList = GATE_SETS[f];
+}
+const INSP_V11 = {67:'Է', 68:'Ա', 69:'Ծ', 70:'Ե', 72:'Կ', 73:'Կ', 74:'Կ', 75:'Վ'};
+Object.assign(BINFO, {memorial:{floors:[67,68,69,70,71], boss:'mijin', strict:true}, gjstation:{floors:[72,73,74,75,76], boss:'suitman', strict:true}});
+BLD.memorial.floor = 67; BLD.gjstation.floor = 72;
+BLD.gjstation.desc = '광주의 마지막 장소. 전광판 시계가 거꾸로 돈다. 선로가 북쪽 어둠으로 이어진다.';
+/* 정읍: an autumn country town north of Gwangju; its buildings are for the next update */
+const JE_BLDS = [['je1', 8, 8, 16, 14], ['je2', 30, 7, 39, 13], ['je3', 78, 8, 88, 15], ['je4', 10, 45, 19, 51], ['je5', 40, 48, 50, 54], ['je6', 78, 46, 88, 52]];
+JE_BLDS.forEach(([id, x0, y0, x1, y1]) => { BLD[id] = {name:'???', city:'jeongeup', x0, y0, x1, y1, door:[Math.round((x0 + x1)/2), y1], desc:'단풍 안개에 싸인 건물. 문이 꿈쩍도 하지 않는다.'}; BLD_ORDER.push(id); });
+CITY_ORDER.gwangju = BLD_ORDER.slice(9, 17); CITY_ORDER.jeongeup = BLD_ORDER.slice(17);
+CITY_NAME.jeongeup = NAMES.jeongeup; CITY_OW.jeongeup = 77;
+const CAMP_JE = {cx:66, cy:30, spawn:[66,34], rest:[67,26], stall:[62,32], board:[70,32], fire:[66,30], bench:[70,26],
+  tents:[[61,26],[63,26],[69,26],[71,28],[61,34]], spots:[], animals:[], name:'정읍 생존자 캠프', city:'jeongeup'};
+CAMPS.jeongeup = CAMP_JE;
+const JE_TRAIN = {x0:2, y0:29, x1:13, y1:31, door:[7,31]};
+let JE_HOUSES = [];
+Object.assign(FACADE, {je1:{wall:'#8a7a62', dark:'#5a4a3a', win:'#2a2018', glow:'#e6b24c', roof:'#3a3a44'}, je2:{wall:'#8a7a62', dark:'#5a4a3a', win:'#2a2018', glow:'#e6b24c', roof:'#3a3a44'},
+  je3:{wall:'#8a7a62', dark:'#5a4a3a', win:'#2a2018', glow:'#e6b24c', roof:'#3a3a44'}, je4:{wall:'#8a7a62', dark:'#5a4a3a', win:'#2a2018', glow:'#e6b24c', roof:'#3a3a44'},
+  je5:{wall:'#8a7a62', dark:'#5a4a3a', win:'#2a2018', glow:'#e6b24c', roof:'#3a3a44'}, je6:{wall:'#8a7a62', dark:'#5a4a3a', win:'#2a2018', glow:'#e6b24c', roof:'#3a3a44'}});
+Object.assign(NPCS, {
+  /* ⑦ 방송국 JMJ */
+  geombo:{name:'김검보 PD', gender:'m', bld:'memorial', x:10, y:6, gift:14, likes:['coffee','riceball'],
+    look:{skin:SKIN, eye:EYE, blush:BLUSH, shoe:SHOE, hair:'#1a1418', outfit:'#3a3a46', outfitD:'#2a2a34', pants:'#2a2a34', acc:['glasses','headset'], accC:'#2a2a30', long:false},
+    first:['…컷. 거기, 움직이지 마요. 지금 ON AIR예요.', '김검보, 이 방송국 PD입니다. 7년째 같은 뉴스를 찍고 있죠. 한 번도 NG를 낸 적이 없어요. 낼 수가 없거든요.', '빨간불이 켜지면 멈추고, 꺼지면 움직여요. 프롬프터 대본은 시간 순서대로. 그게 방송이에요.', '이거 받아요. 출연료라고 생각해요.'],
+    again:'다시 갑니다. 이거 가져가요. 큐!', after:'국장님은 옥상에 계세요. 방송이 끝나야 내려오신다고 했는데… 방송은 끝나지 않아요.',
+    camp:['캠프 아침 회의도 큐 시트를 짜 봤어요. 다들 싫어하더군요.', '여긴 ON AIR 불이 없어서 좋네요. 마음대로 움직여도 돼요.', '언젠가 이 이야기를 다큐로 찍을 거예요. 주인공은 당신이고요.'],
+    hearts:['사실 NG 내는 게 무서웠어요. 완벽해야 국장님이 웃으셨으니까.', '당신이 대본을 맞추는 걸 보고 생각했어요. 방송은 원래 사람이 하는 거라는 걸.', '이건 내 첫 방송 큐 카드예요. 손글씨가 엉망이죠. 당신이 가져요.']},
+  jiyoung:{name:'이지영', gender:'f', bld:'memorial', x:21, y:7, gift:14, likes:['coffee','candy'],
+    look:{skin:SKIN, eye:EYE, blush:BLUSH, shoe:SHOE, hair:'#4a2a22', outfit:'#e6b24c', outfitD:'#c8943a', pants:'#2a3a5a', acc:['headset','sweat'], accC:'#2a2a30', long:true},
+    first:['죄, 죄송합니다! 혹시 출연자세요? 아니시죠? 죄송해요!', '이지영이에요. 예능 스태프 막내예요. 입사 첫날 녹화하다가… 녹화가 7년째 안 끝나요.', '선배님들이 다 그림자가 됐어요. 저만 아직 막내라서 그런지 안 됐어요. 막내는 그림자 될 시간도 없대요.', '이거 드릴게요! 간식 심부름하다 남은 거예요. 죄송해요, 이것밖에 없어서!'],
+    again:'또 오셨어요? 죄송해요, 이거 다시 드릴게요!', after:'유영우 선배님이 금발로 염색하고 나서 이상해졌어요. 케이블을 막 휘둘러요…',
+    camp:['캠프에서는 아무도 저보고 막내라고 안 해요. 이상해요. 좋아요.', '커피 심부름 안 해도 된대요. 그래도 습관처럼 타게 돼요.', '죄송…아니, 고마워요! 사과 말고 고맙다고 하는 연습 중이에요.'],
+    hearts:['저 사실 PD가 꿈이었어요. 막내부터 하면 된대서 들어왔는데.', '당신은 제가 실수해도 죄송하다고 안 하게 해 줘요. 신기해요.', '이건 제 첫 스태프 출입증이에요. 사진이 너무 못 나왔지만… 당신한테 줄게요.']},
+  gongju:{name:'윤공주', gender:'f', bld:'memorial', x:36, y:6, gift:14, likes:['candy','tteokbokki'],
+    look:{skin:SKIN, eye:EYE, blush:BLUSH, shoe:SHOE, hair:'#0c0a10', outfit:'#2a2430', outfitD:'#1e1a24', pants:'#2a2430', acc:['maskB','hood'], long:true},
+    first:['……', '…윤공주. 여기, 모니터 뒤. 7년째 숨어 있었어.', '…아무한테도 말하지 마. 국장님 첫 방송 테이프, 어디 있는지 알아. 맨 오른쪽 아래. 거긴 카메라가 안 보여.', '…이거. 가져가. 소리 내지 말고.'],
+    again:'…또 왔네. 이거.', after:'…빨간불 켜지면, 숨 쉬는 것도 조심해.',
+    camp:['…캠프 구석 자리, 좋아.', '…다들 시끄러워. 근데 싫진 않아.', '…너랑은, 말해도 돼.'],
+    hearts:['…나 원래 조연출이었어. 아무도 내 이름을 안 불렀어. 그래서 숨는 게 편해졌어.', '…네가 이름 불러 주는 거, 좋아.', '…이거. 내가 몰래 찍은 방송국 마지막 사진. 너만 봐.']},
+  /* ⑧ 광주역 */
+  junsu:{name:'김준수', gender:'m', bld:'gjstation', x:22, y:6, gift:14, likes:['riceball','bread'],
+    look:{skin:SKIN, eye:EYE, blush:BLUSH, shoe:SHOE, hair:'#3a2a20', outfit:'#5a8a4a', outfitD:'#466e3a', pants:'#2c2e3a', acc:['sweat'], long:false},
+    first:['여기가… 광주예요? 아니 저 서울 가려고 했는데요?!', '김준수예요. 기차를 반대로 탔어요. 정신 차려 보니 광주. 그리고 세상이 이렇게 돼 있었어요.', '셔터 문은 전광판 시계가 맞는 시각일 때만 열려요. 저 그거 모르고 셔터에 세 번 부딪혔어요.', '이거 받아요. 서울 가는 길에 먹으려던 거예요. 이제 서울은… 모르겠어요.'],
+    again:'또 만났네요! 이거 다시 가져가요. 전 아직 반대 방향이에요.', after:'승강장은 노선도 보고 골라야 해요. 저처럼 반대로 타면 큰일 나요. 진짜로요.',
+    camp:['캠프에서 길 잃는 사람은 저뿐이에요. 텐트가 다 똑같이 생겼어요.', '언젠가 서울 가는 열차를 제대로 탈 거예요. 이번엔 방향 확인 세 번.', '반대로 탄 덕분에 여러분을 만났으니까… 잘 탄 걸까요?'],
+    hearts:['사실 서울에 면접 보러 가는 길이었어요. 떨어질까 봐 무서웠는데, 지금은 그게 그리워요.', '방향 감각은 없어도 사람 보는 눈은 있어요. 당신은 좋은 사람이에요.', '이건 반대로 산 열차표예요. 버리려다 못 버렸어요. 우리가 만난 표니까요.']},
+  hayoung:{name:'송하영', gender:'f', bld:'gjstation', x:30, y:5, gift:14, likes:['drink','candy'],
+    look:{skin:SKIN, eye:EYE, blush:'#f0a0a8', shoe:SHOE, hair:'#6a3a2a', outfit:'#e8a8c8', outfitD:'#c888a8', pants:'#efe8da', acc:['ribbon'], long:true},
+    first:['어! 안녕하세요! …아, 팬은 아니시구나. 그래도 반가워요!', '송하영이에요. 아이돌이에요! 광주에서 팬 사인회가 있었는데, 오는 열차가 여기서 멈췄어요.', '무서울 때는 웃는 연습을 해요. 팬들 앞에서처럼. 그럼 조금 덜 무서워요.', '이거 받아요! 사인회 선물로 준비한 건데, 오늘은 당신이 첫 팬이에요.'],
+    again:'또 와 줬네요! 이거 받아요. 오늘도 첫 팬이에요!', after:'노선도 조각을 다 모으면 맞는 승강장을 알 수 있대요. 저는 무대 동선 외우는 건 자신 있어요!',
+    camp:['캠프에서 작은 공연을 했어요. 관객 열두 명! 역대 최고로 따뜻했어요.', '목 관리해야 하는데 다들 노래 한 곡만 더 해 달래요.', '무대가 없어도 노래할 수 있다는 걸 알았어요.'],
+    hearts:['사실 데뷔하고 한 번도 쉬어 본 적이 없어요. 이상하게 지금이 제일 편해요.', '당신 앞에서는 웃는 연습을 안 해도 돼요. 그냥 웃게 돼요.', '이건 제 첫 사인회 응원봉이에요. 이제 당신 응원할게요.']},
+  hajun:{name:'장하준', gender:'m', bld:'gjstation', x:10, y:3, gift:14, likes:['riceball','coffee'],
+    look:{skin:SKIN, eye:EYE, blush:BLUSH, shoe:SHOE, hair:'#141018', outfit:'#4a5a6a', outfitD:'#3a4656', pants:'#2a2a34', acc:['collar'], long:false},
+    first:['누구야! …사람이구나. 미안, 놀랐어.', '장하준이야. 광주에 사는 사촌 누나를 찾으러 왔어. 연락이 7년째 끊겼거든.', '이 선로엔 그림자 열차가 다녀. 선로 불이 빨갛게 깜빡이면 바로 비켜. 나 두 번 치였어.', '이거 받아. 누나 주려고 챙겨 온 건데… 누나 찾으면 또 사지 뭐.'],
+    again:'또 왔네. 이거 받아. 누나 소식 들으면 알려 줘.', after:'누나 이름은 채다온이야. 정찰대 같은 거 할 성격이지. 겁이 없거든.',
+    camp:['다온 누나를 찾았어!! 캠프 정찰대였어. 진짜 정찰대였다니까!', '누나가 나보고 키만 컸대. 7년 만에 한 말이 그거야.', '이제 누나 지킬 거야. 누나는 내가 지키는 게 싫대.'],
+    hearts:['어릴 때 누나가 맨날 나를 지켜 줬어. 이번엔 내가 지키고 싶었어.', '네가 없었으면 누나를 못 찾았을 거야. 고마워.', '이건 누나랑 어릴 때 찍은 사진이야. 복사본 있으니까 하나 줄게.']}
+});
+const KEEPSAKE_V11 = {geombo:'김검보 PD의 첫 큐 카드', jiyoung:'이지영의 첫 출입증', gongju:'윤공주의 마지막 방송국 사진', junsu:'김준수의 반대 방향 열차표', hayoung:'송하영의 첫 응원봉', hajun:'장하준과 다온의 어릴 적 사진'};
+
+/* ---- map builders ---- */
+function buildMapV11(f, F){
+  const W = F.w, first = BINFO[F.bld].floors[0] === f, m = hallShell(W), wl = (x, ch) => { if (m[2][x] === 'W') m[2][x] = ch; };
+  if (first) [5, 6, 7].forEach(y => m[y][0] = 'G');
+  else for (let x = 1; x <= 3; x++){ m[3][x] = 's'; m[4][x] = 's'; }
+  if (!F.platforms) for (let x = 40; x <= 42; x++){ m[3][x] = 'S'; m[4][x] = 'S'; }
+  Object.entries(F.doors).forEach(([x, d]) => m[2][+x] = d[2] ? 'O' : 'D');
+  Object.keys(F.boards).forEach(x => m[2][+x] = 'b');
+  if (F.bld === 'memorial'){
+    if (f === 67){ wl(20, 'Է'); wl(23, 'Է'); for (let x = 18; x <= 25; x++) m[4][x] = 'Ե'; m[4][21] = '.'; m[4][22] = '.'; [[8,6],[35,6]].forEach(([x, y]) => m[y][x] = 'Գ'); }
+    else if (F.studio === 'news'){ for (let x = 15; x <= 28; x++) wl(x, 'Դ'); for (let x = 18; x <= 25; x++) m[4][x] = 'Ա'; [[12,8],[22,9],[31,8]].forEach(([x, y]) => m[y][x] = 'Բ'); [[6,3],[37,3]].forEach(([x, y]) => m[y][x] = 'Գ'); wl(10, 'Է'); }
+    else if (F.studio === 'show'){ for (let x = 17; x <= 26; x++){ m[3][x] = 'Ծ'; m[4][x] = 'Ծ'; } for (const y of [8, 9]) for (const [a, b] of [[6,15],[28,37]]) for (let x = a; x <= b; x++) m[y][x] = 'Խ'; [[14,5],[30,4]].forEach(([x, y]) => m[y][x] = 'Բ'); wl(10, 'Է'); wl(33, 'Է'); }
+    else if (F.studio === 'control'){ for (let x = 6; x <= 37; x++) wl(x, 'Դ'); for (const [a, b] of [[8,16],[24,32]]) for (let x = a; x <= b; x++) m[5][x] = 'Ե'; for (const [a, b] of [[4,10],[30,38]]) for (let x = a; x <= b; x++) m[9][x] = 'Զ'; m[2][21] = 'Է'; }
+    if (F.prompter) m[F.prompter[1]][F.prompter[0]] = 'Ը';
+  } else if (F.bld === 'gjstation'){
+    if (f === 72){ for (const y of [5, 8]) for (const [a, b] of [[5,11],[18,26],[32,38]]) for (let x = a; x <= b; x++) m[y][x] = 'Ձ'; wl(21, 'Կ'); wl(22, 'Կ'); }
+    else if (F.platforms){
+      for (let x = 4; x <= 39; x++) m[10][x] = 'Հ';
+      PLATFORMS.forEach(x => { m[10][x] = 'Լ'; m[10][x + 1] = 'Լ'; });
+      for (const x of [6, 14, 22, 30, 38]) m[6][x] = 'Ձ';
+      wl(21, 'Կ'); wl(22, 'Կ');
+    } else if (F.rails){
+      for (const r of RAIL_ROWS) for (const y of [r, r + 1]) for (let x = 1; x <= 42; x++) m[y][x] = 'Հ';
+      if (f === 74) wl(21, 'Կ');
+      if (F.secretCard) m[F.secretCard[1]][F.secretCard[0]] = 'Վ';
+    }
+    (F.gateList || []).forEach(g => { for (let y = 3; y <= 10; y++) m[y][g.x] = 'Ժ'; });
+  }
+  (F.finds || []).forEach(([x, y, ch]) => m[y][x] = ch);
+  { const r = rng(9101 + f*77); let n = 0, guard = 0; while (n < 20 && guard++ < 4000){ const x = 1 + (r()*(W - 2) | 0), y = 3 + (r()*8 | 0); if (m[y][x] === '.'){ m[y][x] = ','; n++; } } }
+  return m;
+}
+function buildRoomV11(F){
+  const W = F.w, m = [];
+  for (let y = 0; y < 13; y++) m.push(new Array(W).fill('#'));
+  if (F.txTower){
+    for (let x = 0; x < W; x++){ m[0][x] = 'K'; m[1][x] = 'K'; m[2][x] = 'F'; m[11][x] = 'F'; }
+    for (let y = 3; y <= 10; y++){ m[y][0] = 'F'; m[y][W - 1] = 'F'; for (let x = 1; x < W - 1; x++) m[y][x] = '_'; }
+    for (const [x, y] of [[13,3],[14,3],[15,3],[14,4]]) m[y][x] = 'Տ';
+    [[6,3],[24,3],[7,10],[23,10]].forEach(([x, y]) => m[y][x] = 'Գ');
+  } else {
+    for (let x = 1; x < W - 1; x++){ m[1][x] = 'W'; m[2][x] = 'W'; for (let y = 3; y <= 10; y++) m[y][x] = '.'; m[11][x] = 'B'; }
+    for (let y = 1; y <= 11; y++){ m[y][0] = '|'; m[y][W - 1] = '|'; }
+    for (let x = 4; x <= W - 5; x++) if (x % 5 !== 0){ m[3][x] = '±'; m[10][x] = '±'; }
+  }
+  m[5][1] = 'Q'; m[6][1] = 's'; m[7][1] = 'Q';
+  return m;
+}
+/* 정읍: fields, a winding creek, dirt paths, low tile-roofed houses, maples and ginkgos, an empty camp, a little country station */
+function buildOverworldJE(){
+  const W = OWW, H = OWH, m = [], R = rng(5151), res = [];
+  for (let y = 0; y < H; y++){ m.push(new Array(W).fill('.')); res.push(new Array(W).fill(0)); }
+  const inb = (x, y) => x >= 0 && y >= 0 && x < W && y < H;
+  const mark = (x0, y0, x1, y1) => { for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) if (inb(x, y)) res[y][x] = 1; };
+  /* 내장산 ridge along the top, hills at the edges */
+  for (let y = 0; y < H; y++) for (let x = 0; x < W; x++){
+    const ridge = 4 + Math.round(Math.sin(x*0.13)*1.6 + Math.sin(x*0.05 + 1)*1.4);
+    if (y < ridge || x <= 0 || y >= H - 1 || x >= W - 1) m[y][x] = 'M';
+  }
+  /* the creek, top to bottom, east of the middle */
+  const creekX = y => 52 + Math.round(Math.sin(y*0.12)*4 + Math.sin(y*0.045)*3);
+  for (let y = 4; y < H - 1; y++){ const cx = creekX(y); for (let x = cx - 1; x <= cx + 1; x++) if (inb(x, y)) { m[y][x] = 'Յ'; res[y][x] = 1; } }
+  /* rice paddies, in plots with ridges between them */
+  const paddy = (x0, y0, x1, y1) => { for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++){ if (!inb(x, y) || m[y][x] !== '.') continue; m[y][x] = (x - x0) % 7 === 6 || (y - y0) % 5 === 4 ? 'Ճ' : 'Մ'; res[y][x] = 1; } };
+  paddy(22, 20, 44, 28); paddy(4, 36, 20, 42); paddy(22, 36, 38, 52); paddy(56, 43, 74, 54); paddy(76, 34, 92, 42);
+  /* dirt roads: the main road from the station to the camp, a ring of lanes past the six buildings */
+  const path = (x0, y0, x1, y1) => {
+    for (let x = Math.min(x0, x1); x <= Math.max(x0, x1); x++){ for (const y of [y0, y0 + 1]) if (inb(x, y) && m[y][x] !== 'M'){ m[y][x] = m[y][x] === 'Յ' ? 'Շ' : 'Ճ'; res[y][x] = 1; } }
+    for (let y = Math.min(y0, y1); y <= Math.max(y0, y1); y++){ for (const x of [x1, x1 + 1]) if (inb(x, y) && m[y][x] !== 'M'){ m[y][x] = m[y][x] === 'Յ' ? 'Շ' : 'Ճ'; res[y][x] = 1; } }
+  };
+  path(4, 32, 58, 32); path(30, 32, 30, 17); path(12, 17, 36, 17);
+  path(74, 31, 92, 31); path(83, 16, 83, 31);
+  path(66, 38, 66, 40); path(10, 40, 92, 40); path(30, 40, 30, 56); path(66, 40, 66, 56); path(8, 56, 90, 56);
+  /* stepping stones across the creek between the lanes */
+  { const y = 48, cx = creekX(y); for (let x = cx - 1; x <= cx + 1; x++) m[y][x] = 'Ն'; for (let x = cx - 4; x <= cx + 4; x++) if (m[y][x] === '.' ) m[y][x] = 'Ճ'; }
+  /* the locked buildings of 정읍 */
+  const JB = cityBlds('jeongeup').map(id => BLD[id]);
+  for (const b of JB){
+    for (let y = b.y0; y <= b.y1; y++) for (let x = b.x0; x <= b.x1; x++) m[y][x] = 'h';
+    mark(b.x0 - 1, b.y0 - 2, b.x1 + 1, b.y1 + 2);
+    m[b.door[1]][b.door[0]] = 'Z'; b.ch = 'Z';
+    for (let y = b.y1 + 1; y <= b.y1 + 4; y++) if (inb(b.door[0], y) && !'ՅM'.includes(m[y][b.door[0]])){ m[y][b.door[0]] = 'Ճ'; res[y][b.door[0]] = 1; }
+  }
+  /* the empty camp */
+  const C = CAMP_JE;
+  mark(57, 22, 75, 38);
+  for (let x = 58; x <= 74; x++) for (const y of [23, 37]) m[y][x] = Math.abs(x - C.cx) > 1 ? 'j' : 'Ճ';
+  for (let y = 23; y <= 37; y++) for (const x of [58, 74]) m[y][x] = Math.abs(y - C.cy) > 1 && y !== 32 && y !== 33 ? 'j' : 'Ճ';
+  for (let y = 24; y <= 36; y++) for (let x = 59; x <= 73; x++) if (m[y][x] !== 'Ճ') m[y][x] = '.';
+  C.tents.forEach(([x, y]) => m[y][x] = 'T');
+  m[C.rest[1]][C.rest[0]] = 'J'; m[C.fire[1]][C.fire[0]] = 'x'; m[C.board[1]][C.board[0]] = 'N';
+  m[C.stall[1]][C.stall[0]] = 'c'; m[C.stall[1]][C.stall[0] + 1] = 'c'; m[C.bench[1]][C.bench[0]] = '1';
+  /* the little station at the west end of the tracks */
+  const TR = JE_TRAIN;
+  for (let y = TR.y0; y <= TR.y1; y++) for (let x = TR.x0; x <= TR.x1; x++) m[y][x] = 'h';
+  m[TR.door[1]][TR.door[0]] = '¬';
+  mark(1, TR.y0 - 3, TR.x1 + 2, TR.y1 + 2);
+  /* village houses: low tile roofs with stone walls around */
+  JE_HOUSES = [];
+  const free = (x0, y0, x1, y1) => { for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++){ if (!inb(x, y) || res[y][x] || m[y][x] !== '.') return false; } return true; };
+  let tries = 0;
+  while (JE_HOUSES.length < 20 && tries++ < 9000){
+    const w = 4 + (R()*3 | 0), h = 3, x = 3 + (R()*(W - 10) | 0), y = 8 + (R()*(H - 13) | 0);
+    if (!free(x - 1, y - 1, x + w, y + h + 1)) continue;
+    for (let yy = y; yy < y + h; yy++) for (let xx = x; xx < x + w; xx++) m[yy][xx] = 'Պ';
+    JE_HOUSES.push([x, y, w, h]);
+    if (R() < 0.6){ for (let xx = x - 1; xx <= x + w; xx++) if (m[y + h + 1] && m[y + h + 1][xx] === '.' && xx !== x + (w >> 1)) m[y + h + 1][xx] = 'Ջ'; }
+    mark(x - 1, y - 1, x + w, y + h + 1);
+  }
+  const scatter = (ch, n) => { let k = 0, g = 0; while (k < n && g++ < 6000){ const x = 3 + (R()*(W - 6) | 0), y = 6 + (R()*(H - 9) | 0); if (!free(x, y, x, y)) continue; m[y][x] = ch; k++; } };
+  /* groves of maples and ginkgos, then single trees here and there */
+  for (let g = 0, gt = 0; g < 14 && gt < 400; gt++){
+    const gx = 4 + (R()*(W - 8) | 0), gy = 7 + (R()*(H - 11) | 0); if (!free(gx, gy, gx, gy)) continue; g++;
+    const ch = R() < 0.65 ? 'Ո' : 'Չ';
+    for (let k = 0; k < 16; k++){ const x = gx + Math.round((R() - 0.5)*7), y = gy + Math.round((R() - 0.5)*5); if (free(x, y, x, y) && R() < 0.75) m[y][x] = R() < 0.8 ? ch : (ch === 'Ո' ? 'Չ' : 'Ո'); }
+  }
+  scatter('Ո', 40); scatter('Չ', 24); scatter('V', 18); scatter('%', 7); scatter('Y', 6);
+  for (let k = 0, g = 0; k < 14 && g < 3000; g++){ const x = 5 + (R()*(W - 10) | 0), y = 36 + (R()*9 | 0); if (m[y][x] === 'Մ'){ m[y][x] = 'Ռ'; k++; } }
+  /* make sure everything important is reachable from the camp */
+  const walk = (x, y) => inb(x, y) && WALKABLE.has(m[y][x]);
+  const seen = new Uint8Array(W*H), q = [C.spawn[0] + C.spawn[1]*W]; seen[q[0]] = 1;
+  for (let i = 0; i < q.length; i++){ const p = q[i], x = p % W, y = (p / W) | 0; for (const [dx, dy] of [[1,0],[-1,0],[0,1],[0,-1]]){ const nx = x + dx, ny = y + dy; if (walk(nx, ny) && !seen[nx + ny*W]){ seen[nx + ny*W] = 1; q.push(nx + ny*W); } } }
+  const fix = (x, y) => { if (seen[x + y*W]) return; let cx = x, cy = y; while (!seen[cx + cy*W]){ if (['Ո','Չ','Պ','Ջ','Ռ','V','%','Y','M','Յ'].includes(m[cy][cx]) && !JB.some(b => cx >= b.x0 && cx <= b.x1 && cy >= b.y0 && cy <= b.y1)) m[cy][cx] = m[cy][cx] === 'Յ' ? 'Շ' : 'Ճ'; seen[cx + cy*W] = 1; if (cy !== C.spawn[1]) cy += Math.sign(C.spawn[1] - cy); else if (cx !== C.spawn[0]) cx += Math.sign(C.spawn[0] - cx); else break; } };
+  for (const b of JB) fix(b.door[0], b.door[1] + 1);
+  fix(TR.door[0], TR.door[1] + 1);
+  OW_SPOTS = []; OW_ANIM = {fires:[], veins:[], craters:[], camp:[], sea:[]};
+  for (let y = 0; y < H; y++) for (let x = 0; x < W; x++){
+    const c = m[y][x];
+    if (c === 'V') OW_ANIM.veins.push([x, y]);
+    if (WALKABLE.has(c) && Math.hypot(x - C.cx, y - C.cy) > 10 && Math.hypot(x - TR.door[0], y - TR.door[1]) > 6 && !JB.some(b => Math.abs(x - b.door[0]) <= 2 && y - b.door[1] >= 0 && y - b.door[1] <= 3)) OW_SPOTS.push([x, y]);
+  }
+  return m;
+}
+/* painting 정읍 over its tiles: tile roofs, the station, the fogged buildings */
+function paintJE(c){
+  const R = rng(4242);
+  for (const [x, y, w, h] of JE_HOUSES){
+    const X = x*T, Y = y*T, Wd = w*T, Ht = h*T;
+    c.fillStyle = '#0c0913'; c.fillRect(X - 3, Y - 7, Wd + 6, Ht + 8);
+    c.fillStyle = '#e8e0cc'; c.fillRect(X, Y + 10, Wd, Ht - 10);
+    c.fillStyle = '#6a4a2a'; for (let xx = X; xx <= X + Wd - 3; xx += 12) c.fillRect(xx, Y + 10, 3, Ht - 10);
+    c.fillStyle = '#2a2018'; c.fillRect(X + (Wd >> 1) - 5, Y + Ht - 14, 10, 14);
+    if (R() < 0.5){ c.fillStyle = '#e6b24c'; c.fillRect(X + 8, Y + 16, 6, 6); }
+    /* the curved roof */
+    c.fillStyle = '#3a3a48'; c.fillRect(X - 2, Y - 4, Wd + 4, 16);
+    c.fillStyle = '#4a4a5a'; for (let yy = Y - 2; yy < Y + 10; yy += 3) c.fillRect(X - 2, yy, Wd + 4, 1);
+    c.fillStyle = '#2a2a36'; c.fillRect(X - 5, Y + 9, 5, 3); c.fillRect(X + Wd, Y + 9, 5, 3); c.fillRect(X - 6, Y + 7, 2, 2); c.fillRect(X + Wd + 4, Y + 7, 2, 2);
+    c.fillStyle = '#5a5a6a'; c.fillRect(X + 2, Y - 6, Wd - 4, 3);
+  }
+  for (const id of cityBlds('jeongeup')){
+    const b = BLD[id], X = b.x0*T, Y = b.y0*T, Wd = (b.x1 - b.x0 + 1)*T, Ht = (b.y1 - b.y0 + 1)*T;
+    c.fillStyle = '#0c0913'; c.fillRect(X - 4, Y - 10, Wd + 8, Ht + 11);
+    c.fillStyle = '#c8bca4'; c.fillRect(X, Y + 14, Wd, Ht - 14);
+    c.fillStyle = '#5a3a22'; for (let xx = X; xx < X + Wd; xx += 16) c.fillRect(xx, Y + 14, 4, Ht - 14);
+    c.fillStyle = '#7a2a22'; c.fillRect(X, Y + 14, Wd, 3);
+    c.fillStyle = '#2e2e3a'; c.fillRect(X - 4, Y - 8, Wd + 8, 24);
+    c.fillStyle = '#3e3e4c'; for (let yy = Y - 6; yy < Y + 14; yy += 3) c.fillRect(X - 4, yy, Wd + 8, 1);
+    c.fillStyle = '#1e1e28'; c.fillRect(X - 8, Y + 13, 8, 4); c.fillRect(X + Wd, Y + 13, 8, 4);
+    const dx = b.door[0]*T; c.fillStyle = '#1a120c'; c.fillRect(dx - 3, Y + Ht - 22, 22, 22);
+    c.fillStyle = 'rgba(220,210,200,0.35)'; for (let i = 0; i < 6; i++) c.fillRect(X + (R()*Wd | 0) - 10, Y + (R()*Ht | 0), 30, 6);
+    c.fillStyle = '#e6b24c'; c.font = '700 12px sans-serif'; c.fillText('?', dx + 4, Y + 32);
+  }
+  /* the station: a small red-roofed building, a platform, rails off to the west */
+  const TR = JE_TRAIN, ty = (TR.y1 + 1)*T + 6, X = TR.x0*T, Y = TR.y0*T, Wd = (TR.x1 - TR.x0 + 1)*T, Ht = (TR.y1 - TR.y0 + 1)*T;
+  c.fillStyle = '#3a2a1a'; for (let x = 0; x < (TR.x1 + 3)*T; x += 6) c.fillRect(x, ty - 3, 3, 9);
+  c.fillStyle = '#7a808a'; c.fillRect(0, ty - 1, (TR.x1 + 3)*T, 1); c.fillRect(0, ty + 4, (TR.x1 + 3)*T, 1);
+  c.fillStyle = '#0c0913'; c.fillRect(X - 2, Y - 8, Wd + 4, Ht + 9);
+  c.fillStyle = '#d8ccb4'; c.fillRect(X, Y + 6, Wd, Ht - 6);
+  c.fillStyle = '#8a2a22'; c.fillRect(X - 2, Y - 6, Wd + 4, 14); c.fillStyle = '#a8382a'; for (let yy = Y - 4; yy < Y + 8; yy += 3) c.fillRect(X - 2, yy, Wd + 4, 1);
+  c.fillStyle = '#2a3a5a'; for (let x = X + 8; x < X + Wd - 12; x += 22) c.fillRect(x, Y + 14, 12, 10);
+  c.fillStyle = '#efe8da'; c.fillRect(X + (Wd >> 1) - 22, Y + 9, 44, 9); c.fillStyle = '#2a2a34'; c.font = '700 8px sans-serif'; c.fillText('정읍역', X + (Wd >> 1) - 13, Y + 17);
+}
+
+/* ---- tiles ---- */
+function floorV11(P, th, tx, ty, r, pool, splat){
+  if (th.bcast){
+    if (th.control){ P(0,0,16,16, th.fa); P(0,0,16,1, th.grid); if ((tx + ty) % 4 === 0) P(6,6,4,4,'#1a1c22'); for (let i = 0; i < 2; i++) P(r()*15 | 0, r()*15 | 0, 1, 1, r() < 0.3 ? '#5ae86a' : th.speck); if (r() < 0.03) pool(); else splat(); return true; }
+    P(0,0,16,16, ((tx + ty) & 1) ? th.fb : th.fa); P(0,0,16,1, th.grid); P(0,0,1,16, th.grid);
+    if (((tx*5 + ty*3) % 11) === 0){ P(2,7,12,2,'#2a2a30'); P(2,7,12,1,'#4a4a52'); }
+    for (let i = 0; i < 2; i++) P(r()*15 | 0, r()*15 | 0, 1, 1, th.speck);
+    if (r() < 0.025) pool(); else splat();
+    return true;
+  }
+  if (th.gjst){
+    P(0,0,16,16, ((tx >> 1) + (ty >> 1)) & 1 ? th.fb : th.fa); P(0,0,16,1, th.grid); P(0,0,1,16, th.grid);
+    if (((tx + ty*3) % 7) === 0){ P(4,4,8,8,'#9a9488'); P(5,5,6,6,'#8a8478'); }
+    for (let i = 0; i < 2; i++) P(r()*15 | 0, r()*15 | 0, 1, 1, th.speck);
+    if (r() < 0.02) pool(); else splat();
+    return true;
+  }
+  if (th.tunnel){
+    P(0,0,16,16, th.fa); for (let i = 0; i < 5; i++) P(r()*15 | 0, r()*15 | 0, 2, 1, r() < 0.5 ? th.speck : th.grid);
+    if (r() < 0.15){ const a = r()*12 | 0, b = r()*12 | 0; P(a, b, 4, 3, '#1e1c1c'); }
+    if (r() < 0.06) pool(); else splat();
+    return true;
+  }
+  if (th.agent){
+    P(0,0,16,16, th.fa); P(0,7,16,2, th.fb); P(0,0,16,1, th.grid);
+    if (tx % 4 === 0) P(7,7,2,2,'#c08cff');
+    if (r() < 0.04) pool(); else splat();
+    return true;
+  }
+  if (th.je){
+    P(0,0,16,16, ((tx*7 + ty*3) % 5 === 0) ? th.fb : th.fa);
+    for (let i = 0; i < 5; i++) P(r()*15 | 0, r()*15 | 0, 1, 2, r() < 0.5 ? '#7a7244' : '#5a5230');
+    for (let i = 0; i < 3; i++) if (r() < 0.6) P(r()*14 | 0, r()*14 | 0, 2, 1, pick(['#c84a2a','#e6782a','#e6c24c','#a83a2a']));
+    if (r() < 0.02) pool();
+    return true;
+  }
+  return false;
+}
+function tileV11(c, ch, tx, ty, r, th, P, floor, wallLower){
+  if (th.je && ch === 'j'){
+    floorV11(P, th, tx, ty, r, () => {}, () => {});
+    P(0,6,16,2,'#6a4a2a'); P(0,11,16,2,'#6a4a2a'); P(0,6,16,1,'#8a6a42'); P(0,11,16,1,'#8a6a42');
+    for (const x of [1, 7, 13]){ P(x,3,2,12,'#5a3a22'); P(x,3,2,1,'#7a5a3a'); }
+    if (r() < 0.3){ P(9,7,3,4,'#3a2a1a'); }
+    return true;
+  }
+  if (th.je && ch === 'M'){
+    P(0,0,16,16,'#3a2a1e'); for (let i = 0; i < 4; i++){ const a = r()*12 | 0, b = r()*12 | 0; P(a, b, 5, 4, pick(['#a83a22','#c8582a','#7a2a1a','#c8a030'])); P(a + 1, b + 4, 3, 1, '#2a1a12'); }
+    return true;
+  }
+  switch (ch){
+    case 'Ա': floor(); P(0,4,16,10,'#2a3a6a'); P(0,4,16,2,'#4a6aa8'); P(0,12,16,2,'#1a2440'); P(3,6,10,1,'#c8d8f0'); if (tx % 3 === 0){ P(6,1,4,4,'#1a1a20'); P(7,2,2,1,'#5ae86a'); } return true;
+    case 'Բ': floor(); P(4,9,8,6,'#1a1a20'); P(7,6,2,4,'#3a3a42'); P(2,1,12,7,'#2a2a30'); P(2,1,12,1,'#4a4a52'); P(12,3,4,3,'#5a5a62'); P(13,4,2,1,'#9ad0f0'); P(4,3,2,2,'#e2553e'); return true;
+    case 'Գ': floor(); P(7,4,2,11,'#5a5a62'); P(4,13,8,2,'#2a2a30'); P(3,0,10,5,'#3a3a42'); P(4,1,8,3,'#fff3c4'); return true;
+    case 'Դ': P(0,0,16,16,'#141018'); for (const [a, b] of [[1,1],[9,1],[1,8],[9,8]]){ P(a, b, 6, 6, '#0c0a10'); P(a + 1, b + 1, 4, 4, pick(['#3a6a8a','#5a3a6a','#2a5a3a','#6a2a2a'])); if (r() < 0.5) P(a + 2, b + 2, 1, 1, '#efe8da'); } return true;
+    case 'Ե': floor(); P(0,5,16,10,'#2a2e38'); P(0,5,16,2,'#4a5060'); for (let i = 1; i < 15; i += 3) P(i, 9, 2, 2, pick(['#5ae86a','#e2553e','#e6c24c','#3a8ad8'])); P(0,14,16,1,'#141820'); return true;
+    case 'Զ': floor(); P(1,1,14,14,'#3a2a20'); for (let yy = 2; yy < 14; yy += 4){ P(2, yy, 12, 3, '#14100c'); for (let i = 0; i < 4; i++) P(3 + i*3, yy, 2, 3, pick(['#2a2a30','#c8c0b0','#3a3a46'])); } return true;
+    case 'Է': wallLower(); P(2,3,12,7,'#2a0a0e'); P(3,4,10,5,'#5a1018'); P(4,5,2,3,'#efe8da'); P(7,5,2,3,'#efe8da'); P(10,5,2,3,'#efe8da'); return true;
+    case 'Ը': floor(); P(4,9,8,6,'#2a2a30'); P(7,6,2,4,'#3a3a42'); P(2,0,12,8,'#1a1a22'); P(3,1,10,6,'#0c1810'); for (let i = 0; i < 3; i++) P(4, 2 + i*2, 4 + (r()*5 | 0), 1, '#5ae86a'); return true;
+    case 'Թ': floor(); P(4,5,9,8,'#efe8da'); P(4,5,9,1,'#c8c0b0'); for (let i = 0; i < 3; i++) P(5, 7 + i*2, 4 + (r()*4 | 0), 1, '#5a5a62'); P(11,11,2,2,'#c0303a'); return true;
+    case 'Ժ': floor(); return true;
+    case 'Ի': floor(); return true;
+    case 'Լ': P(0,0,16,16,'#2a2a30'); for (let i = 0; i < 4; i++){ P(0, i*4, 16, 3, '#4a4a52'); P(0, i*4, 16, 1, '#6a6a72'); } P(0,0,16,2,'#e6c24c'); return true;
+    case 'Խ': floor(); P(0,3,16,11,'#3a2a4a'); P(0,3,16,2,'#5a4a6a'); for (let i = 1; i < 16; i += 4){ P(i, 6, 3, 3, '#2a1a3a'); if (r() < 0.4){ P(i, 3, 3, 3, '#14101a'); P(i + 1, 4, 1, 1, '#ff3a3a'); } } return true;
+    case 'Ծ': floor(); P(0,1,16,14, pick(['#e85a7a','#e6c24c','#5a8ac8','#5ab04a'])); P(0,1,16,2,'#efe8da'); P(3,6,10,4,'#2a1a2a'); P(5,7,2,2,'#efe8da'); P(9,7,2,2,'#efe8da'); return true;
+    case 'Կ': wallLower(); P(1,1,14,12,'#141018'); P(2,2,12,10,'#0c0c14'); for (let i = 0; i < 3; i++){ P(3, 3 + i*3, 3, 2, pick(['#c0303a','#3a6ad8','#e6c24c','#5ab04a'])); P(7, 3 + i*3, 5, 2, '#ff8a3a'); } return true;
+    case 'Հ': P(0,0,16,16,'#26221e'); for (let i = 0; i < 16; i += 5) P(i, 0, 3, 16, '#3a2a1a'); P(0, 3, 16, 1, '#8a8f9a'); P(0, 12, 16, 1, '#8a8f9a'); if (r() < 0.2) P(r()*14 | 0, r()*14 | 0, 2, 2, '#4a4040'); return true;
+    case 'Ձ': floor(); P(0,6,16,5,'#5a6a7a'); P(0,6,16,1,'#7a8a9a'); P(2,11,2,3,'#2a3440'); P(12,11,2,3,'#2a3440'); return true;
+    case 'Ս': wallLower(); P(2,1,12,12,'#5a4a3a'); P(3,2,10,10,'#e8e0cc'); for (let i = 0; i < 4; i++) P(4 + (i % 2)*5, 3 + (i >> 1)*4, 4, 3, pick(['#c84a3a','#3a3a46','#e6b24c'])); P(7,9,3,2,'#14101a'); return true;
+    case 'Վ': wallLower(); P(6,1,4,13,'#0c0808'); P(7,3,2,9,'#1a1010'); if (!(G.ow && G.ow.card)) P(7,6,2,3,'#14101a'); return true;
+    case 'Տ': floor(); P(6,0,4,16,'#9aa0aa'); for (let i = 0; i < 16; i += 4){ P(4, i, 8, 1, '#7a808a'); } P(7,1,2,2,'#e2553e'); return true;
+    case 'Ճ': P(0,0,16,16, th.je ? '#8a7450' : '#6a5a3a'); for (let i = 0; i < 4; i++) P(r()*15 | 0, r()*15 | 0, 1, 1, '#6a5638'); if (r() < 0.3) P(r()*13 | 0, r()*13 | 0, 3, 1, '#a08a62'); if (r() < 0.25) P(r()*14 | 0, r()*14 | 0, 2, 1, pick(['#c84a2a','#e6c24c'])); return true;
+    case 'Մ': P(0,0,16,16,'#a88a3a'); for (let i = 0; i < 16; i += 3){ P(i, 2, 1, 11, '#c8a848'); P(i + 1, 1, 1, 3, '#e6c86a'); } P(0,13,16,3,'#6a5a2a'); return true;
+    case 'Յ': { P(0,0,16,16,'#2a5a7a'); for (let i = 0; i < 3; i++) P(r()*12 | 0, r()*14 | 0, 4, 1, '#5a8aa8'); if (r() < 0.3) P(r()*13 | 0, r()*13 | 0, 2, 1, pick(['#c84a2a','#e6c24c'])); return true; }
+    case 'Ն': P(0,0,16,16,'#2a5a7a'); P(2,3,12,10,'#8a8a82'); P(3,3,10,2,'#aaaaa2'); P(2,12,12,1,'#4a4a44'); return true;
+    case 'Շ': P(0,0,16,16,'#2a5a7a'); P(0,1,16,14,'#7a5a3a'); for (let i = 0; i < 16; i += 4) P(i, 1, 1, 14, '#5a3a22'); P(0,1,16,1,'#9a7a52'); return true;
+    case 'Ո': { if (th.je) floorV11(P, th, tx, ty, r, () => {}, () => {}); else floor(); P(7,10,2,6,'#4a2a1a'); const cols = ['#c83a22','#e6582a','#a82a1a']; P(2,1,12,10, cols[(tx + ty) % 3]); P(4,0,8,2, cols[(tx + ty + 1) % 3]); P(1,4,2,4, cols[(tx + 2) % 3]); P(13,4,2,4, cols[(ty + 1) % 3]); P(5,3,2,2,'#ff8a4a'); return true; }
+    case 'Չ': { if (th.je) floorV11(P, th, tx, ty, r, () => {}, () => {}); else floor(); P(7,9,2,7,'#5a3a22'); P(3,1,10,9,'#e6c24c'); P(5,0,6,2,'#f0d86a'); P(2,4,2,4,'#c8a830'); P(12,4,2,4,'#c8a830'); return true; }
+    case 'Պ': P(0,0,16,16,'#3a3a48'); return true;
+    case 'Ջ': if (th.je) floorV11(P, th, tx, ty, r, () => {}, () => {}); P(0,5,16,9,'#7a7468'); for (let i = 0; i < 16; i += 5){ P(i, 5, 4, 4, '#8a8478'); P(i + 2, 9, 4, 4, '#6a6458'); } P(0,4,16,2,'#3a3a48'); return true;
+    case 'Ռ': P(0,0,16,16,'#a88a3a'); P(2,4,12,11,'#c8a848'); P(3,2,10,4,'#d8b858'); P(2,14,12,1,'#6a5a2a'); for (let i = 3; i < 13; i += 3) P(i, 6, 1, 7, '#a88a38'); return true;
+  }
+  return false;
+}
 /* ================= state ================= */
 const G = {mode:'title', t:0, slot:null, name:'', gender:'m', roleIdx:0, base:null, lv:1, exp:0, sp:0, hp:1, mp:1, san:1,
            gems:0, inv:null, pets:[], equip:{weapon:null, armor:null}, gearBag:[], fs:null, floor:0, player:null,
@@ -6180,7 +6802,7 @@ let ents = [], trail = [], entSeq = 0;
 const DIRV = {up:{x:0,y:-1}, down:{x:0,y:1}, left:{x:-1,y:0}, right:{x:1,y:0}};
 const keys = new Set();
 const K = (...c) => c.some(k => keys.has(k));
-const newFS = () => ({shards:[], vend:false, insp:false, met:{}, gift:{}, loot:{}, rack:{}, unlock:{}, rescue:{}, find:{}, rush:{}, seat:{}, gyro:{}, balls:0, flume:false, order:false, key:false, loop:false, code:false, got:[], gems:0, done:false, teacher:false, boss:false});
+const newFS = () => ({shards:[], vend:false, insp:false, met:{}, gift:{}, loot:{}, rack:{}, unlock:{}, rescue:{}, find:{}, rush:{}, seat:{}, gyro:{}, balls:0, flume:false, order:false, prompt:false, key:false, loop:false, code:false, got:[], gems:0, done:false, teacher:false, boss:false});
 const newRec = () => ({battles:0, wins:0, caps:0, capTries:0, perfects:0, faints:0, time:0, maxHit:0, broke:0, veins:0, nightWins:0, kickDist:0, boxes:0, crafts:0, react:0, aim:0, enh:0, hides:0, loops:0, scares:0, quests:0, evos:0, reacts:0, gifts:0, lost:0, trains:0, rematches:0, bt:{}, bclear:{}, seats:0, fouls:0, bats:0, cooks:0, flumes:0});
 const newOW = () => ({veins:{}, tents:{}, kickFree:false, bus:false, plagueSeen:false, camped:false, quests:null, animalGift:{},
   /* v0.9: the ending, Gwangju (trust, affinity, its own board), Mokpo post-game (boss rematches, collection rewards) */
@@ -6280,8 +6902,8 @@ function removeGearById(id){
   for (const s of ['weapon','armor']) if (G.equip[s] && G.equip[s].id === id){ G.equip[s] = null; clampVitals(); return; }
   const i = G.gearBag.findIndex(g => g.id === id); if (i >= 0) G.gearBag.splice(i, 1);
 }
-function floorTotal(f){ const F = FLOORS[f]; if (F.ow) return 0; if (F.boss) return 1; return F.shards.length + (F.vend ? 1 : 0) + (F.insp ? 1 : 0) + F.npcs.length + Object.values(F.doors).filter(d => d[2]).length + (F.racks ? F.racks.length : 0) + (F.keyAt ? 1 : 0) + (F.rescue ? F.rescue.length : 0) + (F.finds ? F.finds.length : 0) + (F.lock ? 1 : 0) + (F.rush ? F.rush.length : 0) + (F.seats ? F.seats.length : 0) + (F.balls | 0) + (F.flumeF ? 1 : 0) + (F.gyroF ? GYRO_BANDS.length : 0) + (F.order ? 1 : 0); }
-function progress(f){ const s = G.fs[f], F = FLOORS[f]; if (F.ow) return 0; if (F.boss) return s.boss ? 1 : 0; return s.shards.length + (s.vend ? 1 : 0) + (s.insp ? 1 : 0) + Object.keys(s.met).length + Object.keys(s.loot).length + Object.keys(s.rack || {}).length + (F.keyAt && s.key ? 1 : 0) + Object.keys(s.rescue || {}).length + Object.keys(s.find || {}).length + (F.lock && s.code ? 1 : 0) + Object.keys(s.rush || {}).length + Object.keys(s.seat || {}).length + Math.min(F.balls | 0, s.balls | 0) + (F.flumeF && s.flume ? 1 : 0) + Object.keys(s.gyro || {}).length + (F.order && s.order ? 1 : 0); }
+function floorTotal(f){ const F = FLOORS[f]; if (F.ow) return 0; if (F.boss) return 1; return F.shards.length + (F.vend ? 1 : 0) + (F.insp ? 1 : 0) + F.npcs.length + Object.values(F.doors).filter(d => d[2]).length + (F.racks ? F.racks.length : 0) + (F.keyAt ? 1 : 0) + (F.rescue ? F.rescue.length : 0) + (F.finds ? F.finds.length : 0) + (F.lock ? 1 : 0) + (F.rush ? F.rush.length : 0) + (F.seats ? F.seats.length : 0) + (F.balls | 0) + (F.flumeF ? 1 : 0) + (F.gyroF ? GYRO_BANDS.length : 0) + (F.order ? 1 : 0) + (F.prompt ? 1 : 0); }
+function progress(f){ const s = G.fs[f], F = FLOORS[f]; if (F.ow) return 0; if (F.boss) return s.boss ? 1 : 0; return s.shards.length + (s.vend ? 1 : 0) + (s.insp ? 1 : 0) + Object.keys(s.met).length + Object.keys(s.loot).length + Object.keys(s.rack || {}).length + (F.keyAt && s.key ? 1 : 0) + Object.keys(s.rescue || {}).length + Object.keys(s.find || {}).length + (F.lock && s.code ? 1 : 0) + Object.keys(s.rush || {}).length + Object.keys(s.seat || {}).length + Math.min(F.balls | 0, s.balls | 0) + (F.flumeF && s.flume ? 1 : 0) + Object.keys(s.gyro || {}).length + (F.order && s.order ? 1 : 0) + (F.prompt && s.prompt ? 1 : 0); }
 function exploreRate(){ let a = 0, b = 0; for (let f = 0; f < FLOORS.length; f++){ a += progress(f); b += floorTotal(f); } return b ? a/b : 0; }
 const achRate = () => Object.keys(G.ach).length/ACH.length;
 
@@ -6953,6 +7575,7 @@ const OW_NIGHT = {knife:14, mannequin:14, shadow:14};
 const OW_PLAGUE = {rat:26, spore:20, infected:16};
 const OW_DAY_GJ = {tteok:16, melon:14, lettuce:14, busstop:14, shadow:8, trash:8, pigeon:8, sign:6}, OW_NIGHT_GJ = {knife:12, mannequin:10, shadow:14};
 function owPick(){
+  if (curCity() === 'jeongeup') return owPickJE();
   const gj = curCity() === 'gwangju', W = Object.assign({}, gj ? OW_DAY_GJ : OW_DAY);
   if (isNight()) Object.assign(W, gj ? OW_NIGHT_GJ : OW_NIGHT);
   if (G.plague) Object.assign(W, OW_PLAGUE);
@@ -6981,7 +7604,7 @@ function respawnEnt(e){
 }
 /* NPCs: inside their building until it is purified, then at the survivor camp */
 function campNpcs(){
-  const C = curCamp(), ids = curCity() === 'gwangju' ? [...GJ_CITIZENS, ...survivorIds('gwangju')] : survivorIds('mokpo');
+  const C = curCamp(), ids = curCity() === 'jeongeup' ? [] : curCity() === 'gwangju' ? [...GJ_CITIZENS, ...survivorIds('gwangju')] : survivorIds('mokpo');
   return ids.filter(id => id !== (G.ow && G.ow.mate)).map((id, i) => { const [tx, ty] = C.spots[i % C.spots.length]; return {id, x:tx*T + 8, y:ty*T + 12}; });
 }
 function npcList(){
@@ -7003,7 +7626,7 @@ function newGame(){
   G.gems = 0; G.inv = {bag:2, bread:2, drink:1, cure:1, candy:0, coffee:0, riceball:0, cloth:0, wire:0, tape:0};
   G.stam = 100; G.tired = false; G.ride = null; G.dep = null;
   G.fs = FLOORS.map(() => newFS()); G.ach = {}; G.rec = newRec();
-  G.tips = {nerf10:1}; G.clock = 60; G.day = 1; G.ow = newOW(); v10Load(); G.kick = null; G.riding = false; G.infected = false; G.plague = null; G.plagueCheck = 0;
+  G.tips = {nerf10:1, pen11:1}; G.clock = 60; G.day = 1; G.ow = newOW(); v10Load(); G.kick = null; G.riding = false; G.infected = false; G.plague = null; G.plagueCheck = 0;
   enterFloor(0, 'load'); writeSave();
   if (cloudOn()){ writeMeta(G.slot, {uid:CL.user.uid, saved:0}); CL.state[G.slot] = null; CL.lastPush = 0; CL.dirty = true; }
 }
@@ -7059,7 +7682,7 @@ function enterFloor(f, how){
   if (how === 'elev'){ pos = F.elevPos || F.entry; dir = 'down'; }
   if (F.ow){
     if (how === 'out' && prevF && BLD[prevF.bld]){ const d = BLD[prevF.bld].door; pos = [d[0], d[1] + 1]; dir = 'down'; }
-    else if (how === 'train'){ const d = F.city === 'gwangju' ? GJ_TRAIN.door : BLD.station.door; pos = [d[0], d[1] + 1]; dir = 'down'; }
+    else if (how === 'train'){ const d = F.city === 'gwangju' ? GJ_TRAIN.door : F.city === 'jeongeup' ? JE_TRAIN.door : BLD.station.door; pos = [d[0], d[1] + 1]; dir = 'down'; }
     else pos = curCamp().spawn;
     OW_SPOTS = CUR.spots; OW_ANIM = CUR.anim;
   }
@@ -7217,7 +7840,7 @@ function setupScares(F){
 function fireScare(kind, after){
   if (G.scare) return;
   if (!G.scareOn){ G.flick = 0.35; toast(pick(['…방금 뭔가 지나갔다.', '등 뒤가 서늘하다.', '어디선가 웃음소리가 났다.'])); if (after) setTimeout(after, 300); return; }
-  G.scare = {kind:kind || pick(SCARE_KINDS), t:0, dur:kind === 'dark' ? 1.15 : 0.9, cap:pick(SCARE_TXT), after:after || null, seed:Math.random()*1000 | 0};
+  G.scare = {kind:kind || pick(SCARE_KINDS), t:0, dur:kind === 'dark' ? 1.15 : 0.9, cap:pick(scareTxt()), after:after || null, seed:Math.random()*1000 | 0};
   G.shakeT = reduceMotion ? 0 : 0.9; keys.clear(); padRelease(); sfx('scare'); app.classList.add('scaring');
 }
 function updScare(dt){
@@ -7428,8 +8051,8 @@ function introLines(){
     {who:'', t:'오른쪽 위 ‘▶ 목표’와 바닥의 희미한 화살표가 지금 할 일을 알려 줘요. 먼저 이 층의 빛나는 돌과 ! 표시 사람부터 찾아봐요.'},
     {who:'', t:'돌아다니는 요괴에 닿으면 전투가 시작돼요. 공격할 때도, 막을 때도 타이밍을 맞추면 강해져요.'},
     {who:'', t:'마정석은 돈이에요. 복도 자판기에서 포획용 가방과 장비를 살 수 있어요. 장비는 몇 번 싸우면 부서져요.'},
-    {who:'', t:'건물 안에서는 정신력이 계속 줄어요. 정신력이나 체력이 바닥나면 그 층에서 얻은 마정석과 물건을 잃어요.'},
-    {who:'', t:'🧹 한 층의 빛나는 돌·! 사람·열린 문·수상한 물건을 전부 조사하면 그 층이 정화돼서, 쓰러져도 잃는 게 없어져요.'},
+    {who:'', t:'건물 안에서는 정신력이 계속 줄어요. 정신력이나 체력이 바닥나면 쓰러져요. 💀 쓰러지면 가진 마정석의 35%와 장비 내구도 3을 잃고, 그 층에서 얻은 것도 잃어요.'},
+    {who:'', t:'🧹 한 층의 빛나는 돌·! 사람·열린 문·수상한 물건을 전부 조사하면 그 층이 정화돼서, 쓰러져도 그 층에서 얻은 건 지켜져요. (마정석 35% 벌칙은 그대로예요)'},
     {who:'', t:'복도 왼쪽 끝 유리문으로 나가면 무너진 목포 시내예요. 밖에서는 정신력이 회복돼요. 헷갈리면 메뉴 → 게임 방법을 봐요.'}
   ];
 }
@@ -7454,7 +8077,7 @@ function checkComplete(){
   const extra = F.alarm ? ' 경보도 더는 울리지 않아요.' : F.song ? ' 천사의 노래도 더는 들리지 않아요.' : F.emb ? ' 헌금 횡령도 멈췄어요.' : F.shift ? ' 진열대도 더는 움직이지 않아요.' : F.bld === 'police' ? ' 순찰 눈알의 불빛도 꺼졌어요.' : F.crawl ? ' 모니터에서 더는 아무것도 나오지 않아요.' : F.stalk ? ' 발소리도 더는 들리지 않아요.' : F.cagey ? ' 우리 문도 더는 열리지 않아요.' : F.bell ? ' 쉬는 시간 종도 더는 울리지 않아요.' : F.apt ? ' 이상한 일도 조금 잠잠해졌어요.' : '';
   const next = F.strict && FLOORS[f + 1] ? '🚧 계단을 막던 테이프가 풀렸다! 화살표를 따라 위층으로 가요.' : F.apt ? '다음은 엘리베이터를 타고 위층으로 가요. 도어락으로 얻은 카드키가 있으면 위층 버튼이 켜져 있어요.' : F.vert ? '다음은 화살표를 따라 산 위쪽 계단으로 올라가요.' : F.car ? '다음은 열차 앞쪽 칸으로 가요. 출발 시간을 잊지 마요!' : '다음은 화살표를 따라 계단으로 위층에 가요. 맨 위층의 보스를 이기면 건물 전체가 정화되고 다음 건물이 열려요.';
   say([{who:G.name, t:`(${josa(F.name, '은', '는')} 다 둘러본 것 같다. 공기가 조금 가벼워졌다.)`},
-       {who:'', t:`${F.name} 정화 완료! 이제 이 층에서 쓰러져도 잃는 게 없어요.${extra}`},
+       {who:'', t:`${F.name} 정화 완료! 이제 이 층에서 쓰러져도 이 층에서 얻은 건 지켜져요. (💀 벌칙은 그대로예요)${extra}`},
        {who:'', t:next}]);
 }
 function refreshHUD(){
@@ -7637,8 +8260,8 @@ function endPlague(killed){
   if (!killed) toast('역병 숙주가 땅속으로 사라졌다. 다음엔 놓치지 말자.');
 }
 function updOW(dt){
-  const p = G.player, gj = curCity() === 'gwangju', seenK = gj ? 'gjCampSeen' : 'campSeen';
-  if (!G.ow[seenK] && inCamp(p.x, p.y)){ G.ow[seenK] = true; G.navT = 0; toast(gj ? '광주 생존자 캠프에 들어섰다. 경계하는 눈빛들이 이쪽을 본다.' : '생존자 캠프에 도착했다. 여기서는 요괴가 들어오지 못한다.'); }
+  const p = G.player, cty = curCity(), gj = cty !== 'mokpo', seenK = cty === 'jeongeup' ? 'jeCampSeen' : gj ? 'gjCampSeen' : 'campSeen';
+  if (!G.ow[seenK] && inCamp(p.x, p.y)){ G.ow[seenK] = true; G.navT = 0; toast(cty === 'jeongeup' ? '정읍 생존자 캠프… 텐트는 그대로인데, 아무도 없다.' : gj ? '광주 생존자 캠프에 들어섰다. 경계하는 눈빛들이 이쪽을 본다.' : '생존자 캠프에 도착했다. 여기서는 요괴가 들어오지 못한다.'); }
   ents = ents.filter(e => e.host || (e.alive && Math.hypot(e.x - p.x, e.y - p.y) < 470));
   G.owSpawnT -= dt;
   if (G.owSpawnT <= 0){ G.owSpawnT = isNight() ? 1.6 : 2.6; if (ents.filter(e => !e.host).length < owCap()) owSpawnOne(false); }
@@ -7686,6 +8309,7 @@ function doorTarget(id){ const b = BLD[id]; return {tx:b.door[0], ty:b.door[1] +
 function navTarget(){
   if (G.plague && isOW()){ const h = ents.find(e => e.host); if (h) return {tx:Math.floor(h.x/T), ty:Math.floor((h.y - 2)/T), label:'역병 숙주', kind:'host'}; }
   const C = curCamp(), camp = label => ({tx:C.rest[0], ty:C.rest[1] + 1, label, kind:'camp'});
+  if (curCity() === 'jeongeup') return navJE();
   if (curCity() === 'gwangju'){
     if (!G.ow.cit.gu){ const n = (G.npcs || []).find(o => o.id === 'gu'); if (n) return {tx:Math.floor(n.x/T), ty:Math.floor((n.y - 2)/T) + 1, label:'캠프 대장 구만석에게 인사', kind:'camp'}; }
     if (G.infected && !(G.inv.cure > 0)) return camp('캠프에서 치료');
@@ -7693,7 +8317,7 @@ function navTarget(){
     for (const id of CITY_ORDER.gwangju){ if (!BINFO[id]) break; if (!bldDone(id)) return doorTarget(id); }
     if (!G.ow.gjq || !G.ow.gjq.list.some(q => q.done)) return {tx:C.board[0], ty:C.board[1] + 1, label:'광주 캠프 게시판 · 부탁', kind:'camp'};
     if (guTaleReady()){ const n = (G.npcs || []).find(o => o.id === 'gu'); if (n) return {tx:Math.floor(n.x/T), ty:Math.floor((n.y - 2)/T) + 1, label:'💛 구만석에게 이야기 듣기', kind:'camp'}; }
-    return camp(`${C.name} · 다음 건물은 다음 체험판에서`);
+    return bldDone('gjstation') ? {tx:GJ_TRAIN.door[0], ty:GJ_TRAIN.door[1] + 1, label:'🚆 열차 타고 정읍으로 · 캠프 게시판에 강화 보스와 수집 보상', kind:'camp'} : camp(C.name);
   }
   if (!G.ow.campSeen) return camp('생존자 캠프');
   if (G.infected && !(G.inv.cure > 0)) return camp('캠프에서 치료');
@@ -7769,6 +8393,7 @@ function bldGoal(){
     }
     const gl = goalLeftV10(); if (gl) return gl;
   }
+  { const g11 = goalEndV11(); if (g11) return g11; }
   const nx = FLOORS[G.floor + 1];
   if (F.loopy && !s.loop && G.ev && G.ev.loop && G.ev.loop.on) return {pos:null, label:`끝없는 복도 · 이상하면 ← 되돌아가기, 멀쩡하면 → 계속 (${G.ev.loop.n}/3)`};
   if (F.apt){
@@ -7866,7 +8491,7 @@ function updatePlay(dt){
     toast('🔑 유치장 열쇠를 주웠다! 철컥— 감방 문이 전부 열린다'); afterFind();
   }
   if (F.alarm && !s.done && !busy && !G.alarm){ G.f2Timer += dt; if (G.f2Timer >= 60) triggerAlarm(); }
-  if (!busy){ updChurch(dt); updShift(dt); updPolice(dt); updCrawl(); updMotel(dt); updShelter(dt); updApt(dt); updStation(dt); updCampus(dt); updMount(dt); updRewind(dt); updBallpark(dt); updMarketHaunt(dt); updGyro(dt); if (F.ow) updOW(dt); }
+  if (!busy){ updChurch(dt); updShift(dt); updPolice(dt); updCrawl(); updMotel(dt); updShelter(dt); updApt(dt); updStation(dt); updCampus(dt); updMount(dt); updRewind(dt); updBallpark(dt); updMarketHaunt(dt); updGyro(dt); updV11(dt); if (F.ow) updOW(dt); }
   if (G.scare || G.mode !== 'play' || G.floor !== f0){ refreshHUD(); return; }
   busy = busy || !!DLG.cur || !shopOv.hidden;
 
@@ -8015,21 +8640,23 @@ function faint(reason){
     if (!F.ow){ s.shards = []; s.vend = false; s.loot = {}; s.rack = {}; s.key = false; s.gift = Object.fromEntries(Object.entries(s.gift).filter(([id]) => NPCS[id] && bldDone(NPCS[id].bld)));
       (F.finds || []).forEach((fd, i) => { if (fd[4]) delete s.find[i]; }); }
   }
+  const pen = deathPenalty();
   G.rec.faints++; unlock('faint');
   G.riding = false; G.infected = false; G.offArm = -99; G.hide = null; G.scare = null; G.ride = null; G.flume = null; G.dep = null; G.stam = 100; G.tired = false;
   lockOv.hidden = true;
   faintHead.textContent = reason === 'hp' ? '쓰러졌다…' : '정신이 아득해진다…';
   if (F.ow){
     faintMsg.textContent = '체력이 바닥났다. 누군가 생존자 캠프까지 끌고 와 줬다. ' +
-      ((lost || lostItems) ? `폐허에서 얻은 마정석 ${lost}개${lostItems ? `와 물건 ${lostItems}개` : ''}가 사라졌다. 캠프에서 쉬면 폐허에서 얻은 것도 안전해져요.` : '잃어버린 것은 없다.');
+      ((lost || lostItems) ? `폐허에서 얻은 마정석 ${lost}개${lostItems ? `와 물건 ${lostItems}개` : ''}가 사라졌다. 캠프에서 쉬면 폐허에서 얻은 것도 안전해져요.` : '폐허에서 얻은 것은 그대로다.');
     enterFloor(CITY_OW[curCity()], 'camp');
   } else {
     faintMsg.textContent = (reason === 'hp' ? '체력이 바닥났다. ' : '정신력이 바닥났다. ') + `${F.name} 입구에서 다시 정신을 차렸다. ` +
-      (s.done ? '정화된 층이라 잃은 것은 없다.' :
-       (lost || lostItems) ? `이 층에서 얻은 마정석 ${lost}개${lostItems ? `와 물건 ${lostItems}개` : ''}가 사라졌다. 바닥의 마정석, 열린 방의 물건, NPC 선물은 다시 얻을 수 있다.` : '잃어버린 것은 없다.');
+      (s.done ? '정화된 층이라 이 층에서 얻은 건 지켰다.' :
+       (lost || lostItems) ? `이 층에서 얻은 마정석 ${lost}개${lostItems ? `와 물건 ${lostItems}개` : ''}가 사라졌다. 바닥의 마정석, 열린 방의 물건, NPC 선물은 다시 얻을 수 있다.` : '이 층에서 얻은 것은 그대로다.');
     if (F.elevBoss){ faintMsg.textContent = (reason === 'hp' ? '체력이 바닥났다. ' : '정신력이 바닥났다. ') + '정신을 차려 보니 1호기는 13층에 문을 열고 서 있었다. 엘리베이터 옥상 버튼을 누르면 다시 도전할 수 있어요.'; enterFloor(31, 'elev'); }
     else enterFloor(G.floor, 'respawn');
   }
+  faintMsg.textContent += pen;
   G.hp = maxHP(); G.mp = maxMP(); G.san = sanMax(); G.contactCD = 2.5;
   G.mode = 'faint'; faintOv.hidden = false; clearDialog(); menuOv.hidden = true; shopOv.hidden = true; cardOv.hidden = true;
   keys.clear(); padRelease(); writeSave(); refreshHUD();
@@ -8323,7 +8950,7 @@ function interactOW(ch, tx, ty){
 }
 function campRest(){
   const N = t => ({who:'', t}), s9 = G.fs[CITY_OW[curCity()]], banked = s9.gems, night = G.clock >= DUSK;
-  const lines = [N(curCity() === 'gwangju' ? '광주 캠프 휴식 텐트. 누군가 담요를 한 장 더 놓아 두었다…' : '캠프 휴식 텐트. 낡은 매트리스에 몸을 뉘었다…')];
+  const lines = [N(curCity() === 'jeongeup' ? '정읍 캠프 휴식 텐트. 주인 없는 담요가 곱게 개켜져 있다…' : curCity() === 'gwangju' ? '광주 캠프 휴식 텐트. 누군가 담요를 한 장 더 놓아 두었다…' : '캠프 휴식 텐트. 낡은 매트리스에 몸을 뉘었다…')];
   if (night) lines.push(N('…눈을 뜨니 아침이다. 밤을 무사히 넘겼다.'));
   lines.push(N(`체력·마나·정신력이 가득 찼다.${G.infected ? ' 감염도 나았다.' : ''}${banked ? ` 폐허에서 얻은 마정석 ${banked}개가 이제 안전해졌다.` : ''}`));
   say(lines, () => {
@@ -8593,7 +9220,7 @@ function drawAnimOW(cx, cy){
   for (const [x, y] of OW_ANIM.craters){ const X = x*T, Y = y*T; if (!inView(X, Y, cx, cy, 20)) continue; ctx.fillStyle = `rgba(161,132,230,${(0.15 + 0.12*Math.sin(t*2 + x)).toFixed(3)})`; ctx.fillRect(X + 3 - cx, Y + 3 - cy, 10, 10); }
   for (const [x, y] of tilesOf('%')) if (G.ow.tents[owKey(x, y)] !== G.day && Math.sin(t*4 + x) > 0.8){ ctx.fillStyle = '#ffe9a0'; ctx.fillRect(x*T + 11 - cx, y*T + 11 - cy, 2, 2); }
   { const C = curCamp(), X = C.fire[0]*T + 8, Y = C.fire[1]*T + 10; if (inView(X, Y, cx, cy, 30)) flame(X - cx, Y - cy, 3); }
-  if (curCity() === 'gwangju'){ const d = GJ_TRAIN.door, X = d[0]*T + 8 - cx, Y = d[1]*T - cy; if (Math.sin(t*3) > 0){ ctx.fillStyle = '#ffd27a'; ctx.fillRect(Math.round(X - 1), Math.round(Y - 6), 2, 2); } }
+  if (curTrain()){ const d = curTrain().door, X = d[0]*T + 8 - cx, Y = d[1]*T - cy; if (Math.sin(t*3) > 0){ ctx.fillStyle = '#ffd27a'; ctx.fillRect(Math.round(X - 1), Math.round(Y - 6), 2, 2); } }
   if (!G.ow.kickFree && curCity() === 'mokpo'){
     const X = KICK_SPOT[0]*T + 8 - cx, Y = KICK_SPOT[1]*T + 10 - cy;
     ctx.drawImage(iconSprite('kick'), Math.round(X - 7), Math.round(Y - 10 + Math.sin(t*3)*1.5));
@@ -8810,14 +9437,14 @@ function renderWorld(){
       for (const [x, y] of OW_ANIM.veins) if (G.ow.veins[owKey(x, y)] !== G.day) lights.push([x*T + 8, y*T + 8, 20, 0.55]);
       for (const [x, y] of OW_ANIM.craters) lights.push([x*T + 8, y*T + 8, 22, 0.4]);
       for (const id of cityBlds(curCity())){ const b = BLD[id]; if (bldUnlocked(id)) lights.push([b.door[0]*T + 8, b.door[1]*T + 8, 34, 0.7]); }
-      if (curCity() === 'gwangju') lights.push([GJ_TRAIN.door[0]*T + 8, GJ_TRAIN.door[1]*T + 4, 40, 0.8]);
+      if (curTrain()) lights.push([curTrain().door[0]*T + 8, curTrain().door[1]*T + 4, 40, 0.8]);
       for (const e of ents) if (e.host) lights.push([e.x, e.y - 14, 40, 0.8]);
       drawVeil(cx, cy, '6,4,16', 0.9*nk, lights);
       for (const e of ents) if (e.alive && !e.host && !e.spawnT && inView(e.x, e.y, cx, cy, 0) && Math.hypot(e.x - p.x, e.y - p.y) > 50 && Math.sin(t*2 + e.id) > -0.2){
         ctx.fillStyle = '#ff3a3a'; ctx.fillRect(Math.round(e.x - 3 - cx), Math.round(e.y - 10 - cy), 1, 1); ctx.fillRect(Math.round(e.x + 2 - cx), Math.round(e.y - 10 - cy), 1, 1);
       }
     }
-    drawNav(cx, cy);
+    drawOWPostV11(cx, cy); drawNav(cx, cy);
   } else {
     if (F.dark && !s.insp){
       const lights = [[p.x, p.y - 8, 74, 1]];
@@ -8871,7 +9498,7 @@ function renderWorld(){
     }
     const C = curCamp(), [ccx] = campXY();
     tags.push(['b-camp', 'bd camp', C.name, ccx - cx, (C.cy - 7)*T - cy]);
-    if (curCity() === 'gwangju') tags.push(['b-train', 'bd', '🚆 열차 · 목포행', GJ_TRAIN.door[0]*T + 8 - cx, GJ_TRAIN.y0*T + 4 - cy]);
+    if (curTrain()) tags.push(['b-train', 'bd', trainTag(), curTrain().door[0]*T + 8 - cx, curTrain().y0*T + 4 - cy]);
     if (!G.ow.kickFree && curCity() === 'mokpo') tags.push(['b-kick', 'bd', '전동킥보드', KICK_SPOT[0]*T + 8 - cx, KICK_SPOT[1]*T - 12 - cy]);
   }
   if (!G.hide) tags.push(['me', 'me', G.name, p.x - cx, p.y - (G.riding ? 22 : 19) - cy]);
@@ -8881,7 +9508,7 @@ function renderWorld(){
 
 /* ================= v0.9: ⑧ 라송아파트 · ⑨ 목포역 · 목포 엔딩과 기차 · 광주 (신뢰·호감도) · 광주캠퍼스 · 무등산 ================= */
 const N9 = t => ({who:'', t});
-const owKey = (x, y) => (curCity() === 'gwangju' ? 'g' : '') + x + ',' + y;
+const owKey = (x, y) => ({gwangju:'g', jeongeup:'j'}[curCity()] || '') + x + ',' + y;
 function campXY(){ const C = curCamp(); return [C.cx*T + 8, C.cy*T + 8]; }
 
 /* ---------- a small choice panel (it borrows the shop window) ---------- */
@@ -9079,7 +9706,7 @@ function elevBossStart(){
 let CN = null;
 const endOv = $('#endOv');
 function startCine(kind, after){
-  const dur = {stats:1e9, credits:32, toGJ:24.5, toGJ2:7.5, toMP:7.5}[kind];
+  const dur = {stats:1e9, credits:32, toGJ:24.5, toGJ2:7.5, toMP:7.5, creditsGJ:38, toJE:33, toJE2:9, toGJ3:9}[kind];
   CN = {kind, t:0, dur, after:after || null, cap:null, capIdx:0, capShown:0};
   G.mode = 'cine'; G.riding = false; hud.hidden = true; tagsEl.hidden = true; clearTags(); clearDialog(); keys.clear(); padRelease();
   battleEl.hidden = true; menuOv.hidden = true; shopOv.hidden = true; faintOv.hidden = true;
@@ -9103,7 +9730,8 @@ function updCine(dt){
   if (CN.t >= CN.dur) endCine();
 }
 function renderCine(){
-  if (CN.kind === 'credits') renderCredits();
+  if (CN.kind === 'credits' || CN.kind === 'creditsGJ') renderCredits();
+  else if (CN.kind === 'toJE' || CN.kind === 'toJE2' || CN.kind === 'toGJ3') renderWindow();
   else if (CN.kind === 'stats'){ bands('#0d0918', '#2a0f20', 0, ih, 8); drawSigil(iw/2, ih*0.42, Math.min(iw, ih)*0.36, G.t*0.1, '#e2553e', 0.35); drawEmbers(titleEmb, 0, 0); if (vign) ctx.drawImage(vign, 0, 0); }
   else renderTrain(CN.kind === 'toMP' ? -1 : 1, CN.kind === 'toGJ' ? clamp(CN.t/CN.dur, 0, 1) : CN.kind === 'toMP' ? 0.12 : 0.6);
 }
@@ -9165,11 +9793,11 @@ function creditLines(){
 function renderCredits(){
   bands('#07050c', '#1a0c18', 0, ih, 6);
   drawSigil(iw/2, ih/2, Math.min(iw, ih)*0.42, G.t*0.06, '#a184e6', 0.18);
-  const L = creditLines(), lh = 13, y0 = ih + 10 - CN.t*((L.length*lh + ih)/(CN.dur - 2));
+  const L = CN.kind === 'creditsGJ' ? creditLinesGJ() : creditLines(), lh = 13, y0 = ih + 10 - CN.t*((L.length*lh + ih)/(CN.dur - 2));
   ctx.textAlign = 'center';
   L.forEach((s, i) => {
     const y = Math.round(y0 + i*lh); if (y < -10 || y > ih + 10) return;
-    const head = i === 0 || s.startsWith('—') || s === '광주 편이 시작됩니다.';
+    const head = i === 0 || s.startsWith('—') || s === '광주 편이 시작됩니다.' || s === '정읍으로 이어집니다.';
     ctx.font = head ? '900 10px sans-serif' : '700 8px sans-serif'; ctx.fillStyle = head ? '#efb44c' : '#efe8da';
     ctx.fillText(s, iw/2, y);
   });
@@ -9183,11 +9811,13 @@ function showEnding(){
   const cells = [['플레이 시간', fmtPlay(r.time)], ['레벨', `Lv ${G.lv}`], ['정화한 건물', `${CITY_ORDER.mokpo.filter(bldDone).length}/9`], ['전투 승리', `${r.wins}번`],
     ['완벽 타이밍', `${r.perfects}번`], ['펫 종류', `${species}종`], ['업적', `${Object.keys(G.ach).length}/${ACH.length}`], ['쓰러진 횟수', `${r.faints}번`], ['최고 피해', r.maxHit], ['날짜', `${G.day}일째`]];
   $('#endGrid').innerHTML = cells.map(([k, v]) => `<div class="rec"><span>${k}</span><b>${v}</b></div>`).join('');
+  $('#endEye').textContent = '덕인 · 목포 편 엔딩'; $('#endHead').textContent = '🚆 목포를 떠나며'; $('#endNote').textContent = '목포에서 쓰던 레벨·펫·장비·마정석은 전부 그대로 가져가요. 정화된 열차로 언제든 목포에 돌아올 수 있어요.';
   $('#endSub').textContent = `${G.name} · ${ROLES[G.roleIdx].name} — 목포의 아홉 건물을 모두 정화했어요.`;
   startCine('stats', () => startCine('credits', () => startCine('toGJ', arriveGJ)));
   endOv.hidden = false;
 }
 function boardTrain(to){
+  if (boardTrainV11(to)) return;
   if (G.plague) endPlague(false);
   G.riding = false; G.rec.trains = (G.rec.trains | 0) + 1;
   if (to === 'gwangju'){
@@ -9211,6 +9841,7 @@ function arriveGJ(){
 }
 function arriveMP(){ enterFloor(CITY_OW.mokpo, 'train'); enterPlay(false); writeSave(); }
 function trainChoice(){
+  if (trainChoiceV11()) return;
   openChoice('🚆 열차', '정화된 열차가 두 도시 사이를 오가요. 열차 안에서는 시간이 거의 흐르지 않아요.', [
     {name:'🚆 목포로 가기', desc:'목포역 앞에서 내려요. 목포 캠프 게시판에서 강화 보스와 수집 보상을 받을 수 있어요.', label:'타기', f:() => boardTrain('mokpo')},
     {name:'그냥 둘러보기', desc:'열차 안은 조용하다. 좌석에 누가 두고 간 도시락이 있다.', label:'닫기', f:() => {}}]);
@@ -9607,20 +10238,21 @@ function v10Load(){
   if (!G.rec.bt || typeof G.rec.bt !== 'object') G.rec.bt = {};
   if (!G.rec.bclear || typeof G.rec.bclear !== 'object') G.rec.bclear = {};
   G.flume = null;
+  v11Load();
 }
 /* the big, easy-to-see notice on the title screen (once per device) and once more inside the game */
-const NOTICE_KEY = 'deokin-notice-v10';
+const NOTICE_KEY = 'deokin-notice-v11';
 function maybeNotice(){ let seen = false; try { seen = localStorage.getItem(NOTICE_KEY) === '1'; } catch (_){} if (!seen) $('#noticeOv').hidden = false; }
 function closeNotice(){ $('#noticeOv').hidden = true; try { localStorage.setItem(NOTICE_KEY, '1'); } catch (_){} }
 function nerfTalk(){
-  if (G.tips.nerf10) return;
+  if (G.tips.nerf10){ penTalk11(); return; }
   G.tips.nerf10 = 1;
   const mage = ROLES[G.roleIdx].skills.some(id => id === 'highnote' || id === 'quiz');
   say([N10('📢 v1.0 업데이트 안내'),
        N10('🔮 마법 피해가 조금 약해졌어요 (너프). 주문력 피해 계수 2.5 → 2.0 · 고음 ×1.4 → ×1.3 · 쪽지시험은 적 방어를 전부가 아니라 절반만 무시해요.'),
        N10(mage ? '🎟 대신 능력치 초기화권 5장을 받았어요! 메뉴 → 📊 능력치에서 − 를 누르면 그 능력치 1포인트를 돌려받아요. 주문력을 다른 곳으로 옮겨도 돼요.' : '🎟 모두에게 능력치 초기화권 5장을 드려요! 메뉴 → 📊 능력치에서 − 를 누르면 그 능력치 1포인트를 돌려받아요.'),
        N10(`🆕 광주에 새 건물 넷(영화관 · 야구장 · 전통시장 · ${NAMES.themepark})이 열렸어요. 단, 목포를 깬 사람은 목포 캠프 게시판에서 강화 보스 ${REM_NEED}명을 먼저 이겨야 영화관 문이 열려요.`),
-       N10('✏️ 목포를 깨면 이름 변경권을 살 수 있어요 (목포·광주 캠프 판매대, 마정석 3000부터, 살 때마다 2배).')], () => { refreshHUD(); writeSave(); });
+       N10('✏️ 목포를 깨면 이름 변경권을 살 수 있어요 (목포·광주 캠프 판매대, 마정석 3000부터, 살 때마다 2배).')], () => { refreshHUD(); writeSave(); setTimeout(penTalk11, 500); });
 }
 
 /* ---------- building time (record tab only) and stars ---------- */
@@ -9661,6 +10293,7 @@ function checkStarsV10(){
   if (G.ow.mate) unlock('mate');
   if ((G.ow.guTale | 0) >= 4) unlock('gjstory');
   if (starCount() >= 12) unlock('stars12');
+  checkStarsV11();
 }
 function onFloorDoneV10(f){
   const b = FLOORS[f].bld;
@@ -9683,6 +10316,7 @@ function navV10(){
 
 /* ---------- floor entry: tips, per-floor state ---------- */
 function enterV10(f, how){
+  enterV11(f, how);
   const F = FLOORS[f]; if (!F || F.ow) return;
   if (F.bld === 'market') G.ow.marketSeen = true;
   if (F.gyroF){ G.ev.gy = {ph:0, t:GYRO_P, warn:false, side:{}, clean:new Set()}; gyroSet(0); }
@@ -10117,6 +10751,7 @@ function mateRow(id, row){
   row.append(b);
 }
 function mateDraw(list, tags, cx, cy){
+  extraDrawV11(list, tags, cx, cy);
   const id = G.ow && G.ow.mate; if (!id || G.hide || G.flume) return;
   const q = petPos(activePets().length), Nn = NPCS[id], p = G.player;
   list.push({y:q.y - 0.4, f:() => drawChar(getSprite('npc-' + id, Nn.look, Math.abs(p.x - q.x) > Math.abs(p.y - q.y) ? (p.x < q.x ? 'left' : 'right') : (p.y < q.y ? 'up' : 'down'), G.player.moving ? WALK[Math.floor(G.t*8) % 4] : 0), q.x, q.y, cx, cy)});
@@ -10145,7 +10780,7 @@ function guTale(){
   G.ow.guTale = i + 1;
   const out = lines.map(t => ({who:NPCS.gu.name, t}));
   if (i === 3){ if (!G.ow.keeps.includes('검은 양복 손님의 동전')) G.ow.keeps.push('검은 양복 손님의 동전'); out.push(N10('🪙 ‘검은 양복 손님의 동전’을 받았다!')); }
-  out.push(N10(`📖 구만석의 이야기 ${i + 1}/4`));
+  out.push(N10(`📖 구만석의 이야기 ${i + 1}/${GU_TALES.length}`));
   say(out, () => { gainGems(15); checkStarsV10(); addTrust(2, '구만석의 이야기'); refreshHUD(); writeSave(); });
 }
 
@@ -10186,6 +10821,7 @@ function respecStat(k){
 
 /* ================= HUD lines, nav goals, interactions ================= */
 function alarmV10(){
+  { const a11 = alarmV11(); if (a11) return a11; }
   const F = FLOORS[G.floor], s = FS(), ev = G.ev; if (!ev) return null;
   if (F.rewind && !s.done && ev.rw) return {on:ev.rw.t < 3, al:`⏪ 되감기까지 ${fmtTime(Math.max(0, ev.rw.t))}`};
   if (F.innings && !s.done && ev.inn){ const I = ev.inn; return {on:I.k === 'def', al:`${I.k === 'def' ? '🧤' : '⚾'} ${I.n}회 ${I.k === 'def' ? '수비 · 요괴 강함' : '공격 · 파울볼 많음'} ${fmtTime(I.t)}`}; }
@@ -10200,6 +10836,7 @@ function goalV10(c){
   if (F.gyroF) GYRO_BANDS.forEach(([a, b], i) => { if (!s.gyro[i]) c.push([b + 1, 6, `🎢 자이로스윙 구간 ${i + 1} 건너기`]); });
   if (F.order && !s.order && (G.inv[F.order] | 0) > 0 && F.stove) c.push([F.stove[0], F.stove[1], `🍽 ${ITEMS[F.order].name} 대접하기 (조리대)`]);
   if (F.foul && ev && ev.balls){ const gb = ev.balls.filter(b => b.st === 'ground'); if (gb.length && (s.balls | 0) < F.balls) gb.forEach(b => c.push([Math.floor(b.x/T), Math.floor(b.y/T), '⚾ 떨어진 파울볼 줍기'])); }
+  goalV11(c);
 }
 function goalLeftV10(){
   const F = FLOORS[G.floor], s = FS();
@@ -10208,6 +10845,7 @@ function goalLeftV10(){
   return null;
 }
 function interactOWV10(ch){
+  if (interactOWV11(ch)) return true;
   if (ch === 'x' && curCity() === 'gwangju' && G.ow.marketSeen){
     openChoice('🔥 광주 캠프 모닥불', '모닥불 위에 냄비를 올릴 수 있다.', [{name:'🍳 요리하기', desc:'시장 재료로 요리해요', label:'요리', f:() => openCook('캠프 모닥불')}, {name:'불 쬐기', desc:'', label:'닫기', f:() => {}}]);
     return true;
@@ -10217,6 +10855,7 @@ function interactOWV10(ch){
 function interactV10(ch, tx, ty){
   const F = FLOORS[G.floor], s = FS(), N = N10;
   if (!isNewBld(F.bld)) return false;
+  if (interactV11(ch, tx, ty)) return true;
   const insp = (first, again) => { if (!s.insp){ s.insp = true; say(first.map(N), afterFind); } else say([N(again)]); };
   if (ch === 'S' && strictBlock()) return true;
   switch (ch){
@@ -10281,6 +10920,7 @@ function interactV10(ch, tx, ty){
 /* ================= drawing ================= */
 function drawV10(cx, cy){
   const F = FLOORS[G.floor], s = FS(), t = G.t; if (!isNewBld(F.bld)) return;
+  drawV11(cx, cy);
   if (F.theaterF){
     /* the screen glows a little; seat numbers on the backs of every fifth seat; row letters at the aisle */
     const a = 0.08 + 0.05*Math.sin(t*1.3);
@@ -10300,6 +10940,7 @@ function drawV10(cx, cy){
 }
 function drawV10Post(cx, cy){
   const F = FLOORS[G.floor], ev = G.ev, t = G.t; if (!isNewBld(F.bld)) return;
+  drawV11Post(cx, cy);
   const R = ev && ev.rw;
   if (R && (R.fx > 0 || (R.warned && R.t < 2.5 && !FS().done))){
     const k = R.fx > 0 ? R.fx/0.9 : 0.35;
@@ -10315,7 +10956,7 @@ function drawV10Post(cx, cy){
 const fmtMin = s => { s = Math.round(s || 0); const m = Math.floor(s/60); return m ? `${m}분 ${s % 60}초` : `${s}초`; };
 function recV10(){
   const out = [];
-  out.push(el('div', 'sub', `⭐ 광주 새 건물 별 도전 (${starCount()}/12)`));
+  out.push(el('div', 'sub', `⭐ 광주 새 건물 별 도전 (${starCount()}/${NEW_BLDS.length*3})`));
   const list = el('div', 'list');
   NEW_BLDS.forEach(b => {
     const st = starsOf(b), open = bldUnlocked(b) || bldDone(b);
@@ -10325,7 +10966,705 @@ function recV10(){
   out.push(list);
   const times = Object.keys(BINFO).filter(b => G.rec.bt && G.rec.bt[b]).map(b => `${BLD_NUM(b)} ${BLD[b].name} ${fmtMin(G.rec.bt[b])}${bldDone(b) ? ' ✔' : ' (진행 중)'}`);
   if (times.length) out.push(el('div', 'sub', '⏱ 건물 공략 시간 (정화할 때까지 안에 있던 시간)'), el('p', 'hint', times.join('<br>')));
+  out.push(...recV11());
   return out;
+}
+/* ================= v1.1: ⑦ 방송국 JMJ · ⑧ 광주역 · 광주 엔딩 · 정읍 · 사망 벌칙 ================= */
+Object.assign(INSP_CH, INSP_V11);
+Object.assign(KEEPSAKE, KEEPSAKE_V11);
+Object.assign(BLD_NAME, {memorial:NAMES.memorial, gjstation:NAMES.gjstation});
+Object.assign(STAR_GIFT, {memorial:{coffee:2, drink:2}, gjstation:{riceball:2, cure:2}});
+Object.assign(ENT_SPEED, {cammon:22, micmon:26, crt:12, lightmon:24, staffsh:24, youngwoo:14, mijin:0, clockmon:18, gatemon:12, lostbag:20, lantern:28, agentsh:24, guard:14, suitman:0, scarecrow:14, maple:34});
+['lantern','maple'].forEach(k => FLOATERS.add(k));
+CAMP_GJ.spots.push([24,35],[28,36],[22,31],[31,32],[25,29],[27,37],[23,38],[29,39],[33,38],[20,32],[30,40],[24,40],[32,39]);
+const N11 = t => ({who:'', t});
+const curTrain = () => ({gwangju:GJ_TRAIN, jeongeup:JE_TRAIN})[curCity()] || null;
+const trainTag = city => (city || curCity()) === 'jeongeup' ? '🚆 정읍역 · 광주행' : bldDone('gjstation') ? '🚆 열차 · 목포 / 정읍' : '🚆 열차 · 목포행';
+const MINI_V11 = {'Ճ':'#8a7450', 'Մ':'#c8a848', 'Յ':'#3a6a8a', 'Ն':'#8a8a82', 'Շ':'#7a5a3a', 'Ո':'#c83a22', 'Չ':'#e6c24c', 'Պ':'#3a3a48', 'Ջ':'#7a7468', 'Ռ':'#d8b858'};
+GU_TALES.push(
+  ['방송국 국장 정미진… 나도 알어. 광주 사람들은 다 그 목소리로 저녁 뉴스를 봤제.', '7년 전 그날 밤, 뉴스 끝나고 검은 양복 손님이 방송국 앞에서 내 택시를 잡았어. “좋은 방송국이군요. 이 구역 안내 방송을 맡기면 되겠어요.”', '그 사람들은 이 세상을 ‘구역’이라고 불러. 광주 구역, 목포 구역. …물건 세듯이.'],
+  ['…끝났구먼. 그 손님, 결국 자네가 열차에서 내리게 했어.', '외부 관리국. 다른 우주에서 온 관리 회사래. 하늘의 문양은 그 사람들 관리 구역 도장이고.', '왜 이러는지는… 나도 몰라. 정읍에 가면 알 수 있을지도 모르제. 이 동전, 정읍에서도 꼭 갖고 다니게.']
+);
+
+/* ---------- loading old saves ---------- */
+function v11Load(){
+  const o = G.ow;
+  ['remGJ','remDayGJ'].forEach(k => { if (!o[k] || typeof o[k] !== 'object' || Array.isArray(o[k])) o[k] = {}; });
+  ['gjEnd','jeSeen','tape','card','jeCampSeen'].forEach(k => o[k] = !!o[k]);
+  G.penBoss = false;
+  Object.assign(MINI_COL, MINI_V11);
+}
+/* the bigger death penalty (v1.1): part of the gems you carry, durability of what you wear. Half against bosses */
+function penTalk11(){
+  if (!G.tips || G.tips.pen11 || G.mode !== 'play' || DLG.cur) return;
+  G.tips.pen11 = 1;
+  say([N11('📢 v1.1 업데이트 안내 — 꼭 읽어 주세요!'),
+       N11('💀 이제 쓰러지면 벌칙이 커져요. 가진 마정석의 35%를 잃고, 착용한 무기·옷의 내구도가 3 줄어요.'),
+       N11('👹 보스·강화 보스에게 지면 절반만: 마정석 17.5% · 내구도 −2. 정화된 층에서 쓰러져도 똑같이 적용돼요.'),
+       N11('💡 체력이 반 아래면 빵·주먹밥부터! 질 것 같으면 도망치기(보스 빼고)도 방법이에요.'),
+       N11(`🆕 광주 ⑦ ${NAMES.memorial} · ⑧ ${NAMES.gjstation}이 열렸어요. 광주를 끝내면 열차가 정읍으로 가요.`)], () => { refreshHUD(); writeSave(); });
+}
+function deathPenalty(){
+  const boss = !!G.penBoss; G.penBoss = false;
+  const k = boss ? 0.175 : 0.35, dd = boss ? 2 : 3, n = Math.floor(G.gems*k);
+  if (n > 0) spendGems(n);
+  const worn = [], broke = [];
+  for (const sl of ['weapon','armor']){
+    const g = G.equip[sl]; if (!g) continue;
+    worn.push(EQUIPS[g.key].name); g.dur -= dd;
+    if (g.dur <= 0){ G.equip[sl] = null; G.rec.broke++; broke.push(EQUIPS[g.key].name); unlock('broke'); }
+  }
+  if (broke.length) clampVitals();
+  G.rec.penGems = (G.rec.penGems | 0) + n;
+  return ` 💀 벌칙${boss ? '(보스전이라 절반)' : ''}: 마정석 −${n}개(${boss ? '17.5' : '35'}%)${worn.length ? ` · 장비 내구도 −${dd}` : ''}${broke.length ? ` · ${broke.join(', ')} 부서짐!` : ''}`;
+}
+/* jump-scare captions that belong to the building you are in */
+const SCARE_SETS = {
+  motel:SCARE_TXT,
+  station:['다음 역은 없습니다', '표를 보여 주세요', '내리지 마', '같이 타자', '7년째 연착', '종점이야', '찾았다', '자리 있어요'],
+  market:['싸게 줄게', '덤이야', '한 근 더', '흥정하자', '아직 신선해', '같이 팔자', '찾았다', '배고파'],
+  themepark:['같이 놀자', '내리지 마', '한 바퀴 더', '웃어', '나가는 길은 없어', '술래야', '찾았다', '여기야'],
+  memorial:['ON AIR', '웃어', '움직이지 마', '방송 중이야', 'NG', '큐!', '찾았다', '채널 고정'],
+  gjstation:['관리 대상', '수거합니다', '신분 확인', '도장 찍어', '열차가 온다', '정읍행', '찾았다', '표 없지?'],
+  generic:['뒤에 있어', '보지 마', '찾았다', '같이 있자', '나가', '왜 왔어']
+};
+const scareTxt = () => { const F = FLOORS[G.floor] || {}; return SCARE_SETS[F.bld] || SCARE_SETS.generic; };
+
+/* ---------- floor entry ---------- */
+function enterV11(f, how){
+  const F = FLOORS[f]; if (!F || !G.ev) return;
+  if (F.onair) G.ev.oa = {ph:'off', t:6 + Math.random()*4, grace:0};
+  if (F.ttGates){ G.ev.clk = {m:Math.random()*60 | 0, acc:0}; F.gateList.forEach(g => g.st = null); updGates(0); }
+  if (F.rails) G.ev.tr = {t:4 + Math.random()*3, cur:null};
+  if (!['gate','up','down'].includes(how)) return;
+  setTimeout(() => {
+    if (G.mode !== 'play' || G.floor !== f || DLG.cur) return;
+    if (f === 67) tip('jmj', [`${NAMES.memorial}. 꺼진 스튜디오에서 생방송 신호음이 흘러나온다.`,
+      '🔴 가끔 ‘ON AIR’ 빨간불이 3초 동안 켜져요. 켜져 있을 때는 절대 움직이지 마세요! 움직이면 카메라에 잡혀요.',
+      '켜지기 직전에 “곧 ON AIR!”가 뜨고 표시등이 깜빡여요. 그때 손을 떼고 멈춰요. 오른쪽 위에 남은 시간이 보여요.',
+      '📜 층마다 대본 조각 3장을 모아 🖥 프롬프터에서 순서대로 맞추면 생방송 성공! 조각에 적힌 시간을 봐요.',
+      '⭐ 별 도전은 메뉴 → 기록에서 볼 수 있어요.']);
+    else if (f === 72) tip('gjsta', [`${NAMES.gjstation}. 전광판 시계가 1초에 1분씩 돈다.`,
+      '🕰 셔터 문은 전광판 시계가 정해진 ‘분’일 때만 열려요. 오른쪽 위 시계를 보고 🟢일 때 지나가요. 닫힐 때 셔터 밑에 있으면 밀려나요.',
+      '🗺 승강장 층에서는 노선도 조각 3장을 읽고 맞는 승강장을 골라야 해요. 틀리면 관리국 직원이 나와요.',
+      '🚃 지하 선로에는 그림자 열차가 다녀요. “열차 접근!”이 뜨면 선로(쇠줄 두 개)에서 비켜요!']);
+    else if (f === 73) tip('plat', ['🗺 승강장 네 개 중 하나만 지하 선로로 이어져요.', '노선도 조각 3장을 읽고 노란 선(지하 선로행)이 몇 번인지 알아내요. 승강장 입구(노란 줄 바닥)를 조사하면 내려가요.']);
+    else if (f === 74) tip('rails', ['🚃 선로 위에 있다가 열차가 오면 치여요 (체력 −10%).', '“열차 접근!”이 뜨고 선로 불이 빨갛게 깜빡이면, 선로 사이 길이나 벽 쪽으로 비켜요.']);
+    else if (f === 76) tip('gu76', [`🚕 ${NPCS.gu.name}이(가) 같이 왔어요. 큰 공격을 한 번 막아 줘요.`]);
+  }, 900);
+}
+function updV11(dt){
+  const F = FLOORS[G.floor]; if (!F || F.ow || !G.ev) return;
+  if (F.onair) updOnAir(dt);
+  if (F.ttGates) updGates(dt);
+  if (F.rails) updTrains(dt);
+}
+
+/* ================= ⑦ 방송국 JMJ: the ON AIR light, the prompter ================= */
+const OA_ON = 3, OA_WARN = 1.6;
+function updOnAir(dt){
+  const s = FS(), A = G.ev.oa; if (!A) return;
+  if (s.done){ A.ph = 'off'; return; }
+  A.t -= dt;
+  if (A.ph === 'off'){ if (A.t <= 0){ A.ph = 'warn'; A.t = OA_WARN; showBanner('🔴 곧 ON AIR!'); sfx('ding', 0.6); } return; }
+  if (A.ph === 'warn'){ if (A.t <= 0){ A.ph = 'on'; A.t = OA_ON; A.grace = 0.35; sfx('clang', 0.35); } return; }
+  A.grace -= dt;
+  if (A.grace <= 0 && G.player.moving && G.contactCD <= 0 && !G.hide){ onAirCaught(); return; }
+  if (A.t <= 0){ A.ph = 'off'; A.t = 9 + Math.random()*5; sfx('ding', 0.3); }
+}
+function nearFree(n){
+  const p = G.player, out = [], px = Math.floor(p.x/T), py = Math.floor((p.y - 4)/T);
+  for (const [dx, dy] of [[2,0],[-2,0],[0,2],[0,-2],[3,1],[-3,-1],[1,3],[-1,-3],[1,1],[-1,1]]){
+    const x = px + dx, y = py + dy; if (WALKABLE.has((CUR.m[y] || [])[x])) out.push([x, y]); if (out.length >= n) break;
+  }
+  return out;
+}
+function onAirCaught(){
+  const A = G.ev.oa, n = bst('onair');
+  A.ph = 'off'; A.t = 11 + Math.random()*4;
+  G.san = Math.max(1, G.san - 8); G.flick = 0.4; G.shakeT = reduceMotion ? 0 : 0.3; sfx('clang', 0.8);
+  const es = nearFree(2).map(([x, y]) => { const e = makeEnt('staffsh', x, y); e.once = true; e.spawnT = 0.5; ents.push(e); return e; });
+  keys.clear(); padRelease();
+  say([N11('📹 ON AIR 중에 움직였다! 카메라 렌즈가 일제히 이쪽으로 돌아간다.'), N11(`“방송 사고다! 잡아!” 그림자 스태프들이 달려든다! (정신력 −8초 · 걸린 횟수 ${n})`)],
+    () => { if (G.mode === 'play' && es[0]){ es[0].spawnT = 0; startBattle(es[0]); } });
+}
+function prompter(){
+  const s = FS();
+  if (s.prompt){ say([N11('프롬프터. 대본이 순서대로 흐른다. “방송 정상 진행 중.”')]); return; }
+  const got = [0, 1, 2].filter(i => s.find[i]).length;
+  if (got < 3){ say([N11('프롬프터. 화면에 깜빡이는 글자: “대본 없음 — 생방송 3분 전”.'), N11(`📜 이 층에 흩어진 대본 조각 3장을 먼저 모아 와요. (${got}/3)`)]); return; }
+  G.ev.pOrd = [0, 1, 2].sort(() => Math.random() - 0.5);
+  promptPick([]);
+}
+function promptPick(chosen){
+  const L = SCRIPTS[G.floor], ord = G.ev.pOrd.filter(i => !chosen.includes(i));
+  const so = chosen.length ? ' · 지금까지: ' + chosen.map((i, k) => `${'①②③'[k]} ${L[i][1].slice(0, 14)}…`).join(' ') : '';
+  openChoice(`📜 프롬프터 · ${chosen.length + 1}번째 줄`, `대본 조각에 적힌 시간 순서대로 골라요. 틀리면 NG!${so}`,
+    [...ord.map(i => ({name:L[i][1], desc:'', label:'이 줄', f:() => { if (i !== chosen.length) promptNG(); else if (chosen.length === 2) promptOK(); else promptPick([...chosen, i]); }})),
+     {name:'그만두기', desc:'조각을 다시 읽고 올래요 (조각은 그 자리에 있어요)', label:'닫기', f:() => {}}]);
+}
+function promptNG(){
+  const n = bst('ng'); G.san = Math.max(1, G.san - 6);
+  const [sp] = nearFree(1), e = sp ? makeEnt('staffsh', sp[0], sp[1]) : null;
+  if (e){ e.once = true; ents.push(e); }
+  say([N11('🎬 “NG!!” 프롬프터가 지지직거리고, 대본이 뒤죽박죽 섞인다.'), N11(`그림자 스태프가 확성기를 들고 달려온다. “다시! 처음부터!” (정신력 −6초 · NG ${n}번)`)], () => { if (e && G.mode === 'play') startBattle(e); });
+}
+function promptOK(){
+  const s = FS(), L = SCRIPTS[G.floor];
+  s.prompt = true; G.rec.prompts = (G.rec.prompts | 0) + 1; gainGems(10);
+  say([N11('🔴 ON AIR — 프롬프터에 대본이 순서대로 흐른다.'), ...L.map(([, t]) => ({who:'📺 방송', t})), N11('📺 생방송 성공! 꺼져 있던 모니터들이 하나둘 켜진다. (프롬프터 해결 · 마정석 +10)')],
+    () => { checkStarsV11(); afterFind(); });
+}
+
+/* ================= ⑧ 광주역: timetable shutters, the route map, the shadow trains ================= */
+const gOpen = (g, m) => g.open.some(([a, b]) => m >= a && m < b);
+const pad2 = n => String(n).padStart(2, '0');
+const clkText = () => { const C = G.ev && G.ev.clk; return C ? `19:${pad2(C.m)}` : ''; };
+function nextOpen(g, m){ for (let k = 1; k <= 60; k++) if (gOpen(g, (m + k) % 60)) return (m + k) % 60; return m; }
+function updGates(dt){
+  const F = FLOORS[G.floor], C = G.ev && G.ev.clk; if (!C || !F.gateList) return;
+  C.acc += dt; while (C.acc >= 1){ C.acc -= 1; C.m = (C.m + 1) % 60; }
+  F.gateList.forEach((g, i) => { const o = gOpen(g, C.m); if (g.st !== o) setGate(g, o, i, dt > 0); });
+}
+function setGate(g, open, i, live){
+  g.st = open;
+  for (let y = 3; y <= 10; y++) CUR.m[y][g.x] = open ? 'Ի' : 'Ժ';
+  CUR.idx = null; G.navT = 0;
+  if (!live) return;
+  const p = G.player, gx = g.x*T + 8, near = Math.abs(p.x - gx) < 9*T;
+  sfx('clang', near ? 0.45 : 0.12);
+  if (!open && Math.abs(p.x - gx) < 14){
+    const nx = p.x < gx ? gx - 15 : gx + 15, ox = p.x < gx ? gx + 15 : gx - 15;
+    p.x = !boxHit(nx, p.y, false) ? nx : ox; trail = [];
+    toast('🚧 셔터가 쾅! 내려왔다. 셔터 밑에서 밀려났다.');
+  } else if (near) toast(open ? `🟢 셔터 ${'AB'[i]}가 올라간다! (${clkText()})` : `🔴 셔터 ${'AB'[i]}가 내려갔다. 다음엔 ${pad2(nextOpen(g, G.ev.clk.m))}분에 열려요.`);
+  if (!open) for (const e of ents) if (e.alive && Math.abs(e.x - gx) < 12) e.x = e.x < gx ? gx - 15 : gx + 15;
+}
+function gateAt(tx){ const F = FLOORS[G.floor]; return (F.gateList || []).find(g => g.x === tx) || null; }
+const platformAt = tx => PLATFORMS.findIndex(x => tx === x || tx === x + 1);
+function boardPlatform(i){
+  const F = FLOORS[G.floor];
+  if (i === PLAT_OK){ say([N11(`🟡 ${i + 1}번 승강장. 노란 선이다. 선로 아래로 내려가는 철계단이 있다.`)], () => { enterFloor(G.floor + 1, 'up'); refreshHUD(); }); return; }
+  if (bldDone('gjstation')){ say([N11(`${i + 1}번 승강장. “운행 중지” 팻말이 걸려 있다. 지하 선로는 ${PLAT_OK + 1}번이었다.`)]); return; }
+  const n = bst('wrongPlat'), p = G.player;
+  p.x = F.entry[0]*T + 8; p.y = F.entry[1]*T + 12; p.dir = 'right'; trail = []; G.navT = 0;
+  const e = makeEnt('agentsh', F.entry[0] + 2, F.entry[1]); e.once = true; ents.push(e);
+  say([N11(`${i + 1}번 승강장으로 내려갔다… 계단이 끝없이 이어진다. 정신을 차려 보니 승강장 입구다.`), {who:'관리국 그림자 직원', t:'“잘못 타셨습니다. 승차권을 확인하겠습니다.”'},
+       N11(`🗺 틀린 승강장이에요! 노선도 조각 3장을 다시 읽어 봐요. (틀린 횟수 ${n})`)], () => { if (G.mode === 'play') startBattle(e); });
+}
+const TR_SPD = 420, TR_LEN = 7*T;
+function updTrains(dt){
+  const s = FS(), R = G.ev.tr, p = G.player; if (!R) return;
+  if (!R.cur){
+    if (s.done) return;
+    R.t -= dt;
+    if (R.t <= 0){ const row = pick(RAIL_ROWS), dir = Math.random() < 0.5 ? 1 : -1; R.cur = {row, dir, ph:'warn', w:1.2, x:dir > 0 ? -4 : CUR.W*T + 4, hit:false}; showBanner('🚃 열차 접근!'); sfx('whisper', 0.6); }
+    return;
+  }
+  const c = R.cur;
+  if (c.ph === 'warn'){ c.w -= dt; if (c.w <= 0){ c.ph = 'run'; sfx('clang', 0.6); } return; }
+  c.x += c.dir*TR_SPD*dt;
+  const head = c.x, tail = c.x - c.dir*TR_LEN, ty = Math.floor((p.y - 4)/T);
+  if (!c.hit && !G.hide && (ty === c.row || ty === c.row + 1) && p.x >= Math.min(head, tail) - 6 && p.x <= Math.max(head, tail) + 6){
+    c.hit = true;
+    const d = Math.max(1, Math.round(maxHP()*0.1)); G.hp = Math.max(1, G.hp - d); const n = bst('trainHit');
+    G.shakeT = reduceMotion ? 0 : 0.5; G.flick = 0.3; sfx('clang', 1);
+    const up = (c.row - 1)*T + 12, dn = (c.row + 2)*T + 12, first = Math.abs(p.y - up) < Math.abs(p.y - dn) ? up : dn, second = first === up ? dn : up;
+    if (!boxHit(p.x, first, false)) p.y = first; else if (!boxHit(p.x, second, false)) p.y = second;
+    trail = []; G.contactCD = Math.max(G.contactCD, 1.2);
+    toast(`🚃 쾅! 그림자 열차에 치였다! 체력 −${d} (치인 횟수 ${n})`);
+  }
+  if ((c.dir > 0 && tail > CUR.W*T + 20) || (c.dir < 0 && tail < -20)){ R.cur = null; R.t = 5 + Math.random()*5; }
+}
+
+/* ---------- stars, achievements ---------- */
+function checkStarsV11(){
+  if (!G.ow || !G.fs) return;
+  if (bldDone('memorial') && bget('onair') <= 2) giveStar('memorial', 1);
+  if (G.ow.tape) giveStar('memorial', 2);
+  if (bldDone('gjstation') && bget('trainHit') <= 3) giveStar('gjstation', 1);
+  if (G.ow.card) giveStar('gjstation', 2);
+  if ([67, 68, 69, 70].every(f => G.fs[f] && G.fs[f].prompt)) unlock('prompt4');
+  if (starCount() >= 18) unlock('stars18');
+  if (Object.keys(G.ow.remGJ || {}).length >= 3) unlock('remgj');
+  if (CITY_ORDER.gwangju.every(bldDone)) unlock('gjend');
+  if (G.ow.jeSeen) unlock('jeongeup');
+}
+function keep(name){ if (!G.ow.keeps.includes(name)) G.ow.keeps.push(name); }
+
+/* ---------- interactions ---------- */
+function interactV11(ch, tx, ty){
+  const F = FLOORS[G.floor], s = FS(), N = N11;
+  if (F.bld !== 'memorial' && F.bld !== 'gjstation') return false;
+  const insp = (first, again) => { if (!s.insp){ s.insp = true; say(first.map(N), afterFind); } else say([N(again)]); };
+  switch (ch){
+    case 'Ը': prompter(); return true;
+    case 'Է':
+      if (G.floor === 67) insp(['“ON AIR” 표시등. 전원 코드가 뽑혀 있는데도 불이 들어온다.', '표시등 뒤에 붙은 메모: “불이 켜지면 카메라는 움직이는 것만 본다. 숨도 천천히. — 김검보”'], '표시등이 깜빡인다. 곧 켜질 것 같다.');
+      else say([N(pick(['“ON AIR” 표시등. 꺼져 있을 때도 안쪽에서 무언가 숨 쉬는 소리가 난다.', '표시등 유리에 손자국이 찍혀 있다. 안쪽에서.']))]);
+      return true;
+    case 'Ա':
+      if (G.floor === 68) insp(['앵커 데스크. 의자에 앵커가 앉아 있다. …그림자다. 7년째 같은 원고를 읽는다.', `원고 맨 위: “JMJ 저녁 뉴스 — 진행: 국장 ${NAMES.mijin}”. 국장이 직접 앵커를 했었나 보다.`, '원고 맨 아래에 볼펜으로 눌러 쓴 글씨: “누가 좀 꺼 줘. 송신탑.”'], '그림자 앵커가 원고를 넘긴다. 같은 장이다.');
+      else say([N('앵커 데스크.')]);
+      return true;
+    case 'Ծ':
+      if (G.floor === 69) insp(['예능 세트. “웃음이 끊이지 않는 집” 간판. 소파의 그림자 출연자들이 박수를 친다.', '박수 소리가 녹음한 것처럼 똑같다. 박수 기계 전원은 꺼져 있다.', '세트 뒤 벽에 출연자 명단. 맨 아래: “게스트 — 7년째 출연 중 — 하차 불가”.'], '그림자 출연자들이 동시에 웃는다. 정확히 같은 박자로.');
+      else say([N('세트 소품. 페인트가 아직 마르지 않았다.')]);
+      return true;
+    case 'Ե':
+      if (G.floor === 70) insp(['주조정실 콘솔. 버튼 수백 개가 혼자 깜빡인다.', '송출 화면: “JMJ — 광주 구역 안내 방송 — 송출처: 외부 관리국”.', `송출 버튼 옆에 국장의 사원증. 사진 속 ${NAMES.mijin}은 수줍게 웃고 있다. 30년 전 사진이다.`], '“송출 중” 표시가 꺼지지 않는다.');
+      else say([N(pick(['안내 데스크. 방문자 명부에 서명이 빽빽하다. 7년 전부터 퇴실 기록이 없다.', '안내 데스크 전화기가 울린다. 받으면 안 될 것 같다.']))]);
+      return true;
+    case 'Բ': say([N(pick(['방송용 카메라. 렌즈가 나를 따라 천천히 돈다.', '뷰파인더 속에 내가 보인다. 화면 속 나는 웃고 있다.', '카메라 옆 대본대에 “카메라는 움직이는 것만 봅니다”.']))]); return true;
+    case 'Գ': say([N(pick(['조명 스탠드. 뜨겁다. 전기가 끊겼을 텐데.', '조명이 깜빡인다. 깜빡일 때마다 그림자가 하나씩 늘어난다.']))]); return true;
+    case 'Դ': say([N(pick(['모니터 벽. 화면마다 광주의 텅 빈 거리가 나온다. 생중계다.', '모니터 하나에 내가 나온다. 지금, 이 자리, 이 각도.', '모니터마다 같은 자막: “시민 여러분은 집 밖으로 나오지 마십시오.”']))]); return true;
+    case 'Խ': say([N('방청석. 그림자 방청객들이 일제히 박수를 친다. 박수 소리가 1초씩 늦게 들린다.')]); return true;
+    case 'Զ':
+      if (G.floor === 70 && F.secretTape && tx === F.secretTape[0] && ty === F.secretTape[1]){
+        if (G.ow.tape){ say([N('맨 오른쪽 아래 선반. 첫 방송 테이프는 이미 챙겼다.')]); return true; }
+        G.ow.tape = true; keep('국장의 첫 방송 테이프');
+        say([N('맨 오른쪽 아래 테이프 선반. 맨 안쪽에 먼지 쌓인 테이프 하나.'), N(`라벨: “첫 방송 — 신입 아나운서 ${NAMES.mijin} — 30년 전”.`),
+             N(`재생하자 떨리는 목소리가 흘러나온다. “아, 안녕하세요… JMJ 저녁 뉴스, 신입 ${NAMES.mijin}입니다. 처음이라 떨리네요. 그래도 정확하게, 정직하게 전해 드릴게요.”`),
+             N('📼 ‘국장의 첫 방송 테이프’를 챙겼다!')], () => { checkStarsV11(); writeSave(); });
+        return true;
+      }
+      say([N(pick(['테이프 선반. 라벨이 전부 “재방송”.', '테이프 하나가 혼자 되감긴다. 끼릭끼릭.', '선반 틈에서 누가 테이프를 씹는 소리가 난다.']))]); return true;
+    case 'Տ': say([N(bldDone('memorial') ? '송신탑. 빨간 불이 꺼졌다. 바람 소리만 난다.' : '송신탑. 빨간 불이 심장처럼 뛴다. 탑 꼭대기에서 하늘의 문양까지 전파가 이어진다.')]); return true;
+    case 'Կ':
+      if (G.floor === 72) insp(['출발 시각 전광판. 모든 열차 “지연”. 시계만 혼자 빨리 돈다. 1초에 1분씩.', '맨 아래 줄: “셔터 A — 매시 00~10분 · 30~40분 / 셔터 B — 매시 15~25분 · 45~55분”.', '🕰 오른쪽 위 전광판 시계를 보고, 셔터가 열리는 분에 지나가요.'], `전광판 시계 ${clkText()}. 셔터 A 00~10분·30~40분 / B 15~25분·45~55분.`);
+      else if (G.floor === 73) insp(['승강장 노선도. 빨강·파랑·노랑·초록 네 줄이 그려져 있다.', '승강장 번호 칸은 누군가 긁어서 지워 놨다. 찢어진 조각이 바닥과 벽에 흩어져 있다.', '🗺 노선도 조각 3장을 읽고, 노란 선(지하 선로행)이 몇 번 승강장인지 알아내요.'], '노선도. 빨강·파랑·노랑·초록. 번호가 지워져 있다.');
+      else if (G.floor === 74) insp(['신호 표시판. 선로 두 줄에 불이 들어온다. 빨간 불이 깜빡이면… 열차가 온다.', '표시판 구석에 붙은 종이: “셔터 — 매시 05~15분 · 35~45분”.'], `신호 표시판. 전광판 시계 ${clkText()} · 셔터는 05~15분 · 35~45분.`);
+      else if (G.floor === 75) insp(['끊긴 터널 신호판. 선로가 여기서 끊긴다고 표시돼 있다. 그런데 선로는 계속 이어진다.', '신호판 뒷면에 도장이 찍혀 있다. 하늘의 문양과 똑같은 모양. 도장 밑 글씨: “관리 구역 경계”.'], '신호판 불빛이 보랏빛으로 바뀌었다.');
+      else say([N('전광판.')]);
+      return true;
+    case 'Ձ': say([N(pick(['대합실 의자. 의자마다 표가 놓여 있다. 전부 “광주 → 북쪽”.', '의자에 앉아 있던 그림자가 일어나 승강장 쪽으로 걸어간다. 그리고 다시 앉는다.', '의자 밑에 떨어진 승차권. 날짜가 7년 전에서 멈춰 있다.']))]); return true;
+    case 'Լ': { const i = platformAt(tx); if (i < 0) return true; if (strictBlock()) return true;
+      openChoice(`🚉 ${i + 1}번 승강장`, '이 승강장으로 내려갈까? 노선도 조각에서 읽은 걸 떠올려 봐요.', [{name:`${i + 1}번 승강장으로 내려가기`, desc:'', label:'내려가기', f:() => boardPlatform(i)}, {name:'그만두기', desc:'', label:'닫기', f:() => {}}]);
+      return true; }
+    case 'Ժ': { const g = gateAt(tx); say([N(`셔터가 내려와 있다. 전광판 시계 ${clkText()}${g && G.ev && G.ev.clk ? ` · 다음엔 ${pad2(nextOpen(g, G.ev.clk.m))}분에 열려요.` : ''}`)]); return true; }
+    case 'Վ':
+      if (G.floor === 75){
+        if (G.ow.card){ say([N('벽 틈. 이제 아무것도 없다. 차가운 바람만 새어 나온다.')]); return true; }
+        G.ow.card = true; keep('검은 양복 손님의 명함');
+        say([N('벽 틈. 손을 넣어 보니 얇고 차가운 게 손끝에 걸린다.'), N('검은 명함이다. 글자가 이 우주의 것이 아닌데… 이상하게 읽힌다.'), N('“외부 관리국 · 관리 구역 담당 · 목포 구역 / 광주 구역”'),
+             N('뒷면에는 하늘의 문양이 도장처럼 찍혀 있다. 그 아래 작은 글씨: “다음 관리 구역 — 정읍”.'), N('🃏 ‘검은 양복 손님의 명함’을 챙겼다!')], () => { checkStarsV11(); writeSave(); });
+        return true;
+      }
+      return false;
+    case '±': say([N(pick(['관리국 열차 좌석. 좌석마다 서류 봉투가 놓여 있다. 봉투마다 사람 이름.', '좌석에 앉은 그림자 승객들이 전부 같은 서류를 읽는다. 넘기는 박자까지 같다.']))]); return true;
+    case 'Հ': say([N(pick(['선로. 레일이 미지근하다. 방금 무언가 지나갔다.', '선로 침목 사이에 승차권이 끼어 있다. 목적지 칸이 비어 있다.']))]); return true;
+  }
+  if (ch === 'W' || ch === 'B'){
+    say([N(F.bld === 'memorial' ? pick(['벽 너머 스튜디오에서 박수 소리가 터진다. 아무도 없는데.', `벽에 붙은 포스터: “JMJ — 당신의 저녁을 지킵니다.” 포스터 속 ${NAMES.mijin} 국장의 눈이 따라온다.`, '벽 너머에서 “큐!” 하는 목소리.'])
+                                : pick(['벽 너머에서 열차 지나가는 소리. 그런데 진동이 없다.', '벽에 붙은 안내문: “관리 구역 이동 시 신분증을 지참하십시오. — 외부 관리국”', '타일 벽에 손자국이 줄지어 있다. 전부 북쪽을 가리킨다.']))]);
+    return true;
+  }
+  return false;
+}
+/* the overworld: 정읍's tiles, the Gwangju board after the ending */
+function interactOWV11(ch, tx, ty){
+  const cty = curCity(), N = N11;
+  if (cty === 'gwangju' && ch === 'N' && bldDone('gjstation')){ gjBoard(); return true; }
+  if (cty !== 'jeongeup') return false;
+  switch (ch){
+    case 'c': say([N('주인 없는 무인 판매대. 상자에 “돈은 여기에” 라고 적혀 있다.')], () => openShop('jecamp')); return true;
+    case 'N': say([N('정읍 생존자 캠프 게시판. 쪽지가 몇 장 남아 있다.'), N('“식량 당번: 월 — 영식, 화 — 미숙, 수 — …” 날짜가 7년 전에서 멈춰 있다.'), N('맨 위에 급하게 쓴 쪽지: “검은 양복들이 역에 내렸다. 모두 내장산 쪽으로. 캠프는 두고 간다.”'), N('📌 정읍의 건물들은 다음 체험판에서 열려요. 지금은 둘러볼 수 있어요.')]); return true;
+    case 'x': say([N('꺼진 모닥불. 재가 차갑다. 반쯤 탄 고구마 하나가 그대로 놓여 있다.')]); return true;
+    case 'T': say([N(pick(['빈 텐트. 침낭이 반쯤 펼쳐져 있다. 주인은 없다.', '빈 텐트. 입구에 단풍잎이 수북이 쌓였다.', '빈 텐트. 작은 라디오를 켜 보니 지지직… 아무 방송도 잡히지 않는다.']))]); return true;
+    case 'j': say([N('나무 울타리. 군데군데 부서져 있다. 밖에서 부순 게 아니라, 안에서 급하게 밀고 나간 자국이다.')]); return true;
+    case 'Ո': say([N(pick(['단풍나무. 잎이 핏빛처럼 빨갛다. 바람이 불 때마다 우수수 떨어진다.', '단풍나무 아래 낙엽이 발목까지 쌓였다. 바스락, 바스락.', '단풍잎 하나가 어깨에 내려앉았다. 이상하게 따뜻하다.']))]); return true;
+    case 'Չ': say([N(pick(['은행나무. 노란 잎이 금빛 비처럼 떨어진다.', '은행 냄새가 난다. …세상이 이래도 은행 냄새는 그대로다.']))]); return true;
+    case 'Պ': say([N(pick(['나지막한 기와집. 처마 끝에 곶감이 매달려 있다. 7년 묵은 곶감이다.', '기와집 마루에 고무신 한 켤레가 가지런히 놓여 있다.', '기와집. 창호지 문 너머로 아무 소리도 나지 않는다.']))]); return true;
+    case 'Ջ': say([N('돌담. 돌 틈마다 이끼가 끼었다. 담 너머 감나무에 까치밥이 남아 있다.')]); return true;
+    case 'Ռ': say([N('볏짚 더미. 볏단 사이에 누군가 숨어 있던 자국이 있다.')]); return true;
+    case 'Յ': say([N(pick(['맑은 개울. 물 밑 자갈이 다 보인다. 단풍잎이 동동 떠내려간다.', '개울물이 차갑다. 광주의 검은 강과는 다르다.']))]); return true;
+    case 'Մ': say([N('황금빛 논. 벼가 고개를 숙였다. 아무도 베지 않은 벼.')]); return true;
+    case 'M': say([N('내장산 자락. 온 산이 붉게 물들었다. 산 너머 하늘에… 문양이 하나 떠 있다.')]); return true;
+  }
+  return false;
+}
+/* 정읍's fields: scarecrows and maple-leaf spirits by day, the usual horrors by night */
+const OW_DAY_JE = {scarecrow:24, maple:24, pigeon:8, shadow:6, sign:4}, OW_NIGHT_JE = {knife:10, mannequin:8, shadow:14};
+function owPickJE(){ const W = Object.assign({}, OW_DAY_JE); if (isNight()) Object.assign(W, OW_NIGHT_JE); return pickW(W); }
+function owMultJE(tx, ty){ const d = Math.hypot(tx - CAMP_JE.cx, ty - CAMP_JE.cy), k = clamp((d - 10)/50, 0, 1); return {hp:7.4 + k*1.2, atk:5.0 + k*0.6, exp:30 + k*10, gem:15 + k*5, def:8 + Math.round(k)}; }
+function navJE(){
+  const C = CAMP_JE;
+  if (!G.ow.jeCampSeen) return {tx:C.rest[0], ty:C.rest[1] + 1, label:'정읍 생존자 캠프', kind:'camp'};
+  return {tx:JE_TRAIN.door[0], ty:JE_TRAIN.door[1] + 1, label:'🍁 정읍 둘러보기 · 건물은 다음 체험판 · 🚆 광주행은 정읍역', kind:'camp'};
+}
+
+/* ---------- HUD lines, nav goals ---------- */
+function alarmV11(){
+  const F = FLOORS[G.floor], s = FS(), ev = G.ev; if (!ev || !F || F.ow) return null;
+  if (F.onair && ev.oa && !s.done){ const A = ev.oa; return {on:A.ph !== 'off', al:A.ph === 'on' ? '🔴 ON AIR! 움직이지 마세요!' : A.ph === 'warn' ? '🔴 곧 ON AIR! 멈춰요!' : `⚪ 다음 ON AIR까지 ${Math.ceil(A.t)}초 · 걸린 횟수 ${bget('onair')}`}; }
+  if (F.rails && ev.tr && ev.tr.cur && ev.tr.cur.ph === 'warn') return {on:true, al:'🚃 열차 접근! 선로에서 비켜요!'};
+  if (F.ttGates && ev.clk) return {on:false, al:`🕰 ${clkText()} · ` + F.gateList.map((g, i) => `셔터 ${'AB'[i]} ${g.st ? '🟢 열림' : `🔴 ${pad2(nextOpen(g, ev.clk.m))}분에 열림`}`).join(' · ')};
+  if (F.rails && ev.tr && !s.done) return {on:false, al:`🚃 다음 열차까지 ${Math.max(0, Math.ceil(ev.tr.t))}초 · 치인 횟수 ${bget('trainHit')}`};
+  return null;
+}
+function goalV11(c){
+  const F = FLOORS[G.floor], s = FS();
+  if (F.prompt && !s.prompt && [0, 1, 2].every(i => s.find[i]) && F.prompter) c.push([F.prompter[0], F.prompter[1], '📜 프롬프터에 대본 맞추기']);
+}
+function goalEndV11(){
+  const F = FLOORS[G.floor], s = FS();
+  if (F.platforms && !bldDone(F.bld)) return {pos:null, label:s.done ? '🗺 노선도 단서로 지하 선로행(노란 선) 승강장 고르기' : '🗺 이 층을 다 둘러보고 맞는 승강장 고르기'};
+  return null;
+}
+
+/* ================= drawing ================= */
+function drawV11(cx, cy){
+  const F = FLOORS[G.floor], s = FS(), ev = G.ev, t = G.t;
+  if (F.bld === 'memorial'){
+    const A = ev && ev.oa, on = !!(A && A.ph === 'on'), warn = !!(A && A.ph === 'warn');
+    for (const [x, y] of tilesOf('Է')){
+      const lit = on || (warn && Math.sin(t*18) > 0), X = x*T - cx, Y = y*T - cy;
+      if (lit){ ctx.fillStyle = 'rgba(255,40,40,0.22)'; ctx.fillRect(X - 6, Y - 3, 28, 20); }
+      ctx.fillStyle = lit ? '#ff2a2a' : '#4a0c14'; ctx.fillRect(X + 3, Y + 4, 10, 5);
+      ctx.fillStyle = lit ? '#ffffff' : '#7a5a5a'; ctx.fillRect(X + 4, Y + 5, 2, 3); ctx.fillRect(X + 7, Y + 5, 2, 3); ctx.fillRect(X + 10, Y + 5, 2, 3);
+    }
+    for (const [x, y] of tilesOf('Բ')) if (on || Math.sin(t*3 + x) > 0.4){ ctx.fillStyle = on ? '#ff2a2a' : '#8a1a1a'; ctx.fillRect(x*T + 4 - cx, y*T + 3 - cy, 2, 2); }
+    if (Math.floor(t*5) % 2) for (const [x, y] of tilesOf('Դ')){ const r = rng(x*31 + y*7 + Math.floor(t*5)); if (r() < 0.35){ ctx.fillStyle = `rgba(200,220,230,${(0.12 + r()*0.18).toFixed(2)})`; ctx.fillRect(x*T + 1 + (r()*8 | 0) - cx, y*T + 1 + (r()*8 | 0) - cy, 6, 6); } }
+    for (const [x, y] of tilesOf('Ը')){ if (s.prompt){ ctx.fillStyle = '#5ae86a'; for (let i = 0; i < 3; i++) ctx.fillRect(x*T + 4 - cx, y*T + 2 + ((i*2 + Math.floor(t*4)) % 6) - cy, 6, 1); } else if (Math.sin(t*4) > 0){ ctx.fillStyle = '#e6c24c'; ctx.fillRect(x*T + 6 - cx, y*T + 3 - cy, 3, 2); } }
+    if (F.txTower && !s.boss){ const X = 14*T + 8 - cx, Y = 3*T - 2 - cy, k = 0.5 + 0.5*Math.sin(t*4); ctx.fillStyle = `rgba(255,50,50,${(0.25 + 0.3*k).toFixed(3)})`; ctx.fillRect(X - 8, Y - 8, 16, 16); ctx.fillStyle = '#ff3a3a'; ctx.fillRect(X - 2, Y - 2, 4, 4); drawSigil(X, Y - 26, 18, t*0.3, '#e2553e', 0.4); }
+    if (F.txTower && s.boss){ ctx.fillStyle = '#5a1018'; ctx.fillRect(14*T + 6 - cx, 3*T - 4 - cy, 4, 4); }
+  } else if (F.bld === 'gjstation'){
+    for (const g of (F.gateList || [])){
+      const X = g.x*T - cx;
+      if (g.st){ ctx.fillStyle = '#5a5f68'; ctx.fillRect(X, 3*T - 4 - cy, T, 6); ctx.fillStyle = '#3a3e46'; ctx.fillRect(X, 3*T + 1 - cy, T, 1); ctx.fillStyle = '#5ae86a'; ctx.fillRect(X + 6, 3*T - 3 - cy, 4, 2); continue; }
+      ctx.fillStyle = '#0c0913'; ctx.fillRect(X - 1, 3*T - 4 - cy, T + 2, 8*T + 4);
+      ctx.fillStyle = '#7a808a'; ctx.fillRect(X, 3*T - 4 - cy, T, 8*T + 3);
+      ctx.fillStyle = '#5a5f68'; for (let y = 3*T - 2; y < 11*T; y += 4) ctx.fillRect(X, y - cy, T, 1);
+      for (let x = 0; x < T; x += 4){ ctx.fillStyle = (x/4) % 2 ? '#e6c24c' : '#14101a'; ctx.fillRect(X + x, 11*T - 4 - cy, 4, 3); }
+      ctx.fillStyle = '#c0303a'; ctx.fillRect(X + 6, 3*T - 3 - cy, 4, 2);
+      ctx.fillStyle = '#efe8da'; ctx.font = '700 8px sans-serif'; ctx.fillText('AB'[F.gateList.indexOf(g)], X + 5, 6*T + 4 - cy);
+    }
+    if (F.ttGates && ev && ev.clk){ for (const [x, y] of tilesOf('Կ').slice(0, 1)){ drawDigits('19', x*T + 2 - cx, y*T + 9 - cy, '#ff8a3a'); drawDigits(pad2(ev.clk.m), x*T + 10 - cx, y*T + 9 - cy, '#ff8a3a'); if (Math.sin(t*6) > 0){ ctx.fillStyle = '#ff8a3a'; ctx.fillRect(x*T + 9 - cx, y*T + 10 - cy, 1, 1); ctx.fillRect(x*T + 9 - cx, y*T + 12 - cy, 1, 1); } } }
+    if (F.platforms){
+      PLATFORMS.forEach((x, i) => { const X = x*T - cx, Y = 10*T - cy; ctx.fillStyle = '#14101a'; ctx.fillRect(X + 10, Y + 4, 13, 9); ctx.fillStyle = '#efe8da'; ctx.fillRect(X + 11, Y + 5, 11, 7); drawDigits(String(i + 1), X + 15, Y + 6, '#14101a'); });
+      for (const [x, y] of tilesOf('Կ')){ ['#c0303a','#3a6ad8','#e6c24c','#5ab04a'].forEach((col, i) => { ctx.fillStyle = col; ctx.fillRect(x*T + 2 - cx, y*T + 3 + i*3 - cy, 12, 1); if (Math.sin(t*3 + i*1.7) > 0.6) ctx.fillRect(x*T + 2 + ((t*8 + i*4) % 12 | 0) - cx, y*T + 2 + i*3 - cy, 2, 3); }); }
+    }
+    const R = ev && ev.tr;
+    if (F.rails && R && R.cur && R.cur.ph === 'warn' && Math.sin(t*20) > 0){
+      const row = R.cur.row; ctx.fillStyle = '#ff2a2a';
+      for (let x = 1; x < CUR.W - 1; x += 2){ ctx.fillRect(x*T + 7 - cx, row*T + 2 - cy, 2, 2); ctx.fillRect(x*T + 7 - cx, (row + 2)*T - 4 - cy, 2, 2); }
+    }
+    if (F.agentCar){ for (let x = 3; x < CUR.W - 2; x += 5){ const a = 0.25 + 0.2*Math.sin(t*2 + x); ctx.fillStyle = `rgba(192,140,255,${a.toFixed(3)})`; ctx.fillRect(x*T + 2 - cx, T + 4 - cy, 12, 10); drawSigil(x*T + 8 - cx, T + 9 - cy, 4, t*0.5 + x, '#c08cff', 0.6); } }
+  }
+}
+function extraDrawV11(list, tags, cx, cy){
+  const F = FLOORS[G.floor], ev = G.ev; if (!F || F.ow) return;
+  const R = ev && ev.tr, c = R && R.cur;
+  if (F.rails && c && c.ph === 'run') list.push({y:(c.row + 2)*T, f:() => drawShadowTrain(c, cx, cy)});
+  if (F.agentCar){
+    const gx = 5*T + 8, gy = 8*T + 12;
+    list.push({y:gy, f:() => drawChar(getSprite('npc-gu', NPCS.gu.look, 'right', 0), gx, gy, cx, cy)});
+    tags.push(['gu76', 'np', '🚕 ' + NPCS.gu.name, gx - cx, gy - 19 - cy]);
+  }
+}
+function drawShadowTrain(c, cx, cy){
+  const t = G.t, head = c.x, tail = c.x - c.dir*TR_LEN, x0 = Math.round(Math.min(head, tail) - cx), Y = c.row*T - 8 - cy, H = 2*T + 6, L = TR_LEN;
+  ctx.fillStyle = 'rgba(0,0,0,0.45)'; ctx.fillRect(x0 + 2, Y + H - 1, L - 4, 4);
+  ctx.fillStyle = '#06050a'; ctx.fillRect(x0, Y, L, H);
+  ctx.fillStyle = '#14101e'; ctx.fillRect(x0 + 2, Y + 2, L - 4, H - 10);
+  for (let wx = x0 + 8; wx < x0 + L - 14; wx += 18){ const a = 0.45 + 0.25*Math.sin(t*9 + wx); ctx.fillStyle = `rgba(192,140,255,${a.toFixed(3)})`; ctx.fillRect(wx, Y + 6, 11, 8); ctx.fillStyle = '#06050a'; ctx.fillRect(wx + 3, Y + 9, 4, 5); }
+  drawSigil(x0 + L/2, Y + H - 9, 4, t*2, '#c08cff', 0.8);
+  const hx = c.dir > 0 ? x0 + L - 3 : x0 + 1;
+  ctx.fillStyle = '#fff3c4'; ctx.fillRect(hx, Y + H - 12, 3, 4);
+  ctx.fillStyle = 'rgba(255,243,196,0.18)'; ctx.fillRect(c.dir > 0 ? hx + 3 : hx - 40, Y + H - 16, 40, 12);
+  if (Math.random() < 0.7){ ctx.fillStyle = '#ffd27a'; ctx.fillRect(x0 + (Math.random()*L | 0), Y + H - 2, 1, 1); }
+}
+function drawV11Post(cx, cy){
+  const F = FLOORS[G.floor], ev = G.ev, t = G.t; if (!F || F.ow || !ev) return;
+  const A = ev.oa;
+  if (F.onair && A && A.ph !== 'off' && !FS().done){
+    const on = A.ph === 'on', a = on ? 0.55 : (Math.sin(t*18) > 0 ? 0.4 : 0.1);
+    ctx.fillStyle = `rgba(255,30,30,${a.toFixed(3)})`; ctx.fillRect(0, 0, iw, 3); ctx.fillRect(0, ih - 3, iw, 3); ctx.fillRect(0, 0, 3, ih); ctx.fillRect(iw - 3, 0, 3, ih);
+    if (on){ ctx.fillStyle = 'rgba(120,0,0,0.12)'; ctx.fillRect(0, 0, iw, ih); }
+    ctx.fillStyle = on ? '#ff2a2a' : '#ff8a8a'; ctx.font = '900 11px sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText(on ? '● ON AIR — 움직이지 마!' : '곧 ON AIR!', iw/2, 18); ctx.textAlign = 'left';
+  }
+}
+function drawOWPostV11(cx, cy){
+  if (curCity() !== 'jeongeup') return;
+  const t = G.t;
+  ctx.fillStyle = 'rgba(255,140,50,0.05)'; ctx.fillRect(0, 0, iw, ih);
+  const cols = ['#c83a22', '#e6782a', '#e6c24c', '#a82a1a', '#d85a2a'];
+  for (let i = 0; i < 22; i++){
+    const sp = 14 + (i % 5)*5, x = ((i*97 + t*(9 + (i % 3)*4) + Math.sin(t*1.3 + i)*14) % (iw + 30) + iw + 30) % (iw + 30) - 15, y = ((i*53 + t*sp) % (ih + 20)) - 10;
+    ctx.fillStyle = cols[i % cols.length]; const w = Math.sin(t*3 + i) > 0 ? 3 : 2; ctx.fillRect(Math.round(x), Math.round(y), w, 2);
+  }
+}
+
+/* ================= the Gwangju ending, the ride north, 정읍 ================= */
+Object.assign(CINE_CAPS, {
+  toJE:[[0.6,'열차가 덜컹, 움직이기 시작했다. 이번엔… 나 혼자다.'],[4.4,'창밖으로 광주가 멀어진다. 무등산 위의 문양이 천천히 꺼져 간다.'],[8.4,`캠프 사람들은 광주에 남았다. ${NPCS.gu.name} 아저씨는 열차가 안 보일 때까지 손을 흔들었다.`],
+    [12.4,'터널. 까만 창유리에 내 얼굴이 비친다. …목포를 떠날 때보다 조금 컸다.'],[16.6,'밤의 들판. 별이 이렇게 많았던가.'],[20.8,'하늘이 밝아 온다. 논이 온통 금빛이다.'],
+    [24.8,'단풍. 빨갛고, 노랗고… 이 세상에 아직 이런 색이 남아 있었다.'],[29.0,'“이번 역은 정읍, 정읍역입니다.” …아무도 없는 열차에서 안내 방송이 나온다.']],
+  toJE2:[[0.4,'정읍행 열차가 출발한다.'],[3.8,'창밖으로 금빛 논과 단풍이 스쳐 지나간다.']],
+  toGJ3:[[0.4,'광주행 열차가 출발한다.'],[3.8,'창밖의 단풍이 멀어지고, 회색 도시가 다가온다.']],
+  creditsGJ:[]
+});
+function creditLinesGJ(){
+  const out = ['덕인 — 광주 편', '', '기획 · 세계관 · 등장인물', '주호', '', '코딩 · 도트', 'Claude', '', '— 광주의 보스들 —'];
+  for (const id of CITY_ORDER.gwangju) if (BINFO[id]) out.push(`${BLD_NUM(id)} ${BLD[id].name} — ${ENEMIES[BINFO[id].boss].name}`);
+  out.push('', '— 광주 생존자 캠프 —', GJ_CITIZENS.map(id => NPCS[id].name).join(' · '), '', '— 광주에서 만난 사람들 —');
+  for (const id of CITY_ORDER.gwangju){ const ns = Object.keys(NPCS).filter(k => NPCS[k].bld === id).map(k => NPCS[k].name); if (ns.length) out.push(ns.join(' · ')); }
+  out.push('', '— 강적들 —', ['ticketman','coach','auctioneer','safety','youngwoo','guard'].map(k => ENEMIES[k] ? ENEMIES[k].name : '').filter(Boolean).join(' · '),
+    '', '관리국 열차 운전', `${NPCS.gu.name} (택시 30년, 열차는 처음)`, '', '플레이해 준 친구들, 고마워요!', '', '', '정읍으로 이어집니다.');
+  return out;
+}
+function showEndingGJ(){
+  G.ow.gjEnd = true; G.ow.mate = null; checkStarsV11(); writeSave();
+  const r = G.rec, sp = new Set(G.pets.map(p => p.key)).size, friends = affPeople().filter(id => hearts(id) >= 5).length;
+  const cells = [['플레이 시간', fmtPlay(r.time)], ['레벨', `Lv ${G.lv}`], ['정화한 광주 건물', `${CITY_ORDER.gwangju.filter(bldDone).length}/8`], ['⭐ 별', `${starCount()}/${NEW_BLDS.length*3}`], ['광주 신뢰', `${G.ow.trust | 0}/100`],
+    ['♥5 친구', `${friends}명`], ['전투 승리', `${r.wins}번`], ['펫 종류', `${sp}종`], ['업적', `${Object.keys(G.ach).length}/${ACH.length}`], ['쓰러진 횟수', `${r.faints}번`]];
+  $('#endGrid').innerHTML = cells.map(([k, v]) => `<div class="rec"><span>${k}</span><b>${v}</b></div>`).join('');
+  $('#endEye').textContent = '덕인 · 광주 편 엔딩'; $('#endHead').textContent = '🚆 광주를 떠나며';
+  $('#endSub').textContent = `${G.name} · ${ROLES[G.roleIdx].name} — 광주의 여덟 건물을 모두 정화했어요.`;
+  $('#endNote').textContent = '레벨·펫·장비·마정석은 전부 그대로예요. 정읍역 열차로 언제든 광주·목포에 돌아올 수 있어요.';
+  startCine('stats', () => startCine('creditsGJ', () => startCine('toJE', arriveJE)));
+  endOv.hidden = false;
+}
+function arriveJE(){
+  enterFloor(CITY_OW.jeongeup, 'train'); enterPlay(false);
+  if (G.ow.jeSeen){ writeSave(); return; }
+  G.ow.jeSeen = true; unlock('jeongeup'); writeSave();
+  setTimeout(() => { if (G.mode !== 'play') return; say([N11('열차가 작은 시골 역에 끼익— 멈췄다. 낡은 간판: “정읍역”.'),
+    N11('아무도 없다. 역무원도, 그림자도, 요괴 소리도.'), N11('단풍잎이 승강장 위로 소리 없이 떨어진다. 바람 소리뿐이다.'),
+    {who:G.name, t:'(…여기도 사람이 살았던 흔적은 있는데.)'},
+    N11('🍁 정읍은 지금 걸어 다닐 수 있어요. 건물들은 다음 체험판에서 열려요.'),
+    N11('⛺ 길을 따라가면 정읍 생존자 캠프가 있어요. 텅 비어 있지만, 휴식 텐트와 무인 판매대는 쓸 수 있어요.'),
+    N11('🚆 정읍역 문을 조사하면 광주로 돌아가요. 광주 캠프 게시판에 강화 보스 8명과 수집 보상이 생겼어요.')], () => { G.navT = 0; writeSave(); }); }, 900);
+}
+function trainChoiceV11(){
+  const cty = curCity();
+  if (cty === 'jeongeup'){
+    openChoice('🚆 정읍역', '작은 시골 역. 정화된 열차가 광주 쪽을 향해 서 있다.', [
+      {name:'🚆 광주로 가기', desc:'광주 폐허의 끊긴 선로 끝에서 내려요. 목포는 광주에서 갈아타요.', label:'타기', f:() => boardTrain('gwangju')},
+      {name:'그냥 둘러보기', desc:'승강장에 단풍잎이 수북하다.', label:'닫기', f:() => {}}]);
+    return true;
+  }
+  if (cty === 'gwangju' && bldDone('gjstation')){
+    openChoice('🚆 열차', '정화된 열차가 목포·광주·정읍을 오가요. 열차 안에서는 시간이 거의 흐르지 않아요.', [
+      {name:'🍁 정읍으로 가기', desc:G.ow.gjEnd ? '정읍역에서 내려요. 정읍의 건물은 다음 체험판에서 열려요.' : '…광주를 떠날 시간이다.', label:'타기', f:() => boardTrain('jeongeup')},
+      {name:'🚆 목포로 가기', desc:'목포역 앞에서 내려요.', label:'타기', f:() => boardTrain('mokpo')},
+      {name:'그냥 둘러보기', desc:'좌석에 누가 두고 간 도시락이 있다.', label:'닫기', f:() => {}}]);
+    return true;
+  }
+  return false;
+}
+function boardTrainV11(to){
+  const cty = curCity();
+  if (to === 'jeongeup'){
+    if (G.plague) endPlague(false);
+    G.riding = false; G.rec.trains = (G.rec.trains | 0) + 1;
+    if (G.ow.mate){ toast(`🤝 ${NPCS[G.ow.mate].name}은(는) 광주 캠프에 남기로 했다.`); G.ow.mate = null; }
+    if (!G.ow.gjEnd){ showEndingGJ(); return true; }
+    startCine('toJE2', arriveJE); return true;
+  }
+  if (cty === 'jeongeup' && to === 'gwangju'){ G.riding = false; G.rec.trains = (G.rec.trains | 0) + 1; startCine('toGJ3', arriveGJ); return true; }
+  return false;
+}
+
+/* ---------- the first-person window: looking out of the train ---------- */
+function winScroll(t, dur, base){ const t1 = dur*0.86; if (t <= t1) return base*t; const u = Math.min(t, dur) - t1, a = base*0.92/(dur - t1); return base*t1 + base*u - 0.5*a*u*u; }
+const lerpC = (a, b, k) => mix(a, b, clamp(k, 0, 1));
+function skyAt(q, kind){
+  if (kind !== 'toJE') return kind === 'toGJ3' ? ['#6a8ac8', '#e8c89a'] : ['#5a8ad0', '#f2dca8'];
+  const K = [[0, '#2a1430', '#c8503a'], [0.22, '#140c26', '#5a2a4a'], [0.34, '#080816', '#1a1630'], [0.6, '#0a0a1e', '#22183a'], [0.66, '#3a2a5a', '#e88a5a'], [0.76, '#5a7ac0', '#f0c890'], [1, '#6a9ad8', '#f8e8c0']];
+  for (let i = 0; i < K.length - 1; i++){ const [a, ta, ba] = K[i], [b, tb, bb] = K[i + 1]; if (q <= b){ const k = (q - a)/(b - a); return [lerpC(ta, tb, k), lerpC(ba, bb, k)]; } }
+  return [K[K.length - 1][1], K[K.length - 1][2]];
+}
+/* where along the line (0 = 광주, 1 = 정읍) a part of the view is, for each kind of ride */
+function sceneQ(frac){ const k = CN.kind; return k === 'toJE' ? frac : k === 'toJE2' ? 0.64 + 0.36*frac : 0.9 - 0.75*frac; }
+const sceneKind = q => q < 0.2 ? 'ruin' : q < 0.47 ? 'fieldN' : q < 0.62 ? 'fieldN2' : q < 0.76 ? 'paddy' : q < 0.94 ? 'autumn' : 'station';
+const TUN = {toJE:[0.364, 0.47], toGJ3:[0.573, 0.715]};
+function renderWindow(){
+  const t = CN.t, dur = CN.dur, k = clamp(t/dur, 0, 1), kind = CN.kind, base = 150;
+  const S = winScroll(t, dur, base), Send = winScroll(dur, dur, base), sway = reduceMotion ? 0 : Math.round(Math.sin(t*9)*0.6 + Math.sin(t*2.3)*0.4);
+  const wx0 = Math.round(iw*0.13), wy0 = Math.round(ih*0.1) + sway, ww = Math.round(iw*0.74), wh = Math.round(ih*0.56), wx1 = wx0 + ww, wy1 = wy0 + wh;
+  const D0 = S*0.35, Dend = Send*0.35 + ww, qAt = x => sceneQ(clamp((D0 + x - wx0)/Dend, 0, 1));
+  /* the tunnel is close to the train, so it moves with the fastest layer */
+  const tw = TUN[kind], Dn = S*1.6, tA = tw ? winScroll(tw[0]*dur, dur, base)*1.6 + ww : 0, tB = tw ? winScroll(tw[1]*dur, dur, base)*1.6 + ww : -1;
+  const tx0 = tw ? Math.max(wx0, wx0 + tA - Dn) : 0, tx1 = tw ? Math.min(wx1, wx0 + tB - Dn) : -1, inTun = x => tw && x >= wx0 + tA - Dn && x <= wx0 + tB - Dn;
+  const mid = wx0 + ww/2, here = inTun(mid) ? 'tunnel' : sceneKind(qAt(mid)), dark = here === 'tunnel' ? 1 : 0;
+  const todQ = kind === 'toJE' ? k : 0.9, [skyT, skyB] = skyAt(todQ, kind);
+  const night = kind === 'toJE' ? clamp(1 - Math.abs(todQ - 0.47)/0.17, 0, 1) : 0, dk = kind === 'toJE' ? clamp(1 - Math.abs(todQ - 0.47)/0.27, 0, 1) : 0;
+  ctx.fillStyle = '#07050c'; ctx.fillRect(0, 0, iw, ih);
+  /* ---- the view outside (clipped to the window) ---- */
+  ctx.save(); ctx.beginPath(); ctx.rect(wx0, wy0, ww, wh); ctx.clip();
+  const hz = wy0 + Math.round(wh*0.62);
+  for (let i = 0; i < 8; i++){ ctx.fillStyle = mix(skyT, skyB, i/7); ctx.fillRect(wx0, Math.floor(wy0 + i*(hz - wy0)/8), ww, Math.ceil((hz - wy0)/8) + 1); }
+  if (night > 0.05){ const R = rng(77); for (let i = 0; i < 70; i++){ const sx = wx0 + (R()*ww | 0), sy = wy0 + (R()*(hz - wy0 - 6) | 0), tw2 = 0.5 + 0.5*Math.sin(t*3 + i); ctx.fillStyle = `rgba(255,250,230,${(night*(0.35 + 0.6*tw2)).toFixed(3)})`; ctx.fillRect(sx, sy, R() < 0.15 ? 2 : 1, 1); } }
+  if (kind === 'toJE' && todQ > 0.3 && todQ < 0.64){ const mx = wx0 + ww*(0.85 - (todQ - 0.3)*1.6), my = wy0 + wh*0.16; ctx.fillStyle = `rgba(255,248,220,${(night*0.9).toFixed(3)})`; ctx.beginPath(); ctx.arc(mx, my, 6, 0, Math.PI*2); ctx.fill(); ctx.fillStyle = skyT; ctx.beginPath(); ctx.arc(mx + 3, my - 2, 5, 0, Math.PI*2); ctx.fill(); }
+  if (todQ > 0.62){ const u = clamp((todQ - 0.62)/0.38, 0, 1), sx = wx0 + ww*0.2, sy = hz - 4 - u*wh*0.42; ctx.fillStyle = `rgba(255,230,160,${(0.25*(1 - u) + 0.1).toFixed(3)})`; ctx.beginPath(); ctx.arc(sx, sy, 20, 0, Math.PI*2); ctx.fill(); ctx.fillStyle = u < 0.3 ? '#ffb070' : '#fff0c0'; ctx.beginPath(); ctx.arc(sx, sy, 7, 0, Math.PI*2); ctx.fill(); }
+  if (kind === 'toJE' && k < 0.24){ const a = clamp(1 - k/0.22, 0, 1); drawSigil(wx0 + ww*0.72, wy0 + wh*0.2, 14 + 4*a, t*0.2, '#ff6a4a', 0.55*a); }
+  /* far ridges: 무등산's dome at the start, red 내장산 at the end */
+  const farC = mix(mix('#2a1a2a', '#3a4a6a', clamp((todQ - 0.62)/0.2, 0, 1)), '#000000', night*0.5);
+  for (let x = wx0; x < wx1; x += 2){
+    const wxp = x + S*0.06, qq = sceneQ(clamp((S*0.06 + x - wx0)/(Send*0.06 + ww), 0, 1));
+    let h = 14 + Math.sin(wxp*0.021)*7 + Math.sin(wxp*0.057 + 1)*4;
+    if (qq < 0.14){ const d = (wxp - (wx0 + 120))/70; if (Math.abs(d) < 1) h = Math.max(h, 30*Math.sqrt(1 - d*d)); }
+    if (qq > 0.72) h += 6 + Math.sin(wxp*0.09)*3;
+    ctx.fillStyle = qq > 0.74 ? mix(farC, '#7a2a22', 0.35) : farC; ctx.fillRect(x, Math.round(hz - 6 - h), 2, Math.round(h) + 8);
+  }
+  /* the middle layer: ruins → night fields → paddies → autumn village → the station */
+  const nk2 = Math.max(dk, night), cell = 26, fieldC = mix('#3a5a2a', '#0e140f', nk2), treeC = mix('#2a4020', '#080c09', nk2);
+  for (let i = -1; i < ww/cell + 2; i++){
+    const wi = Math.floor(D0/cell) + i, x = Math.round(wx0 + i*cell - (D0 % cell)), kd = sceneKind(sceneQ(clamp((wi*cell)/Dend, 0, 1))), R = rng(wi*977 + 13);
+    /* the ground between the horizon and the embankment */
+    { const G0 = kd === 'ruin' ? '#1a1216' : kd === 'paddy' ? '#b08a30' : kd === 'autumn' ? '#6a5a32' : kd === 'station' ? '#5a5650' : fieldC, gR = rng(wi*131 + 7);
+      ctx.fillStyle = G0; ctx.fillRect(x, hz, cell, wy1 - hz);
+      for (let y = hz + 3, j = 0; y < wy1; y += 3 + (j >> 1), j++){
+        ctx.fillStyle = kd === 'paddy' ? (j % 2 ? '#c8a040' : '#9a7a28') : mix(G0, '#000000', 0.12 + 0.04*(j % 3)); ctx.fillRect(x, y, cell, 1);
+      }
+      if (kd === 'paddy' && wi % 3 === 0){ ctx.fillStyle = '#7a5a22'; ctx.fillRect(x, hz, 2, wy1 - hz); }
+      for (let k2 = 0; k2 < 6; k2++){ const px = x + (gR()*cell | 0), py = hz + 2 + (gR()*(wy1 - hz - 4) | 0);
+        ctx.fillStyle = kd === 'autumn' ? pick(['#c83a22', '#e6c24c', '#e6782a']) : kd === 'ruin' ? '#3a3036' : kd === 'paddy' ? '#e6c86a' : mix(G0, '#ffffff', 0.1); ctx.fillRect(px, py, kd === 'ruin' ? 3 : 1, kd === 'ruin' ? 2 : 1); }
+      if (kd === 'ruin' && gR() < 0.3){ ctx.fillStyle = '#2a2026'; ctx.fillRect(x + 4, hz + 6, 12, 5); }
+    }
+    if (kd === 'ruin'){ const h = 14 + (R()*30 | 0); ctx.fillStyle = '#160e18'; ctx.fillRect(x, hz - 4 - h, 20, h + 6); if (R() < 0.5){ ctx.fillStyle = R() < 0.5 ? '#e6b24c' : '#ff8a3a'; ctx.fillRect(x + 4 + (R()*10 | 0), hz - h + (R()*8 | 0), 2, 2); } if (R() < 0.2){ ctx.fillStyle = `rgba(255,120,60,${(0.4 + 0.3*Math.sin(t*9 + wi)).toFixed(3)})`; ctx.fillRect(x + 8, hz - h - 4, 3, 4); } }
+    else if (kd === 'fieldN' || kd === 'fieldN2'){
+      ctx.fillStyle = fieldC; ctx.fillRect(x, hz - 3, cell, 6);
+      if (R() < 0.45){ ctx.fillStyle = treeC; ctx.fillRect(x + 10, hz - 14, 2, 11); ctx.beginPath(); ctx.arc(x + 11, hz - 16, 6, 0, Math.PI*2); ctx.fill(); }
+      if (R() < 0.12){ ctx.fillStyle = mix('#4a3a2a', '#100c10', dk); ctx.fillRect(x + 2, hz - 10, 14, 8); ctx.fillStyle = '#e6b24c'; ctx.fillRect(x + 6, hz - 8, 3, 3); }
+      if (kd === 'fieldN2' && dk > 0.3 && R() < 0.6){ const a = 0.5 + 0.5*Math.sin(t*4 + wi*2.3); ctx.fillStyle = `rgba(200,255,120,${(a*0.8*dk).toFixed(3)})`; ctx.fillRect(x + (R()*cell | 0), hz - 6 - (R()*10 | 0), 1, 1); }
+    }
+    else if (kd === 'paddy'){
+      ctx.fillStyle = '#c8a040'; ctx.fillRect(x, hz - 4, cell, 7); ctx.fillStyle = '#e6c86a'; for (let j = 0; j < cell; j += 3) ctx.fillRect(x + j, hz - 5 - (j % 2), 1, 2); ctx.fillStyle = '#8a6a2a'; ctx.fillRect(x, hz + 2, cell, 1);
+      if (R() < 0.12){ ctx.fillStyle = '#6a4a2a'; ctx.fillRect(x + 12, hz - 14, 1, 10); ctx.fillRect(x + 8, hz - 11, 9, 1); ctx.fillStyle = '#c8a040'; ctx.fillRect(x + 10, hz - 17, 5, 3); }
+      if (kind === 'toJE'){ ctx.fillStyle = `rgba(255,248,230,${(0.14*clamp(1 - (todQ - 0.66)/0.12, 0, 1)).toFixed(3)})`; ctx.fillRect(x, hz - 9, cell, 5); }
+    }
+    else {
+      ctx.fillStyle = '#7a6a3a'; ctx.fillRect(x, hz - 3, cell, 6);
+      const r = R();
+      if (kd === 'station'){
+        ctx.fillStyle = '#9a968e'; ctx.fillRect(x, hz - 8, cell, 8); ctx.fillStyle = '#e6c24c'; ctx.fillRect(x, hz - 8, cell, 1);
+        if (wi % 4 === 0){ ctx.fillStyle = '#3a3a44'; ctx.fillRect(x + 4, hz - 40, 2, 32); ctx.fillStyle = '#fff3c4'; ctx.fillRect(x + 2, hz - 42, 6, 3); }
+      }
+      else if (r < 0.32){ const c = pick(['#c83a22', '#e6582a', '#a82a1a', '#d84a2a']); ctx.fillStyle = '#4a2a1a'; ctx.fillRect(x + 11, hz - 12, 3, 10); ctx.fillStyle = c; ctx.beginPath(); ctx.arc(x + 12, hz - 18, 9, 0, Math.PI*2); ctx.fill(); ctx.fillStyle = mix(c, '#ffd27a', 0.3); ctx.fillRect(x + 7, hz - 23, 4, 3); }
+      else if (r < 0.48){ ctx.fillStyle = '#5a3a22'; ctx.fillRect(x + 11, hz - 12, 2, 10); ctx.fillStyle = '#e6c24c'; ctx.beginPath(); ctx.moveTo(x + 12, hz - 32); ctx.lineTo(x + 21, hz - 10); ctx.lineTo(x + 3, hz - 10); ctx.fill(); ctx.fillStyle = '#f0d86a'; ctx.fillRect(x + 10, hz - 24, 3, 3); }
+      else if (r < 0.66){ ctx.fillStyle = '#e8e0cc'; ctx.fillRect(x + 2, hz - 12, 22, 10); ctx.fillStyle = '#6a4a2a'; for (let j = 2; j < 24; j += 6) ctx.fillRect(x + j, hz - 12, 1, 10); ctx.fillStyle = '#2a2a36'; ctx.fillRect(x - 1, hz - 18, 28, 7); ctx.fillRect(x - 3, hz - 13, 3, 2); ctx.fillRect(x + 26, hz - 13, 3, 2); ctx.fillStyle = '#4a4a5a'; ctx.fillRect(x + 1, hz - 20, 24, 2); if (R() < 0.5){ ctx.fillStyle = '#e6b24c'; ctx.fillRect(x + 8, hz - 9, 3, 3); } }
+      else if (r < 0.74){ ctx.fillStyle = '#c8a848'; ctx.beginPath(); ctx.arc(x + 12, hz - 4, 6, Math.PI, 0); ctx.fill(); ctx.fillStyle = '#a88a38'; ctx.fillRect(x + 8, hz - 6, 8, 1); }
+    }
+  }
+  /* the station name board: it stops right in the middle of the window */
+  if (kind !== 'toGJ3'){ const sx = Math.round(wx0 + (Dend - ww/2 - 30) - D0); if (sx > wx0 - 70 && sx < wx1 + 10){
+    ctx.fillStyle = '#3a3a44'; ctx.fillRect(sx + 8, hz - 22, 3, 18); ctx.fillRect(sx + 49, hz - 22, 3, 18);
+    ctx.fillStyle = '#0c0913'; ctx.fillRect(sx - 1, hz - 45, 62, 25); ctx.fillStyle = '#2a4a8a'; ctx.fillRect(sx, hz - 44, 60, 23); ctx.fillStyle = '#efe8da'; ctx.fillRect(sx + 2, hz - 42, 56, 19);
+    ctx.fillStyle = '#1a2a5a'; ctx.font = '900 11px sans-serif'; ctx.textAlign = 'center'; ctx.fillText(NAMES.jeongeup, sx + 30, hz - 29); ctx.font = '700 6px sans-serif'; ctx.fillText('◀ 광주 · 다음 역 없음 ▶', sx + 30, hz - 24); ctx.textAlign = 'left'; } }
+  /* the near layer: embankment, telegraph poles and sagging wires (not inside the tunnel) */
+  if (here !== 'station'){
+    const gc = here === 'autumn' ? '#4a3a24' : here === 'paddy' ? '#5a4a28' : mix('#3a3024', '#1a1418', dk);
+    ctx.fillStyle = gc; ctx.fillRect(wx0, wy1 - 12, ww, 12);
+    ctx.fillStyle = mix(gc, '#000000', 0.4); for (let x = wx0 - (Dn % 8); x < wx1; x += 8) ctx.fillRect(Math.round(x), wy1 - 9 + (Math.round(x) % 3 + 3) % 3, 3, 2);
+    const pc = mix('#2a2018', '#06050a', Math.max(dk, kind === 'toJE' && k < 0.2 ? 1 : 0)), gap = 150;
+    for (let x = wx0 - (Dn % gap); x < wx1 + gap; x += gap){
+      const X = Math.round(x); if (inTun(X)) continue;
+      ctx.fillStyle = pc; ctx.fillRect(X, wy0, 3, wh); ctx.fillRect(X - 7, wy0 + 6, 17, 2);
+      ctx.strokeStyle = pc; ctx.lineWidth = 1; ctx.beginPath(); for (const off of [7, 12]){ ctx.moveTo(X + 1, wy0 + off); ctx.quadraticCurveTo(X + gap/2, wy0 + off + 10, X + gap + 1, wy0 + off); } ctx.stroke();
+    }
+  }
+  /* the tunnel: a stone mouth, then darkness with lamps flashing past */
+  if (tw && tx1 > tx0){
+    ctx.fillStyle = '#050406'; ctx.fillRect(tx0, wy0, tx1 - tx0, wh);
+    for (let x = wx0 - (Dn % 90); x < wx1; x += 90){ const X = Math.round(x); if (X < tx0 || X > tx1) continue; ctx.fillStyle = 'rgba(255,170,90,0.9)'; ctx.fillRect(X, wy0 + Math.round(wh*0.3), 6, 3); ctx.fillStyle = 'rgba(255,170,90,0.16)'; ctx.fillRect(X - 14, wy0 + Math.round(wh*0.22), 34, 18); }
+    ctx.fillStyle = '#0e0c10'; for (let x = wx0 - (Dn % 22); x < wx1; x += 22){ const X = Math.round(x); if (X >= tx0 && X <= tx1) ctx.fillRect(X, wy0, 2, wh); }
+    for (const ex of [wx0 + tA - Dn, wx0 + tB - Dn]) if (ex > wx0 - 8 && ex < wx1 + 8){ ctx.fillStyle = '#5a5452'; ctx.fillRect(Math.round(ex) - 5, wy0, 10, wh); ctx.fillStyle = '#7a7472'; for (let y = wy0; y < wy1; y += 7) ctx.fillRect(Math.round(ex) - 5, y, 10, 1); }
+  }
+  if (here === 'autumn' || here === 'station'){ const cols = ['#c83a22', '#e6782a', '#e6c24c', '#a82a1a']; for (let i = 0; i < 16; i++){ const x = wx1 - (((t*(120 + i*9) + i*61) % (ww + 20)) | 0), y = wy0 + ((i*37 + t*(18 + i % 4*6)) % wh); ctx.fillStyle = cols[i % 4]; ctx.fillRect(x, Math.round(y + Math.sin(t*4 + i)*3), 2 + (i % 2), 2); } }
+  /* glass: my face reflected (stronger in the dark), a glare streak, dust */
+  const refl = 0.07 + 0.3*dark + 0.14*night;
+  { const spr = getSprite('p' + G.roleIdx + G.gender, lookFor(G.roleIdx, G.gender), 'left', 0); ctx.globalAlpha = refl; ctx.imageSmoothingEnabled = false; ctx.drawImage(spr, wx0 + Math.round(ww*0.18), wy0 + Math.round(wh*0.1), spr.width*3, spr.height*3); ctx.globalAlpha = 1; }
+  ctx.fillStyle = 'rgba(255,255,255,0.05)'; ctx.beginPath(); ctx.moveTo(wx0 + ww*0.55, wy0); ctx.lineTo(wx0 + ww*0.66, wy0); ctx.lineTo(wx0 + ww*0.42, wy1); ctx.lineTo(wx0 + ww*0.31, wy1); ctx.fill();
+  { const R = rng(9); ctx.fillStyle = 'rgba(220,220,210,0.12)'; for (let i = 0; i < 26; i++) ctx.fillRect(wx0 + (R()*ww | 0), wy0 + (R()*wh | 0), 1, 1); }
+  ctx.restore();
+  /* ---- the inside of the car ---- */
+  const inA = mix('#2a2228', '#000000', 0.3*dk), inB = mix('#3a2a22', '#000000', 0.3*dk);
+  ctx.fillStyle = inA; ctx.fillRect(0, 0, iw, wy0 - 2); ctx.fillRect(0, wy0 - 2, wx0 - 4, wh + 6); ctx.fillRect(wx1 + 4, wy0 - 2, iw - wx1 - 4, wh + 6);
+  ctx.fillStyle = mix(inA, '#ffffff', 0.04); for (let x = 0; x < iw; x += 24) ctx.fillRect(x, 0, 1, wy0 - 2);
+  ctx.fillStyle = inB; ctx.fillRect(0, wy1 + 4, iw, ih - wy1 - 4);
+  ctx.fillStyle = mix(inB, '#000000', 0.25); for (let x = 3; x < iw; x += 7) ctx.fillRect(x, wy1 + 16, 1, ih - wy1 - 16);
+  /* the luggage rack with my bag on it */
+  ctx.fillStyle = '#7a808a'; ctx.fillRect(wx0 - 10, wy0 - 9, ww + 20, 2); ctx.fillStyle = '#4a4f58'; for (let x = wx0 - 8; x < wx1 + 10; x += 12) ctx.fillRect(x, wy0 - 7, 1, 4);
+  { const bx = wx0 + 24, by = wy0 - 21; ctx.fillStyle = '#0c0913'; ctx.fillRect(bx - 1, by - 1, 24, 14); ctx.fillStyle = '#3a5a3a'; ctx.fillRect(bx, by, 22, 12); ctx.fillStyle = '#2a462a'; ctx.fillRect(bx, by + 8, 22, 4); ctx.fillStyle = '#c8a040'; ctx.fillRect(bx + 9, by + 3, 4, 2); }
+  /* the window frame */
+  ctx.fillStyle = '#0c0a0c'; ctx.fillRect(wx0 - 4, wy0 - 4, ww + 8, 4); ctx.fillRect(wx0 - 4, wy1, ww + 8, 4); ctx.fillRect(wx0 - 4, wy0, 4, wh); ctx.fillRect(wx1, wy0, 4, wh);
+  ctx.fillStyle = '#5a4a4a'; ctx.fillRect(wx0 - 4, wy0 - 4, ww + 8, 1); ctx.fillRect(wx0 - 4, wy0 - 4, 1, wh + 8);
+  ctx.fillStyle = '#3a3034'; ctx.fillRect(wx0 - 1, wy0 - 1, ww + 2, 1); ctx.fillRect(wx0 - 1, wy1, ww + 2, 1);
+  ctx.fillStyle = '#0c0a0c'; ctx.fillRect(wx0 + Math.round(ww/2) - 1, wy0, 2, Math.round(wh*0.28)); ctx.fillStyle = '#3a3034'; ctx.fillRect(wx0 + Math.round(ww/2) - 6, wy0 + Math.round(wh*0.28), 12, 2);
+  /* the curtain on the right, swaying with the train */
+  { const cxp = wx1 - 2, sw = reduceMotion ? 0 : Math.sin(t*1.7)*1.5; for (let i = 0; i < 6; i++){ ctx.fillStyle = i % 2 ? '#5a1e28' : '#7a2a34'; ctx.fillRect(Math.round(cxp + i*3 + sw*(i/6)), wy0 - 6, 3, wh + 4); } ctx.fillStyle = '#c8a040'; ctx.fillRect(cxp - 1, wy0 + Math.round(wh*0.55), 20, 2); }
+  /* the table under the window: a ticket, a can, the coin (if I have it) */
+  { const ty = wy1 + 6, ta = wx0 + 8, tl = ww - 16;
+    ctx.fillStyle = '#0c0913'; ctx.fillRect(ta - 1, ty - 1, tl + 2, 9); ctx.fillStyle = '#6a4a32'; ctx.fillRect(ta, ty, tl, 7); ctx.fillStyle = '#8a6a48'; ctx.fillRect(ta, ty, tl, 1); ctx.fillStyle = '#3a2a1e'; ctx.fillRect(ta + 6, ty + 7, 3, 10); ctx.fillRect(ta + tl - 9, ty + 7, 3, 10);
+    const kx = ta + Math.round(tl*0.55); ctx.fillStyle = '#efe8da'; ctx.fillRect(kx, ty - 2, 28, 6); ctx.fillStyle = '#c0303a'; ctx.fillRect(kx, ty - 2, 3, 6); ctx.fillStyle = '#2a2a34'; ctx.font = '700 5px sans-serif'; ctx.fillText(kind === 'toGJ3' ? '정읍→광주' : '광주→정읍', kx + 4, ty + 3);
+    const cnx = ta + Math.round(tl*0.8); ctx.fillStyle = '#5a9ad8'; ctx.fillRect(cnx, ty - 9, 7, 10); ctx.fillStyle = '#efe8da'; ctx.fillRect(cnx, ty - 6, 7, 3); ctx.fillStyle = '#c8ccd4'; ctx.fillRect(cnx, ty - 10, 7, 1);
+    if (G.ow && (G.ow.keeps || []).includes('검은 양복 손님의 동전')){ const gx = ta + Math.round(tl*0.34); ctx.fillStyle = '#8a7a3a'; ctx.fillRect(gx, ty + 1, 5, 3); ctx.fillStyle = '#e6d27a'; ctx.fillRect(gx + 1, ty + 1, 3, 1); if (Math.sin(t*2.4) > 0.85){ ctx.fillStyle = '#ffffff'; ctx.fillRect(gx + 3, ty, 1, 1); } }
+  }
+  /* my arm resting on the table */
+  { const look = lookFor(G.roleIdx, G.gender), ax = Math.round(iw*0.04), ay = ih - 6 + sway, aw = Math.round(iw*0.24); ctx.fillStyle = '#0c0913'; ctx.fillRect(ax - 1, ay - 13, aw + 14, 16);
+    ctx.fillStyle = look.outfit; ctx.fillRect(ax, ay - 12, aw, 14); ctx.fillStyle = look.outfitD; ctx.fillRect(ax, ay - 3, aw, 5);
+    ctx.fillStyle = look.skin; ctx.fillRect(ax + aw, ay - 11, 12, 9); ctx.fillStyle = mix(look.skin, '#000000', 0.2); ctx.fillRect(ax + aw + 9, ay - 11, 3, 9); ctx.fillRect(ax + aw, ay - 4, 12, 1); }
+  /* light inside: warm morning rays, flicker in the tunnel, a shadow whenever a pole passes */
+  if (todQ > 0.62 && here !== 'tunnel'){ ctx.fillStyle = 'rgba(255,214,150,0.08)'; ctx.beginPath(); ctx.moveTo(wx0, wy1 + 4); ctx.lineTo(wx1, wy1 + 4); ctx.lineTo(wx1 + 40, ih); ctx.lineTo(wx0 + 40, ih); ctx.fill(); }
+  if (here === 'tunnel' && Math.sin(t*23) < -0.85){ ctx.fillStyle = 'rgba(0,0,0,0.25)'; ctx.fillRect(0, 0, iw, ih); }
+  if (here !== 'tunnel'){ const ph = (Dn % 150)/150; if (ph > 0.45 && ph < 0.52){ ctx.fillStyle = 'rgba(0,0,0,0.1)'; ctx.fillRect(0, 0, iw, ih); } }
+  if (k < 0.04){ ctx.fillStyle = `rgba(7,5,12,${(1 - k/0.04).toFixed(3)})`; ctx.fillRect(0, 0, iw, ih); }
+  if (k > 0.97){ ctx.fillStyle = `rgba(7,5,12,${((k - 0.97)/0.03).toFixed(3)})`; ctx.fillRect(0, 0, iw, ih); }
+  if (vign) ctx.drawImage(vign, 0, 0);
+}
+
+/* ================= Gwangju post-game: the board, boss rematches, collection rewards ================= */
+const REMATCH_GJ = ['yeji','sangyoung','domi','kkam','sukjong','ferris','mijin','suitman'];
+const REM_GJ = {hp:1300, atk:52, def:13, exp:9000, gem:[150,190]};
+/* 깜도영's batting and 임상영's trail are much harder as rematches, so they come a little weaker */
+const remGJStat = k => ['kkam','sangyoung'].includes(k) ? Object.assign({}, REM_GJ, {hp:Math.round(REM_GJ.hp*0.85), atk:Math.round(REM_GJ.atk*0.88)}) : REM_GJ;
+function gjBoard(){
+  const n = Object.keys(G.ow.remGJ || {}).length;
+  openChoice('광주 캠프 게시판', '광주의 여덟 건물이 모두 정화됐다. 게시판에 새 공지가 붙어 있다.', [
+    {name:'📋 오늘의 부탁', desc:'광주 캠프 사람들의 부탁 쪽지 (하루 3개)', label:'보기', f:() => openShop('gjquest')},
+    {name:'👹 광주 강화 보스', desc:`광주 보스 8명의 강화판 · 이긴 보스 ${n}/8 (추천 Lv 70)`, label:'보기', f:openRematchGJ},
+    {name:'🏅 광주 수집 보상', desc:'별 · 호감도 · 신뢰 · 강화 보스 보상', label:'보기', f:openCollectGJ}]);
+}
+function openRematchGJ(){
+  openChoice('👹 광주 강화 보스', '광주 보스들의 강화판이에요. 보스마다 하루에 한 번. 처음 이기면 큰 보상! (추천 Lv 70) · 지면 벌칙은 절반이에요.', REMATCH_GJ.map(k => {
+    const won = !!G.ow.remGJ[k], today = G.ow.remDayGJ[k] === G.day, open = bldDone(bossBld(k));
+    return {name:`강화판 ${ENEMIES[k].name}`, desc:`${won ? '✔ 이긴 적 있음 · 보상 마정석' : '첫 승리 보상: 마정석·재료 꾸러미'} · 체력 ${remGJStat(k).hp}`, label:today ? '내일 다시' : '도전', dim:today || !open, f:() => startRematchGJ(k)};
+  }));
+}
+function startRematchGJ(k){
+  const e = {id:++entSeq, type:k, x:G.player.x, y:G.player.y, hx:G.player.x, hy:G.player.y, dir:'down', face:1, alive:true, respawn:0, spawnT:0, animT:0, rematch:true, remGJ:true, boss:true};
+  G.ow.remDayGJ[k] = G.day; writeSave();
+  startBattle(e);
+}
+const friendsN = () => affPeople().filter(id => hearts(id) >= 5).length;
+const COLLECT_GJ = [
+  ['gj_all', '광주 모든 층 정화', () => FLOORS.every((F, f) => F.ow || cityOfFloor(f) !== 'gwangju' || (F.boss ? G.fs[f].boss : G.fs[f].done)), {gems:150, riceball:5}],
+  ['gj_star12', '⭐ 광주 별 12개', () => starCount() >= 12, {gems:80, coffee:3}],
+  ['gj_star18', '⭐ 광주 별 18개 전부', () => starCount() >= 18, {gems:200, cure:5}],
+  ['gj_heart3', '♥5 친구 3명', () => friendsN() >= 3, {gems:60, candy:5}],
+  ['gj_heart8', '♥5 친구 8명', () => friendsN() >= 8, {gems:150, riceball:5}],
+  ['gj_trust', '광주 신뢰 100', () => (G.ow.trust | 0) >= 100, {gems:100, drink:5}],
+  ['gj_rem4', '광주 강화 보스 4명', () => Object.keys(G.ow.remGJ || {}).length >= 4, {gems:120, cloth:3, wire:3, tape:3}],
+  ['gj_rem8', '광주 강화 보스 8명 전부', () => Object.keys(G.ow.remGJ || {}).length >= 8, {gems:300, riceball:8}],
+  ['gj_pets40', '펫 40종 모으기', () => species() >= 40, {gems:150, bag:5}]
+];
+function openCollectGJ(){
+  openChoice('🏅 광주 수집 보상', '조건을 채우면 받을 수 있어요. 한 번씩만 받아요.', COLLECT_GJ.map(([id, name, test, rw]) => {
+    const got = !!G.ow.claims[id], ok = test();
+    const desc = Object.entries(rw).map(([k, n]) => k === 'gems' ? `마정석 ${n}` : `${ITEMS[k].name} ${n}`).join(' · ');
+    return {name:`${got ? '✔ ' : ''}${name}`, desc, label:got ? '받음' : ok ? '받기' : '아직', dim:got || !ok, keep:true, f:() => {
+      G.ow.claims[id] = Date.now();
+      for (const [k, n] of Object.entries(rw)){ if (k === 'gems') gainGems(n); else G.inv[k] = (G.inv[k] | 0) + n; }
+      unlock('collect'); toast(`🏅 수집 보상! ${desc}`); refreshHUD(); writeSave(); openCollectGJ(); }};
+  }));
+}
+/* record tab additions */
+function recV11(){
+  const n = [67, 68, 69, 70].filter(f => G.fs[f] && G.fs[f].prompt).length;
+  return [el('div', 'sub', '📺🚉 광주 ⑦⑧ 기록'), el('p', 'hint', `🔴 ON AIR에 걸림 ${bget('onair')}번 · 🎬 NG ${bget('ng')}번 · 📜 프롬프터 ${n}/4<br>🚃 열차에 치임 ${bget('trainHit')}번 · 🗺 틀린 승강장 ${bget('wrongPlat')}번 · 👹 광주 강화 보스 ${Object.keys(G.ow.remGJ || {}).length}/8<br>💀 벌칙으로 잃은 마정석 ${G.rec.penGems | 0}개`)];
 }
 /* ================= battle ================= */
 let B = null;
@@ -10377,8 +11716,8 @@ function makeEnemy(key, ent){
     Object.assign(en, {hp:SHADOW_STAT.hp, atk:SHADOW_STAT.atk, def:SHADOW_STAT.def, exp:SHADOW_STAT.exp, gem:SHADOW_STAT.gem.slice(), name:rushName(key), boss:false, mini:true, shadow:true, drop:null});
   }
   if (ent && ent.rematch){
-    const first = !G.ow.rem[key];
-    Object.assign(en, {hp:REM_STAT.hp, atk:REM_STAT.atk, def:REM_STAT.def, exp:REM_STAT.exp, gem:REM_STAT.gem.map(g => first ? g : Math.round(g*0.5)), name:`강화판 ${en.name}`, rematch:true, drop:null});
+    const RS = ent.remGJ ? remGJStat(key) : REM_STAT, first = !(ent.remGJ ? G.ow.remGJ : G.ow.rem)[key];
+    Object.assign(en, {hp:RS.hp, atk:RS.atk, def:RS.def, exp:RS.exp, gem:RS.gem.map(g => first ? g : Math.round(g*0.5)), name:`강화판 ${en.name}`, rematch:true, drop:null});
   }
   if (!d.fixed && innDef()){ en.atk *= 1.15; en.exp = Math.round(en.exp*1.1); }
   if (key === 'ghostk' && G.fs[64] && Object.keys(G.fs[64].find || {}).length >= 3){ en.hp = Math.round(en.hp*0.75); en.atk *= 0.85; }
@@ -10670,7 +12009,7 @@ async function dmgMe(d, text){
 async function checkDead(){
   if (G.hp > 0) return 'ok';
   await bSay(`${G.name}의 눈앞이 캄캄해졌다…`);
-  endBattle('lose'); faint('hp');
+  G.penBoss = !!(B.en.boss || B.en.rematch); endBattle('lose'); faint('hp');
   return 'dead';
 }
 async function hitMe(mult, opts){
@@ -11398,10 +12737,11 @@ async function winBattle(){
     writeSave(); refreshHUD(); cloudFlush(true);
     if (gjBoss) addTrust(15, `${BLD[FLOORS[G.floor].bld].name} 정화`);
     if (en.key === 'sungkwan' && !G.ow.mokpoEnd) setTimeout(() => { if (G.mode === 'play') showEnding(); }, 400);
+    if (en.key === 'suitman' && !G.ow.gjEnd) setTimeout(() => { if (G.mode === 'play') showEndingGJ(); }, 400);
   });
 }
 async function winRematch(){
-  const en = B.en, k = en.key, first = !G.ow.rem[k];
+  const en = B.en, k = en.key, RM = B.ent && B.ent.remGJ ? G.ow.remGJ : G.ow.rem, first = !RM[k];
   B.goneT = 0; G.rec.wins++; G.rec.rematches = (G.rec.rematches | 0) + 1;
   await bSay(`${josa(en.name, '이', '가')} 다시 그림자로 흩어졌다!`);
   const gems = randi(en.gem[0], en.gem[1]); gainGems(gems); G.exp += en.exp;
@@ -11411,7 +12751,7 @@ async function winRematch(){
     MATS.forEach(m => G.inv[m] = (G.inv[m] | 0) + 2); G.inv.riceball = (G.inv.riceball | 0) + 2;
     await bSay('첫 승리 보상! 재료 꾸러미(천 조각·철사·테이프 2개씩)와 주먹밥 2개를 받았다.');
   }
-  G.ow.rem[k] = Date.now(); unlock('rematch');
+  RM[k] = Date.now(); unlock('rematch'); checkStarsV11();
   checkAch(); endBattle('win'); writeSave();
 }
 const BOSS_TALK = {boss:{intro:bossIntro, outro:bossOutro}, pastor:{intro:pastorIntro, outro:pastorOutro}, sunhwa:{intro:sunhwaIntro, outro:sunhwaOutro},
@@ -11985,6 +13325,7 @@ async function winV10(en){
   if (fd.length){ const s = FS(); fd.forEach(k => { G.inv[k] = (G.inv[k] | 0) + 1; if (!s.done) s.got.push({t:'item', key:k}); }); await bSay(`${fd.map(k => ITEMS[k].name).join(', ')}을(를) 주웠다! (요리 재료)`); }
   if (en.key === 'butcher') await bSay(`${josa(en.name, '이', '가')} 식칼만 남기고 그림자 속으로 녹아들었다. …칼 가는 소리가 아직 들린다.`);
   if (en.key === 'ghostk') await bSay('소복 자락만 바닥에 남았다. 어디선가 “…또 와…” 하는 속삭임.');
+  await winV11(en);
 }
 function bossWonV10(en){
   const b = BINFO[FLOORS[G.floor].bld] ? FLOORS[G.floor].bld : null;
@@ -11993,6 +13334,7 @@ function bossWonV10(en){
 }
 /* battle backdrops for the four new bosses */
 function battleBgV10(b, hz, t){
+  if (battleBgV11(b, hz, t)) return;
   const k = b.en.key;
   if (k === 'domi'){
     ctx.fillStyle = '#0c0a0e'; ctx.fillRect(0, 0, iw, hz);
@@ -12020,6 +13362,168 @@ function battleBgV10(b, hz, t){
     drawSigil(Math.round(iw*0.8), Math.round(hz*0.25), 14, t*0.3, '#c0303a', 0.4);
   }
 }
+/* ================= v1.1 battles: 유영우 · 관리국 경비원 · 국장 정미진 · 검은 양복 손님 ================= */
+Object.assign(AI_V10, {
+  /* ⑦ 스태프 유영우 (금발) */
+  async youngwoo(){
+    const en = B.en, k = B.turn % 3;
+    if (k === 1){
+      await bSay(`${en.name}의 케이블 채찍! 철썩—`);
+      const r = await hitMe(1.0); if (r === 'dead') return r;
+      if (B.lastT === 'miss'){ B.stunMe = true; await bSay('케이블이 발목에 감겼다! 다음 턴에 움직일 수 없다.'); }
+      return 'ok';
+    }
+    if (k === 2){ await bSay(`${en.name}: “3, 2, 1… 큐!” 슬레이트가 딱! 딱! 딱!`); for (let i = 0; i < 3; i++) if (await hitMe(0.4) === 'dead') return 'dead'; return 'ok'; }
+    await bSay(`${josa(en.name, '이', '가')} 금발을 쓸어 넘긴다. “조명 더 세게!” 눈앞이 하얘진다.`);
+    B.hardNext = true; return hitMe(0.55);
+  },
+  /* ⑧ 관리국 경비원 */
+  async guard(){
+    const en = B.en, k = B.turn % 3;
+    if (k === 1){ await bSay(`${en.name}의 경비봉 내려치기! 보랏빛 불꽃이 튄다.`); return hitMe(1.1); }
+    if (k === 2){
+      await bSay(`${en.name}: “신분 확인.” 스캐너 빛이 온몸을 훑는다.`);
+      const r = await hitMe(0.5); if (r === 'dead') return r;
+      if (landed()){ B.seal = 2; await bSay('“확인 불가.” 몸이 굳었다. 2턴 동안 스킬을 쓸 수 없다.'); }
+      return 'ok';
+    }
+    await bSay(`${en.name}의 수갑 채우기!`);
+    const r = await hitMe(0.6); if (r === 'dead') return r;
+    if (B.lastT === 'miss'){ B.stunMe = true; await bSay('손목에 수갑이 채워졌다! 다음 턴에 움직일 수 없다.'); }
+    return 'ok';
+  },
+  /* ⑦ boss: 국장 정미진 — her big attack is a live broadcast: hold your breath, don't move */
+  async mijin(){
+    const en = B.en;
+    await bossPhase2([`${en.name}: “방송은… 끝나지 않아요. 시청자가 한 명이라도 있는 한!”`, '송신탑의 빨간 불이 그녀의 눈으로 옮겨 붙는다. 모니터들이 등 뒤에 날개처럼 펼쳐진다! 체력 +{h}, 공격력 크게 상승'], 1.25);
+    if (B.echo > 0){ B.echo--; if (await dmgMe(12*(B.phase2 ? 1.25 : 1), `재방송 화면 속의 내가 나를 때린다! {d} 피해 (남은 ${B.echo}턴)`) === 'dead') return 'dead'; }
+    if (B.charge){ B.charge = false; await bSay('🔴 “생방송, 갑니다.” ON AIR! 숨을 참고 버텨요!'); return hitMe(2.0, {diff:'capture', big:true, type:'hold'}); }
+    const cyc = B.phase2 ? ['breaking','rerun','anchor','cut','onair'] : ['breaking','cut','ratings','onair'];
+    const mv = cyc[B.bossStep++ % cyc.length];
+    if (mv === 'breaking'){ await bSay(`${en.name}: “속보입니다.” 마이크가 칼날처럼 날아든다!`); return hitMe(1.1); }
+    if (mv === 'cut'){
+      await bSay(`${en.name}: “컷.” 화면이 잘리듯 공간이 뚝 끊긴다!`);
+      const r = await hitMe(0.6); if (r === 'dead') return r;
+      if (landed()){ B.seal = 2; await bSay('편집당했다! 2턴 동안 스킬을 쓸 수 없다.'); }
+      return 'ok';
+    }
+    if (mv === 'ratings'){ const heal = Math.round(B.emax*0.07); B.ehp = Math.min(B.emax, B.ehp + heal); en.atk *= 1.05; await bSay(`시청률이 오른다! 모니터 속 시청자들이 박수를 친다. 체력 +${heal}, 공격력 조금 상승`); return 'ok'; }
+    if (mv === 'rerun'){ B.echo = 3; await bSay(`${en.name}: “재방송 나갑니다.” 모니터마다 방금 전의 내가 나온다! (3턴 동안 추가 피해)`); return 'ok'; }
+    if (mv === 'anchor'){ await bSay(`${en.name}의 앵커 멘트 연타! “다음 소식— 다음 소식— 다음 소식—”`); for (let i = 0; i < 3; i++) if (await hitMe(0.42) === 'dead') return 'dead'; return 'ok'; }
+    B.charge = true; await bSay(`송신탑 꼭대기 빨간 불이 켜진다… 다음 턴에 생방송 사고가 온다! (🔴 숨 참기 타이밍)`);
+    return 'ok';
+  },
+  /* ⑧ boss: 검은 양복 손님 — 구만석's taxi horn stops his first big attack */
+  async suitman(){
+    const en = B.en;
+    await bossPhase2([`${en.name}: “계약 위반입니다. 관리 대상이 관리자를 공격하다니.”`, '양복 깃 사이로 하늘의 문양이 피어난다. 넥타이가 칼날처럼 곧게 선다! 체력 +{h}, 공격력 크게 상승'], 1.25);
+    if (B.echo > 0){ B.echo--; if (await dmgMe(12*(B.phase2 ? 1.25 : 1), `그림자 직원들이 서류철로 내리친다! {d} 피해 (남은 ${B.echo}턴)`) === 'dead') return 'dead'; }
+    if (B.charge){
+      B.charge = false;
+      if (!B.honk){
+        B.honk = true; B.flash = 1;
+        await bSay(`🚕 빠아아앙——!! ${NPCS.gu.name}이(가) 품에서 떼어 온 택시 경적을 힘껏 누른다!`);
+        await bSay(`${NPCS.gu.name}: “어이, 손님! 7년 전 택시비, 아직 덜 냈제!”`);
+        await bSay(`${josa(en.name, '이', '가')} 고개를 돌린 사이 서류 가방이 닫혔다. 큰 공격이 취소됐다!`);
+        return 'ok';
+      }
+      await bSay('서류 가방이 활짝 열린다. 가방 속은 다른 우주다— 몸이 빨려 들어간다!'); return hitMe(2.0, {diff:'capture', big:true});
+    }
+    const cyc = B.phase2 ? ['contract','stamp','swarm','collect','portal'] : ['audit','collect','stamp','portal'];
+    const mv = cyc[B.bossStep++ % cyc.length];
+    if (mv === 'audit'){ await bSay(`${en.name}: “관리 대상 확인.” 서류에 내 이름이 적힌다.`); B.hardNext = true; G.san = Math.max(1, G.san - 6); await bSay('온몸이 서늘해진다. 다음 공격 타이밍이 어려워진다. (정신력 −6초)'); return hitMe(0.5); }
+    if (mv === 'collect'){
+      await bSay(`${en.name}: “수거합니다.”`);
+      const r = await hitMe(0.6); if (r === 'dead') return r;
+      const n = spendGems(randi(4, 7)); B.stolen += n; if (n) await bSay(`마정석 ${n}개를 수거당했다! (쓰러뜨리면 두 배로 돌려받아요)`);
+      return 'ok';
+    }
+    if (mv === 'stamp'){ await bSay(`${en.name}의 관리 구역 도장! 쾅!`); return hitMe(1.15); }
+    if (mv === 'contract'){
+      await bSay(`${en.name}: “여기 서명하시죠.” 손에 펜이 쥐어진다.`);
+      const r = await hitMe(0.6); if (r === 'dead') return r;
+      if (B.lastT === 'miss'){ B.stunMe = true; await bSay('손이 저절로 서명하려 한다! 다음 턴에 움직일 수 없다.'); }
+      return 'ok';
+    }
+    if (mv === 'swarm'){ B.echo = 3; await bSay(`${en.name}: “직원 여러분.” 열차 칸마다 그림자 직원들이 일어난다! (3턴 동안 추가 피해)`); return 'ok'; }
+    B.charge = true; await bSay(`${josa(en.name, '이', '가')} 서류 가방의 잠금쇠를 하나씩 푼다… 다음 턴에 큰 공격이 온다! (방어 타이밍이 매우 어려워요)`);
+    return 'ok';
+  }
+});
+Object.assign(BATTLE_OPEN_V10, {
+  youngwoo: en => `${josa(en.name, '이', '가')} 금발을 쓸어 넘기며 케이블을 감는다. 헤드셋에서 “스탠바이” 소리가 새어 나온다…`,
+  guard: en => `${en.name}의 이마에 관리 구역 문양이 찍혀 있다. 경비봉 끝에서 보랏빛 불꽃이 튄다…`,
+  mijin: en => `송신탑의 빨간 불이 깜빡인다. ${josa(en.name, '이', '가')} 마이크를 들고 카메라를 정면으로 본다. “생방송, 들어갑니다.”`,
+  suitman: en => `열차 안 모든 창문에 같은 문양이 떠오른다. ${josa(en.name, '이', '가')} 서류 가방을 내려놓는다. “관리 대상 확인.”`
+});
+Object.assign(CAPTURE_V10, {youngwoo:'이 방송국', guard:'이 역'});
+Object.assign(FLEE_V10, {mijin:'도망칠 수 없다! 송신탑 계단 문이 잠겼다. 방송 중이다.', suitman:'도망칠 수 없다! 열차가 달리고 있다. 창밖은 다른 우주다.'});
+Object.assign(BOSS_UNLOCK_V10, {mijin:'jmj', suitman:'gjsta'});
+function mijinIntro(){ const n = `국장 ${NAMES.mijin}`; return [
+  N11('옥상 송신탑. 탑 꼭대기 빨간 불이 심장처럼 뛴다. 바람에 대본 종이가 날린다.'),
+  {who:n, t:'어서 오세요. 오늘 방송의 마지막 출연자.'},
+  {who:n, t:'나는 이 방송국을 30년 동안 지켰어요. 방송 사고는 한 번도 없었죠. 그런데 7년 전, 그 사람들이 와서 말했어요. “영원히 방송하게 해 드리죠.”'},
+  {who:n, t:'정확하게, 매일, 정직하게. JMJ. …그게 내 이름이 됐어요. 자, 생방송 들어갑니다. 웃으세요.'}]; }
+function mijinOutro(){ const n = `국장 ${NAMES.mijin}`; return [
+  {who:n, t:'…방송을… 마치겠습니다.'},
+  {who:n, t:'30년 만에 처음으로 그 말을 끝까지 했어요. 이상하네요. 하나도 무섭지 않아요.'},
+  {who:n, t:'그 사람들, 외부 관리국. 우리 방송으로 “집 밖으로 나오지 마십시오”를 내보내게 했어요. 사람들이 집에 있어야 수거가 쉽다고.'},
+  {who:n, t:'광주역으로 가요. 검은 양복 손님이 거기서 열차를 기다려요. 다음 구역으로 가는 열차를.'},
+  N11('송신탑의 빨간 불이 꺼진다. 광주 하늘의 문양 하나가 같이 흐려진다.'),
+  N11(`📺 ${NAMES.memorial} 정화! 마지막은 ⑧ ${NAMES.gjstation}이에요.`)]; }
+function suitmanIntro(){ const n = NAMES.suitman, gu = NPCS.gu.name; return [
+  N11('관리국 열차. 창밖이 까맣다. 별도 땅도 없다. 열차는 어딘가 다른 곳을 달린다.'),
+  {who:gu, t:'…저 사람이여. 7년 전 그날 밤 내 택시에 탔던 손님. 얼굴이 하나도 안 변했어.'},
+  {who:n, t:'기사님, 오랜만입니다. 그날 요금은 동전으로 드렸지요.'},
+  {who:n, t:'그리고 당신. 목포 구역에서 출발한 관리 대상. 서류에 없는 움직임이 너무 많군요.'},
+  {who:gu, t:'자네, 내가 뒤에 있을게. 한 번은… 내가 막아 주제.'},
+  N11(`🚕 ${gu}이(가) 같이 싸워요! 큰 공격을 한 번 막아 줘요.`)]; }
+function suitmanOutro(){ const n = NAMES.suitman, gu = NPCS.gu.name; return [
+  {who:n, t:'…흥미롭군요. 관리 대상이 관리자를 이기다니. 보고서에 쓸 게 많겠습니다.'},
+  {who:n, t:'우리는 외부 관리국. 다른 우주의 관리 회사입니다. 하늘의 문양은 우리 관리 구역 도장이지요. 목포 구역, 광주 구역… 이제 둘 다 “관리 보류”입니다.'},
+  {who:n, t:'왜 이런 일을 하느냐고요? …정읍에 가 보시죠. 다음 구역입니다. 답은 거기 있을지도 모르니까.'},
+  N11('검은 양복 손님이 서류 가방 속으로 접히듯 사라진다. 창밖에 빛이 돌아온다. 평범한 밤하늘, 평범한 선로.'),
+  {who:gu, t:'…허허. 끝났구먼. 이 열차, 이제 우리 거여. 내가 몰아 볼까? 택시나 열차나 바퀴 달린 건 똑같제.'},
+  N11(`🚉 ${NAMES.gjstation} 정화! 광주의 여덟 건물을 모두 정화했어요.`)]; }
+Object.assign(BOSS_TALK, {mijin:{intro:mijinIntro, outro:mijinOutro}, suitman:{intro:suitmanIntro, outro:suitmanOutro}});
+Object.assign(BOSS_COL, {mijin:'#e2553e', suitman:'#c08cff'});
+async function winV11(en){
+  if (en.key === 'youngwoo') await bSay(`“…컷. 오케이.” ${josa(en.name, '이', '가')} 헤드셋을 벗는다. 금발 밑으로 까만 머리 뿌리가 보인다. “…7년 만에 오케이네.”`);
+  if (en.key === 'guard') await bSay('경비원 이마의 문양이 지워진다. “…신분… 확인… 사람.” 경비원이 그림자 속으로 흩어진다.');
+}
+/* battle backdrops */
+function battleBgV11(b, hz, t){
+  const k = b.en.key;
+  if (k === 'mijin'){
+    const sky = ctx.createLinearGradient(0, 0, 0, hz); sky.addColorStop(0, '#0a0814'); sky.addColorStop(1, b.phase2 ? '#5a0a14' : '#2a1430'); ctx.fillStyle = sky; ctx.fillRect(0, 0, iw, hz);
+    for (let i = 0; i < 40; i++){ const x = (i*61) % iw, h = 8 + (i*37) % 26; ctx.fillStyle = '#0c0a12'; ctx.fillRect(x, hz - h, 14, h); if ((i + Math.floor(t)) % 5 === 0){ ctx.fillStyle = '#e6b24c'; ctx.fillRect(x + 4, hz - h + 4, 2, 2); } }
+    const X = Math.round(iw*0.82); ctx.fillStyle = '#5a5f68'; for (let y = 6; y < hz; y += 6){ const w = Math.round((y/hz)*10) + 2; ctx.fillRect(X - w, y, 1, 6); ctx.fillRect(X + w, y, 1, 6); ctx.fillRect(X - w, y, w*2 + 1, 1); }
+    const a = 0.5 + 0.5*Math.sin(t*4); ctx.fillStyle = `rgba(255,40,40,${(0.3 + 0.5*a).toFixed(3)})`; ctx.fillRect(X - 3, 2, 7, 6);
+    if (b.phase2) for (let i = 0; i < 5; i++){ const mx = Math.round(iw*(0.08 + i*0.12)), my = 10 + (i % 2)*14; ctx.fillStyle = '#14101a'; ctx.fillRect(mx, my, 22, 16); ctx.fillStyle = `rgba(200,220,230,${(0.3 + 0.2*Math.sin(t*9 + i)).toFixed(3)})`; ctx.fillRect(mx + 2, my + 2, 18, 12); }
+    return true;
+  }
+  if (k === 'suitman'){
+    ctx.fillStyle = '#06050a'; ctx.fillRect(0, 0, iw, hz);
+    for (let x = 0, i = 0; x < iw; x += 46, i++){ ctx.fillStyle = '#14121e'; ctx.fillRect(x + 6, 8, 32, Math.round(hz*0.45)); const a = 0.2 + 0.15*Math.sin(t*2 + i); ctx.fillStyle = `rgba(192,140,255,${a.toFixed(3)})`; ctx.fillRect(x + 8, 10, 28, Math.round(hz*0.45) - 4); drawSigil(x + 22, 10 + Math.round(hz*0.22), 7, t*(b.phase2 ? 1.2 : 0.4) + i, '#c08cff', 0.7); }
+    ctx.fillStyle = '#1a1622'; ctx.fillRect(0, hz - 8, iw, 8); ctx.fillStyle = '#2a2434'; for (let x = 0; x < iw; x += 12) ctx.fillRect(x, hz - 8, 6, 2);
+    if (b.honk && b.flash > 0){ ctx.fillStyle = `rgba(255,210,122,${(0.25*b.flash).toFixed(3)})`; ctx.fillRect(0, 0, iw, hz); }
+    return true;
+  }
+  if (k === 'youngwoo'){
+    ctx.fillStyle = '#14121a'; ctx.fillRect(0, 0, iw, hz);
+    for (const fx of [0.15, 0.5, 0.85]){ const X = Math.round(iw*fx); ctx.fillStyle = '#3a3a42'; ctx.fillRect(X - 6, 2, 12, 6); ctx.fillStyle = `rgba(255,243,196,${(0.06 + 0.04*Math.sin(t*3 + fx*9)).toFixed(3)})`; ctx.beginPath(); ctx.moveTo(X - 4, 8); ctx.lineTo(X + 4, 8); ctx.lineTo(X + 26, hz); ctx.lineTo(X - 26, hz); ctx.fill(); }
+    ctx.fillStyle = '#2a2430'; ctx.fillRect(0, hz - 10, iw, 10);
+    return true;
+  }
+  if (k === 'guard'){
+    ctx.fillStyle = '#0c0a0c'; ctx.fillRect(0, 0, iw, hz);
+    ctx.strokeStyle = '#2a2420'; ctx.lineWidth = 3; for (let i = 0; i < 4; i++){ ctx.beginPath(); ctx.arc(iw/2, hz + 30, 60 + i*40, Math.PI, 0); ctx.stroke(); }
+    for (let x = ((-t*60) % 50 + 50) % 50; x < iw; x += 50){ ctx.fillStyle = 'rgba(255,170,90,0.7)'; ctx.fillRect(Math.round(x), 14, 4, 3); }
+    ctx.fillStyle = '#26221e'; ctx.fillRect(0, hz - 8, iw, 8); ctx.fillStyle = '#7a808a'; ctx.fillRect(0, hz - 6, iw, 1); ctx.fillRect(0, hz - 2, iw, 1);
+    return true;
+  }
+  return false;
+}
 /* ---------- timing mini-games ---------- */
 let TIM = {on:false}, TIM_NEXT = null;
 const TP = {
@@ -12041,7 +13545,7 @@ function timing(diff, round, total){
     for (const k in TW){ tr -= TW[k]; if (tr < 0){ pickT = k; break; } }
     const type = TIM_NEXT || pickT, P = TP[diff]; TIM_NEXT = null;
     TIM = {on:true, done:false, type, diff, P, res, t:0};
-    timKind.textContent = (B && diff === 'capture' && (B.en.boss || B.en.shadow) && !B.capture ? (({pastor:'지옥 설교 방어', sunhwa:'폐점 세일 방어', seungyong:'폭동 방어', hojeong:'핵 방어', jungmin:'머리카락 방어', chimera:'가시 폭풍 방어', elev:'추락 방어', sungkwan:'급발진 방어', yeji:'논문 심사 방어', sangyoung:'낙석 방어', domi:'엔딩 크레딧 방어', sukjong:'떨이 폭격 방어', ferris:'곤돌라 낙하 방어'})[B.en.key] || '메테오 방어') : KIND_LABEL[diff]) + ' · ' + TYPE_LABEL[type];
+    timKind.textContent = (B && diff === 'capture' && (B.en.boss || B.en.shadow) && !B.capture ? (({pastor:'지옥 설교 방어', sunhwa:'폐점 세일 방어', seungyong:'폭동 방어', hojeong:'핵 방어', jungmin:'머리카락 방어', chimera:'가시 폭풍 방어', elev:'추락 방어', sungkwan:'급발진 방어', yeji:'논문 심사 방어', sangyoung:'낙석 방어', domi:'엔딩 크레딧 방어', sukjong:'떨이 폭격 방어', ferris:'곤돌라 낙하 방어', mijin:'생방송 사고 방어', suitman:'관리국 서류 가방 방어'})[B.en.key] || '메테오 방어') : KIND_LABEL[diff]) + ' · ' + TYPE_LABEL[type];
     timRound.textContent = total ? `${round}/${total}` : '';
     timRes.hidden = true; timEl.classList.toggle('hard', diff === 'capture' || diff === 'hard');
     const tapWord = coarse ? '터치' : '스페이스';
@@ -12436,31 +13940,31 @@ function renderMapTab(){
     x.fillStyle = '#0c0913'; x.fillRect(b.door[0]*2, b.door[1]*2, 2, 2);
   }
   ring((C.cx - 7)*2, (C.cy - 7)*2, 32, 30, '#5fdcc6');
-  if (city === 'gwangju'){ const R = GJ_TRAIN; ring(R.x0*2, R.y0*2, (R.x1 - R.x0 + 1)*2, (R.y1 - R.y0 + 1)*2, '#ffd27a'); }
+  if (city !== 'mokpo'){ const R = city === 'gwangju' ? GJ_TRAIN : JE_TRAIN; ring(R.x0*2, R.y0*2, (R.x1 - R.x0 + 1)*2, (R.y1 - R.y0 + 1)*2, '#ffd27a'); }
   if (G.plague && city === 'mokpo'){ x.fillStyle = '#9ad84a'; x.fillRect(G.plague.hx*2 - 2, G.plague.hy*2 - 2, 5, 5); x.fillStyle = '#2a3a0a'; x.fillRect(G.plague.hx*2, G.plague.hy*2, 1, 1); }
   const tg = navTarget(); x.fillStyle = '#b8f4ea'; x.fillRect(tg.tx*2 - 1, tg.ty*2 - 3, 4, 1); x.fillRect(tg.tx*2, tg.ty*2 - 2, 2, 1);
   const here = isOW() ? G.player : (BLD[FLOORS[G.floor].bld] ? {x:BLD[FLOORS[G.floor].bld].door[0]*T + 8, y:BLD[FLOORS[G.floor].bld].door[1]*T + 12} : null);
   if (here){ const px = Math.round(here.x/T*2), py = Math.round(here.y/T*2); x.fillStyle = '#0c0913'; x.fillRect(px - 3, py - 3, 6, 6); x.fillStyle = '#ffffff'; x.fillRect(px - 2, py - 2, 4, 4); }
   const wrap = el('div', 'mapWrap'), side = el('div', 'legend');
-  side.append(el('p', 'sub', `${CITY_NAME[city]} 폐허`), el('p', 'hint', `${clockText()} · 목표: ${tg.label}`));
+  side.append(el('p', 'sub', city === 'jeongeup' ? '🍁 정읍 · 단풍 든 시골 마을' : `${CITY_NAME[city]} 폐허`), el('p', 'hint', `${clockText()} · 목표: ${tg.label}`));
   const lg = (col, text) => el('div', 'lgRow', `<i class="lg" style="background:${col}"></i><span>${text}</span>`);
   side.append(lg('#ffffff', isOW() ? '지금 위치' : `지금 위치 (${BLD_NAME[FLOORS[G.floor].bld]} 안)`), lg('#b8f4ea', '화살표 목적지'),
-    lg('#5fdcc6', `${C.name} · ${city === 'gwangju' ? GJ_CITIZENS.length + survivorCount('gwangju') : survivorCount('mokpo')}명`), lg('#5fdcc6', '마정석 광맥 (하루 한 번)'));
-  if (city === 'gwangju') side.append(lg('#ffd27a', '🚆 열차 · 목포행'));
+    lg('#5fdcc6', `${C.name} · ${city === 'jeongeup' ? 0 : city === 'gwangju' ? GJ_CITIZENS.length + survivorCount('gwangju') : survivorCount('mokpo')}명`), lg('#5fdcc6', '마정석 광맥 (하루 한 번)'));
+  if (city !== 'mokpo') side.append(lg('#ffd27a', trainTag(city)));
   if (G.plague) side.append(lg('#9ad84a', `역병 숙주 · 남은 시간 ${fmtTime(G.plague.t)}`));
   const bl = el('div', 'list');
   for (const id of CITY_ORDER[city]){
     const [col, txt] = status(id);
     bl.append(el('div', 'lgRow', `<i class="lg ring" style="border-color:${col}"></i><span><b>${BLD_NUM(id)} ${BLD[id].name}</b> · ${txt}</span>`));
   }
-  side.append(el('p', 'sub', '건물 순서 (하나 정화하면 다음이 열려요)'), bl, el('p', 'hint', city === 'gwangju' ? '③ 영화관부터는 다음 체험판에서 열려요. 🚆 열차로 언제든 목포에 다녀올 수 있어요.' : bldDone('station') ? '🚆 목포역 문으로 들어가면 광주행 열차를 탈 수 있어요.' : '⑨ 목포역을 정화하면 기차를 타고 광주로 가요.'));
+  side.append(el('p', 'sub', '건물 순서 (하나 정화하면 다음이 열려요)'), bl, el('p', 'hint', city === 'jeongeup' ? '정읍의 건물들은 다음 체험판에서 열려요. 🚆 정읍역 문으로 광주에 돌아갈 수 있어요.' : city === 'gwangju' ? (bldDone('gjstation') ? '광주의 여덟 건물을 모두 정화했어요! 🚆 열차로 정읍·목포에 갈 수 있어요.' : '⑧ 광주역까지 정화하면 열차가 정읍으로 가요. 🚆 열차로 언제든 목포에 다녀올 수 있어요.') : bldDone('station') ? '🚆 목포역 문으로 들어가면 광주행 열차를 탈 수 있어요.' : '⑨ 목포역을 정화하면 기차를 타고 광주로 가요.'));
   wrap.append(c, side); menuBody.append(wrap);
 }
 function recCells(){
   const r = G.rec;
   return [['전투', r.battles], ['승리', r.wins], ['밤 승리', r.nightWins], ['포획', `${r.caps}/${r.capTries}`], ['완벽 타이밍', r.perfects], ['쓰러짐', r.faints],
           ['최고 피해', r.maxHit], ['부서진 장비', r.broke], ['캔 광맥', r.veins], ['펫 종류', `${new Set(G.pets.map(p => p.key)).size}/${Object.keys(PETS).length}`],
-          ['킥보드', `${Math.round(r.kickDist/T*2)}m`], ['반응 완벽', r.reacts | 0], ['강화 보스', `${Object.keys((G.ow && G.ow.rem) || {}).length}/9`], ['⭐ 별', `${starCount()}/12`], ['요리', r.cooks | 0], ['파울볼', r.fouls | 0], ['배팅 완벽', r.bats | 0], ['날짜', `${G.day}일째`], ['플레이', fmtPlay(r.time)]];
+          ['킥보드', `${Math.round(r.kickDist/T*2)}m`], ['반응 완벽', r.reacts | 0], ['강화 보스', `${Object.keys((G.ow && G.ow.rem) || {}).length}/9`], ['⭐ 별', `${starCount()}/${NEW_BLDS.length*3}`], ['광주 강화', `${Object.keys((G.ow && G.ow.remGJ) || {}).length}/8`], ['요리', r.cooks | 0], ['파울볼', r.fouls | 0], ['배팅 완벽', r.bats | 0], ['날짜', `${G.day}일째`], ['플레이', fmtPlay(r.time)]];
 }
 function renderRecTab(){
   const done = Object.keys(G.ach).length;

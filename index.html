@@ -13057,7 +13057,7 @@ async function wbClaim(){
   say([N12(`👹 ${ENEMIES[st.key].name} 처치 보상! 마정석 +250 · 주먹밥 3 · 볍씨 4`), N12('함께 싸운 모두 고마워요! 3일 뒤 새 보스가 나타나요.')], () => { refreshHUD(); writeSave(); });
 }
 /* ---- 💌 선물함 (W-3): preset letters only, for safety ---- */
-const GIFT_MSG = ['힘내! 같이 살아남자 💪', '이거 받아! 선물이야 🎁', '고마워! 🙏', '월드 보스 같이 잡자! 👹', '정읍에서 만나! 🍁', '오늘도 수고했어 😊', '요리해 먹어! 🍙', '포획 잘 해! 🎒', '보스 조심해! ⚠️', '네가 최고야! ⭐'];
+const GIFT_MSG = ['순꿀순꿀💪', '나의 마음을 담았어🎁', '섹섹티비🙏', '월드 보스좀 잡아라👹', '정읍에서 보자🍁', '수고했다😊', '요리해먹어🍙', '펫 잘잡아🎒', '보스 조심해⚠️', '느금마⭐'];
 const GIFT_ITEMS = ['bread','riceball','drink','cure','candy','coffee','bag','rice','seed'];
 const GIFT_DAY = 3;
 function giftLeft(){ const g = G.ow.gift; if (g.day !== todayKey()){ g.day = todayKey(); g.n = 0; } return GIFT_DAY - (g.n | 0); }

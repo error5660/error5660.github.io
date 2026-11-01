@@ -11980,10 +11980,10 @@ function interactV11(ch, tx, ty){
     case 'Ժ': { const g = gateAt(tx); say([N(`셔터가 내려와 있다. 전광판 시계 ${clkText()}${g && G.ev && G.ev.clk ? ` · 다음엔 ${pad2(nextOpen(g, G.ev.clk.m))}분에 열려요.` : ''}`)]); return true; }
     case 'Վ':
       if (G.floor === 75){
-        if (G.ow.card){ say([N('벽 틈. 이제 아무것도 없다. 차가운 바람만 새어 나온다.')]); return true; }
+        if (G.ow.card){ say([N('벽 틈. 이제 아무것도 없다. 차가운 바람만 새어 나온다.')], () => { if (!s.insp){ s.insp = true; afterFind(); } }); return true; }
         G.ow.card = true; keep('검은 양복 손님의 명함');
         say([N('벽 틈. 손을 넣어 보니 얇고 차가운 게 손끝에 걸린다.'), N('검은 명함이다. 글자가 이 우주의 것이 아닌데… 이상하게 읽힌다.'), N('“외부 관리국 · 관리 구역 담당 · 목포 구역 / 광주 구역”'),
-             N('뒷면에는 하늘의 문양이 도장처럼 찍혀 있다. 그 아래 작은 글씨: “다음 관리 구역 — 정읍”.'), N('🃏 ‘검은 양복 손님의 명함’을 챙겼다!')], () => { checkStarsV11(); writeSave(); });
+             N('뒷면에는 하늘의 문양이 도장처럼 찍혀 있다. 그 아래 작은 글씨: “다음 관리 구역 — 정읍”.'), N('🃏 ‘검은 양복 손님의 명함’을 챙겼다!')], () => { if (!s.insp){ s.insp = true; afterFind(); } checkStarsV11(); writeSave(); });
         return true;
       }
       return false;
